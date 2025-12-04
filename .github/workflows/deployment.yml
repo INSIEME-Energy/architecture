@@ -33,13 +33,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Copy files via SSH
-        uses: appleboy/scp-action@v1
+      - name: Deploy
+        uses: eddie-energy/ftp-deploy-action@main
         with:
-          host: ${{ secrets.INSIEME_ENERGY_SSH_HOST }}
-          username: ${{ secrets.INSIEME_ENERGY_SSH_USERNAME }}
-          password: ${{ secrets.INSIEME_ENERGY_SSH_PASSWORD }}
-          source: "./.vitepress/dist/"
-          target: "/var/www/vhosts/insieme.energy/architecture.insieme.energy/architecture/"
-          strip_components: "3"
-          overwrite: true
+          host: ${{ secrets.WEBSERVER_SFTP_HOST }}
+          user: ${{ secrets.WEBSERVER_SFTP_USERNAME }}
+          password: ${{ secrets.WEBSERVER_SFTP_PASSWORD }}
+          source: ./.vitepress/dist/
+          destination: "/public_html/architecture/"
