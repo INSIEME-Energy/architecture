@@ -1,4 +1,4 @@
-[![INSIEME - Towards a Common European Data Space](arc42/public/figures/insieme-horizontal.svg)](https://insieme.energy)
+[![INSIEME - Towards a Common European Data Space](arc42/public/figures/insieme.svg)](https://insieme.energy)
 
 # INSIEME Architecture
 
