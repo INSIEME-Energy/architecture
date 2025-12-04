@@ -1,0 +1,45 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
+      - "CONTRIBUTING.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  web-deploy:
+    name: Deploy VitePress site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Build
+        run: |
+          npm install --ci 
+          npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Copy files via SSH
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.INSIEME_ENERGY_SSH_HOST }}
+          username: ${{ secrets.INSIEME_ENERGY_SSH_USERNAME }}
+          password: ${{ secrets.INSIEME_ENERGY_SSH_PASSWORD }}
+          source: "./.vitepress/dist/"
+          target: "/var/www/vhosts/insieme.energy/architecture.insieme.energy/architecture/"
+          strip_components: "3"
+          overwrite: true
