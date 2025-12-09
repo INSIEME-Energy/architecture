@@ -18,14 +18,9 @@ In this section, each term is defined:
 
 In this section the responsibilities of each market role should be described.
 
-### Responsibilities of energy community operators
+### Responsibilities of ...
 
-1. Metering point administrators shall make metering point master data available online to final customers and eligible parties, without undue delay and whenever the final customer needs to access or share the data.
-2. Metering point administrators shall ensure that final customers can access and make available to eligible parties their validated metered data and receive it in a structured, commonly used, machine-readable and interoperable format.
-
-### Responsibitilies of metering point administrators
-
-1. Metered data administrators shall ensure the equal treatment of all eligible parties.
+[TODO]
 
 ## Annex
 
