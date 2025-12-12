@@ -8,7 +8,7 @@ import renderMarkdownImage from "./renderMarkdownImage";
 const srcExclude = undefined; // nothing excluded (at the moment)
 
 // An empty sub-items is added to make all top-level sidebar items appear the same way.
-const sidebarItems = buildSidebar("./arc42", "", srcExclude)?.items?.map(
+const sidebarItems = buildSidebar("./docs", "", srcExclude)?.items?.map(
   (item) => ({ ...item, collapsed: true, items: item.items ?? [] })
 );
 
@@ -16,7 +16,7 @@ const sidebarItems = buildSidebar("./arc42", "", srcExclude)?.items?.map(
 export default withMermaid(defineConfig({
   title: "INSIEME Architecture",
   description: "INSIEME -- Together Towards the Common European Energy Data Space",
-  srcDir: "./arc42",
+  srcDir: "./docs",
   srcExclude,
   base: "/architecture/",
   lang: "en-GB",
@@ -38,7 +38,7 @@ export default withMermaid(defineConfig({
     editLink: {
       text: "Edit this page on GitHub",
       pattern:
-        "https://github.com/insieme-energy/architecture/blob/main/arc42/:path",
+        "https://github.com/insieme-energy/architecture/blob/main/docs/:path",
     },
     lastUpdated: {
       text: "Last Updated",

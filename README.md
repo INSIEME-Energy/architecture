@@ -1,11 +1,11 @@
-[![INSIEME - Towards a Common European Data Space](arc42/public/figures/insieme.svg)](https://insieme.energy)
+[![INSIEME - Towards a Common European Data Space](docs/public/figures/insieme.svg)](https://insieme.energy)
 
 # INSIEME Architecture
 
-This repository documents the software architecture of INSIEME based on [arc42](https://arc42.org/).
+This repository documents the software architecture of INSIEME.
 INSIEME is a research project co-funded by the European Union's Horizon Innovation Actions under grant agreement No. 101194952.
 
-- To view the architecture documentation, click [here](https://architecture.insieme.energy/architecture/).
+- To view the architecture documentation, click [here](https://insieme-web.projekte.fh-hagenberg.at/architecture/).
 - To view the guidelines for contributing, click [here](./CONTRIBUTING.md).
 
 To edit the website locally:

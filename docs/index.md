@@ -5,14 +5,13 @@ layout: home
 hero:
   name: "INSIEME Architecture"
   text: "Software Architecture of the INSIEME Project"
-  tagline: According to the Arc42 architecture template
   image: figures/insieme.svg
   actions:
     - theme: brand
       text: Start Reading
       link: /introduction-and-goals/introduction-and-goals
 ---
-This website hosts the software architecture documentation of INSIEME which is being documented based on [arc42](https://arc42.org/). 
+This website hosts the software architecture documentation of INSIEME.
 INSIEME is a research project co-funded by the European Union's Horizon Innovation Actions under grant agreement No. 101194952.
 
 ## Structure

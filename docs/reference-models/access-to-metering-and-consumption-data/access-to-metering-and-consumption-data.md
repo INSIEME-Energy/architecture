@@ -1,3 +1,7 @@
+---
+title: Access to Metering and Consumption Data
+---
+
 # Reference model for *Collective Self-Consumption*
 
 change..
