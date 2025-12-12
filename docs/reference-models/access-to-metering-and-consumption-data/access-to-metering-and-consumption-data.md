@@ -80,7 +80,7 @@ In the following, each procedure is described in steps, whilst each step represe
 | 1.1      | Identify data access provider          | Final customers identify the data access provider that is responsible for their metering points under consideration. | Competent authority  | Final customer | [not relevant]                    |
 | 1.2      | Link final customer and metering point | Final customer finds out metering point id to request data for.                                                                                                                    | Data access provider | Final customer | A - Metering point identification |
 
-![BPMN Diagram for Procedure 1 ](./figures/bpmn_procedure1.png)
+<!-- ![BPMN Diagram for Procedure 1 ](./figures/bpmn_procedure1.png) -->
 
 #### Procedure 2 - ...
 
