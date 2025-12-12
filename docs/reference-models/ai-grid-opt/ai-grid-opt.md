@@ -1,5 +1,5 @@
 ---
-title: Flexible Connection Agreements
+title: AI Grid Opt
 ---
 
 ## Procedure 1
@@ -7,3 +7,6 @@ title: Flexible Connection Agreements
 ## Procedure 3
 ## Procedure 4
 ## Procedure 5
+## Procedure 6
+## Procedure 7
+## Procedure 8
