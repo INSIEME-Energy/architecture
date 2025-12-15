@@ -33,7 +33,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Deploy
+      - name: Deploy to insieme-web.projekte.fh-hagenberg.at
         uses: eddie-energy/ftp-deploy-action@main
         with:
           host: ${{ secrets.WEBSERVER_SFTP_HOST }}
@@ -41,3 +41,14 @@ jobs:
           password: ${{ secrets.WEBSERVER_SFTP_PASSWORD }}
           source: ./.vitepress/dist/
           destination: "/public_html/architecture/"
+
+      - name: Deploy to architecture.insieme.energy
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.INSIEME_ENERGY_SSH_HOST }}
+          username: ${{ secrets.INSIEME_ENERGY_SSH_USERNAME }}
+          password: ${{ secrets.INSIEME_ENERGY_SSH_PASSWORD }}
+          source: "./.vitepress/dist/"
+          target: "/hosting232766.a1518.netcup.net/httpdocs/"
+          strip_components: "2"
+          overwrite: true
