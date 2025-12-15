@@ -50,5 +50,5 @@ jobs:
           password: ${{ secrets.INSIEME_ENERGY_SSH_PASSWORD }}
           source: "./.vitepress/dist/"
           target: "/hosting232766.a1518.netcup.net/httpdocs/"
-          strip_components: "2"
+          strip_components: "3"
           overwrite: true
