@@ -49,6 +49,6 @@ jobs:
           username: ${{ secrets.INSIEME_ENERGY_SSH_USERNAME }}
           password: ${{ secrets.INSIEME_ENERGY_SSH_PASSWORD }}
           source: "./.vitepress/dist/"
-          target: "/hosting232766.a1518.netcup.net/httpdocs/architecture"
+          target: "/architecture.insieme.energy/httpdocs"
           strip_components: "3"
           overwrite: true
