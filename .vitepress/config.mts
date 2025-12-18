@@ -18,7 +18,7 @@ export default withMermaid(defineConfig({
   description: "INSIEME -- Together Towards the Common European Energy Data Space",
   srcDir: "./docs",
   srcExclude,
-  base: "/architecture/",
+  base: "/",
   lang: "en-GB",
   head: [
     ["link", { rel: "icon", href: "/architecture/figures/favicon.svg" }],
