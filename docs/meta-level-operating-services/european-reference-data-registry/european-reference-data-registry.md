@@ -1,0 +1,11 @@
+---
+title: European Reference Data Registry
+order: 3
+---
+
+## Function and Objective
+Hosts certified reference data on roles, actors, and market infrastructures essential for automation. 
+
+Typically, this structural data (e.g. lists of important data on Permission Administrators, DSOs or Market Platforms) is highly needed to guarantee an efficient functioning of automated solutions within the scope of CEEDS. The lack of accessibility of this data places a huge gap for data-driven energy markets as of now (see Deliverable 5.2 of Project EDDIE). 
+
+CEEDS Facilitator is responsible to provide standardized interfaces in a Common Information Model for National Data Space Facilitators (NDSF) to provide that data in a standardized manner, as well as keeping audits and versioning. NDSFs should be responsible to collect and maintain updates of the reference data, and to certify its correctness. 
