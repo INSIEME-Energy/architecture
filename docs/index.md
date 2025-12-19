@@ -19,7 +19,8 @@ INSIEME is a research project co-funded by the European Union's Horizon Innovati
 This document is organized as follows:
 
 1. [Introduction and goals](./introduction-and-goals/introduction-and-goals.md). Includes the background, business goals, essential requirements and roles. 
-1. [Glossary](./glossary/glossary.md). Includes domain terms and acronyms.
+2. [Glossary](./glossary/glossary.md). Includes domain terms and acronyms.
+3. [Reference Models](./reference-models/reference-models.md). Includes the reference models of the INSIEME deployments.
 
 
 <!-- {{ collections.all | eleventyNavigation: "/" | eleventyNavigationToHtml: navigationOptions }} -->
