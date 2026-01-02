@@ -22,19 +22,19 @@ CEEDS Facilitator is responsible to provide standardized interfaces in a Common 
 
 ### List and Specification of Reference Data Objects
 
-#### Member State information
+#### National competent authority
   
 | Attribute | XML data type | Comments |
 |------|-----|------|
 | ID | Unique ID | Unique ID of master data element within CEEDS. |
 | Code | ISO 3166-1 alpha-2 | Standardised two-letter code for MS |
-| Name | String | Name of MS |
+| Name | String | Name of national competent authoriy as of Commission Implementing Regulation (EU) 2023/1162 |
 | Remarks | Text | Remarks on the state of the MS, specificities that should be covered etc. |
 | Last update | Datetime | Last point in time reference data for the Member State has been updated. |
 
-#### Permission Administrator
+#### Permission administrator
 
-As of Commission Implementing Regulation (EU) 2019/944, a Permission Administrator is a party, which...
+As of Commission Implementing Regulation (EU) 2023/1162, a Permission Administrator is a party, which...
 
 | Attribute | XML data type | Comments |
 |------|-----|------|
