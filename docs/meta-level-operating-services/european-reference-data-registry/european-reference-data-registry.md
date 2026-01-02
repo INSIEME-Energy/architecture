@@ -23,12 +23,15 @@ CEEDS Facilitator is responsible to provide standardized interfaces in a Common 
 ### List and Specification of Reference Data Objects
 
 * Member State information
+
+  
 | Attribute | XML data type | Comments |
 |------|-----|------|
 | CountryCode | ISO 3166-1 alpha-2 | Standardised two-letter code for MS |
 | Name | String | Name of MS |
 | Remarks | Text | Remarks on the state of the MS, specificities that should be covered etc. |
 | Last update | Datetime | Last point in time reference data for the Member State has been updated. |
+
 
 ### General Member State information
 
