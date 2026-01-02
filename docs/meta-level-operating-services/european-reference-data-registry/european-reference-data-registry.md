@@ -20,7 +20,13 @@ CEEDS Facilitator is responsible to provide standardized interfaces in a Common 
 
 ### Schema Definition for European Reference Data Object
 
+
 ### List and Specification of Reference Data Objects
+
+| Reference Model | Procedure | NCA | PA | MDA | DAP |
+|------|-----|--|--|--|--|--|
+
+
 
 #### National competent authority
   
