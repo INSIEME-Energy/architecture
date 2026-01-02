@@ -26,19 +26,35 @@ CEEDS Facilitator is responsible to provide standardized interfaces in a Common 
   
 | Attribute | XML data type | Comments |
 |------|-----|------|
-| CountryCode | ISO 3166-1 alpha-2 | Standardised two-letter code for MS |
+| ID | Unique ID | Unique ID of master data element within CEEDS. |
+| Code | ISO 3166-1 alpha-2 | Standardised two-letter code for MS |
 | Name | String | Name of MS |
 | Remarks | Text | Remarks on the state of the MS, specificities that should be covered etc. |
 | Last update | Datetime | Last point in time reference data for the Member State has been updated. |
 
 #### Permission Administrator
 
+As of Commission Implementing Regulation (EU) 2019/944, a Permission Administrator is a party, which...
+
 | Attribute | XML data type | Comments |
 |------|-----|------|
-| CountryCode | ISO 3166-1 alpha-2 | Standardised two-letter code for MS |
-| Name | String | Name of MS |
-| Remarks | Text | Remarks on the state of the MS, specificities that should be covered etc. |
-| Last update | Datetime | Last point in time reference data for the Member State has been updated. |
+| ID | Unique ID | Unique ID of master data element within CEEDS. |
+| Country | ISO 3166-1 alpha-2 | Standardised two-letter code for MS |
+| Market Role | Harmonised European Role | Official role in the HEMRM. (e.g. DSO) |
+| Full name | String | Full name of the organisation. |
+| Shortname | String | Short name of the organisation. | 
+| Logo | Blob | Logo of the organisation (TODO image specs) |
+| Type of identification | String | Name of identification space (e.g. EAN, EIC, National codes, etc.). |
+| Identification | String | Identification of the organisation within the identification space. |
+| Online Application URL | URL | URL to the online application for managing permissions. |
+| Website | URL | Official website of the organisation. |
+| Official contact | String | e.g. the email address that can be used in relation to access to metering and consumption data. |
+| Permission Administration for | List | List of metered data administrators the PA is acting for. |
+| Documentation of access | String | Explanation of how access to metering and consumption data can be realised by an eligible party. |
+| Identity service provider | String | Information on the Identity Service Provider employed as of the reference model. |
+| Eligible party onboarding (LIVE) | String | Full description for how to onboard to LIVE environment. |
+| Eligible party onboarding (TEST) | String | Full description for how to onboard to TEST environment. |
+| Price list for access to data by eligible party | String | Information on the pricing model (including NDFS structure. |
 
 
 ### General Member State information
