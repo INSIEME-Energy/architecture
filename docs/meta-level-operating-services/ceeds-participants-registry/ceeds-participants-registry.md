@@ -12,4 +12,4 @@ This may include e.g. onboarding to national data hubs (e.g. Energinet Data Hub)
 
 CEEDS Facilitator should be responsible to maintain a registry at a European level, with a clear interface for National Data Space Registries to link in. National Data Space Facilitators should be responsible to integrate and maintain the link to the CEEDS registry, in a fully digital and machine-processable manner.
 
-![img.png](img.png)
+![CEEDS Participants Registry ArchiMate Diagram](./img.png)
