@@ -5,7 +5,7 @@ import { buildSidebar } from "./sidebar";
 
 import renderMarkdownImage from "./renderMarkdownImage";
 
-const srcExclude = "**/Minutes.md";
+const srcExclude = undefined;
 
 // An empty sub-items is added to make all top-level sidebar items appear the same way.
 const sidebarItems = buildSidebar("./docs", "", srcExclude)?.items?.map(
