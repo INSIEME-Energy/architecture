@@ -47,3 +47,59 @@ The national registry exchanges relevant information with the European-level ide
 
 **National Party Certification** represents national certification and compliance mechanisms that validate participants against national requirements.
 These certifications feed into the overall trust framework and are aligned with the European certification chain to enable cross-border participation without redundant procedures.
+
+Description of services and Functions (description of all boxes in the diagram)
+
+## Data Architecture
+
+List of data objects and their descriptions.
+
+### Data Objects
+
+#### EU-wide market participant information
+
+EU-wide market participant information
+
+| Attribute   | Data Type        | Existence | Comments                                   |
+|-------------|------------------|-----------|--------------------------------------------|
+| eID         | UUID             | mandatory | eID of Market Participant                  |
+| eID Node    | UUID             | mandatory | eID of Market Participant (REF_DATA->link) |
+| name        | String           | mandatory | Name of the market participant             |
+| email       | Email            | mandatory | Email of the MP                            |
+| role        | Market Role(s)   | mandatory | Market Roles in the sense of the HEMRM.    |
+| status      | OnboardingStatus | mandatory | Lifecycle state                            |
+| certificate | Cert Info        | optional | Certificate information / public key       |
+
+#### National market participant information
+
+**Note:** There may be multiple national market participant information(s) depending on the National Data Space the MP is onboarded to.
+
+| Attribute   | Data Type | Existence   | Comments                                                        |
+|-------------|-----------|-------------|-----------------------------------------------------------------|
+| National Id | UUID      | mandatory   | eID of Market Participant                                                   |
+| eID         | UUID      | mandatory   | eID of Market Participant (REF_DATA->link)                                  |
+| roles       | String    | mandatory   | Name of the market participant relevant for the national market participant |
+| ndso_id     | Email     | mandatory   | Identifier of the National Data Space Operator (REF_DATA->link)             |
+| status    | OnboardingStatus | mandatory   | Lifecycle state                            |
+| certificate | Cert Info        | conditional | Certificate information / public key       |
+
+### Reference Data Requirements
+
+* List of National Data Space Operators
+* List of Harmonised Roles
+* List of eID Nodes
+
+## Application Architecture
+
+Application Cooperation Viewpoint (Archimate)
+
+Examples for National Platforms and the Interaction
+
+
+E.g. sequence diagrams for e.g. onboarding, offboarding etc.
+
+## (Step 2) - Technology Architecture
+
+* registry wiederverwenden
+
+## Deployment Diagram (Archimate Deployment View)
