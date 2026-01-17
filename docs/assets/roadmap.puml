@@ -1,0 +1,129 @@
+@startgantt
+printscale monthly with calendar date
+Project starts 2025-04-01
+
+2025-04-14 to 2025-04-16 are colored in salmon
+2025-10-14 to 2025-10-16 are colored in salmon
+2026-04-14 to 2026-04-16 are colored in salmon
+2026-10-14 to 2026-10-16 are colored in salmon
+2027-04-14 to 2027-04-16 are colored in salmon
+2027-10-14 to 2027-10-16 are colored in salmon
+2028-03-14 to 2028-03-16 are colored in salmon
+
+-- WP1 - Project Management --
+
+[T1.1 – Project coordination and financial administration] starts at 2025-04-01 and ends at 2028-03-30
+[T1.2 – Data governance and reporting] starts at 2025-04-01 and ends at 2028-03-30
+[T1.3 – Technical development management and quality assurance] starts at 2025-04-01 and ends at 2028-03-30
+
+[General Assembly III] happens at 2026-04-15
+[General Assembly IV] happens at 2026-10-15
+[General Assembly V] happens at 2027-04-15
+[General Assembly VI] happens at 2027-10-15
+[General Assembly VII] happens at 2028-03-15
+
+-- WP2 - Conceptualisation and Governance --
+
+[T2.1 – Assessment of existing data space initiatives] starts at 2025-04-01 and ends at 2026-10-01
+[T2.2 – Data space conceptualisation] starts at 2025-04-01 and ends at 2026-10-01
+[S1 Specification] starts 2026-01-01 and ends 2026-04-01 and is colored in orange
+[S2 Specification] starts 2026-01-01 and ends 2026-04-01 and is colored in orange
+[S3 Specification] starts 2026-01-01 and ends 2026-04-01 and is colored in orange
+[S8 Specification] starts 2026-01-01 and ends 2026-06-15 and is colored in orange
+[S7 Specification] starts 2026-03-01 and ends 2026-09-15 and is colored in orange
+
+[S4 Specification] starts 2026-03-01 and ends 2026-09-15 and is colored in orange
+[S5 Specification] starts 2026-03-01 and ends 2026-06-15 and is colored in orange
+[S6 Specification] starts 2026-03-01 and ends 2026-06-15 and is colored in orange
+[T2.3 – Development of Common Reference Models and MIMs] starts at 2025-04-01 and ends at 2026-10-01
+[T2.4 – Conceptualise EU-wide CEEDS Governance Model] starts at 2025-07-01 and ends at 2026-10-01
+[T2.5 – Alignment of Information Model Standards] starts at 2025-07-01 and ends at 2026-10-01
+[T2.6 – Security and privacy within CEEDS ] starts at 2025-07-01 and ends at 2028-03-30
+
+-- WP3 - Development --
+
+[T3.1 – Implement federation of existing energy data spaces] starts at 2025-07-01 and ends at 2027-04-01
+[T3.2 – Extend EU-level Data Spaces] starts at 2025-10-01 and ends at 2027-10-01
+[T3.3 – Grid-edge and near real-time connectivity, PCS and SIMPL support] starts at 2025-07-01 and ends at 2027-04-01
+[T3.4 – Connect cross-sectoral European Data Spaces] starts at 2026-04-01 and ends at 2027-12-31
+[T3.5 – Facilitation and supporting services] starts at 2026-04-01 and ends at 2027-12-31
+
+[T4.4 - Energy Community Phase I] as [T44P1] starts 2026-01-01 and ends 2026-04-01 and is colored in lightblue
+[T4.4 - Energy Community Phase II] starts at [T44P1]'s end and ends 2026-09-15 and is colored in lightblue
+[FCA MVP] starts 2026-01-01 and ends 2026-03-08 and is colored in lightblue
+[Improve FCA Framework] starts after [FCA MVP]'s end and ends 2026-10-08 and is colored in lightblue
+[FCA Framework deployed at EDA] happens at 2026-02-20
+[Pilot Workshop Bene] happens after [FCA MVP]'s end
+
+[S1 Implementation] starts at [S1 Specification]'s end and ends at 2026-07-01 and is colored in lightgreen
+[S2 Implementation] starts at [S2 Specification]'s end and ends at 2026-07-01 and is colored in lightgreen
+[S3 Implementation] starts at [S3 Specification]'s end and ends at 2026-07-01 and is colored in lightgreen
+[S4 Implementation] starts at [S4 Specification]'s start and ends at 2026-12-01 and is colored in lightgreen
+[S5 Implementation] starts at [S5 Specification]'s start and ends at 2026-07-01 and is colored in lightgreen
+[S6 Implementation] starts at [S6 Specification]'s start and ends at 2026-07-01 and is colored in lightgreen
+
+-- WP4 - Deployments --
+
+[T4.1 – Co-ordination of deployments and requirements engineering] starts at 2025-07-01 and ends at 2028-01-01
+[T4.2 – Energy efficiency and flexibility management] starts at 2026-01-01 and ends at 2028-01-01
+[T4.3 – Collective self-consumption and optimized sharing for energy communities ] starts at 2026-01-01 and ends at 2028-01-01
+[FR ComFlex] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+[T4.4 – Grid flexibility services] starts at 2026-01-01 and ends at 2028-01-01
+[FR Enedis FCA] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+[AT E-NETZE Deployment] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+[AT Bene Deployment] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+[AT Smart Home Deployment] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+[T4.5 – Electromobility: residential charging, EV charging infrastructure] starts at 2026-01-01 and ends at 2028-01-01
+[T4.6 – Renewables integration] starts at 2026-01-01 and ends at 2028-01-01
+[T4.7 – Networks and integration planning] starts at 2026-01-01 and ends at 2028-01-01
+[T4.8 – Smart sector integration] starts at 2026-01-01 and ends at 2028-01-01
+
+
+-- WP5 - Business Models --
+
+[T5.1 – Analysis of impediments and best practices from deployments and CEEDS] starts at 2027-10-01 and ends at 2028-04-01
+[T5.2 – Evaluation of impact and options for future developments] starts at 2026-10-01 and ends at 2028-04-01
+[T5.3 – Establish governance model for operation] starts at 2027-10-01 and ends at 2028-04-01
+[T5.4 – Development and deployment of business models] starts at 2026-10-01 and ends at 2028-04-01
+[T5.5 – EU policy and regulation alignment] starts at 2026-10-01 and ends at 2028-04-01
+[T5.6 – TSO Round-table] starts at 2025-10-01 and ends at 2028-04-01
+[T5.7 – DSO Round-table] starts at 2025-10-01 and ends at 2028-04-01
+[T5.8 – Industrial stakeholder round-table] starts at 2025-10-01 and ends at 2028-04-01
+
+-- WP6 - Dissemination --
+[T6.1 – Project identity and content creation] starts at 2025-04-01 and ends at 2028-04-01
+[T6.2 – Knowledge transfer of results] starts at 2025-10-01 and ends at 2028-04-01
+[T6.3 – Reach out to public at large] starts at 2026-04-01 and ends at 2028-04-01
+[T6.4 – Alignment and synchronisation with European initiatives and projects] starts at 2025-04-01 and ends at 2028-04-01
+
+[E.DSO Future Grid Innovation Summit] links to [[https://futuregridinnovation.eu/]] and happens at 2026-02-11
+[EDDIE Hackathon] happens at 2026-05-10 and is colored in lightgray
+[EUSEW 2026] happens at 2026-06-13
+[EDDIE Closing] happens at 2026-06-17 and is colored in lightgray
+[Enlit '26] happens at 2026-11-11
+[EUSEW '27] happens at 2027-06-13
+[Enlit '27] happens at 2027-11-11
+
+-- Deliverables --
+
+[D1.1 - Project Management Plan] happens at 2025-07-15
+[D1.2 - Data Management Plan] happens at 2025-07-15
+[D2.1 - Analysis of existing data space initiatives] happens at 2025-07-15
+[D4.1 - Report on connections, requirements and learnings between relevant local and national data ecosystems] happens at 2026-03-15
+[D2.2 - CEEDS Architecture (Task 2.2)] happens at 2026-09-15
+[D2.3 - Security and privacy assessment (Task 2.6)] happens at 2026-09-15
+[D2.4 - CEEDS Governance Model (Task 2.4)] happens at 2026-09-15
+[D3.4 - Publication of CEEDS usage metadata (Task ?)] happens at 2026-09-15
+[D4.2 - Intermediate report and deployment plans on deployments using CEEDS (Task 4.1)] happens at 2026-09-15
+[D5.1 - Report on TSO, DSO and industrial stakeholder round-tables (WP5) MOVE???] happens at 2026-09-15
+[D6.3 - Report on dissemination activities and alignment with other initiatives (WP6) MOVE???] happens at 2026-09-15
+[D6.4 - Guidance and training documents (WP3/WP6)] happens at 2026-09-15
+[D6.5 - Updated Dissemination and Communication Action Plan (WP6)] happens at 2026-09-15
+[D3.1 - Toolbox for existing Energy Data Spaces (Task ?)] happens at 2026-01-15
+[D3.2 - Toolbox for cross-sectoral data space integration (Task ?)] happens at 2026-09-15
+[D3.3 - CEEDS Facilitation and Support Services (Task ?)] happens at 2026-09-15
+[D4.3 - Report on deployments using CEEDS (Task ?)] happens at 2026-12-15
+[D5.2 - Report on CEEDS impact, business models, sustainability strategies, policy and regulation (Task ?)] happens at 2026-12-15
+[D5.3 - Exploitation Strategy and Impact Assessment Framework (Task ?)] happens at 2026-12-15
+
+@endgantt
