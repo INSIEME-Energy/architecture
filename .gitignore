@@ -8,3 +8,26 @@ node_modules
 # structurizr
 .structurizr/
 workspace.json
+
+#OSX specific files
+# General macOS system files
+DS_Store
+AppleDouble
+LSOverride
+__MACOSX/
+# Thumbnails
+_*
+# Files in the root of a volume
+DocumentRevisions-V100
+fseventsd
+Spotlight-V100
+TemporaryItems
+Trashes
+VolumeIcon.icns
+com.apple.timemachine.donotpresent
+# Remote AFP share directories
+AppleDB
+AppleDesktop
+Network Trash Folder
+Temporary Items
+apdisk
