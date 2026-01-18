@@ -41,7 +41,7 @@ The Business Architecture focuses on business requirements. It outlines the stru
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
-## Archimate Service Realisation Viewpoint
+### Archimate Service Realisation Viewpoint
 
 <!-- 
 The Service Realization Viewpoint pattern creates elements that show how one or more business services are realized by the underlying processes (and sometimes by application components). 
@@ -51,7 +51,7 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization
 
 ![CEEDS Participants Registry ArchiMate Diagram](./img.png)
 
-### Component Descriptions
+#### Component Descriptions
 
 The **CEEDS Onboarding and Offboarding function** provides a European entry point for participants. It manages the lifecycle of participation at CEEDS level, including initial registration, updates,
 and termination.
