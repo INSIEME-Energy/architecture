@@ -42,18 +42,22 @@ Project starts 2025-04-01
 
 -- WP3 - Development --
 
-[T3.1 – Implement federation of existing energy data spaces] starts at 2025-07-01 and ends at 2027-04-01
-[T3.2 – Extend EU-level Data Spaces] starts at 2025-10-01 and ends at 2027-10-01
-[T3.3 – Grid-edge and near real-time connectivity, PCS and SIMPL support] starts at 2025-07-01 and ends at 2027-04-01
+[T3.1 – Implement federation of existing energy data spaces (EXTEND?)] starts at 2025-07-01 and ends at 2027-04-01
+[T3.2 – Extend EU-level Data Spaces (EXTEND?)] starts at 2025-10-01 and ends at 2027-10-01
+[T3.3 – Grid-edge and near real-time connectivity, PCS and SIMPL support (EXTEND?)] starts at 2025-07-01 and ends at 2027-04-01
 [T3.4 – Connect cross-sectoral European Data Spaces] starts at 2026-04-01 and ends at 2027-12-31
 [T3.5 – Facilitation and supporting services] starts at 2026-04-01 and ends at 2027-12-31
 
-[T4.4 - Energy Community Phase I] as [T44P1] starts 2026-01-01 and ends 2026-04-01 and is colored in lightblue
-[T4.4 - Energy Community Phase II] starts at [T44P1]'s end and ends 2026-09-15 and is colored in lightblue
+[T4.3 - Energy Community Phase I] as [T44P1] starts 2026-01-01 and ends 2026-04-01 and is colored in lightblue
+[T4.3 - Energy Community Phase II] starts at [T44P1]'s end and ends 2026-09-15 and is colored in lightblue
 [FCA MVP] starts 2026-01-01 and ends 2026-03-08 and is colored in lightblue
 [Improve FCA Framework] starts after [FCA MVP]'s end and ends 2026-10-08 and is colored in lightblue
 [FCA Framework deployed at EDA] happens at 2026-02-20
 [Pilot Workshop Bene] happens after [FCA MVP]'s end
+[Austrian Flex Consultation] happens at 2026-04-30
+[Implementation of Common FIS between AT, FR, IT, (ES)???] starts at 2026-04-01 and ends at 2027-04-30 and is colored in red
+[ComFlex with CEEDS FCA???] starts at 2026-10-01 and ends at 2027-04-30 and is colored in red
+[Austrian Flex GoLive] happens at 2027-04-30
 
 [S1 Implementation] starts at [S1 Specification]'s end and ends at 2026-07-01 and is colored in lightgreen
 [S2 Implementation] starts at [S2 Specification]'s end and ends at 2026-07-01 and is colored in lightgreen
