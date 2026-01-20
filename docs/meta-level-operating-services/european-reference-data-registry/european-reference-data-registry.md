@@ -48,9 +48,25 @@ It involves data assets, databases, data models, and the governance of data acro
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
-### Schema Definition for European Reference Data Object
+### Data Objects
 
-### List and Specification of Reference Data Objects
+<!-- TODO: Insert list/table of data objects and their descriptions -->
+The reference model for metering and consumption data access as specified in Annex I of Commission Implementing Regulation (EU) 2023/1162
+
+#### Schema Definition for European Reference Data Object
+
+ID | Name | Description
+---|---|---
+I1 | National competent authority | Description of Naitonal authority minimum information
+I2 | Information on Member State data management set-up | Description of Member State minimum information for data management set-up
+I3 | Information about metered data administrators in a Member State | One mapping per each active metered data administrator in a Member State
+I4 | Information about metering point administrators in a Member State | One mapping per each active metering point administrator in a Member State
+I5 | Information about data access provider | At least one actor must be mapped per each metering point in a Member State
+I6 | Information about permission administrators in a Member State | At least one mapping per each active permission administrator in a Member State
+I7 | Information about standardised near real-time interfaces of smart meters or smart metering systems in a Member State as by Article 20 point (a) of Directive (EU) 2019/944 | At least one mapping for each interface specification in use for smart meters deployed after July 4 2019 in a Member State must be applicable
+
+
+#### List and Specification of Reference Data Objects
 
 | Reference Model                     | Procedure                                                               | NCA | PA | MDA | DAP |
 |-------------------------------------|-------------------------------------------------------------------------|-----|----|-----|-----|
@@ -157,11 +173,81 @@ this information available to final customers and eligible parties in the sector
 | Eligible party onboarding (TEST)                | String                   | Full description for how to onboard to TEST environment.                                         |
 | Price list for access to data by eligible party | String                   | Information on the pricing model (including NDFS structure.                                      |
 
-### General Member State information
+#### General Member State information
 
-### Data Objects
+Attribute | XML data type | Comments
+---|---|---
+ID | Unique ID | Unique ID of master data element within CEEDS for the Member State.
+Name | String | Name of data management and exchange environment in accordance with Article 23 of Directive (EU) 2019/944.
+Website | URL | Link to website explaining the provisions for data access in a Member State
+Official contact | Text | Contact details of the entity responsible for national data management provisions.
+National regulatory basis | Text | Reference to the legal basis for the data sharing infrastructure.
+Documentation | Text | Description of the Member State provisions with regards to data access.
 
-<!-- TODO: Insert list/table of data objects and their descriptions -->
+#### National metered data administrators in a Memeber State
+
+Multiple entries should be made for each active metered data administrator in a Member State.
+
+Attribute | XML data type | Comments
+---|---|---
+ID | Unique ID | Unique ID of master data element within CEEDS for the Member State.
+Name | String | Name of the organisation
+Type of identification | Code | ACER registration code, Legal Entity Identifier (LEI), Bank Identifier Code (BIC), Energy Identification Code (EIC), Global Location Number (GLN/GS1) or National Identification Code (NIC).
+Identification of organisation | Code | Code or identification of the organisation (nominated as _metered data administrator_) based on the types of identification mentioned in the previous field.
+Website | URL | Link to website or application that is used to download data.
+Official contact | Text | Contact details of the entity responsible for data access by final customers or eligible parties.
+Metering grid area | Text |  Description of the set of metering points for which the metered data administrator is administering metered data.
+Status | Code | Code specifying the status of the metered data administrator (e.g. Active, Inactive, Suspended etc.)
+
+#### National metering point adminitrator in a Member State
+
+One mapping per each active metering point administrator in a Member State.
+
+Attribute | XML data type | Comments
+--|---|---
+ID | Unique ID | Unique ID of master data element within CEEDS for the Member State.
+Name | String | Name of the organisation.
+Type of identification | Code | ACER registration code, Legal Entity Identifier (LEI), Bank Identifier Code (BIC), Energy Identification Code (EIC), Global Location Number (GLN/GS1) or National Identification Code (NIC).
+Identification of organisation | Code |  Code or identification of the organisation (nominated as ‘metering point administrator’) based on the types of identification mentioned in the previous field.
+Website | URL | Link to website or application that is used to download data.
+Official contact | Text | Contact details of the entity responsible for data access by final customers or eligible parties.
+Metering grid area | Text | Description of the set of metering points the metering point administrator is responsible for.
+
+#### Information about data access provider in a Member State
+
+At least one actor must be mapped per each metering point in a Member State.
+
+Attribute | XML data type | Comments
+--|---|---
+ID | Unique ID | Unique ID of master data element within CEEDS for the Member State.
+Name | String | Name of the organisation.
+Type of identification | Code | ACER registration code, Legal Entity Identifier (LEI), Bank Identifier Code (BIC), Energy Identification Code (EIC), Global Location Number (GLN/GS1) or National Identification Code (NIC).
+Identification of organisation | Code | Code or identification of the organisation based on the types of identification mentioned in the previous field.
+Website | URL | If applicable, link to website of a web application that is used for final customer data access.
+Official contact | Text | Contact details of the entity responsible for final customer data access.
+Permission management responsibility for | String | Metered data administrators for which the data access provider manages final customer data access.
+Identity service provider | String | Identity service provider utilised by the data access provider to authenticate final customers.
+
+
+#### Information about standardised near Real-Time interface of smartmetering system in a Memeber State
+
+At least one mapping for each interface specification in use for smart meters deployed after July 4 2019 in a Member State must be applicable
+
+Attribute | XML data type | Comments
+--|---|---
+ID | Unique ID | Unique ID of master data element within CEEDS for the Member State.
+Name | String | Type designation of the meter model.
+Basic class of interface utilised | String |Provide voltage level for which meter model is used. For medium and high voltage, please specify in detail standardised interface or remote access being used. For low voltage, answers should follow the classification (choose applicable option(s)): H1 (as defined in CEN/CENELEC/ETSI TR 50572:2011), H2 (as defined in CEN/CENELEC/ETSI TR 50572:2011), H3 (as defined in CEN/CENELEC/ETSI TR 50572:2011), Remote access (specify in detail)
+Vendor | String | Name of the vendor organisation of the smart meter or smart metering system components
+Metering point administrators using the model| String | Identifiers of the metering point administrators using the model.
+Physical interface standard | String | Name and version of the standard used.
+Communication protocol | String | Name and version of the standard used.
+Data formats | String | Name and version of the standard used.
+
+The following code lists can be standardized:
+- Physical interface standard
+- Communication protocol
+- Data formats
 
 ## Application Architecture
 
