@@ -39,8 +39,6 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization
 
 #### Component Descriptions
 
-<!-- TODO: Insert descriptions of Realization Viewpoint components -->
-
 Component | Description
 ---|---
 Data mapping service | Service that transforms national data models into European wide models. Uses schema definitions and client libraries. The communication with National Data Platforms is done via client libraries.
@@ -57,8 +55,6 @@ Information schema publication - client libraries | The client libraries used by
 ## Data Architecture
 
 ### Data Objects
-
-<!-- TODO: Insert list/table of data objects and their descriptions -->
 
 The following standards should be used:
 - __ISO-8601__ for date/time formats
@@ -294,6 +290,7 @@ The Application Architecture of the European Vocabulary Hub contains:
 | Common European Vocabulary module                           | Information Schema publication        | Service that exposes publicly the agreggated internal services. The user will send the reqeust via this service.                                                                                                                                                                                                                                                |
 | Common European Vocabulary module                           | European Vocabulary managed interface | Intreface that will allow the CEEDS operator to connect and operator to connect and manage the metadata of common European Vocabulary.                                                                                                                                                                                                                          |
 | Common European Vocabulary module                           | Client library                        | Software library allowing the CEEDS Operator or CEEDS user to connect to common European Vocabulary module. The Governance is performed at CEEDS level as part of the overall Governance.                                                                                                                                                                       |
+
 The European Vocabulary Hub provides services for and interacts with the following actors and systems:
 
 | Actor/System                        | Description                                                                                                                                                                                                                                                                                       |
@@ -311,15 +308,27 @@ The Application Cooperation Viewpoint pattern creates elements a diagram that de
 See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Cooperation-Viewpoint
 -->
 
-Examples for National Platforms and the Interaction
+![European Vocabulary Hub Application Cooperation Diagram](./cooperation-evh.drawio.png)
+National Platforms interaction with CEEDS Platform
 
-E.g. sequence diagrams for e.g. onboarding, offboarding etc.
+![European Vocabulary Hub Onboarding Sequence Diagram](./onboarding-evh.drawio.png)
+Procedure for onboarding 
 
-<!-- TODO: Insert ArchiMate Cooperation Viewpoint diagram -->
+![European Vocabulary Hub Offboarding Sequence Diagram](./offboarding-evh.drawio.png)
+Procedure for offboarding
 
 #### Component Descriptions
 
-<!-- TODO: Insert descriptions of Application Cooperation Viewpoint components -->
+Component | Description 
+---|---
+National Data Space Facilitator(s) | Actor responsible for management and intreface with the Local actors at National Data Space level or National Platform or Specific Platform. Main responsiblity is to manage the access and data model update for CEEDS National platform.
+National Data Space | Specific implementation of Data Space at national level. It may be a specific data space, also. The system is managed by National Data Space Facilitator and it communicates with CEEDS via National Data Space client libraries.
+CEEDS Platform | Europeean Data Space for connecting National Data Spaces and transforming data to and from those systems into common European data format as defined and managed by service S2 - European Vocabulary Hub. 
+
+The main interactions of sercive S2 - European Vocabulary Hub are:
+- system to sytem with National Data Space via client libraries, for data exchange and transformation
+- user interface with CEEDS users for data consumption in common European format 
+- user interface with CEEDS operators for managing the common European format. It is possible to have an alterntive way intreacting system to system using client libraries.
 
 ## Technology Architecture
 
