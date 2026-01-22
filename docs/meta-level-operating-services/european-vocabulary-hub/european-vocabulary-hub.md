@@ -301,6 +301,7 @@ The European Vocabulary Hub provides services for and interacts with the followi
 | CEEDS Operator                      | Actor having access to the European Vocabulary HUB intreface for metadata management. This includes code lists, thesaury, ontology, data service catalog, data catalog, access management, rights management.                                                                                     |
 | S4 - Common European Process Façade | Service connected to S2 - European Vocabulary HUB.                                                                                                                                                                                                                                                |
 | EU Vocabularies                     | EU platform maintained by Publications Office of EU, repository for code lists, vocabularies, ontrologies.                                                                                                                                                                                        |
+
 ### Application Cooperation Viewpoint
 
 <!--
@@ -311,11 +312,19 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 ![European Vocabulary Hub Application Cooperation Diagram](./cooperation-evh.drawio.png)
 National Platforms interaction with CEEDS Platform
 
+Each National Data Space or Specific platform will connect to CEEDS Platform using the clinet library software. The EU Publications Office provides publicly available EU Vocabularies service. This is a repository for authority tables, code lists, thesauri, alignments, taxonomies, schemas, ontologies and related common data. It a recommendation to have CEEDS code lists, taxonomies, and ontologies aligned with EU Vocabularies.
+
 ![European Vocabulary Hub Onboarding Sequence Diagram](./onboarding-evh.drawio.png)
 Procedure for onboarding 
 
+The onboarding process should come from the Local Actor side and it will be channeled through the National Data Space platform or Specific platform. This platform must implement the communication protocole and data exchage mechanism with CEEDS. In case of error, this must be propagated the Local Actor. In case of successfull onboarding, an User ID will be issued and communicated to the Local Actor. The User ID is unique for the entire CEEDS plarform.
+
 ![European Vocabulary Hub Offboarding Sequence Diagram](./offboarding-evh.drawio.png)
 Procedure for offboarding
+
+The offboarding process may be initiated by the Local Actor or by National Platform Facilitator. In both cases it is the National Data Space or Specific platform that must implement the data exchange with CEEDS platform using the client libraries bulid for this purpouse.
+
+The offboarding process will send an acknowledge message in case of successful offboarding of the Local Actor. In case of failure, multiple progressive retries should be automatically scheduled. The historical transactional data about the Local Actor will be stored and archived according to EU data regulations.
 
 #### Component Descriptions
 
@@ -337,6 +346,11 @@ The Technology Architecture involves the IT infrastructure, including hardware, 
 It ensures that the infrastructure supports the application and data requirements of the business.
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+![European Vocabulary Hub Technology Diagram](./technology-evh.drawio.png)
+
+The rationale behind the proposed technology architecture is to guarantee high availability, scalablility by design, and secure data exchange. The actual technical and technology solutions will differ from one Participant to another, according to their specific Nationanl Data Space platform or Specific platform. We consider that the boundary of this solution is at the National level. Each Participant is repsonsible to implement the most efficient solution taking into account this design. The communications between National Data Space platform and the CEEDS platform must be secured following industry standards.
+
+EU Vocabularies is a service provided by EU Publications Office and may be used as a central repository for code lists and ontologies. The recommendation is that the technical solution that will be implemented to be compatible with EU Vocabularies standard for future integration.
 
 ### Deployment View
 
@@ -347,7 +361,13 @@ In addition, the way the elements are affected may be indicated by annotating th
 See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Cooperation-Viewpoint
 -->
 
-<!-- TODO: Insert ArchiMate Deployment View diagram -->
+![European Vocabulary Hub Deployment Diagram](./deployment-evh.drawio.png)
+
+The recommandation is to group the CEEDS Platform tools and components in a single location and a single unitary form of deployment: containers (Docker, Kubernetes, OpenShift) or virtualized solutions (Vagrant). The deployment can be done both in the Cloud or on Premise. Considering a hybrid deployment should not be an option. 
+The solution Semantic Treehouse may be considered for Ontology, Code Lists, Data models, and Schema storage and management. 
+
+For existing National Data Space platform or Specific Platfrom the exisiting deployments should be used if they can inteactc with CEEDS platform via secured channel. Developing the Client Libraries should be using the common standards so that the resulting solution should connect seamlessly to CEEDS independent of the choice of technology.  For the newly developed components we strongly recommend using the same strategy: containerized applications and services.
+
 
 #### Component Descriptions
 
