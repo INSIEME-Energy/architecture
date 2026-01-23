@@ -26,6 +26,7 @@ Project starts 2025-04-01
 
 [T2.1 – Assessment of existing data space initiatives] starts at 2025-04-01 and ends at 2026-10-01
 [T2.2 – Data space conceptualisation] starts at 2025-04-01 and ends at 2026-10-01
+
 [S1 Specification] starts 2026-01-01 and ends 2026-04-01 and is colored in orange
 [S2 Specification] starts 2026-01-01 and ends 2026-04-01 and is colored in orange
 [S3 Specification] starts 2026-01-01 and ends 2026-04-01 and is colored in orange
@@ -35,9 +36,13 @@ Project starts 2025-04-01
 [S4 Specification] starts 2026-03-01 and ends 2026-09-15 and is colored in orange
 [S5 Specification] starts 2026-03-01 and ends 2026-06-15 and is colored in orange
 [S6 Specification] starts 2026-03-01 and ends 2026-06-15 and is colored in orange
+
 [T2.3 – Development of Common Reference Models and MIMs] starts at 2025-04-01 and ends at 2026-10-01
+
 [T2.4 – Conceptualise EU-wide CEEDS Governance Model] starts at 2025-07-01 and ends at 2026-10-01
+
 [T2.5 – Alignment of Information Model Standards] starts at 2025-07-01 and ends at 2026-10-01
+
 [T2.6 – Security and privacy within CEEDS ] starts at 2025-07-01 and ends at 2028-03-30
 
 -- WP3 - Development --
@@ -69,18 +74,34 @@ Project starts 2025-04-01
 -- WP4 - Deployments --
 
 [T4.1 – Co-ordination of deployments and requirements engineering] starts at 2025-07-01 and ends at 2028-01-01
+
+
 [T4.2 – Energy efficiency and flexibility management] starts at 2026-01-01 and ends at 2028-01-01
+
+
 [T4.3 – Collective self-consumption and optimized sharing for energy communities ] starts at 2026-01-01 and ends at 2028-01-01
 [FR ComFlex] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+
+
 [T4.4 – Grid flexibility services] starts at 2026-01-01 and ends at 2028-01-01
 [FR Enedis FCA] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
 [AT E-NETZE Deployment] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+[Service available] happens at 2026-03-10
 [AT Bene Deployment] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
 [AT Smart Home Deployment] starts 2 weeks after [FCA MVP]'s end and ends at 2027-09-30 and is colored in orange
+
+
 [T4.5 – Electromobility: residential charging, EV charging infrastructure] starts at 2026-01-01 and ends at 2028-01-01
+
+
 [T4.6 – Renewables integration] starts at 2026-01-01 and ends at 2028-01-01
+
+
 [T4.7 – Networks and integration planning] starts at 2026-01-01 and ends at 2028-01-01
+
+
 [T4.8 – Smart sector integration] starts at 2026-01-01 and ends at 2028-01-01
+
 
 
 -- WP5 - Business Models --
