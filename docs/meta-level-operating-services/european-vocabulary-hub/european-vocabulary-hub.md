@@ -284,8 +284,7 @@ A03 | External trade explicit capacity | The nature of the business being descri
 A04 | Consumption | The nature of the business being described is consumption details.
 A05 | External trade total | The nature of the business being described is external trade total.
 A06 | External trade without explicit capacity | The nature of the business being described is external trade details between two areas without requiring capacity allocation information.
-A07 | Net Production / Consumption | Net production/consumption - where signed values will be used. 
-With the following rules: In area=Out area, In party=Out party, + means production and - means consumption.
+A07 | Net Production / Consumption | Net production/consumption - where signed values will be used. With the following rules: In area=Out area, In party=Out party, + means production and - means consumption.
 A08 | Net internal trade | Net internal trade - where the direction from out party (seller) to in party (buyer) is positive and the opposite direction is negative (with minus signs).
 A09 | IPP (Independent Power Producer) | A time series concerning the production schedule from an IPP.
 A10 | Tertiary control | A time series concerning tertiary reserve.
@@ -306,8 +305,7 @@ A24 | Total trade | A time series concerning the total of both the internal and 
 A25 | General Capacity Information | A time series providing the total capacity available on a TSO border.
 A26 | Available transfer capacity (ATC) | Available transfer capacity for cross-border exchanges.
 A27 | Net transfer capacity (NTC) | Net transfer capacity for cross-border exchanges.
-A28 | Control Area Program | A time series providing the total exchanges between two TSOs (including the commercial transactions, the compensation program and the losses compensation program). 
-Note this definition might change when UCTE brings forward its coding requirements.
+A28 | Control Area Program | A time series providing the total exchanges between two TSOs (including the commercial transactions, the compensation program and the losses compensation program). Note this definition might change when UCTE brings forward its coding requirements.
 A29 | Already allocated capacity (AAC) | The already allocated capacity is the total amount of allocated transmission rights.
 A30 | Internal inter area trade | A trade that occurs between internal areas within a market balance area.
 A31 | Offered Capacity | The time series provides the offered capacity.
@@ -414,14 +412,9 @@ B33 | Area Control error (ACE) | The sum of the instantaneous difference between
 B34 | Area Control Error after Imbalance Netting | A time series concerning the Area Control Error after applying the  imbalance netting energy correction.
 B35 | Implicit and explicit trade total | The sum of cross border schedules based on implicit and explicit trades including long term, yearly, monthly, weekly, daily processes.
 B36 | Production units own consumption | The consumption of one or more production units.
-B37 | Constraint situation | The timeseries describes the constraint situation for a given TimeInterval.
-A constraint situation can be: 
-- composed of a list of network elements in outage associated for each outage to a list of network elements on which remedial actions have been carried out accordingly to contingency process 
-- or it can be an external constraint.
-B38 | Initial domain | The timeseries describe the full flow based domain for a given TimeInterval. 
-Critical network elements are displayed in details and their impact on the market is quantified.
-B39 | Flow based domain adjusted to long term schedules | The timeseries describe the full flow based domain for a given TimeInterval adjusted to the latest update of the schedules. 
-Critical network elements are displayed in details and their impact on the market is quantified.
+B37 | Constraint situation | The timeseries describes the constraint situation for a given TimeInterval. A constraint situation can be: <ul><li>composed of a list of network elements in outage associated for each outage to a list of network elements on which remedial actions have been carried out accordingly to contingency process</li><li>or it can be an external constraint.</li></ul>
+B38 | Initial domain | The timeseries describe the full flow based domain for a given TimeInterval. Critical network elements are displayed in details and their impact on the market is quantified.
+B39 | Flow based domain adjusted to long term schedules | The timeseries describe the full flow based domain for a given TimeInterval adjusted to the latest update of the schedules. Critical network elements are displayed in details and their impact on the market is quantified.
 B40 | Network element constraint | The timeSeries describes limiting elements which are overloaded.
 B41 | Calculation opposition (Red Flag) | The timeSeries describes a party who is opposed to the calculation result and imposes its transfer capacity value.
 B42 | Base case proportional shift key | The GSK or LSK are proportional to the base case generation or load.
@@ -821,8 +814,7 @@ A41 | Fossil gaseous natural gas | Fossil gaseous natural gas energy source.
 A42 | Fossil gaseous coal-derived gas | Fossil gaseous coal-derived gas energy source. This includes Blast furnace gas,Coke-oven gas or other types.
 A43 | Fossil gaseous petroleum products | Fossil gaseous petroleum products energy  source. This includes Propane, Butane, Refinery gas, Chemical waste gas or other types.
 A44 | Fossil gaseous municipal gas plant | Fossil gaseous municipal gas plant energy source.
-A45 | Fossil gaseous process gas | Fossil gaseous process gas energy source. This includes Carbon monoxide,
-Methane , Hydrogen (fossil sourced) ,Phosphor gas ,Oxy gas and other types.
+A45 | Fossil gaseous process gas | Fossil gaseous process gas energy source. This includes Carbon monoxide, Methane , Hydrogen (fossil sourced) ,Phosphor gas ,Oxy gas and other types.
 A46 | Fossil heat unspecified | Unspecified fossil heat energy source.
 A47 | Fossil heat process heat | Fossil process heat energy source.
 A48 | Nuclear solid radioactive fuel | Solid Nuclear  radioactive energy source. This includes UOX, AGR, MOX or other types.
@@ -1213,9 +1205,7 @@ A24 | A24 not applicable | This code is no longer applicable.
 A25 | A25 not applicable | This code is no longer applicable.
 A26 | Default time series applied | The time series has been rejected and replaced with a default time series profile. This reason code may not be used in conjunction with A30.
 A27 | Cross border capacity exceeded | The cross border capacity has been exceeded. The time series has been rejected or adjusted.
-A28 | Counterpart time series missing | This provides an indication that the time series has not got a counterpart time series. 
-In the case of an Intermediate Confirmation Report this is advising the recipient that the time series may be rejected at nomination closure if the counterpart time series is not received. 
-In the case of a Final Confirmation Report this is informing the recipient that the time series has been rejected because the counterpart time series has not been forthcoming.
+A28 | Counterpart time series missing | This provides an indication that the time series has not got a counterpart time series. In the case of an Intermediate Confirmation Report this is advising the recipient that the time series may be rejected at nomination closure if the counterpart time series is not received. In the case of a Final Confirmation Report this is informing the recipient that the time series has been rejected because the counterpart time series has not been forthcoming.
 A29 | Counterpart time series quantity differences | The time series has been rejected as it does not match that of the counterpart who is considered by market rules to be correct.
 A30 | Imposed Time series from nominated party's time series (party identified in reason text) | The nominated party's time series has replaced the current time series. This reason code may not be used in conjunction with A26.
 A41 | Resolution inconsistency | The resolution is not coherent with the time interval, or resolution not valid.
@@ -1398,17 +1388,12 @@ A28 | Scheduling coordinator | Refer to role model definitions in the ENTSO-E Ha
 A29 | Capacity Trader | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
 A30 | Interconnection Trade Responsible | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
 A31 | Nomination Validator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
-A32 | Market information aggregator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
-A party that collects information from different sources and assembles  it to provide a summary of the market.
-A33 | Information receiver | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
-A party, not necessarily a market participant, which receives information about the market.
-A34 | Reserve Allocator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
-A party that informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
-A35 | MOL Responsible | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
-A party that Informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
+A32 | Market information aggregator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that collects information from different sources and assembles  it to provide a summary of the market.
+A33 | Information receiver | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party, not necessarily a market participant, which receives information about the market.
+A34 | Reserve Allocator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
+A35 | MOL Responsible | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that Informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
 A36 | Capacity Coordinator | A party, acting on behalf of the SOs involved, responsible for establishing a coordinated Offered Capacity and/or NTC and/or ATC between several Scheduling Areas.
-A37 | Reconciliation Accountable | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
-A party that is financially accountable for the reconciled volume of energy products for a profiled local metering point.
+A37 | Reconciliation Accountable | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that is financially accountable for the reconciled volume of energy products for a profiled local metering point.
 A38 | Reconciliation Responsible | A party that is responsible for reconciling, within a metering grid area, the volumes used in the imbalance settlement process for profiled metering points and the actual metered quantities.
 A39 | Data provider | A party that is responsible for providing information to a central authority.
 A40 | Local Issuing Office (LIO) | A party that is responsible for operating a Local Issuing Office (LIO).
@@ -1446,8 +1431,7 @@ A05 | Active | The object being reported is currently active.
 A06 | Available | The volumes (one or more) are available.
 A07 | Activated | The quantities in the time series have been activated.
 A08 | In process | The quantities in the time series are in the process of activation (an activation request has been made).
-A09 | Cancelled | The tender indicated in the time series has been completely cancelled.
-In this case the resources are no longer available to all Acquiring System Operators
+A09 | Cancelled | The tender indicated in the time series has been completely cancelled. In this case the resources are no longer available to all Acquiring System Operators
 A10 | Ordered | The quantities in the time series are to be activated.
 A11 | Unavailable | The volumes (one or more) are unavailable.
 A12 | RGCE agreed | The information has been agreed within the ENTSO-E Regional Group Continental Europe process.
