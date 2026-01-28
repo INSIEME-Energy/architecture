@@ -67,7 +67,7 @@ The data objects are extracted from [Digital4Grid - Bridge energy schemas](https
 The main code list published by Bridge energey schemas is shared on project's [public repository](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/IEC62746-4/IEC62746-4-1%20Explicit/urn-entsoe-eu-wgedi-codelists.xsd). This is the ENTSO-E code list used by ENTSO-E XML electronic documents and CIM XML electronic documents. The data model and code list usage is detailed in ENTSO-E document [Procedures for access to metering and consumption data](https://eepublicdownloads.entsoe.eu/clean-documents/EDI/Library/cim_based/amcd/IG_FinalDraft_Implementation_Guide_access_to_metering_and_consumption_data_ICTC_Approved.pdf).
 
 #### Code lists
-
+<!--
 Name | List ID | Description
 ---|---|---
 StandardAllocationModeTypeList | ET0040 | The identification of the method of allocation in an auction.
@@ -107,22 +107,22 @@ StandardUnitMultiplier | MXM001 | The unit multipliers defined for the CIM.
 StandardUnitOfMeasureTypeList | ET0011 | (synonym MeasurementUnit) The unit of measure that is applied to a quantity. The measurement units shall be in compliance with UN/ECE Recommendation 20.
 StandardUnitSymbol | MXM000 | The coded representation of different units from IEC 61970.
 StandardDocumentTypeList | ET0003 | The DocumentTypeList is only used in XML instances using deprecated ENTSO-E schema; otherwise for XML instances based CIM, the codelist is MessageTypeList.  Therefore, you are kindly advised to refer to the MessageType enumeration, which includes the same enumeration codes.
+-->
 
+<details>
+<summary><b>Name</b>: StandardAllocationModeTypeList<br/><b>List ID</b>: ET0040<br/><b>Description</b>: The identification of the method of allocation in an auction.</summary>
 
-**Name**: StandardAllocationModeTypeList  
-**List ID**: ET0040   
-**Description**: The identification of the method of allocation in an auction.  
 Value | Title |  Definition
 ---|---|---
 A01 | Order by price with pro rata | The allocation method is by price with eventual pro rata.
 A02 | Order by price with first come - first served | The allocation method is by price with eventual use of first come first served.
 A03 | First come - First served | The allocation method is first come first served.
 A04 | Pro rata | The allocation method is pro rata.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardAnalogTypeList<br/><b>List ID</b>: MXM000<br/><b>Description</b>: The identification of an analog value.</summary>
 
-**Name**: StandardAnalogTypeList  
-**List ID**: MXM000   
-**Description**: The identification of an analog value.  
 Value | Title |  Definition
 ---|---|---
 A01 | Flow | This is the computed flow for the monitored element in the constraint situation ("N situation", "N-1 situation" ...) after the capacity calculation. The flow is expressed in A, %, or MW.
@@ -161,11 +161,11 @@ A33 | Flows from already allocated cross-zonal capacities (Faac) | Flows resulti
 A34 | Flow from remedial action (FRA) | Flow for increasing the Remaining Available Margin due to remedial action.
 A35 | Assumed external exchanges | Flow resulting from assumed commercial exchanges outside the region (F_uaf).
 A36 | Minimum remaining available margin target | Target capacity for exchanges by deducing the exchanges not related to the region.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardAssetTypeList<br/><b>List ID</b>: ET0031<br/><b>Description</b>: The identification of the type of asset.</summary>
 
-**Name**: StandardAssetTypeList  
-**List ID**: ET0031   
-**Description**: The identification of the type of asset.  
 Value | Title |  Definition
 ---|---|---
 A01 | Tie line | A high voltage line used for cross border energy interconnections.
@@ -256,11 +256,11 @@ B71 | Ammonia reforming unspecified | Unspecified ammonia reforming.
 B72 | Ammonia gasification | Unspecified gasification.
 B73 | Chlor-alkali electrolysis unspecified | Unspecified alkali electrolysis.
 B74 | Chlor-alkali electrolysis by-product | Alkali electrolysis product.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardAuctionTypeList<br/><b>List ID</b>: ET0030<br/><b>Description</b>: The coded representation of different types of auction.</summary>
 
-**Name**: StandardAuctionTypeList  
-**List ID**: ET0030   
-**Description**: The coded representation of different types of auction.  
 Value | Title |  Definition
 ---|---|---
 A01 | Implicit | The auction is an implicit auction.
@@ -271,11 +271,11 @@ A05 | Explicit/split | The auction concerns two explicit auctions on a split bor
 A06 | Shadow auction | An explicit auction carried out in the case of the failure of an implicit auction.
 A07 | Flow-based | The allocation is an implicit auction using flow-based capacity calculation.
 A08 | Continuous | The auction type is continuous, i.e. there is no gate closure time when bids from the market participants are collected. Instead allocation procedure takes place immediately.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardBusinessTypeList<br/><b>List ID</b>: ET0017<br/><b>Description</b>: The exact business nature identifying the principal characteristic of a time series.</summary>
 
-**Name**: StandardBusinessTypeList  
-**List ID**: ET0017   
-**Description**: The exact business nature identifying the principal characteristic of a time series.  
 Value | Title |  Definition
 ---|---|---
 A01 | Production | The nature of the business being described is production details.
@@ -568,31 +568,31 @@ C90 | Combined dynamic constraint | The time series describes a combined dynamic
 C91 | Anonymised constraint | The time series describes an anonymised constraint.
 C92 | Synchronous condenser activation | Activates a number of generators or other units in synchronous condenser mode.
 C93 | Permission administration details | A timeseries describing permission details such as authorisations, licenses or related regulatory requirements.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardCategoryTypeList<br/><b>List ID</b>: ET0037<br/><b>Description</b>: The product category of an auction.</summary>  
 
-**Name**: StandardCategoryTypeList  
-**List ID**: ET0037   
-**Description**: The product category of an auction.  
 Value | Title |  Definition
 ---|---|---
 A01 | Base | The auction is for a base period.
 A02 | Peak | The auction is for a peak period.
 A03 | Off peak | The auction is for an off peak period.
 A04 | Hourly | The auction is for an hourly period.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardClassificationTypeList<br/><b>List ID</b>: ET0013<br/><b>Description</b>: Indicates the classification mechanism used to group a set of objects together. The grouping may be of a detailed or a summary nature.</summary>
 
-**Name**: StandardClassificationTypeList  
-**List ID**: ET0013   
-**Description**: Indicates the classification mechanism used to group a set of objects together. The grouping may be of a detailed or a summary nature.  
 Value | Title |  Definition
 ---|---|---
 A01 | Detail type | The Time Series content provides detailed information.
 A02 | Summary type | The Time Series content provides aggregated information.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardCodingSchemeTypeList<br/><b>List ID</b>: ET0004<br/><b>Description</b>: Codification scheme used to identify the coding scheme used for the set of coded values to identify specific objects.</summary>
 
-**Name**: StandardCodingSchemeTypeList  
-**List ID**: ET0004   
-**Description**: Codification scheme used to identify the coding scheme used for the set of coded values to identify specific objects.  
 Value | Title |  Definition
 ---|---|---
 A01 | EIC | The coding scheme is the Energy Identification Coding Scheme (EIC), maintained by ENTSO-E.
@@ -645,23 +645,23 @@ NSI | Slovenia National coding scheme | The National coding scheme of the countr
 NSK | Slovakia National coding scheme | The National coding scheme of the country in question.
 NTR | Turkey National coding scheme | The National coding scheme of the country in question.
 NUA | Ukraine National coding scheme | The National coding scheme of the country in question.
+</details>
 
 
-**Name**: StandardCoordinateSystemTypeList  
-**List ID**: ET0108   
-**Description**: The identification of the coordinate system used for the location position.  
+<details>
+<summary><b>Name</b>: StandardCoordinateSystemTypeList<br/><b>List ID</b>: ET0108<br/><b>Description</b>: The identification of the coordinate system used for the location position.</summary>
+
 Value | Title |  Definition
 ---|---|---
 A01 | ED50 | ED 50 (European Datum 1950) is a geodetic datum which was defined after World War II for the international connection of geodetic networks.
 A02 | OSGB36 | Ordinance Survey Great Britain 1936. The Ordinance Survey (OS) devised the national grid reference system, and it is heavily used in their survey data, and in maps (whether published by the Ordinance Survey or commercial map producers) based on those surveys.
 A03 | WGS84 | The World Geodetic System version 1984. for use in cartography, geodesy, and navigation including by GPS. It comprises a standard coordinate system for the earth, a standard spheroidal reference surface (the datum or reference ellipsoid) for raw altitude data, and a gravitational equipotential surface (the geoid) that defines the nominal sea level.
 A04 | GTRF | Galileo Terrestrial Reference Frame
+</details>
 
+<details>
+<summary><b>Name</b>: StandardContractTypeList<br/><b>List ID</b>: ET0010<br/><b>Description</b>: The contract type defines the conditions under which the capacity is allocated and handled, e.g. daily auction, weekly auction, monthly auction, yearly auction, etc.  The significance of this type is dependent on area specific coded working methods.</summary>
 
-**Name**: StandardContractTypeList  
-**List ID**: ET0010   
-**Description**: The contract type defines the conditions under which the capacity is allocated and handled, e.g. daily auction, weekly auction, monthly auction, yearly auction, etc. 
-The significance of this type is dependent on area specific coded working methods.  
 Value | Title |  Definition
 ---|---|---
 A01 | Daily contract | The condition under which capacity is allocated and handled is by daily auction or a daily transmission allocation procedure.
@@ -680,11 +680,11 @@ A13 | Hourly contract | The condition under which capacity is allocated and hand
 A14 | First intraday auction contract | The first intraday auction contract (IDA1).
 A15 | Second intraday auction contract | The second intraday auction contract (IDA2).
 A16 | Third intraday auction contract | The third intraday auction contract (IDA3).
+</details>
 
+<details>
+<summary><b>Name</b>: StandardCurrencyTypeList<br/><b>List ID</b>: ET0024<br/><b>Description</b>: The coded identification of legal tender using ISO 4217 3 alpha codes.</summary>
 
-**Name**: StandardCurrencyTypeList  
-**List ID**: ET0024   
-**Description**: The coded identification of legal tender using ISO 4217 3 alpha codes.  
 Value | Title |  Definition
 ---|---|---
 BAM | Bosnian convertible marka | The Legal tender of Bosnia and Herzegovina.
@@ -710,11 +710,11 @@ SKK | Slovak Koruna | The legal tender of Slovakia.
 TRY | New Turkish Lira | The Legal tender of Turkey.
 UAH | Ukrainian hryvnia | The legal tender of Ukraine.
 USD | US Dollar | The legal tender of the USA.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardCurveTypeList<br/><b>List ID</b>: ET0042<br/><b>Description</b>: The type of curve being defined in the time series.</summary>
 
-**Name**: StandardCurveTypeList  
-**List ID**: ET0042   
-**Description**: The type of curve being defined in the time series.  
 Value | Title |  Definition
 ---|---|---
 A01 | Sequential fixed size block | The curve is made of successive Intervals of time (Blocks) of constant duration (size), where the size of the Blocks is equal to the Resolution of the Period.
@@ -722,22 +722,22 @@ A02 | Point | The curve is made of successive instants of time (Points).
 A03 | Variable sized Block | The curve is made of successive Intervals of time (Blocks) of variable duration (size), where the end date and end time of each Block are equal to the start date and start time of the next Interval. For the last Block the end date and end time of the last Interval would be equal to EndDateTime of TimeInterval.
 A04 | Overlapping breakpoint | The curve is made of successive Intervals of time of variable duration (size), where the end date and end time of each interval are equal to the start date and start time of the next Interval.
 A05 | Non-overlapping breakpoint | This curve is a restriction of the curve type A04, i.e. overlapping breakpoints. The restriction is that a single Period is allowed.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardDirectionTypeList<br/><b>List ID</b>: ET0026<br/><b>Description</b>: The coded identification of the direction of energy flow.</summary>
 
-**Name**: StandardDirectionTypeList  
-**List ID**: ET0026   
-**Description**: The coded identification of the direction of energy flow.  
 Value | Title |  Definition
 ---|---|---
 A01 | UP | Up signifies that the available power can be used by the Purchasing area to increase energy.
 A02 | DOWN | Down signifies that the available power can be used by the Purchasing area to decrease energy.
 A03 | UP and DOWN | Up and Down signifies that the UP and Down values are equal.
 A04 | Stable | The direction at a given instant in time is considered to be stable.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardEicTypeList<br/><b>List ID</b>: ET0028<br/><b>Description</b>: The coded identification of the type of an EIC code.</summary>
 
-**Name**: StandardEicTypeList  
-**List ID**: ET0028   
-**Description**: The coded identification of the type of an EIC code.  
 Value | Title |  Definition
 ---|---|---
 A | Substation | An EIC code to substations.
@@ -747,11 +747,11 @@ W | Resource Object | An EIC code to identify resource objects.
 X | Party | An EIC code to identify parties.
 Y | Area or Domain | An EIC code to identify areas or domains.
 Z | Measurement point | An EIC code to identify measurement points.
+</details>
 
+<details>
+<summary><b>Name</b> StandardEnergyProductTypeList<br/><b>List ID</b>: ET0008<br/><b>Description</b>: The identification of the nature of an energy product such as power, energy, reactive power, etc.</summary>
 
-**Name**: StandardEnergyProductTypeList  
-**List ID**: ET0008   
-**Description**: The identification of the nature of an energy product such as power, energy, reactive power, etc.  
 Value | Title |  Definition
 ---|---|---
 8716867000016 | Active power | The product of voltage and the in-phase component of alternating current measured in units of watts and standard multiples thereof.
@@ -763,11 +763,12 @@ Value | Title |  Definition
 8716867000139 | Capacitive Reactive energy | Capacitive reactive energy.
 8716867000146 | Inductive Reactive energy | Inductive reactive energy.
 8716867009911 | Water | For hydro power stations, this enables the identification of the quantity of water stored behind a dam (volume, head level, etc.), or the constraints in the flow of water.
+</details>
 
 
-**Name**: StandardFuelTypeList  
-**List ID**: ET0051   
-**Description**: The identification of the type of fuel.  
+<details>
+<summary><b>Name</b>: StandardFuelTypeList<br/><b>List ID</b>: ET0051<br/><b>Description</b>: The identification of the type of fuel.</summary>
+
 Value | Title |  Definition
 ---|---|---
 A01 | Unspecified | Fuel that cannot be associated with any of available fuel codes.
@@ -825,31 +826,30 @@ A52 | Waste heat and cold By-product in industrial installation | Waste heat and
 A53 | Waste heat and cold By-product in power generation | Waste heat and cold from by-product in power generation energy source.
 A54 | Waste heat and cold By-product in tertiary sector | Waste heat and cold from by-product in tertiary sector energy  source.
 A55 | Hydrogen | Hydrogen energy source.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardHVDCModeTypeList<br/><b>List ID</b>: MXM000<br/><b>Description</b>: The coded identification of the HVDC mode.</summary>
 
-**Name**: StandardHVDCModeTypeList  
-**List ID**: MXM000   
-**Description**: The coded identification of the HVDC mode.  
 Value | Title |  Definition
 ---|---|---
 A01 | Setpoint schedule | The code for the "power setpoint" mode of operation of the HVDC link.
 A02 | Proportional external signal | The code for the "Proportional external signal" mode of operation of the HVDC link.
 A03 | AC emulation | The code for the "AC emulation" mode of operation of the HVDC link.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardIndicatorTypeList<br/><b>List ID</b>: ET0029<br/><b>Description</b>: A boolean indicator to express Yes or No or True or False.</summary>
 
-**Name**: StandardIndicatorTypeList  
-**List ID**: ET0029   
-**Description**: A boolean indicator to express Yes or No or True or False.  
 Value | Title |  Definition
 ---|---|---
 A01 | YES | A positive indication.
 A02 | NO | A negative indication.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardMessageTypeList<br/><b>List ID</b>: ET0003<br/><b>Description</b>: The coded type of a document. The message type describes the principal characteristic of a document. This enumeration is used in the XML instances based on IEC 62325.</summary>
 
-**Name**: StandardMessageTypeList  
-**List ID**: ET0003   
-**Description**: The coded type of a document. The message type describes the principal characteristic of a document.
-This enumeration is used in the XML instances based on IEC 62325.  
 Value | Title |  Definition
 ---|---|---
 A01 | Balance responsible schedule | A schedule which has been prepared by a balance responsible party providing planned schedule information.
@@ -1000,11 +1000,11 @@ B47 | Other market information | A document providing other market information.
 B48 | Permission document | A document that contains detailed information about permissions.
 B49 | Requested capacity | A document providing requested capacity (e.g. ATC, CZCL) value.
 B50 | Voltage control activation document | A document providing the number of generating units to activate for voltage control, by means of their operation in synchronous condenser mode.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardMarketProductTypeList<br/><b>List ID</b>: ET0008<br/><b>Description</b>: The identification of the type of a product on a market view</summary>
 
-**Name**: StandardMarketProductTypeList  
-**List ID**: ET0008   
-**Description**: The identification of the type of a product on a market view  
 Value | Title |  Definition
 ---|---|---
 A01 | Standard balancing product | A harmonised balancing product defined by all TSOs for the exchange of balancing services.
@@ -1018,11 +1018,11 @@ A08 | Market wide resource capacity mechanism | This is a market-wide resource c
 A09 | Strategic reserve resource capacity mechanism | This is a market resource capacity mechanism that is kept outside of the electricity market and only used if the market participants do not offer enough generation to meet short-term demand.
 A10 | Other resource capacity mechanism | This is any other kind of market resource capacity mechanism.
 A11 | Fast activation product | The fast activation product shall be considered as a fall-back solution for situations where coordination with all parties is no longer possible due to insufficient time and the regular product could not be properly applied.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardObjectAggregationTypeList<br/><b>List ID</b>: ET0018<br/><b>Description</b>: The identification of the domain that is the common dominator used to aggregate a time series.</summary>
 
-**Name**: StandardObjectAggregationTypeList  
-**List ID**: ET0018   
-**Description**: The identification of the domain that is the common dominator used to aggregate a time series.  
 Value | Title |  Definition
 ---|---|---
 A01 | Area | The object being described concerns an area.
@@ -1041,21 +1041,21 @@ A13 | Virtual bidding zone | A non-geographical bidding zone to be able to apply
 A14 | Metering grid area | A physical area where consumption, production and exchange can be measured. It is delimited by the placement of meters for continuous measurement for input to, and withdrawal from the area.
 A15 | Scheduling area | An area within which the TSOs' obligations regarding scheduling apply due to operational or organisational needs.
 A16 | Exchange point | The object being described concerns an exchange point.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardPaymentTermsTypeList<br/><b>List ID</b>: ET0041<br/><b>Description</b>: The identification of the different terms of payment.</summary>
 
-**Name**: StandardPaymentTermsTypeList  
-**List ID**: ET0041   
-**Description**: The identification of the different terms of payment.  
 Value | Title |  Definition
 ---|---|---
 A01 | Pay as bid | The amount to be paid shall correspond to the amount bid.
 A02 | Pay as cleared | The amount to be paid shall correspond to the amount calculated for clearing.
 A03 | No payment terms | There are no payment terms to be used.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardPriceCategoryTypeList<br/><b>List ID</b>: ET0048<br/><b>Description</b>: Indicates the category of the calculation to be applied to a price.</summary>
 
-**Name**: StandardPriceCategoryTypeList  
-**List ID**: ET0048   
-**Description**: Indicates the category of the calculation to be applied to a price.  
 Value | Title |  Definition
 ---|---|---
 A01 | Category 1 | A category one price calculation is to be applied.
@@ -1066,30 +1066,30 @@ A05 | Insufficient balance | A category concerns insufficient balance.
 A06 | Average bid price | The average bid price for a given product.
 A07 | Single marginal bid price | The downwards activated bid price  or the upwards activated  bid price for activated balancing reserves.
 A08 | Cross-border marginal price | The price determined in accordance with article 3 of the methodology for pricing balancing energy.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardPriceComponentTypeList<br/><b>List ID</b>: ET0052<br/><b>Description</b>: Indicates the component type for  a price.</summary>
 
-**Name**: StandardPriceComponentTypeList  
-**List ID**: ET0052   
-**Description**: Indicates the component type for  a price.  
 Value | Title |  Definition
 ---|---|---
 A01 | Scarcity | A scarcity component to be used in nationally defined scarcity situations.
 A02 | Incentive | An incentive component to be used to fulfil nationally defined boundary conditions.
 A03 | Financial neutrality | A component related to the financial neutrality of the connecting TSO.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardPriceDirectionTypeList<br/><b>List ID</b>: ET0049<br/><b>Description</b>: The nature of a price, i.e. an impacted area system operator pays to internal market parties or inverse.</summary>
 
-**Name**: StandardPriceDirectionTypeList  
-**List ID**: ET0049   
-**Description**: The nature of a price, i.e. an impacted area system operator pays to internal market parties or inverse.  
 Value | Title |  Definition
 ---|---|---
 A01 | Expenditure. | Expenditure, i.e. the Impacted Area System Operator pays to the internal Market Parties.
 A02 | Income. | Income, i.e. The Impacted Area System Operator receives from the internal Market Parties.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardProcessTypeList<br/><b>List ID</b>: ET0020<br/><b>Description</b>: Indicates the nature of process that the document addresses.</summary>
 
-**Name**: StandardProcessTypeList  
-**List ID**: ET0020   
-**Description**: Indicates the nature of process that the document addresses.  
 Value | Title |  Definition
 ---|---|---
 A01 | Day ahead | The information provided concerns a day ahead process.
@@ -1166,11 +1166,12 @@ A71 | Outage planning coordination | The process being described is used for out
 A72 | Short term adequacy | The process being described is used for short term adequacy calculations.
 A73 | Coordinated capacity calculation | The process being described is used for coordinated capacity calculation.
 A74 | Access to metered data | Access to meter readings of electricity consumption from or electricity feed into the grid.
+</details>
 
 
-**Name**: StandardQualityTypeList  
-**List ID**: ET0036   
-**Description**: The quality of an object.  
+<details>
+<summary><b>Name</b>: StandardQualityTypeList<br/><b>List ID</b>: ET0036<br/><b>Description</b>: The quality of an object.</summary>
+
 Value | Title |  Definition
 ---|---|---
 A01 | Adjusted | The contents of the object have been adjusted.
@@ -1179,11 +1180,12 @@ A03 | Estimated | The contents of the object are estimated. The code is typicall
 A04 | As provided | The contents of the object are as provided.
 A05 | Incomplete | The contents of the object are calculated based on incomplete data.
 A06 | Calculated | The contents of the object are calculated. The code is typically used when a value is calculated based on several other known values.
+</details>
 
 
-**Name**: StandardReasonCodeTypeList  
-**List ID**: ET0015   
-**Description**: The coded motivation of an act.  
+<details>
+<summary><b>Name</b>: StandardReasonCodeTypeList<br/><b>List ID</b>: ET0015<br/><b>Description</b>: The coded motivation of an act.</summary>
+
 Value | Title |  Definition
 ---|---|---
 999 | Errors not specifically identified | This code is used to identify errors that have not been specifically addressed in the Reason code list. It can be used at any level and refers to the level for which it has been identified.
@@ -1337,11 +1339,11 @@ B67 | Bid activated in same direction | One or several bids were activated in th
 B68 | Optimization in progress | The activation optimisation framework is being executed.
 B69 | Wrong energy market timeframe | The given energy market timeframe is invalid or wrong.
 B70 | Message partially accepted | The detailed transactions of the received document are partially accepted. It is necessary to look at the detailed (transaction) level to determine if the transaction is accepted, rejected etc.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardRightsTypeList<br/><b>List ID</b>: ET0938<br/><b>Description</b>: The rights of use that is accorded to what is acquired in an auction.</summary>
 
-**Name**: StandardRightsTypeList  
-**List ID**: ET0938   
-**Description**: The rights of use that is accorded to what is acquired in an auction.  
 Value | Title |  Definition
 ---|---|---
 A01 | Use It Or Lose It | Any rights not nominated shall be lost.
@@ -1350,11 +1352,11 @@ A03 | Allocation curtailment possible | Rights acquired may be curtailed.
 A04 | Nomination curtailment possible | Rights acquired may be curtailed at nomination.
 A05 | Resale possible | Acquired rights may be resold.
 A06 | Transfer possible | Acquired rights may be transferred.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardRoleTypeList<br/><b>List ID</b>: ET0005<br/><b>Description</b>: Identification of the role played by a party.</summary>
 
-**Name**: StandardRoleTypeList  
-**List ID**: ET0005   
-**Description**: Identification of the role played by a party.  
 Value | Title |  Definition
 ---|---|---
 A01 | Trade responsible party | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
@@ -1416,11 +1418,11 @@ A56 | Flexibility service provider | A party that offers flexibility services ba
 A57 | Data access provider | A party responsible for facilitating access to data.
 A58 | Metered data administrator | A party responsible for storing and distributing validated measured data.
 A59 | Permission administrator | A party responsible for administrating a register of data access permissions for a set of metering points, making this information available to final customers and eligible parties in the sector, on request.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardStatusTypeList<br/><b>List ID</b>: ET0025<br/><b>Description</b>: The condition or position of an object with regard to its standing.</summary>
 
-**Name**: StandardStatusTypeList  
-**List ID**: ET0025   
-**Description**: The condition or position of an object with regard to its standing.  
 Value | Title |  Definition
 ---|---|---
 A01 | Intermediate | The document is in a non finalized state.
@@ -1496,11 +1498,11 @@ A70 | Available if linked bid subject to DA | Bid available if linked bid subjec
 A71 | Available for DA if linked bid subject to DA | Bid available for direct activation if linked bid subject to direct activation.
 A72 | Available for DA if linked bid subject to SA | Bid available for direct activation if linked bid subject to scheduled activation.
 A73 | Delta | Describes a status representing a difference between two values.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardTarifTypeTypeList<br/><b>List ID</b>: ET0039<br/><b>Description</b>: The standard tariff types as defined in the RGCE policies.</summary>
 
-**Name**: StandardTarifTypeTypeList  
-**List ID**: ET0039   
-**Description**: The standard tariff types as defined in the RGCE policies.  
 Value | Title |  Definition
 ---|---|---
 A01 | Winter HT | Winter HT tariff.
@@ -1510,11 +1512,11 @@ A04 | Summer HT | Summer HT tariff.
 A05 | Summer HHT1 | Summer HHT1 tariff.
 A06 | Summer HHT2 | Summer HHT2 tariff.
 A07 | Summer NT | Summer NT tariff.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardTimeframeTypeList<br/><b>List ID</b>: ET0053<br/><b>Description</b>: The identification of the timeframe.</summary>
 
-**Name**: StandardTimeframeTypeList  
-**List ID**: ET0053   
-**Description**: The identification of the timeframe.  
 Value | Title |  Definition
 ---|---|---
 A01 | Real time | The information provided concerns real time timeframe.
@@ -1563,19 +1565,19 @@ A43 | Week+1 | The information provided concerns previous week timeframe.
 A44 | Month ahead | The information provided concerns month ahead timeframe.
 A45 | Year ahead | The information provided concerns year ahead timeframe.
 A46 | Year-10 | The information provided concerns 10 years ahead timeframe.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardUnitMultiplier<br/><b>List ID</b>: MXM001<br/><b>Description</b>: The unit multipliers defined for the CIM.</summary>
 
-**Name**: StandardUnitMultiplier  
-**List ID**: MXM001   
-**Description**: The unit multipliers defined for the CIM.  
 Value | Title |  Definition
 ---|---|---
 1  | none | No multiplier or equivalently multiply by 1.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardUnitOfMeasureTypeList<br/><b>List ID</b>: ET0011<br/><b>Description</b>: (synonym MeasurementUnit) The unit of measure that is applied to a quantity. The measurement units shall be in compliance with UN/ECE Recommendation 20.</summary>
 
-**Name**: StandardUnitOfMeasureTypeList  
-**List ID**: ET0011   
-**Description**: (synonym MeasurementUnit) The unit of measure that is applied to a quantity. The measurement units shall be in compliance with UN/ECE Recommendation 20.  
 Value | Title |  Definition
 ---|---|---
 A59 | OKTA unit | A unit of measurement of the cloudiness expressed in OKTA or OCTA, i.e. A unit of count defining the number of eighth-parts as a measure of the celestial dome cloud coverage.
@@ -1611,11 +1613,11 @@ MWH | megawatt hours | The total amount of bulk energy transferred or consumed.
 P1 | percent | A unit of proportion equal to 0.01.
 SEC | second | A period of time equal to one second.
 WTT | watt | The watt is the International System of Units (SI) standard unit of power (energy per unit time), the equivalent of one joule per second.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardUnitSymbol<br/><b>List ID</b>: MXM000<br/><b>Description</b>: The coded representation of different units from IEC 61970.</summary>
 
-**Name**: StandardUnitSymbol  
-**List ID**: MXM000   
-**Description**: The coded representation of different units from IEC 61970.  
 Value | Title |  Definition
 ---|---|---
 AMP | Ampere | The unit of electrical current in the International system of Units (SI) equivalent to one Coulomb per second.
@@ -1629,12 +1631,11 @@ MAW | MW | The symbol of MW
 MVA | megavolt-ampere | MVA unit as per UN/CEFACT recommendation 20
 OHM | Ohm | The symbol of Ohm Unit
 P1 | Percent | A unit of proportion equal to 0.01.
+</details>
 
+<details>
+<summary><b>Name</b>: StandardDocumentTypeList<br/><b>List ID</b>: ET0003<br/><b>Description</b>: The DocumentTypeList is only used in XML instances using deprecated ENTSO-E schema; otherwise for XML instances based CIM, the codelist is MessageTypeList. Therefore, you are kindly advised to refer to the MessageType enumeration, which includes the same enumeration codes.</summary>
 
-**Name**: StandardDocumentTypeList  
-**List ID**: ET0003   
-**Description**: The DocumentTypeList is only used in XML instances using deprecated ENTSO-E schema; otherwise for XML instances based CIM, the codelist is MessageTypeList. 
-Therefore, you are kindly advised to refer to the MessageType enumeration, which includes the same enumeration codes.  
 Value | Title |  Definition
 ---|---|---
 A01 | Balance responsible schedule | A schedule which has been prepared by a balance responsible party providing planned schedule information.
@@ -1740,25 +1741,38 @@ B02 | HVDC Schedule | A document providing the information for operating DC link
 B03 | EIC code request | A document providing the information requesting a new EIC code.
 B04 | EIC code information | A document providing EIC information  in a central registry exchange or information to an EIC participant.
 B05 | EIC code publication | A document providing EIC publication information in a web site publication of a limited set of information.
+</details>
 
 
+The following CIMs are considered for common European Vocabulary Hub:
+
+![European Vocabulary Hub VHD Class Diagram](./vhd-data-evh.drawio.png)
+
+Full details can be found in the document: [Validated Historical Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/EDDIE/VHD/Pre-standardised/Profile%20Documentation%20for%20ValidatedHistoricalData%20message.pdf)
 
 
+![European Vocabulary Hub RTR Class Diagram](./rtr-data-evh.drawio.png)
+
+Full details can be found in the document: [Redistribution Transaction Request](https://github.com/Digital4Grids/Bridge_energy_schemas/tree/main/EDDIE/RTR/Project)
 
 
-The following CIMs are available in the repository:
-- [Validated Historical Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/EDDIE/VHD/Pre-standardised/Profile%20Documentation%20for%20ValidatedHistoricalData%20message.pdf)
-- [Redistribution Transaction Request](https://github.com/Digital4Grids/Bridge_energy_schemas/tree/main/EDDIE/RTR/Project)
-- [Real Time Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/EDDIE/RTD/Pre-standardised/Profile%20Documentation%20for%20RealTimeData%20message.pdf)
-- [Permission Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/EDDIE/RequestPermission/Profile%20Documentation%20for%20RequestPermission%20message.pdf)
+![European Vocabulary Hub RTD Class Diagram](./rtd-data-evh.drawio.png)
+
+Full details can be found in the document: [Real Time Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/EDDIE/RTD/Pre-standardised/Profile%20Documentation%20for%20RealTimeData%20message.pdf)
+
+
+![European Vocabulary Hub PD Class Diagram](./pd-data-evh.drawio.png)
+
+Full details can be found in the document: [Permission Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/EDDIE/RequestPermission/Profile%20Documentation%20for%20RequestPermission%20message.pdf)
+
 
 ### Reference data objects
 
 The main models have been identified in [Reference Models](https://insieme-web.projekte.fh-hagenberg.at/architecture/reference-models/reference-models.html) part. S2 service is used by the folowing procedures:
 
 | Model name                       | Procedure                                                                | 
-|----------------------------------|-------------------------------------------------------------------------|
-| IR Demand Response               | 	1: General access to Controllable Unit master data by an entitled party 
+|----------------------------------|--------------------------------------------------------------------------|
+| IR Demand Response               | 1: General access to Controllable Unit master data by an entitled party 
 | IR Demand Response               | 2: Controllable Unit registration                                        
 | IR Demand Response               | 5: Suspension of Controllable Unit by an entitled party                  
 | IR Demand Response               | 6: Re-activation of Controllable Unit                                    
@@ -1845,34 +1859,32 @@ National Platforms interaction with CEEDS Platform
 
 Each National Data Space or Specific platform will connect to CEEDS Platform using the clinet library software. The EU Publications Office provides publicly available EU Vocabularies service. This is a repository for authority tables, code lists, thesauri, alignments, taxonomies, schemas, ontologies and related common data. It a recommendation to have CEEDS code lists, taxonomies, and ontologies aligned with EU Vocabularies at least at data format level (genericode format, RDF/OWL, SHACL forms) for future migration and integration.
 
-Procedure for onboarding 
+Main operations and procedures
 
-The onboarding process should be initiated from the Local Actor side and it will be channeled through the National Data Space platform or Specific platform. This platform must implement the communication protocole and data exchage mechanism with CEEDS. In case of error as a result of onboarding request, it must be propagated to the Local Actor. In case of successfull onboarding, an User ID will be issued and communicated to the Local Actor. The User ID is unique for the entire CEEDS plarform and should be mapped to national Local Actor ID. This reference must be used in furher transacitons for onboarding resources and other requests.
+Actor | Operation | Description
+---|---|---
+National Data Space Facilitator | Onboard to CEEDS | Facilitate local user of the National Data Space platform to onboard CEEDS so that they can prodivide and maintain national schema definitions, data models, ontologies, data mappings and all client libraries that will allow scure connection and data exchange between participants. 
+National Data Space Facilitator | Manage client libraries  | Authenticated local user can update and deploy client libraries.
+National Data Space Facilitator | Manage national schema definitions  | Authenticated local user can update and upload national schema definitions.
+National Data Space Facilitator | Manage data mappings  | Authenticated local user can update and upload new version of data mappings to pivotal information models. Those models should contain the mapping of local, national format, data to common European data model.
+National Data Space Facilitator | Manage European information model  | Authenticated local user can update and registre common European models, the National specific part.
+CEEDS Opeators | Manage common European Vocabulary | Authenticated CEEDS user with the role of Operator can upload, update and deprecate common European Vocabulary data model, data catalogs, service catalogs, ontologies, code lists, thesaury via European Vocabulary management interface.
+CEEDS User | Exchange data through CEEDS | Regsitered users, via the Onboarding procedure will be able to exchange data with the other participants to CEEDS data space. It is higly dependent from technology point of view of National Data Space data model, the mapping between the common European Vocabulary Data format, the Data Mapping Service. The availability of this information should be exposed to CEEDS users via a dashboard.
 
-The onboarding can be eventually initiated by the National Platform Facilitator or CEEDS user. The Local Actor must be notified about the onboarding result as it may opt out from exchanging data through CEEDS. All messages back to Local Actor should be asynchronous when comming from CEEDS.
- 
-![European Vocabulary Hub Onboarding Sequence Diagram](./onboarding-evh.drawio.png)
 
 
-Procedure for offboarding
-
-The offboarding process may be initiated by the Local Actor or by National Platform Facilitator. In both cases it is the National Data Space or Specific platform that must implement the data exchange with CEEDS platform using the client libraries bulid for this purpouse. It should be possible for a Local Actor to offboard only some of its resources without having an impact on its access or status on CEEDS platform.
-
-The historical transactional data about the Local Actor or its resources will be stored and archived according to EU data regulations. The opt out action will not offboard the Local Actor or its resources. CEEDS must implement a mechanism for update and propagation of the opt out actions.
-
-![European Vocabulary Hub Offboarding Sequence Diagram](./offboarding-evh.drawio.png)
 
 #### Component Descriptions
 
 Component | Description 
 ---|---
-National Data Space Facilitator(s) | Actor responsible for management and intreface with the Local actors at National Data Space level or National Platform or Specific Platform. Main responsiblity is to manage the access and data model update for CEEDS National platform.
 National Data Space | Specific implementation of Data Space at national level. It may be a specific data space, also. The system is managed by National Data Space Facilitator and it communicates with CEEDS via National Data Space client libraries.
 CEEDS Platform | Europeean Data Space for connecting National Data Spaces and transforming data to and from those systems into common European data format as defined and managed by service S2 - European Vocabulary Hub. 
+EU Vocabularies | EU Public platform managed by the Publications Office of EU that can be used as central repository for common EU information as: code lists, thesaury, and ontologies. This component may not be part of the initial implementation. It is recommended that the data data format of same infomation stored in CEEDS to be compatible or the same format that the one of EU Vocabularies.
 
 The main interactions of sercive S2 - European Vocabulary Hub are:
 - system to sytem with National Data Space via client libraries, for data exchange and transformation
-- user interface with CEEDS users for data consumption in common European format 
+- user interface with CEEDS users for data transactions in common European format 
 - user interface with CEEDS operators for managing the common European format. It is possible to have an alterntive way intreacting system to system using client libraries.
 
 ## Technology Architecture
@@ -1906,5 +1918,14 @@ For existing National Data Space platform or Specific Platfrom the exisiting dep
 
 
 #### Component Descriptions
+
+Component | Service | Deployment description
+---|---|---
+CEEDS Platform | Service S2 - European Vocabulary Hub | Deployed on a centralized infrastructure. Higly recomended to be container based (Docker, K8S, OpenShift, K3S) using an Open Source solution.<br/>
+CEEDS Platform | Ontology and Code lists management solution | Should be deployed in the same cluster as Service S2. One option may be Semantic Treehouse.
+CEEDS Platform | User intreface | Front end application that allows direct interaction of CEEDS users with the Service S2. All functionalites should be available as API too. The expected dynamics of direct User interaction is expected to be very low and most of the intraction will be via API.
+CEEDS Platform / National Data Space | National Platform Interface | System to System interface allowing transparent integration of National Data Space Platform with CEEDS. It can be deployed on the National Data Space Platform with secure communication with CEEDS or directly on CEEDS. The responsibility for devloping the Interface will be allocated to National Data Space team, in particular for the client library. It is recommended to use a containerized deployment.
+CEEDS Platform | Interface with EU Vocabularies | It is higly recommended to use EU Vocabularies as storage and sharing  for code lists, thesaury, and ontologies. The interface should be direct since the access to EU Vocabulries is open and public.
+
 
 <!-- TODO: Insert descriptions of Deployment View components -->
