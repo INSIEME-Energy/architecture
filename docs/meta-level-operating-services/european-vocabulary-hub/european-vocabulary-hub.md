@@ -35,7 +35,7 @@ Thus, it forms the bridge between the business products viewpoint and the busine
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
 
-![European Vocabulary Hub ArchiMate Diagram](./img.png)
+![European Vocabulary Hub ArchiMate Diagram](./app-evh.drawio.png)
 
 #### Component Descriptions
 
