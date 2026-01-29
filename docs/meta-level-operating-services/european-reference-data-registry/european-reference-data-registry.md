@@ -33,9 +33,10 @@ The Service Realization Viewpoint pattern creates elements that show how one or 
 Thus, it forms the bridge between the business products viewpoint and the business process view. It provides a "view from the outside" on one or more business processes. 
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
-
+![European Reference Data Registry Service Realisation Architecture](./app-erdr.drawio.png)
+<!--
 <img width="1336" height="902" alt="image" src="https://github.com/user-attachments/assets/574af7c8-876d-4ccd-816f-bb252c7fae51" />
-
+-->
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Realization Viewpoint components -->
