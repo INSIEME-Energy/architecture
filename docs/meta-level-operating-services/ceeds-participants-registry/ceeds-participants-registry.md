@@ -10,6 +10,7 @@ order: 1
 | Leader         | Benjamin Ellmer        | benjamin.ellmer@fh-hagenberg.at        |
 | Contributor    | Georg Hartner          | georg.hartner@eddie.energy             |
 | Contributor    | Florian Weingartshofer | florian.weingartshofer@fh-hagenberg.at |
+| Contributor    | Aya Mohamed            | aya.Mohamed@fh-hagenberg.at            |
 
 ## Function and Objective
 
@@ -89,8 +90,6 @@ The national registry exchanges relevant information with the European-level ide
 **National Party Certification** represents national certification and compliance mechanisms that validate participants against national requirements.
 These certifications feed into the overall trust framework and are aligned with the European certification chain to enable cross-border participation without redundant procedures.
 
-Description of services and Functions (description of all boxes in the diagram)
-
 ## Data Architecture
 
 <!-- 
@@ -161,10 +160,11 @@ It ensures that the infrastructure supports the application and data requirement
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
+<!--
 E.g. sequence diagrams for e.g. onboarding, offboarding etc.
-
 * registry wiederverwenden
- 
+-->
+
 ### Deployment View
 
 <!-- 

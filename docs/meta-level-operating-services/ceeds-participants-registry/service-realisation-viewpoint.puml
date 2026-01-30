@@ -1,0 +1,57 @@
+@startuml
+
+!include <archimate/Archimate>
+
+title S1 — European Participant Registry
+
+' === Business Actors ===
+Business_Actor(participant, "CEEDS Participant")
+Business_Actor(operator, "CEEDS Operator")
+Business_Actor(facilitator, "National Data Space Facilitator")
+
+' === Application Layer ===
+Application_Service(onboarding, "CEEDS Onboarding and Offboarding")
+Application_Service(nationalRole, "National Market Role Onboarding and Offboarding")
+Application_Service(certChain, "CEEDS party certification chain")
+Application_Service(publicRegistry, "Public CEEDS Participant Registry")
+
+Application_Component(ceedsRegistry, "CEEDS Participant Registry")
+
+Application_Service(euRefData, "Market Participant EU-wide identification and reference data")
+
+Application_Service(integration, "Integration of National Registry with European Registry")
+
+Application_Component(nationalRegistry, "National Data Space Participant Registry")
+
+Application_Service(nationalId, "National identification, certificates and information")
+Application_Service(nationalCert, "National party certification")
+
+' === Relationships ===
+
+Rel_Association(participant, onboarding)
+Rel_Association(participant, nationalRole)
+
+Rel_Flow(onboarding, nationalRole)
+Rel_Flow(nationalRole, certChain)
+Rel_Flow(certChain, publicRegistry)
+
+Rel_Association(operator, ceedsRegistry, "operates")
+
+Rel_Serving(ceedsRegistry, onboarding)
+Rel_Serving(ceedsRegistry, nationalRole)
+
+Rel_Flow(ceedsRegistry, euRefData)
+
+Rel_Flow(ceedsRegistry, integration)
+Rel_Flow(integration, nationalRegistry)
+
+Rel_Association(facilitator, nationalRegistry, "operates")
+
+Rel_Flow(nationalRegistry, nationalId)
+Rel_Flow(nationalRegistry, nationalCert)
+
+Rel_Aggregation(euRefData, nationalId)
+
+Rel_Flow(euRefData, publicRegistry)
+
+@enduml
