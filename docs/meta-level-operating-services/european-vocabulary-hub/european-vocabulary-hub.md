@@ -13,12 +13,30 @@ order: 2
 
 ## Function and Objective
 
-Maintains the European Common Information Model and maps national vocabularies for semantic interoperability.
+The European Vocabulary hub maintains the European Common Information Model and maps national vocabularies for semantic interoperability. The current work is based on previous EU projects: [EDDIE](https://eddie.energy/), [BRIDGE initiative](https://bridge-smart-grid-storage-systems-digital-projects.ec.europa.eu/), [Synergies](https://synergies-project.eu/), [ENTSO-E](https://www.entsoe.eu/data/cim/role-models/), [DSSC - Data Spaces Support Center](https://dssc.eu/), [Gaia-X](https://gaia-x.eu/), that established a solid foundation for CEEDS.
 
-It is one responsibility of the **CEEDS Facilitator** to actively participate in the works under the umbrella of Standards Defining Organisations (SDOs) on the adoption and extension of the pivotal
-European information models. **National Data Space Facilitators** should be responsible to provide and maintain updates of the mappings.
+The main objective is to provide single referece for common European code lists, thesauri, ontologies, data models, data catalogues, service catalogues, schemas that are used to map national specific data models and formats to common European data format so that CREEDS participants are enabled to perform seeamles data transactions. The European Vocabulary Hub must store nad maintain the common European data model so that all CEEDS Participants can use the information and be enabled to perform data exchanges via CEEDS.
+
+European Vocabulary Hub functions should be fully aligned with the DSSC standard functions describing the Vocabulary Hub:
+1. **Storing vocabularies**: The Vocabulary Hub stores and lists valid vocabularies, making them available for the public and long-term use.
+1. **Search on the semantic sources**: the Vocabulary Hub allows data space participants to search for semantic resources based on specified criteria, providing a qualified results list with links to vocabularies and other semantic resources.
+1. **Documenting non-standardised data**: the Vocabulary Hub permits data space participants to include semantic information about non-standardised data during ingestion, making this information discoverable within the data space.
+1. **Export semantic sources**: the Vocabulary Hub enables data space participants to export semantic sources in various formats, including serialisation options or human-readable formats.
+1. **Automatic integration with the catalog**: the Vocabulary Hub offers continuous integration, ensuring that the catalog of vocabularies has complete access to the semantic information of a vocabulary with appropriate user permissions.
+1. **Validation of data**: the Vocabulary Hub allows data space participants to validate their data against specific vocabularies.
 
 ## Business Architecture
+
+The European Vocabulary Hub provides services for and interacts with the following actors and systems:
+
+| Actor/System                        | Description                                                                                                                                                                                                                                                                                       |
+|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| National Data Space Facilitator (NDSF)      | Actor responsible for National Data Space management, in particular  the definition of the specific metadata that can be shared with CEEDS, the maintenance of the corresponding ontology and maintenance of the corresponding data mapping service from National metadata to European Vocabulary metadata. NDSF are responsible for providing and maintaing updates of the mappings. Only sepecific National Data Space Platforms will connect to CEEDS. The access will be limited to specific participants in the CEEDS project and only specific services and data sets will be exchanged. The service catalog should be provided and maintainded by NDSF.|
+| CEEDS Participant                          | Participant having access to the services related to Information Schema.                                                                                                                                                                                                                                |
+| CEEDS Facilitator                      | Participant having access to the European Vocabulary HUB interface for metadata management. This includes code lists, thesauri, ontology, data service catalog, data catalog, access management, rights management. It cooperates with Standard Definitnion Organisation to define and enhance European standard model.  One of the key responsibilities is to actively engage in the activiteis conducted by Standards Defining Organisations (SDOs) concerning the adoption and enhancement of the pivotal European information models.                                                                                  |
+| S4 - Common European Process Façade | Service connected to S2 - European Vocabulary HUB.                                                                                                                                                                                                                                                |
+| EU Vocabularies                     | EU platform maintained by Publications Office of EU, repository for code lists, vocabularies, ontologies.                                                                                                                                                                                        |
+
 
 <!-- 
 The Business Architecture focuses on business requirements. It outlines the structure and operation of an organization, including business goals, functions, processes, and organizational structure. 
@@ -27,10 +45,10 @@ See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 ![European Vocabulary Hub Business Architecture](./business-evh.drawio.png)
 
 
-### Service Realization Viewpoint
+### Service Realisation Viewpoint
 
 <!-- 
-The Service Realization Viewpoint pattern creates elements that show how one or more business services are realized by the underlying processes (and sometimes by application components). 
+The Service Realisation Viewpoint pattern creates elements that show how one or more business services are realized by the underlying processes (and sometimes by application components). 
 Thus, it forms the bridge between the business products viewpoint and the business process view. It provides a "view from the outside" on one or more business processes. 
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
@@ -41,76 +59,39 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization
 
 Component | Description
 ---|---
-Data mapping service | Service that transforms national data models into European wide models. Uses schema definitions and client libraries. The communication with National Data Platforms is done via client libraries.
-Data mapping service - schema definitions | All necessary data models for exchanging and converting national data to CEEDS data models.
-Data mapping service - client libraries | The client libraries are specific for each national data space / national platform of specific platform and facilitates the management of national or platform specific code lists, ontologies, data models, data catalogs, service catalogs that are necessary for exchanging data with CEEDS.
-standardised data mapping to pivotal information models | Data transformation from national data model to CEEDS data model. This should support defaul values in case of missing data.
-EU-wide register for information models | The register European model(s) is managed by CEEDS operators and fed by National Data Space Facilitator(s). The register is used a data model repository together with data mapping and trasnformation for each verison, from national data model to European common data model.
-Information schema publication | Service exposing the European common data model, the schema definitions via the client libraries. Any pariticipant at CEEDS Data Space must have a client library.
-Information schema publication - schema definitions | Common European schema definitions. This is the minimum mandatory European schema that allows data exchange between the participants at CEEDS Data Space.
-Information schema publication - client libraries | The client libraries used by information schema publication service to exchange data in common Europead format.
-
+Data mapping service | Service that translates national data models into European wide models. Uses schema definitions and client libraries. The communication with National Data Platforms takes place via client libraries. 
+Data mapping service - schema definitions | Registers and maintains all the necessary data models for exchanging and converting national data to CEEDS data models. In the process of establishing a data mapping service, communication is needed between the relevant stakeholders to semantically harmonise the data models.
+Data mapping service - client libraries | Client libraries are specific for to each national data space / national platform of specific platform and facilitates the management of national or platform specific code lists, ontologies, data models, data catalogscatalogues, service catalogscatalogues that are necessary for exchanging data within CEEDS.
+standardised data mapping to pivotal information models | Data mapping from national data model to CEEDS data model. This should support default values for missing data events.
+EU-wide register for information models | The register European model(s) is managed by CEEDS facilitators and contributed to National Data Space Facilitator(s). The register comprises a data model repository together with data mapping and trasnformation for each version, from national data model to European common data model.
+Information schema publication | Service exposing the European common data model, the schema definitions via the client libraries. CEEDS Participants must use specific client libraty to access the common European schema.
+Information schema publication - schema definitions | Common European schema definitions comprising the minimum mandatory European schema that allows for data exchange between the participants at CEEDS Data Space.
+Information schema publication - client libraries | The client libraries used by information schema publication services for data exchange data in common European formats.
 
 
 ## Data Architecture
 
 ### Data Objects
 
-The following standards should be used:
-- __IEC62746-4__ ESMP model for common European data model
-- __ISO8601__ for date/time formats
-- __ISO19139__ for annotation of high-value datasets in geometadata. 
+The data exchange shall be based on an ETSI-CEN-CENELEC set of standards (e.g. EN IEC 62325-351 and considering other relevant European initiatives such as the Harmonised Electricity Market Role Model (HEMRM) and the International Electrotechnical Commission’s Common Information Model (CIM).
 
+Here are the references for data objects to be used:
+- **EN IEC 62325-351** the European Style Market Document (ESMP) as published by [ENTSO-E](https://www.entsoe.eu/publications/electronic-data-interchange-edi-library/#Common_information_model__CIM__European_style_market_profile) consisting of a user guide, XSD, code list and component
+- **ISO8601** for date/time formats
+- **ISO19139** for annotation of high-value datasets in geometadata.
+- [IEC62746-4-1 Ed.1 Explicit](https://github.com/Digital4Grids/Bridge_energy_schemas/tree/main/IEC62746-4/IEC62746-4-1%20Explicit) ESMP model for explicit flexibility
+- [IEC62746-4-1 Ed.1 Implicit](https://github.com/Digital4Grids/Bridge_energy_schemas/tree/main/IEC62746-4/IEC62746-4-2%20Implicit) ESMP model for implicit flexibility
+The last two provisional standards are published by Bridge energy schemas Github repository is shared on the [Digital4Grid - Bridge energy schemas](https://github.com/Digital4Grids/Bridge_energy_schemas). 
+Further usage of other standards, especially dealing with electro mobility, are still part of ongoing discussion in the CIM TC57 working group 21. The result will be published at the Bridge energy schemas Github.
 
-The data objects are extracted from [Digital4Grid - Bridge energy schemas](https://github.com/Digital4Grids/Bridge_energy_schemas) previous works as basis for European Data Space data model.
-
-The main code list published by Bridge energey schemas is shared on project's [public repository](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/IEC62746-4/IEC62746-4-1%20Explicit/urn-entsoe-eu-wgedi-codelists.xsd). This is the ENTSO-E code list used by ENTSO-E XML electronic documents and CIM XML electronic documents. The data model and code list usage is detailed in ENTSO-E document [Procedures for access to metering and consumption data](https://eepublicdownloads.entsoe.eu/clean-documents/EDI/Library/cim_based/amcd/IG_FinalDraft_Implementation_Guide_access_to_metering_and_consumption_data_ICTC_Approved.pdf).
+We will provide in the next sections a non exhaustive list of samples for code lists and data models. 
 
 #### Code lists
-<!--
-Name | List ID | Description
----|---|---
-StandardAllocationModeTypeList | ET0040 | The identification of the method of allocation in an auction.
-StandardAnalogTypeList | MXM000 | The identification of an analog value.
-StandardAssetTypeList | ET0031 | The identification of the type of asset.
-StandardAuctionTypeList | ET0030 | The coded representation of different types of auction.
-StandardBusinessTypeList | ET0017 | The exact business nature identifying the principal characteristic of a time series.
-StandardCategoryTypeList | ET0037 | The product category of an auction.
-StandardClassificationTypeList | ET0013 | Indicates the classification mechanism used to group a set of objects together. The grouping may be of a detailed or a summary nature.
-StandardCodingSchemeTypeList | ET0004 | Codification scheme used to identify the coding scheme used for the set of coded values to identify specific objects.
-StandardCoordinateSystemTypeList | ET0108 | The identification of the coordinate system used for the location position.
-StandardContractTypeList | ET0010 | The contract type defines the conditions under which the capacity is allocated and handled, e.g. daily auction, weekly auction, monthly auction, yearly auction, etc.  The significance of this type is dependent on area specific coded working methods.
-StandardCurrencyTypeList | ET0024 | The coded identification of legal tender using ISO 4217 3 alpha codes.
-StandardCurveTypeList | ET0042 | The type of curve being defined in the time series.
-StandardDirectionTypeList | ET0026 | The coded identification of the direction of energy flow.
-StandardEicTypeList | ET0028 | The coded identification of the type of an EIC code.
-StandardEnergyProductTypeList | ET0008 | The identification of the nature of an energy product such as power, energy, reactive power, etc.
-StandardFuelTypeList | ET0051 | The identification of the type of fuel.
-StandardHVDCModeTypeList | MXM000 | The coded identification of the HVDC mode.
-StandardIndicatorTypeList | ET0029 | A boolean indicator to express Yes or No or True or False.
-StandardMessageTypeList | ET0003 | The coded type of a document. The message type describes the principal characteristic of a document. This enumeration is used in the XML instances based on IEC 62325.
-StandardMarketProductTypeList | ET0008 | The identification of the type of a product on a market view
-StandardObjectAggregationTypeList | ET0018 | The identification of the domain that is the common dominator used to aggregate a time series.
-StandardPaymentTermsTypeList | ET0041 | The identification of the different terms of payment.
-StandardPriceCategoryTypeList | ET0048 | Indicates the category of the calculation to be applied to a price.
-StandardPriceComponentTypeList | ET0052 | Indicates the component type for  a price.
-StandardPriceDirectionTypeList | ET0049 | The nature of a price, i.e. an impacted area system operator pays to internal market parties or inverse.
-StandardProcessTypeList | ET0020 | Indicates the nature of process that the document addresses.
-StandardQualityTypeList | ET0036 | The quality of an object.
-StandardReasonCodeTypeList | ET0015 | The coded motivation of an act.
-StandardRightsTypeList | ET0938 | The rights of use that is accorded to what is acquired in an auction.
-StandardRoleTypeList | ET0005 | Identification of the role played by a party.
-StandardStatusTypeList | ET0025 | The condition or position of an object with regard to its standing.
-StandardTarifTypeTypeList | ET0039 | The standard tariff types as defined in the RGCE policies.
-StandardTimeframeTypeList | ET0053 | The identification of the timeframe.
-StandardUnitMultiplier | MXM001 | The unit multipliers defined for the CIM.
-StandardUnitOfMeasureTypeList | ET0011 | (synonym MeasurementUnit) The unit of measure that is applied to a quantity. The measurement units shall be in compliance with UN/ECE Recommendation 20.
-StandardUnitSymbol | MXM000 | The coded representation of different units from IEC 61970.
-StandardDocumentTypeList | ET0003 | The DocumentTypeList is only used in XML instances using deprecated ENTSO-E schema; otherwise for XML instances based CIM, the codelist is MessageTypeList.  Therefore, you are kindly advised to refer to the MessageType enumeration, which includes the same enumeration codes.
--->
+
+
 
 <details>
-<summary><b>Name</b>: StandardAllocationModeTypeList<br/><b>List ID</b>: ET0040<br/><b>Description</b>: The identification of the method of allocation in an auction.</summary>
+<summary><b>Name</b>:AllocationModeTypeList<br/><b>List ID</b>:ET0040<br/><b>Description</b>:The identification of the method of allocation in an auction.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -120,8 +101,9 @@ A03 | First come - First served | The allocation method is first come first serv
 A04 | Pro rata | The allocation method is pro rata.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardAnalogTypeList<br/><b>List ID</b>: MXM000<br/><b>Description</b>: The identification of an analog value.</summary>
+<summary><b>Name</b>:AnalogTypeList<br/><b>List ID</b>:MXM000<br/><b>Description</b>:The identification of an analog value.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -161,10 +143,17 @@ A33 | Flows from already allocated cross-zonal capacities (Faac) | Flows resulti
 A34 | Flow from remedial action (FRA) | Flow for increasing the Remaining Available Margin due to remedial action.
 A35 | Assumed external exchanges | Flow resulting from assumed commercial exchanges outside the region (F_uaf).
 A36 | Minimum remaining available margin target | Target capacity for exchanges by deducing the exchanges not related to the region.
+A37 | Average voltage | Average voltage on two connecting nodes of a critical network element resulting from AC load flow calculation with applied reactive power constraints (U).
+A38 | Average power factor | Average power factor on two connecting nodes of a critical network element resulting from AC load flow calculation (cos phi).
+A39 | Lower ramp rate | The maximum rate that the output can be lowered by.
+A40 | Raise ramp rate | The maximum rate that the output can be raised by.
+A41 | Negative reference flow | The amount of power negatively affected by a contingency that reflects a situation with scheduled exchanges from a reference situation.
+A42 | Negative flow due to non-costly remedial actions | Negative expected flow change due to non-costly remedial actions.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardAssetTypeList<br/><b>List ID</b>: ET0031<br/><b>Description</b>: The identification of the type of asset.</summary>
+<summary><b>Name</b>:AssetTypeList<br/><b>List ID</b>:ET0031<br/><b>Description</b>:The identification of the type of asset.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -231,7 +220,7 @@ B46 | Thermal steam engine | A steam engine is a heat engine that performs mecha
 B47 | Thermal organic Rankine cycle | The Organic Rankine Cycle (ORC) is named for its use of an organic, high molecular mass fluid with a liquid-vapor phase change, or boiling point, occurring at a lower temperature than the water-steam phase change. The fluid allows Rankine cycle heat recovery from lower temperature sources such as biomass combustion, industrial waste heat, geothermal heat, solar ponds etc. The low-temperature heat is converted into useful work, that can itself be converted into electricity.
 B48 | Thermal gas turbine without heat recovery | Unit in which heat energy is converted to electricity called Simple Cycle Gas Turbine. The power is generated by the gas turbine and there is no flue gas waste heat recovery.
 B49 | Nuclear heavy water reactor | A unit in which the heat source is a pressurized heavy-water reactor (PHWR) that is a nuclear reactor that uses heavy water (deuterium oxide D2O) as its coolant and neutron moderator.
-B50 | Nuclear light water reactor | A unit in which the heat source is a light-water reactor (LWR) that is a type of thermal-neutron reactor that uses normal water, as both its coolant and neutron moderator – furthermore a solid form of fissile elements is used as fuel.
+B50 | Nuclear light water reactor | A unit in which the heat source is a light-water reactor (LWR) that is a type of thermal-neutron reactor that uses normal water, as both its coolant and neutron moderator � furthermore a solid form of fissile elements is used as fuel.
 B51 | Nuclear breeder | A unit in which the heat source is a nuclear reactor that generates more fissile material than it consumes.
 B52 | Nuclear graphite reactor | A unit in which the heat source is a graphite-moderated reactor that is a nuclear reactor that uses carbon as a neutron moderator, which allows natural uranium to be used as nuclear fuel.
 B53 | Temporary energy storage | A resource that is temporarily connected to the grid and that may store energy when connected, such as an electric vehicle.
@@ -256,10 +245,13 @@ B71 | Ammonia reforming unspecified | Unspecified ammonia reforming.
 B72 | Ammonia gasification | Unspecified gasification.
 B73 | Chlor-alkali electrolysis unspecified | Unspecified alkali electrolysis.
 B74 | Chlor-alkali electrolysis by-product | Alkali electrolysis product.
+B75 | ACDC converter | ACDC converters are electrical circuits that transform alternating current (AC) into direct current (DC) and vice versa.
+B76 | Converter | Electrical device that converts current between AC and DC.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardAuctionTypeList<br/><b>List ID</b>: ET0030<br/><b>Description</b>: The coded representation of different types of auction.</summary>
+<summary><b>Name</b>:AuctionTypeList<br/><b>List ID</b>:ET0030<br/><b>Description</b>:The coded representation of different types of auction.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -273,8 +265,9 @@ A07 | Flow-based | The allocation is an implicit auction using flow-based capaci
 A08 | Continuous | The auction type is continuous, i.e. there is no gate closure time when bids from the market participants are collected. Instead allocation procedure takes place immediately.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardBusinessTypeList<br/><b>List ID</b>: ET0017<br/><b>Description</b>: The exact business nature identifying the principal characteristic of a time series.</summary>
+<summary><b>Name</b>:BusinessTypeList<br/><b>List ID</b>:ET0017<br/><b>Description</b>:The exact business nature identifying the principal characteristic of a time series.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -284,7 +277,8 @@ A03 | External trade explicit capacity | The nature of the business being descri
 A04 | Consumption | The nature of the business being described is consumption details.
 A05 | External trade total | The nature of the business being described is external trade total.
 A06 | External trade without explicit capacity | The nature of the business being described is external trade details between two areas without requiring capacity allocation information.
-A07 | Net Production / Consumption | Net production/consumption - where signed values will be used. With the following rules: In area=Out area, In party=Out party, + means production and - means consumption.
+A07 | Net Production / Consumption | Net production/consumption - where signed values will be used. 
+With the following rules: In area=Out area, In party=Out party, + means production and - means consumption.
 A08 | Net internal trade | Net internal trade - where the direction from out party (seller) to in party (buyer) is positive and the opposite direction is negative (with minus signs).
 A09 | IPP (Independent Power Producer) | A time series concerning the production schedule from an IPP.
 A10 | Tertiary control | A time series concerning tertiary reserve.
@@ -305,7 +299,8 @@ A24 | Total trade | A time series concerning the total of both the internal and 
 A25 | General Capacity Information | A time series providing the total capacity available on a TSO border.
 A26 | Available transfer capacity (ATC) | Available transfer capacity for cross-border exchanges.
 A27 | Net transfer capacity (NTC) | Net transfer capacity for cross-border exchanges.
-A28 | Control Area Program | A time series providing the total exchanges between two TSOs (including the commercial transactions, the compensation program and the losses compensation program). Note this definition might change when UCTE brings forward its coding requirements.
+A28 | Control Area Program | A time series providing the total exchanges between two TSOs (including the commercial transactions, the compensation program and the losses compensation program). 
+Note this definition might change when UCTE brings forward its coding requirements.
 A29 | Already allocated capacity (AAC) | The already allocated capacity is the total amount of allocated transmission rights.
 A30 | Internal inter area trade | A trade that occurs between internal areas within a market balance area.
 A31 | Offered Capacity | The time series provides the offered capacity.
@@ -412,9 +407,14 @@ B33 | Area Control error (ACE) | The sum of the instantaneous difference between
 B34 | Area Control Error after Imbalance Netting | A time series concerning the Area Control Error after applying the  imbalance netting energy correction.
 B35 | Implicit and explicit trade total | The sum of cross border schedules based on implicit and explicit trades including long term, yearly, monthly, weekly, daily processes.
 B36 | Production units own consumption | The consumption of one or more production units.
-B37 | Constraint situation | The timeseries describes the constraint situation for a given TimeInterval. A constraint situation can be: <ul><li>composed of a list of network elements in outage associated for each outage to a list of network elements on which remedial actions have been carried out accordingly to contingency process</li><li>or it can be an external constraint.</li></ul>
-B38 | Initial domain | The timeseries describe the full flow based domain for a given TimeInterval. Critical network elements are displayed in details and their impact on the market is quantified.
-B39 | Flow based domain adjusted to long term schedules | The timeseries describe the full flow based domain for a given TimeInterval adjusted to the latest update of the schedules. Critical network elements are displayed in details and their impact on the market is quantified.
+B37 | Constraint situation | The timeseries describes the constraint situation for a given TimeInterval.
+A constraint situation can be: 
+- composed of a list of network elements in outage associated for each outage to a list of network elements on which remedial actions have been carried out accordingly to contingency process 
+- or it can be an external constraint.
+B38 | Initial domain | The timeseries describe the full flow based domain for a given TimeInterval. 
+Critical network elements are displayed in details and their impact on the market is quantified.
+B39 | Flow based domain adjusted to long term schedules | The timeseries describe the full flow based domain for a given TimeInterval adjusted to the latest update of the schedules. 
+Critical network elements are displayed in details and their impact on the market is quantified.
 B40 | Network element constraint | The timeSeries describes limiting elements which are overloaded.
 B41 | Calculation opposition (Red Flag) | The timeSeries describes a party who is opposed to the calculation result and imposes its transfer capacity value.
 B42 | Base case proportional shift key | The GSK or LSK are proportional to the base case generation or load.
@@ -557,7 +557,7 @@ C79 | Maximum available capacity | A time series describing maximum available ca
 C80 | Frequency and accuracy descriptor | A time series describing how system frequency and accuracy are determined.
 C81 | Long-Term internal redispatch | A time series describing long-term redispatch to relieve Scheduling Area internal congestion.
 C82 | Other unavailability | This is an unplanned unavailability. Not considered by market participants as a planned maintenance.
-C83 | Faster than standard FAT | Bids that can support a “Full Activation Time” (FAT) that is faster than standard FAT. Fast activation can be done for bids with activation time shorter than the minimum requirement for the standard product. When circumstances call for it, the TSO can order activation of such bids on a shorter notice.
+C83 | Faster than standard FAT | Bids that can support a �Full Activation Time� (FAT) that is faster than standard FAT. Fast activation can be done for bids with activation time shorter than the minimum requirement for the standard product. When circumstances call for it, the TSO can order activation of such bids on a shorter notice.
 C84 | Faster than standard deactivation time | Fast deactivation can be done for bids with activation time shorter than the minimum requirement for the standard product. When circumstances call for it, the TSO can order activation of such bids on a shorter notice.
 C85 | Slower than standard FAT | Bids that can support a Full Activation Time (FAT) that is slower than standard FAT.
 C86 | Remedial action cost summary | A timeseries summarizing all incurred costs and/or revenues per party related to the activated remedial actions eligible to Cost Sharing.
@@ -568,10 +568,13 @@ C90 | Combined dynamic constraint | The time series describes a combined dynamic
 C91 | Anonymised constraint | The time series describes an anonymised constraint.
 C92 | Synchronous condenser activation | Activates a number of generators or other units in synchronous condenser mode.
 C93 | Permission administration details | A timeseries describing permission details such as authorisations, licenses or related regulatory requirements.
+C94 | Maximum capacity value of AC border flow | Maximum flow on an AC border between two areas (capacity)
+C95 | Initial forecast value of AC border flow | Initial flow on an AC border between two areas (forecast)
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardCategoryTypeList<br/><b>List ID</b>: ET0037<br/><b>Description</b>: The product category of an auction.</summary>  
+<summary><b>Name</b>:CategoryTypeList<br/><b>List ID</b>:ET0037<br/><b>Description</b>:The product category of an auction.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -581,8 +584,9 @@ A03 | Off peak | The auction is for an off peak period.
 A04 | Hourly | The auction is for an hourly period.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardClassificationTypeList<br/><b>List ID</b>: ET0013<br/><b>Description</b>: Indicates the classification mechanism used to group a set of objects together. The grouping may be of a detailed or a summary nature.</summary>
+<summary><b>Name</b>:ClassificationTypeList<br/><b>List ID</b>:ET0013<br/><b>Description</b>:Indicates the classification mechanism used to group a set of objects together. The grouping may be of a detailed or a summary nature.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -590,14 +594,16 @@ A01 | Detail type | The Time Series content provides detailed information.
 A02 | Summary type | The Time Series content provides aggregated information.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardCodingSchemeTypeList<br/><b>List ID</b>: ET0004<br/><b>Description</b>: Codification scheme used to identify the coding scheme used for the set of coded values to identify specific objects.</summary>
+<summary><b>Name</b>:CodingSchemeType<br/><b>List ID</b>:ET0004<br/><b>Description</b>:Codification scheme used to identify the coding scheme used for the set of coded values to identify specific objects.</summary>
 
 Value | Title |  Definition
 ---|---|---
 A01 | EIC | The coding scheme is the Energy Identification Coding Scheme (EIC), maintained by ENTSO-E.
 A02 | CGM | The coding scheme used for Common Grid Model Exchange Standard (CGMES).
-A10 | GS1 | The coding scheme for the preceding attribute is the Global Location Number (GLN 13) or Global Service Relation Number (GSRN 18), maintained by GS1.
+A03 | ISO | The coding scheme for the preceding attribute is a code maintained by International Organization for Standardization (ISO), such as “ISO 3166 <i>English</i> <i>country names and code elements</i>”.
+A10 | Coding scheme which are part of GS1 system | The coding schemes maintained by GS1.
 NAD | Andorra National coding scheme | The National coding scheme of the country in question.
 NAL | Albania National coding scheme | The National coding scheme of the country in question.
 NAM | Armenia National coding scheme | The National coding scheme of the country in question.
@@ -649,7 +655,7 @@ NUA | Ukraine National coding scheme | The National coding scheme of the country
 
 
 <details>
-<summary><b>Name</b>: StandardCoordinateSystemTypeList<br/><b>List ID</b>: ET0108<br/><b>Description</b>: The identification of the coordinate system used for the location position.</summary>
+<summary><b>Name</b>:CoordinateSystemTypeList<br/><b>List ID</b>:ET0108<br/><b>Description</b>:The identification of the coordinate system used for the location position.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -659,8 +665,10 @@ A03 | WGS84 | The World Geodetic System version 1984. for use in cartography, ge
 A04 | GTRF | Galileo Terrestrial Reference Frame
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardContractTypeList<br/><b>List ID</b>: ET0010<br/><b>Description</b>: The contract type defines the conditions under which the capacity is allocated and handled, e.g. daily auction, weekly auction, monthly auction, yearly auction, etc.  The significance of this type is dependent on area specific coded working methods.</summary>
+<summary><b>Name</b>:ContractTypeList<br/><b>List ID</b>:ET0010<br/><b>Description</b>:The contract type defines the conditions under which the capacity is allocated and handled, e.g. daily auction, weekly auction, monthly auction, yearly auction, etc. 
+The significance of this type is dependent on area specific coded working methods.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -682,8 +690,9 @@ A15 | Second intraday auction contract | The second intraday auction contract (I
 A16 | Third intraday auction contract | The third intraday auction contract (IDA3).
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardCurrencyTypeList<br/><b>List ID</b>: ET0024<br/><b>Description</b>: The coded identification of legal tender using ISO 4217 3 alpha codes.</summary>
+<summary><b>Name</b>:CurrencyTypeList<br/><b>List ID</b>:ET0024<br/><b>Description</b>:The coded identification of legal tender using ISO 4217 3 alpha codes.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -712,8 +721,9 @@ UAH | Ukrainian hryvnia | The legal tender of Ukraine.
 USD | US Dollar | The legal tender of the USA.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardCurveTypeList<br/><b>List ID</b>: ET0042<br/><b>Description</b>: The type of curve being defined in the time series.</summary>
+<summary><b>Name</b>:CurveTypeList<br/><b>List ID</b>:ET0042<br/><b>Description</b>:The type of curve being defined in the time series.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -724,8 +734,9 @@ A04 | Overlapping breakpoint | The curve is made of successive Intervals of time
 A05 | Non-overlapping breakpoint | This curve is a restriction of the curve type A04, i.e. overlapping breakpoints. The restriction is that a single Period is allowed.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardDirectionTypeList<br/><b>List ID</b>: ET0026<br/><b>Description</b>: The coded identification of the direction of energy flow.</summary>
+<summary><b>Name</b>:DirectionTypeList<br/><b>List ID</b>:ET0026<br/><b>Description</b>:The coded identification of the direction of energy flow.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -735,8 +746,9 @@ A03 | UP and DOWN | Up and Down signifies that the UP and Down values are equal.
 A04 | Stable | The direction at a given instant in time is considered to be stable.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardEicTypeList<br/><b>List ID</b>: ET0028<br/><b>Description</b>: The coded identification of the type of an EIC code.</summary>
+<summary><b>Name</b>:EicTypeList<br/><b>List ID</b>:ET0028<br/><b>Description</b>:The coded identification of the type of an EIC code.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -749,8 +761,9 @@ Y | Area or Domain | An EIC code to identify areas or domains.
 Z | Measurement point | An EIC code to identify measurement points.
 </details>
 
+
 <details>
-<summary><b>Name</b> StandardEnergyProductTypeList<br/><b>List ID</b>: ET0008<br/><b>Description</b>: The identification of the nature of an energy product such as power, energy, reactive power, etc.</summary>
+<summary><b>Name</b>:EnergyProductTypeList<br/><b>List ID</b>:ET0008<br/><b>Description</b>:The identification of the nature of an energy product such as power, energy, reactive power, etc.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -767,7 +780,19 @@ Value | Title |  Definition
 
 
 <details>
-<summary><b>Name</b>: StandardFuelTypeList<br/><b>List ID</b>: ET0051<br/><b>Description</b>: The identification of the type of fuel.</summary>
+<summary><b>Name</b>:FlowCommodityOptionTypeList<br/><b>List ID</b>:<br/><b>Description</b>:The option of flow commodity, such as production, consumption, combined or exchange.</summary>
+
+Value | Title |  Definition
+---|---|---
+E17 | Consumption | The coded identification of the type of entity, i.e. consumption metering point.
+E18 | Production | The coded identification of the type of entity, i.e. production metering point.
+E19 | Combined | The coded identification of the type of entity, i.e. combined consumption and production metering point.
+E20 | Exchange | The coded identification of the type of entity, i.e. exchange metering point.
+</details>
+
+
+<details>
+<summary><b>Name</b>:FuelTypeList<br/><b>List ID</b>:ET0051<br/><b>Description</b>:The identification of the type of fuel.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -815,7 +840,8 @@ A41 | Fossil gaseous natural gas | Fossil gaseous natural gas energy source.
 A42 | Fossil gaseous coal-derived gas | Fossil gaseous coal-derived gas energy source. This includes Blast furnace gas,Coke-oven gas or other types.
 A43 | Fossil gaseous petroleum products | Fossil gaseous petroleum products energy  source. This includes Propane, Butane, Refinery gas, Chemical waste gas or other types.
 A44 | Fossil gaseous municipal gas plant | Fossil gaseous municipal gas plant energy source.
-A45 | Fossil gaseous process gas | Fossil gaseous process gas energy source. This includes Carbon monoxide, Methane , Hydrogen (fossil sourced) ,Phosphor gas ,Oxy gas and other types.
+A45 | Fossil gaseous process gas | Fossil gaseous process gas energy source. This includes Carbon monoxide,
+Methane , Hydrogen (fossil sourced) ,Phosphor gas ,Oxy gas and other types.
 A46 | Fossil heat unspecified | Unspecified fossil heat energy source.
 A47 | Fossil heat process heat | Fossil process heat energy source.
 A48 | Nuclear solid radioactive fuel | Solid Nuclear  radioactive energy source. This includes UOX, AGR, MOX or other types.
@@ -828,8 +854,21 @@ A54 | Waste heat and cold By-product in tertiary sector | Waste heat and cold fr
 A55 | Hydrogen | Hydrogen energy source.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardHVDCModeTypeList<br/><b>List ID</b>: MXM000<br/><b>Description</b>: The coded identification of the HVDC mode.</summary>
+<summary><b>Name</b>:GridAgreementTypeList<br/><b>List ID</b>:<br/><b>Description</b>:Contract dirctly</summary>
+
+Value | Title |  Definition
+---|---|---
+E01 | Grid usage contract directly between Grid Access Provider and Customer | The grid usage contract is a contract directly between the grid access provider and the customer.
+E02 | Grid usage contract  directly between Energy Supplier and Grid Access Provider | The grid usage contract is a contract directly between the energy supplier and the grid access provider.
+E03 | Grid usage contract  between Grid Access Provider and Customer through Energy Supplier | The grid usage contract is a contract between the grid access provider and customer through the energy supplier.
+E04 | No grid usage contract | There is no grid usage contract that must be signed by the customer.
+</details>
+
+
+<details>
+<summary><b>Name</b>:HVDCModeTypeList<br/><b>List ID</b>:MXM000<br/><b>Description</b>:The coded identification of the HVDC mode.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -838,8 +877,9 @@ A02 | Proportional external signal | The code for the "Proportional external sig
 A03 | AC emulation | The code for the "AC emulation" mode of operation of the HVDC link.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardIndicatorTypeList<br/><b>List ID</b>: ET0029<br/><b>Description</b>: A boolean indicator to express Yes or No or True or False.</summary>
+<summary><b>Name</b>:IndicatorTypeList<br/><b>List ID</b>:ET0029<br/><b>Description</b>:A boolean indicator to express Yes or No or True or False.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -847,8 +887,10 @@ A01 | YES | A positive indication.
 A02 | NO | A negative indication.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardMessageTypeList<br/><b>List ID</b>: ET0003<br/><b>Description</b>: The coded type of a document. The message type describes the principal characteristic of a document. This enumeration is used in the XML instances based on IEC 62325.</summary>
+<summary><b>Name</b>:MessageTypeList<br/><b>List ID</b>:ET0003<br/><b>Description</b>:The coded type of a document. The message type describes the principal characteristic of a document.
+This enumeration is used in the XML instances based on IEC 62325.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1000,10 +1042,13 @@ B47 | Other market information | A document providing other market information.
 B48 | Permission document | A document that contains detailed information about permissions.
 B49 | Requested capacity | A document providing requested capacity (e.g. ATC, CZCL) value.
 B50 | Voltage control activation document | A document providing the number of generating units to activate for voltage control, by means of their operation in synchronous condenser mode.
+B51 | Transmission inventory document | A document providing a transmission inventory.
+B52 | Transmission inventory | A document providing statistics on the transmission grid.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardMarketProductTypeList<br/><b>List ID</b>: ET0008<br/><b>Description</b>: The identification of the type of a product on a market view</summary>
+<summary><b>Name</b>:MarketProductTypeList<br/><b>List ID</b>:ET0008<br/><b>Description</b>:The identification of the type of a product on a market view</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1018,10 +1063,14 @@ A08 | Market wide resource capacity mechanism | This is a market-wide resource c
 A09 | Strategic reserve resource capacity mechanism | This is a market resource capacity mechanism that is kept outside of the electricity market and only used if the market participants do not offer enough generation to meet short-term demand.
 A10 | Other resource capacity mechanism | This is any other kind of market resource capacity mechanism.
 A11 | Fast activation product | The fast activation product shall be considered as a fall-back solution for situations where coordination with all parties is no longer possible due to insufficient time and the regular product could not be properly applied.
+A12 | Remedial Action Cost Sharing Polluter Pays | Cost sharing of coordinated remedial action measures (redispatch and countertrading) under the polluter pays principle.
+A13 | Static product | The market product type is static. E.g. used in the Frequency Containment Reserve (FCR) market for entities that have difficulties to comply with dynamic requirements, such as activation/deactivation performance and dynamic stability.
+A14 | Dynamic product | The market product type is dynamic. E.g. used in the Frequency Containment Reserve (FCR) market for entities that can provide continuous response and comply with dynamic requirements.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardObjectAggregationTypeList<br/><b>List ID</b>: ET0018<br/><b>Description</b>: The identification of the domain that is the common dominator used to aggregate a time series.</summary>
+<summary><b>Name</b>:ObjectAggregationTypeList<br/><b>List ID</b>:ET0018<br/><b>Description</b>:The identification of the domain that is the common dominator used to aggregate a time series.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1043,8 +1092,9 @@ A15 | Scheduling area | An area within which the TSOs' obligations regarding sch
 A16 | Exchange point | The object being described concerns an exchange point.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardPaymentTermsTypeList<br/><b>List ID</b>: ET0041<br/><b>Description</b>: The identification of the different terms of payment.</summary>
+<summary><b>Name</b>:PaymentTermsTypeList<br/><b>List ID</b>:ET0041<br/><b>Description</b>:The identification of the different terms of payment.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1053,8 +1103,9 @@ A02 | Pay as cleared | The amount to be paid shall correspond to the amount calc
 A03 | No payment terms | There are no payment terms to be used.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardPriceCategoryTypeList<br/><b>List ID</b>: ET0048<br/><b>Description</b>: Indicates the category of the calculation to be applied to a price.</summary>
+<summary><b>Name</b>:PriceCategoryTypeList<br/><b>List ID</b>:ET0048<br/><b>Description</b>:Indicates the category of the calculation to be applied to a price.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1068,8 +1119,9 @@ A07 | Single marginal bid price | The downwards activated bid price  or the upwa
 A08 | Cross-border marginal price | The price determined in accordance with article 3 of the methodology for pricing balancing energy.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardPriceComponentTypeList<br/><b>List ID</b>: ET0052<br/><b>Description</b>: Indicates the component type for  a price.</summary>
+<summary><b>Name</b>:PriceComponentTypeList<br/><b>List ID</b>:ET0052<br/><b>Description</b>:Indicates the component type for  a price.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1078,8 +1130,9 @@ A02 | Incentive | An incentive component to be used to fulfil nationally defined
 A03 | Financial neutrality | A component related to the financial neutrality of the connecting TSO.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardPriceDirectionTypeList<br/><b>List ID</b>: ET0049<br/><b>Description</b>: The nature of a price, i.e. an impacted area system operator pays to internal market parties or inverse.</summary>
+<summary><b>Name</b>:PriceDirectionTypeList<br/><b>List ID</b>:ET0049<br/><b>Description</b>:The nature of a price, i.e. an impacted area system operator pays to internal market parties or inverse.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1087,8 +1140,9 @@ A01 | Expenditure. | Expenditure, i.e. the Impacted Area System Operator pays to
 A02 | Income. | Income, i.e. The Impacted Area System Operator receives from the internal Market Parties.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardProcessTypeList<br/><b>List ID</b>: ET0020<br/><b>Description</b>: Indicates the nature of process that the document addresses.</summary>
+<summary><b>Name</b>:ProcessTypeList<br/><b>List ID</b>:ET0020<br/><b>Description</b>:Indicates the nature of process that the document addresses.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1166,11 +1220,12 @@ A71 | Outage planning coordination | The process being described is used for out
 A72 | Short term adequacy | The process being described is used for short term adequacy calculations.
 A73 | Coordinated capacity calculation | The process being described is used for coordinated capacity calculation.
 A74 | Access to metered data | Access to meter readings of electricity consumption from or electricity feed into the grid.
+A75 | Permission administration | Administration of permissions to access and/or use data.
 </details>
 
 
 <details>
-<summary><b>Name</b>: StandardQualityTypeList<br/><b>List ID</b>: ET0036<br/><b>Description</b>: The quality of an object.</summary>
+<summary><b>Name</b>:QualityTypeList<br/><b>List ID</b>:ET0036<br/><b>Description</b>:The quality of an object.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1180,11 +1235,12 @@ A03 | Estimated | The contents of the object are estimated. The code is typicall
 A04 | As provided | The contents of the object are as provided.
 A05 | Incomplete | The contents of the object are calculated based on incomplete data.
 A06 | Calculated | The contents of the object are calculated. The code is typically used when a value is calculated based on several other known values.
+A07 | Temporary | The content of the object is temporary. The code is typically used when there is communication trouble to a meter and a more correct value is expected later.
 </details>
 
 
 <details>
-<summary><b>Name</b>: StandardReasonCodeTypeList<br/><b>List ID</b>: ET0015<br/><b>Description</b>: The coded motivation of an act.</summary>
+<summary><b>Name</b>:ReasonCodeTypeList<br/><b>List ID</b>:ET0015<br/><b>Description</b>:The coded motivation of an act.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1207,7 +1263,9 @@ A24 | A24 not applicable | This code is no longer applicable.
 A25 | A25 not applicable | This code is no longer applicable.
 A26 | Default time series applied | The time series has been rejected and replaced with a default time series profile. This reason code may not be used in conjunction with A30.
 A27 | Cross border capacity exceeded | The cross border capacity has been exceeded. The time series has been rejected or adjusted.
-A28 | Counterpart time series missing | This provides an indication that the time series has not got a counterpart time series. In the case of an Intermediate Confirmation Report this is advising the recipient that the time series may be rejected at nomination closure if the counterpart time series is not received. In the case of a Final Confirmation Report this is informing the recipient that the time series has been rejected because the counterpart time series has not been forthcoming.
+A28 | Counterpart time series missing | This provides an indication that the time series has not got a counterpart time series. 
+In the case of an Intermediate Confirmation Report this is advising the recipient that the time series may be rejected at nomination closure if the counterpart time series is not received. 
+In the case of a Final Confirmation Report this is informing the recipient that the time series has been rejected because the counterpart time series has not been forthcoming.
 A29 | Counterpart time series quantity differences | The time series has been rejected as it does not match that of the counterpart who is considered by market rules to be correct.
 A30 | Imposed Time series from nominated party's time series (party identified in reason text) | The nominated party's time series has replaced the current time series. This reason code may not be used in conjunction with A26.
 A41 | Resolution inconsistency | The resolution is not coherent with the time interval, or resolution not valid.
@@ -1339,10 +1397,23 @@ B67 | Bid activated in same direction | One or several bids were activated in th
 B68 | Optimization in progress | The activation optimisation framework is being executed.
 B69 | Wrong energy market timeframe | The given energy market timeframe is invalid or wrong.
 B70 | Message partially accepted | The detailed transactions of the received document are partially accepted. It is necessary to look at the detailed (transaction) level to determine if the transaction is accepted, rejected etc.
+B71 | (Explicit) Permission from the customer | Based on the regulation (EU) 2016/679 (GDPR) Article 6, Lawfulness of processing: The data subject has given consent to the processing of his or her personal data for one or more specific purposes.
+B72 | In execution of a contract with the customer (Execution of contract) | Based on the regulation (EU) 2016/679 (GDPR) Article 6, Lawfulness of processing: Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract.
+B73 | Legal obligations | Based on the regulation (EU) 2016/679 (GDPR) Article 6, Lawfulness of processing: Processing is necessary for compliance with a legal obligation to which the controller is subject.
+B74 | In protection of vital interests of the customer | Based on the regulation (EU) 2016/679 (GDPR) Article 6, Lawfulness of processing: Processing is necessary in order to protect the vital interests of the data subject or of another natural person.
+B75 | In order to perform a duty of common (national) interest | Based on the regulation (EU) 2016/679 (GDPR) Article 6, Lawfulness of processing: Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller.
+B76 | Justified interest of the dataprocessee | Based on the regulation (EU) 2016/679 (GDPR) Article 6, Lawfulness of processing: Processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overridden by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child
+B77 | Fulfilment of purpose | The purpose of the object or action has been fulfilled.
+B78 | Reach of end timestamp | The object or action has reached its end timestamp.
+B79 | Revocation | Revocation of the action or object.
+B80 | Termination | Termination of the action or object.
+B81 | No valid grid access contract | There is no valid grid access contract for a specific metering point. There is no valid grid access contract for a specific metering point.
+B82 | Customer move-out | A customer has moved out.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardRightsTypeList<br/><b>List ID</b>: ET0938<br/><b>Description</b>: The rights of use that is accorded to what is acquired in an auction.</summary>
+<summary><b>Name</b>:RightsTypeList<br/><b>List ID</b>:ET0938<br/><b>Description</b>:The rights of use that is accorded to what is acquired in an auction.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1354,13 +1425,14 @@ A05 | Resale possible | Acquired rights may be resold.
 A06 | Transfer possible | Acquired rights may be transferred.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardRoleTypeList<br/><b>List ID</b>: ET0005<br/><b>Description</b>: Identification of the role played by a party.</summary>
+<summary><b>Name</b>:RoleTypeList<br/><b>List ID</b>:ET0005<br/><b>Description</b>:Identification of the role played by a party.</summary>
 
 Value | Title |  Definition
 ---|---|---
 A01 | Trade responsible party | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
-A02 | Identity service provider | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
+A02 | Consumption responsible party | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
 A03 | Combined power exchange (not to be used) | This role is no longer in the ENTSO-E Harmonised Role Model Document.
 A04 | System operator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
 A05 | Imbalance settlement responsible | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
@@ -1390,12 +1462,17 @@ A28 | Scheduling coordinator | Refer to role model definitions in the ENTSO-E Ha
 A29 | Capacity Trader | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
 A30 | Interconnection Trade Responsible | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
 A31 | Nomination Validator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document.
-A32 | Market information aggregator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that collects information from different sources and assembles  it to provide a summary of the market.
-A33 | Information receiver | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party, not necessarily a market participant, which receives information about the market.
-A34 | Reserve Allocator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
-A35 | MOL Responsible | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that Informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
+A32 | Market information aggregator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
+A party that collects information from different sources and assembles  it to provide a summary of the market.
+A33 | Information receiver | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
+A party, not necessarily a market participant, which receives information about the market.
+A34 | Reserve Allocator | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
+A party that informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
+A35 | MOL Responsible | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
+A party that Informs the market of reserve requirements, receives tenders against the requirements and in compliance with the prequalification criteria, determines what tenders meet requirements and assigns tenders.
 A36 | Capacity Coordinator | A party, acting on behalf of the SOs involved, responsible for establishing a coordinated Offered Capacity and/or NTC and/or ATC between several Scheduling Areas.
-A37 | Reconciliation Accountable | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. A party that is financially accountable for the reconciled volume of energy products for a profiled local metering point.
+A37 | Reconciliation Accountable | Refer to role model definitions in the ENTSO-E Harmonised Role Model Document. 
+A party that is financially accountable for the reconciled volume of energy products for a profiled local metering point.
 A38 | Reconciliation Responsible | A party that is responsible for reconciling, within a metering grid area, the volumes used in the imbalance settlement process for profiled metering points and the actual metered quantities.
 A39 | Data provider | A party that is responsible for providing information to a central authority.
 A40 | Local Issuing Office (LIO) | A party that is responsible for operating a Local Issuing Office (LIO).
@@ -1420,8 +1497,19 @@ A58 | Metered data administrator | A party responsible for storing and distribut
 A59 | Permission administrator | A party responsible for administrating a register of data access permissions for a set of metering points, making this information available to final customers and eligible parties in the sector, on request.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardStatusTypeList<br/><b>List ID</b>: ET0025<br/><b>Description</b>: The condition or position of an object with regard to its standing.</summary>
+<summary><b>Name</b>:SettlementMethodTypeList<br/><b>List ID</b>:<br/><b>Description</b>:</summary>
+
+Value | Title |  Definition
+---|---|---
+E01 | Profiled | The settlement method regards profiled metered accounting points.
+E02 | Non-profiled | The settlement method regards continuous metered (non-profiled) accounting points.
+</details>
+
+
+<details>
+<summary><b>Name</b>:StatusTypeList<br/><b>List ID</b>:ET0025<br/><b>Description</b>:The condition or position of an object with regard to its standing.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1433,11 +1521,12 @@ A05 | Active | The object being reported is currently active.
 A06 | Available | The volumes (one or more) are available.
 A07 | Activated | The quantities in the time series have been activated.
 A08 | In process | The quantities in the time series are in the process of activation (an activation request has been made).
-A09 | Cancelled | The tender indicated in the time series has been completely cancelled. In this case the resources are no longer available to all Acquiring System Operators
+A09 | Cancelled | The tender indicated in the time series has been completely cancelled.
+In this case the resources are no longer available to all Acquiring System Operators
 A10 | Ordered | The quantities in the time series are to be activated.
 A11 | Unavailable | The volumes (one or more) are unavailable.
 A12 | RGCE agreed | The information has been agreed within the ENTSO-E Regional Group Continental Europe process.
-A13 | Withdrawn | The information has been withdrawn by the submitter.
+A13 | Withdrawn | The information or action has been withdrawn by the submitter.
 A14 | Creation | The action requested to be carried out is the creation of a new object.
 A15 | Update | The action requested to be carried out is the update an existing object.
 A16 | Deactivation | The action requested to be carried out is to deactivate an existing object.
@@ -1498,10 +1587,14 @@ A70 | Available if linked bid subject to DA | Bid available if linked bid subjec
 A71 | Available for DA if linked bid subject to DA | Bid available for direct activation if linked bid subject to direct activation.
 A72 | Available for DA if linked bid subject to SA | Bid available for direct activation if linked bid subject to scheduled activation.
 A73 | Delta | Describes a status representing a difference between two values.
+A74 | Validated | The object or action was validated.
+A75 | Invalid | The object or action was invalid.
+A76 | Timed out | The object or action was timed out.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardTarifTypeTypeList<br/><b>List ID</b>: ET0039<br/><b>Description</b>: The standard tariff types as defined in the RGCE policies.</summary>
+<summary><b>Name</b>:TarifTypeTypeList<br/><b>List ID</b>:ET0039<br/><b>Description</b>:The standard tariff types as defined in the RGCE policies.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1514,8 +1607,9 @@ A06 | Summer HHT2 | Summer HHT2 tariff.
 A07 | Summer NT | Summer NT tariff.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardTimeframeTypeList<br/><b>List ID</b>: ET0053<br/><b>Description</b>: The identification of the timeframe.</summary>
+<summary><b>Name</b>:TimeframeTypeList<br/><b>List ID</b>:ET0053<br/><b>Description</b>:The identification of the timeframe.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1567,16 +1661,18 @@ A45 | Year ahead | The information provided concerns year ahead timeframe.
 A46 | Year-10 | The information provided concerns 10 years ahead timeframe.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardUnitMultiplier<br/><b>List ID</b>: MXM001<br/><b>Description</b>: The unit multipliers defined for the CIM.</summary>
+<summary><b>Name</b>:UnitMultiplier<br/><b>List ID</b>:MXM001<br/><b>Description</b>:The unit multipliers defined for the CIM.</summary>
 
 Value | Title |  Definition
 ---|---|---
 1  | none | No multiplier or equivalently multiply by 1.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardUnitOfMeasureTypeList<br/><b>List ID</b>: ET0011<br/><b>Description</b>: (synonym MeasurementUnit) The unit of measure that is applied to a quantity. The measurement units shall be in compliance with UN/ECE Recommendation 20.</summary>
+<summary><b>Name</b>:UnitOfMeasureTypeList<br/><b>List ID</b>:ET0011<br/><b>Description</b>:(synonym MeasurementUnit) The unit of measure that is applied to a quantity. The measurement units shall be in compliance with UN/ECE Recommendation 20.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1615,8 +1711,9 @@ SEC | second | A period of time equal to one second.
 WTT | watt | The watt is the International System of Units (SI) standard unit of power (energy per unit time), the equivalent of one joule per second.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardUnitSymbol<br/><b>List ID</b>: MXM000<br/><b>Description</b>: The coded representation of different units from IEC 61970.</summary>
+<summary><b>Name</b>:UnitSymbol<br/><b>List ID</b>:MXM000<br/><b>Description</b>:The coded representation of different units from IEC 61970.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1633,8 +1730,10 @@ OHM | Ohm | The symbol of Ohm Unit
 P1 | Percent | A unit of proportion equal to 0.01.
 </details>
 
+
 <details>
-<summary><b>Name</b>: StandardDocumentTypeList<br/><b>List ID</b>: ET0003<br/><b>Description</b>: The DocumentTypeList is only used in XML instances using deprecated ENTSO-E schema; otherwise for XML instances based CIM, the codelist is MessageTypeList. Therefore, you are kindly advised to refer to the MessageType enumeration, which includes the same enumeration codes.</summary>
+<summary><b>Name</b>:DocumentTypeList<br/><b>List ID</b>:ET0003<br/><b>Description</b>:The DocumentTypeList is only used in XML instances using deprecated ENTSO-E schema; otherwise for XML instances based CIM, the codelist is MessageTypeList. 
+Therefore, you are kindly advised to refer to the MessageType enumeration, which includes the same enumeration codes.</summary>
 
 Value | Title |  Definition
 ---|---|---
@@ -1744,6 +1843,7 @@ B05 | EIC code publication | A document providing EIC publication information in
 </details>
 
 
+
 The following CIMs are considered for common European Vocabulary Hub:
 
 ![European Vocabulary Hub VHD Class Diagram](./vhd-data-evh.drawio.png)
@@ -1768,7 +1868,7 @@ Full details can be found in the document: [Permission Data](https://github.com/
 
 ### Reference data objects
 
-The main models have been identified in [Reference Models](https://insieme-web.projekte.fh-hagenberg.at/architecture/reference-models/reference-models.html) part. S2 service is used by the folowing procedures:
+The main models have been identified in [Reference Models](../../reference-models/reference-models.html), S2 service is used by the folowing procedures:
 
 | Model name                       | Procedure                                                                | 
 |----------------------------------|--------------------------------------------------------------------------|
@@ -1801,50 +1901,36 @@ See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 
 ![European Vocabulary Hub ArchiMate Application Diagram](./application-evh.drawio.png)
 
-The main function of European Vocabulary Hub is to facilitate the data exchange and interoperability between the federation of existing and future Data Spaces by providing a common ontology and
-standardised way of communication. The European Vocabulary HUB creates the common minimum data model that will allow existing and future systems and platforms to exchange information in a seeamless way.
-
-The implementation and deployment is modular and National Platform module can be deployed on the National or Specific Data Space. The Common European Vocabulary module can be deployed as EU shared
-service or as distributed service. The main constraint for the Common European Vocabulary module is maintaining the coherence of the common code lists, ontology, data model, service catalor, and data catalog. By design all data models must support versioning. We expect that common data model to have a natural evoulution and multiple versions may coexists at a given moment. It is higly recommended for the participants at CEEDS to use the latest version of the vocabulary.
-
+The main function of European Vocabulary Hub is to facilitate the data exchange and interoperability between the federation of existing and future Data Spaces by providing a common ontology and standardised way of communication. The European Vocabulary HUB creates the minimum common data models that will allow existing and future systems and platforms to exchange information in a seamless way.
+The implementation and deployment is modular and National Platform modules can be deployed on National or Specific Data Spaces. The Common European Vocabulary module can be deployed as a EU shared service or as distributed services. The main requirement for the Common European Vocabulary module is maintaining coherence of the common code lists, ontology, data model, service catalog, and data catalog. By design all data models must support versioning. We expect the common data model evolve and multiple versions may coexist at a given moment. It is recommended for that participants of CEEDS use the latest version of the vocabulary.
 The Application Architecture of the European Vocabulary Hub contains:
-
 - Common European module containing: code lists, thesaurus, ontology, data model, data and service catalog
 - National or platform specific module containing: data model, data and service catalog
 - Data mapping service for data conversion from national or platform specific to common European model
-- Governance module for identity management and data access management. The data access management is done by the National Platform Facilitator
+- Governance modules for identity management and data access management. Data access management is performed by the National Platform Facilitator
+
 
 | Module                                                      | Component                             | Description                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------------------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| National Data Space / National Platform / Specific Platform | Client library                        | Software library failitating the data exchange in a trustfull way between the European Vocabulary Hub and National Data Space / National Platform or Specific Platform.                                                                                                                                                                                         |
-| National Data Space / National Platform / Specific Platform | National Platform intreface           | Public interface facilitating the communication and data exchage with the National Data Space / National Platform / Specific Platform via the client library.                                                                                                                                                                                                   |
-| National Data Space / National Platform / Specific Platform | Data model                            | The data model for specific National Data Space that is used for data transactions between European Vocabulary Hub and National Data Space. This is used by National Platform interface, client library and Data Mapping service.                                                                                                                               |
-| National Data Space / National Platform / Specific Platform | Ontology                              | Optional component that can be used to map and transform the specific data model into European data model. This component is necessary for the alignment with European Vocabulary module in a systematic way.                                                                                                                                                   |
-| National Data Space / National Platform / Specific Platform | Service Catalog                       | The service catalog provided by the specific National Data Space. Those are the services available for data transactions for the other participats at CEEDS.                                                                                                                                                                                                    |
+| National Data Space / National Platform / Specific Platform | Client library                        | Software library facilitating the data exchange in a trustful manner between the European Vocabulary Hub and National Data Space / National Platform or Specific Platform.                                                                                                                                                                                         |
+| National Data Space / National Platform / Specific Platform | National Platform interface           | Public interface facilitating the communication and data exchange with the National Data Space / National Platform / Specific Platform via the client library.                                                                                                                                                                                                   |
+| National Data Space / National Platform / Specific Platform | Data model                            | The data model for a specific National Data Space that is used for data transactions between the European Vocabulary Hub and the National Data Space. Used by National Platform interface, client library and Data Mapping service.                                                                                                                               |
+| National Data Space / National Platform / Specific Platform | Ontology                              | Optional component that can be used to map and transform the specific data model into European data model. This component is necessary for the systematic alignment with the European Vocabulary module in a systematic way.                                                                                                                                                   |
+| National Data Space / National Platform / Specific Platform | Service Catalog                       | The service catalog provided by the specific National Data Space. Those are the services available for data transactions for the other participants at CEEDS.                                                                                                                                                                                                    |
 | Data Mapping                                                | Data Mapping service                  | Ensures the transformation of National Data Space data to common European Vocabulary format. This module can be part of the National Data Space or Specific Platform                                                                                                                                                                                            |
-| Governance module                                           | Governance                            | Facilitates the Identity Access Mamagement and the Access Rights Management for the interoperability of National Data Spaces / National Platforms, Specific Platforms with European Vocabulary Hub service. This should take into account the national legislation concerning the data sharing and explicitly implement those restrictions at data model level. |
-| Common European Vocabulary module                           | Data Mapping interface                | Intreface facilitating the connection and data exchage between the common European Vocabulary module and National Data Space / National Data / Specific platform via the Data Mapping service.                                                                                                                                                                  |
-| Common European Vocabulary module                           | Code lists                            | The collection of code lists used by common European ontology and implicitly by Data Model. The code list implementation is recommended to be compatible with EU Vocabularies standards (OASIS GC, RDF).                                                                                                                                                        |
-| Common European Vocabulary module                           | Thesaury                              | The collection of thesaury used by common European ontology and Data Model. The thesaurus implementation is recommended to be compatible with EU Vocabularies standards.                                                                                                                                                                                        |
-| Common European Vocabulary module                           | Ontology                              | The collection of ontologies used as basis for common European Data Model. The ontology implementation is recommended to be compatible with EU Vocabularies standards.                                                                                                                                                                                          |
-| Common European Vocabulary module                           | Data Model                            | The common European Vocabulary central concept is the Data Model. This is the traget common data format used by all participants. The Data Model is the targe model for the data comming from National Data Spaces / National Data / Specific platform. The Data Model is managed via the European Vocabulary management interface.                             |
+| Governance module                                           | Governance                            | Facilitates the Identity Access Management and the Access Rights Management for the interoperability of National Data Spaces / National Platforms, Specific Platforms with European Vocabulary Hub service. This should consider the national legislation concerning the data sharing and explicitly implement those restrictions at data model level. |
+| Common European Vocabulary module                           | Data Mapping interface                | Interface facilitating the connection and data exchange between the common European Vocabulary module and National Data Space / National Data / Specific platform via the Data Mapping service.                                                                                                                                                                  |
+| Common European Vocabulary module                           | Code lists                            | The collection of code lists used by common European ontology and implicitly by Data Model. The code list implementation should be compatible with EU Vocabularies standards (OASIS GC, RDF).                                                                                                                                                        |
+| Common European Vocabulary module                           | Thesauri                              | The collection of thesaurus used by common European ontology and Data Model. The thesaurus implementation should be compatible with EU Vocabularies standards.                                                                                                                                                                                        |
+| Common European Vocabulary module                           | Ontology                              | The collection of ontologies used as basis for common European Data Model. The ontology implementation should be compatible with EU Vocabularies standards.                                                                                                                                                                                          |
+| Common European Vocabulary module                           | Data Model                            | The common European Vocabulary central concept is the Data Model. This is the standard that must be used for data exhanges between all participants at data transactions via CEEDS. The data model is maintained by CEEDS Facilitator and National Data Space Facilitators.                             |
 | Common European Vocabulary module                           | Data Catalog                          | The publicly available catalog for Data Discovery. The data available in the catalog must be available from National Data Spaces and/or Specific Platforms.                                                                                                                                                                                                     |
-| Common European Vocabulary module                           | Service Catalog                       | The publicly avaialble catalog o services. Service composition might be necessary to accomodate the data requests.                                                                                                                                                                                                                                              |
-| Common European Vocabulary module                           | Aggregated services                   | Service aggregator that will expose the avaialble Service Catalog, Data Catalog, Data Models, Schema and Ontologies to CEEDS user via Infromation schema publication service.                                                                                                                                                                                   |
-| Common European Vocabulary module                           | Information Schema publication        | Service that exposes publicly the agreggated internal services. The user will send the reqeust via this service.                                                                                                                                                                                                                                                |
-| Common European Vocabulary module                           | European Vocabulary managed interface | Intreface that will allow the CEEDS operator to connect and operator to connect and manage the metadata of common European Vocabulary.                                                                                                                                                                                                                          |
-| Common European Vocabulary module                           | Client library                        | Software library allowing the CEEDS Operator or CEEDS user to connect to common European Vocabulary module. The Governance is performed at CEEDS level as part of the overall Governance.                                                                                                                                                                       |
+| Common European Vocabulary module                           | Service Catalog                       | TThe publicly available catalog of services. Service composition might be necessary to accommodate for data requests.                                                                                                                                                                                                                                              |
+| Common European Vocabulary module                           | Aggregated services                   | SService aggregator that will expose the avaialbleavailable Service Catalog, Data Catalog, Data Models, Schema and Ontologies to CEEDS Participant via InfromationInformation schema publication service.                                                                                                                                                                                   |
+| Common European Vocabulary module                           | Service that makes available the aaggregated internal services. The user will send  requests via this service.                                                                                                                                                                                                                                                |
+| Common European Vocabulary module                           | European Vocabulary managed interface | Interface that will allow the CEEDS facilitator to connect and manage the metadata of common European Vocabulary.                                                                                                                                                                                                                          |
+| Common European Vocabulary module                           | Client library                        | Software library allowing the CEEDS Facilitator or CEEDS Participant to connect to common European Vocabulary module. The Governance is performed at CEEDS level as part of the overall Governance.                                                                                                                                                                       |
 
-The European Vocabulary Hub provides services for and interacts with the following actors and systems:
-
-| Actor/System                        | Description                                                                                                                                                                                                                                                                                       |
-|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Specific National Platform          | This is a system to system interaction. Only selected National Energy Platforms will connect to CEEDS. The access will be limited only to the selected list from the participants in CEEDS project and only specific sercies and data sets will be exchanged.                                     |
-| National Platform Facilitator       | Actor responsible for National Platoform management, in paritcular defineing the specific metadata that can be shared with CEEDS, the maintenance of the corresponding ontology and maintenance of the corresponding data mapping service from National metadata to European Vocabulary metadata. |
-| CEEDS User                          | Actor having access to the services related to Information Schema.                                                                                                                                                                                                                                |
-| CEEDS Operator                      | Actor having access to the European Vocabulary HUB intreface for metadata management. This includes code lists, thesaury, ontology, data service catalog, data catalog, access management, rights management.                                                                                     |
-| S4 - Common European Process Façade | Service connected to S2 - European Vocabulary HUB.                                                                                                                                                                                                                                                |
-| EU Vocabularies                     | EU platform maintained by Publications Office of EU, repository for code lists, vocabularies, ontrologies.                                                                                                                                                                                        |
 
 ### Application Cooperation Viewpoint
 
@@ -1857,19 +1943,19 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 National Platforms interaction with CEEDS Platform
 
-Each National Data Space or Specific platform will connect to CEEDS Platform using the clinet library software. The EU Publications Office provides publicly available EU Vocabularies service. This is a repository for authority tables, code lists, thesauri, alignments, taxonomies, schemas, ontologies and related common data. It a recommendation to have CEEDS code lists, taxonomies, and ontologies aligned with EU Vocabularies at least at data format level (genericode format, RDF/OWL, SHACL forms) for future migration and integration.
+Each National Data Space or Specific platform will connect to CEEDS Platform using the client library software. The EU Publications Office provides publicly available EU Vocabularies service. This is a repository for authority tables, code lists, thesauri, alignments, taxonomies, schemas, ontologies and related common data. It is a recommendation to have CEEDS code lists, taxonomies, and ontologies aligned with EU Vocabularies at least at data format level (genericode format, RDF/OWL, SHACL forms) for future migration and integration.
 
 Main operations and procedures
 
 Actor | Operation | Description
 ---|---|---
-National Data Space Facilitator | Onboard to CEEDS | Facilitate local user of the National Data Space platform to onboard CEEDS so that they can prodivide and maintain national schema definitions, data models, ontologies, data mappings and all client libraries that will allow scure connection and data exchange between participants. 
+National Data Space Facilitator | Onboard to CEEDS | FFacilitate local user of the National Data Space platform to onboard CEEDS so as to provide and maintain national schema definitions, data models, ontologies, data mappings and all client libraries that will allow secure connection and data exchange between participants. 
 National Data Space Facilitator | Manage client libraries  | Authenticated local user can update and deploy client libraries.
 National Data Space Facilitator | Manage national schema definitions  | Authenticated local user can update and upload national schema definitions.
-National Data Space Facilitator | Manage data mappings  | Authenticated local user can update and upload new version of data mappings to pivotal information models. Those models should contain the mapping of local, national format, data to common European data model.
-National Data Space Facilitator | Manage European information model  | Authenticated local user can update and registre common European models, the National specific part.
-CEEDS Opeators | Manage common European Vocabulary | Authenticated CEEDS user with the role of Operator can upload, update and deprecate common European Vocabulary data model, data catalogs, service catalogs, ontologies, code lists, thesaury via European Vocabulary management interface.
-CEEDS User | Exchange data through CEEDS | Regsitered users, via the Onboarding procedure will be able to exchange data with the other participants to CEEDS data space. It is higly dependent from technology point of view of National Data Space data model, the mapping between the common European Vocabulary Data format, the Data Mapping Service. The availability of this information should be exposed to CEEDS users via a dashboard.
+National Data Space Facilitator | Manage data mappings  | Authenticated local user can update and upload new version of data mappings. Those models should contain the mapping of local, national format, data to common European data model.
+National Data Space Facilitator | Manage European information model  | Authenticated local user can update and register common European models, the National specific part.
+CEEDS Facilitators | Manage common European Vocabulary | Authenticated CEEDS Participant with the role of Operator can upload, update and deprecate common European Vocabulary data model, data catalogs, service catalogs, ontologies, code lists, thesauri via European Vocabulary management interface.
+CEEDS Participant | Exchange data through CEEDS | Registered users, via the Onboarding procedure will be able to exchange data with the other CEEDS participants to CEEDS data space. The main resource that is of interest is the common European data model.
 
 
 
@@ -1879,13 +1965,13 @@ CEEDS User | Exchange data through CEEDS | Regsitered users, via the Onboarding 
 Component | Description 
 ---|---
 National Data Space | Specific implementation of Data Space at national level. It may be a specific data space, also. The system is managed by National Data Space Facilitator and it communicates with CEEDS via National Data Space client libraries.
-CEEDS Platform | Europeean Data Space for connecting National Data Spaces and transforming data to and from those systems into common European data format as defined and managed by service S2 - European Vocabulary Hub. 
-EU Vocabularies | EU Public platform managed by the Publications Office of EU that can be used as central repository for common EU information as: code lists, thesaury, and ontologies. This component may not be part of the initial implementation. It is recommended that the data data format of same infomation stored in CEEDS to be compatible or the same format that the one of EU Vocabularies.
+CEEDS Platform | European Data Space for connecting National Data Spaces and transforming data to and from those systems into common European data format as defined and managed by service S2 - European Vocabulary Hub. 
+EU Vocabularies | EEU Public platform managed by the Publications Office of EU that can serve as central repository for common EU information as: code lists, thesauri, and ontologies. This component may not be part of the initial implementation. It is recommended that data formats in CEEDS be compatible, when possible, data formats in EU Vocabularies.
 
-The main interactions of sercive S2 - European Vocabulary Hub are:
-- system to sytem with National Data Space via client libraries, for data exchange and transformation
-- user interface with CEEDS users for data transactions in common European format 
-- user interface with CEEDS operators for managing the common European format. It is possible to have an alterntive way intreacting system to system using client libraries.
+The main interactions of service S2 - European Vocabulary Hub are:
+- system to system with National Data Space via client libraries, for data exchange and transformation
+- user interface with CEEDS Participants for data transactions in common European format 
+- user interface with CEEDS facilitators for managing the common European format. It is possible to have an alternative way intracting system-to-system using client libraries.
 
 ## Technology Architecture
 
@@ -1896,9 +1982,7 @@ See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 ![European Vocabulary Hub Technology Diagram](./technology-evh.drawio.png)
 
-The rationale behind the proposed technology architecture is to guarantee high availability, scalablility by design, and secure data exchange. The actual technical and technology solutions will differ from one Participant to another, according to their specific Nationanl Data Space platform or Specific platform. We consider that the boundary of this solution is at the National level. Each Participant is repsonsible to implement the most efficient solution taking into account this design. The communications between National Data Space platform and the CEEDS platform must be secured following industry standards.
-
-EU Vocabularies is a service provided by EU Publications Office and may be used as a central repository for code lists and ontologies. The recommendation is that the technical solution that will be implemented to be compatible with EU Vocabularies standard for future integration.
+The rationale behind the proposed technology architecture is to guarantee high availability, scalability by design, and secure data exchange. The actual technical and technology solutions will differ amongst participants, according to their specific National Data Space platform or Specific platform. We consider that the separation of responsibilites for this solution is at the National level. Each Participant is responsible to implement the most efficient solution fitting this design. Communications between National Data Space platform and the CEEDS platform must be secured and follow industry standards.
 
 ### Deployment View
 
@@ -1911,21 +1995,21 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 ![European Vocabulary Hub Deployment Diagram](./deployment-evh.drawio.png)
 
-The recommandation is to group the CEEDS Platform tools and components in a single location and a single unitary form of deployment: containers (Docker, Kubernetes, OpenShift) or virtualized solutions (Vagrant). The deployment can be done both in the Cloud or on Premise. Considering a hybrid deployment should not be an option. 
-The solution Semantic Treehouse may be considered for Ontology, Code Lists, Data models, and Schema storage and management. 
+TThe recommandationrecommendation is to group the CEEDS Platform tools and components in a single location and a single unitary form of deployment: containers (Docker, Kubernetes, OpenShift) or virtualized solutions (Vagrant). The deployment can be done both in the Cloud or on Premise. Considering a hybrid deployment should not be an option. The solution Semantic Treehouse may be considered for Ontology, Code Lists, Data models, and Schema storage and management. Another possible solution is SIMPL-Open Vocabularies Service. 
 
-For existing National Data Space platform or Specific Platfrom the exisiting deployments should be used if they can inteactc with CEEDS platform via secured channel. Developing the Client Libraries should be using the common standards so that the resulting solution should connect seamlessly to CEEDS independent of the choice of technology.  For the newly developed components we strongly recommend using the same strategy: containerized applications and services.
+For existing National Data Space platform or Specific PlatfromPlatform, the exisitingexisting deployments should be used if they can inteactcinteract with CEEDS platform via secured channels. Developing the  Client Libraries should be performed using the common standards so that the resulting solutions should connect seamlessly to CEEDS, independent ofregardless the choice of technology. For the newly developed components we strongly recommend using the same strategy: containerized applications and services.
+
 
 
 #### Component Descriptions
 
 Component | Service | Deployment description
 ---|---|---
-CEEDS Platform | Service S2 - European Vocabulary Hub | Deployed on a centralized infrastructure. Higly recomended to be container based (Docker, K8S, OpenShift, K3S) using an Open Source solution.<br/>
-CEEDS Platform | Ontology and Code lists management solution | Should be deployed in the same cluster as Service S2. One option may be Semantic Treehouse.
-CEEDS Platform | User intreface | Front end application that allows direct interaction of CEEDS users with the Service S2. All functionalites should be available as API too. The expected dynamics of direct User interaction is expected to be very low and most of the intraction will be via API.
-CEEDS Platform / National Data Space | National Platform Interface | System to System interface allowing transparent integration of National Data Space Platform with CEEDS. It can be deployed on the National Data Space Platform with secure communication with CEEDS or directly on CEEDS. The responsibility for devloping the Interface will be allocated to National Data Space team, in particular for the client library. It is recommended to use a containerized deployment.
-CEEDS Platform | Interface with EU Vocabularies | It is higly recommended to use EU Vocabularies as storage and sharing  for code lists, thesaury, and ontologies. The interface should be direct since the access to EU Vocabulries is open and public.
+CEEDS Platform | Service S2 - European Vocabulary Hub | Deployed on a centralized infrastructure. Highly recommended to be container based (Docker, K8S, OpenShift, K3S) using an Open Source solution.
+CEEDS Platform | Ontology and Code lists management solution | Should be deployed in the same cluster as Service S2. Options that should be investigated: Semantic Treehouse, SIPL-Opne Vocabularies.
+CEEDS Platform | User interface | Front end application that allows direct interaction of CEEDS participants with the Service S2. All functionalities should also be available as APIs. The expected dynamics of direct User interaction is expected to be very low and most  interaction will be via API.
+CEEDS Platform / National Data Space | National Platform Interface | System to System interface allowing transparent integration of National Data Space Platform with CEEDS. It can be deployed on the National Data Space Platform with secure communication with CEEDS or directly on CEEDS. The responsibility for developing the Interface will be allocated to National Data Space team, in particular for the client library. It is recommended to use a containerized deployment.
+CEEDS Platform | Interface with EU Vocabularies | It is higlyhighly recommended to use EU Vocabularies as storage and sharing for code lists, thesaurythesauri, and ontologies. The interface should be direct since the access to EU VocabulriesVocabularies is open and public.
 
 
 <!-- TODO: Insert descriptions of Deployment View components -->
