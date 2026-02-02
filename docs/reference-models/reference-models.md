@@ -3,6 +3,8 @@ title: Reference Models
 order: 2
 ---
 
+<div class="small-table">
+
 | Procedure                                                                                                                                                                                                                       | Progress     | Status      | Procedure                                                                                                                      | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI | Resp  |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|-------------|--------------------------------------------------------------------------------------------------------------------------------|----|----|----|----|----|----|----|---|-----|-------
 | [T4-2_01_01](T4-2_01-access-to-metering-and-consumption-data/T4-2_01-access-to-metering-and-consumption-data.md#procedure-1---access-to-validated-historical-metering-and-consumption-data-by-the-final-customer)               | Done (EDDIE) | Legal       | Access to validated historical metering and consumption data by the final customer                                             |    | x  |    |    | x  |    |    |   |     | FHOOE | 
@@ -30,6 +32,7 @@ order: 2
 | [T4-3_01_15](T4-3_01-collective-energy-sharing/T4-3_01-collective-energy-sharing.md#procedure-15---company-qualification-for-participating-in-flexibility-markets)                                                              | tbd          | Not started | Company qualification for participating in flexibility markets                                                                                  |    | x  | x  | x  | x  |    |    |   |     | DTU   |
 | [T4-3_01_16](T4-3_01-collective-energy-sharing/T4-3_01-collective-energy-sharing.md#procedure-16---assets-qualification-for-participating-in-flexibility-markets)                                                               | tbd          | Not started | Assets qualification for participating in flexibility markets                                                                                  |    | x  | x  | x  | x  |    |    |   |     | DTU   |
 
+</div>
 
 | [IR Demand Response](T4-4_02-ir-demand-response/T4-4_02-ir-demand-response.md)                                                                                                                                                  | [1: General access to Controllable Unit master data by an entitled party](T4-4_02-ir-demand-response/T4-4_02-ir-demand-response.md#procedure-1)                     | x           | x  | x  | x  | x  | x  |    |    |    |
 | [IR Demand Response](T4-4_02-ir-demand-response/T4-4_02-ir-demand-response.md)                                                                                                                                                  | [2: Controllable Unit registration](T4-4_02-ir-demand-response/T4-4_02-ir-demand-response.md#procedure-2)                                                           | x           | x  | x  | x  | x  | x  |    |    |    |
