@@ -1995,7 +1995,7 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 ![European Vocabulary Hub Deployment Diagram](./deployment-evh.drawio.png)
 
-TThe recommandationrecommendation is to group the CEEDS Platform tools and components in a single location and a single unitary form of deployment: containers (Docker, Kubernetes, OpenShift) or virtualized solutions (Vagrant). The deployment can be done both in the Cloud or on Premise. Considering a hybrid deployment should not be an option. The solution Semantic Treehouse may be considered for Ontology, Code Lists, Data models, and Schema storage and management. Another possible solution is SIMPL-Open Vocabularies Service. 
+The recommendation is to group the CEEDS Platform tools and components in a single location and a single unitary form of deployment: containers (Docker, Kubernetes, OpenShift) or virtualized solutions (Vagrant). The deployment can be done both in the Cloud or on Premise. Considering a hybrid deployment should not be an option. The solution Semantic Treehouse may be considered for Ontology, Code Lists, Data models, and Schema storage and management. Another possible solution is SIMPL-Open Vocabularies Service. 
 
 For existing National Data Space platform or Specific PlatfromPlatform, the exisitingexisting deployments should be used if they can inteactcinteract with CEEDS platform via secured channels. Developing the  Client Libraries should be performed using the common standards so that the resulting solutions should connect seamlessly to CEEDS, independent ofregardless the choice of technology. For the newly developed components we strongly recommend using the same strategy: containerized applications and services.
 
