@@ -156,11 +156,31 @@
 }
 
 .small-table table {
-  font-size: 0.8rem;          /* ↓ font size */
+  font-size: 8pt;          /* ↓ font size */
 }
 
 .small-table th,
 .small-table td {
   padding: 4px 6px;           /* ↓ cell padding */
   white-space: nowrap;        /* prevent wrapping (optional) */
+}
+
+.full-width-table {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0 2rem;
+}
+
+/* Optional: keep it readable */
+.full-width-table table {
+  width: 100%;
+  table-layout: fixed;   /* forces columns to shrink */
+  font-size: 8pt;
+}
+
+.full-width-table th,
+.full-width-table td {
+  padding: 4px 6px;
+  word-break: break-word;
 }
