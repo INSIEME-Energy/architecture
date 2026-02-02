@@ -183,7 +183,7 @@ All diagrams describing the scenarios are of an illustrative nature and follow B
 | 1.11 | Notify metering point administrator | Accounting point master data request needs to be notified to provide the requested data package. | Data access provider | Metering point administrator | B - Accounting point master data request |
 | 1.12 | Transfer data | Final customers receive without undue delay the requested data. | Metering point administrator | Final customer | D – Accounting point master data |
 
-Diagram 1 – Scenario ‘Access to accounting point master data by the final customer’
+![Diagram 1 – Scenario ‘Access to accounting point master data by the final customer’](./Procedure1.png)
 
 | Table III.2 – Procedure 2 | Table III.2 – Procedure 2 | Table III.2 – Procedure 2 | Table III.2 – Procedure 2 | Table III.2 – Procedure 2 | Table III.2 – Procedure 2 |
 | --- | --- | --- | --- | --- | --- |
@@ -200,7 +200,7 @@ Diagram 1 – Scenario ‘Access to accounting point master data by the final cu
 | 2.9 | Inform eligible party about negative validation result | If the eligible party is not linked nor have permission to the accounting point master data, a meaningful message should indicate the reason. | Metering point administrator | Eligible party | C - Request validation information |
 | 2.10 | Send data/Receive data | Eligible party receive without undue delay the requested data. | Metering point administrator | Eligible party | D – Accounting point master data |
 
-![Diagram 2 - 'Access to accounting point data by an eligible party'](./Procedure1.png)
+![Diagram 2 - 'Access to accounting point data by an eligible party'](./Procedure2.png)
 
 | Table III.3 – Procedure 3 | Table III.3 – Procedure 3 | Table III.3 – Procedure 3 | Table III.3 – Procedure 3 | Table III.3 – Procedure 3 | Table III.3 – Procedure 3 |
 | --- | --- | --- | --- | --- | --- |
@@ -215,7 +215,7 @@ Diagram 1 – Scenario ‘Access to accounting point master data by the final cu
 | 3.7 | End of data sharing | The metered data administrator stops transferring data to the eligible party. | Metered data administrator | Eligible party | J – Notification of termination of service |
 | 3.8 | Update possible link with accounting point | The metering point administrator operator checks if the link between the eligible party and the accounting point will be affected. | Metering point administrator |  |  |
 
-Diagram 3 - ' Termination of access to accounting point master data by the eligible party '
+![Diagram 3 - 'Termination of access to accounting point master data by the eligible party'](./Procedure3.png)
 
 | Table III.4 – Procedure 4 | Table III.4 – Procedure 4 | Table III.4 – Procedure 4 | Table III.4 – Procedure 4 | Table III.4 – Procedure 4 | Table III.4 – Procedure 4 |
 | --- | --- | --- | --- | --- | --- |
@@ -235,7 +235,7 @@ Diagram 3 - ' Termination of access to accounting point master data by the eligi
 | 4.12 | Execute consent end tasks | The eligible party performs all tasks required to fulfil its related responsibilities immediately and without undue delay and in accordance with Regulation (EU) 2016/679. | Eligible party | [not relevant] | [not relevant] |
 | 4.13 | Notify final customer | The consent administrator makes available the information that the consent has been revoked to the final customer. | Consent administrator | Costumer | I – Established consent information |
 
-Diagram 4 - ' Revocation of access to accounting point master data by the final customer'
+![Diagram 4 - ' Revocation of access to accounting point master data by the final customer'](./Procedure4.png)
 
 | Table III.5 – Procedure 5 | Table III.5 – Procedure 5 | Table III.5 – Procedure 5 | Table III.5 – Procedure 5 | Table III.5 – Procedure 5 | Table III.5 – Procedure 5 |
 | --- | --- | --- | --- | --- | --- |
@@ -249,7 +249,7 @@ Diagram 4 - ' Revocation of access to accounting point master data by the final 
 | 5.6 | Validate party information request | The party administrator validates the request and provides a meaningful indication in case of an invalid request. | Party administrator | Final customer | K- Request validation information |
 | 5.7 | Transfer party master data | The party administrator provides the party’s master data. | Party administrator | Eligible party | L– Party master data |
 
-Diagram 5 - 'Access to market party master data'
+![Diagram 5 - 'Access to market party master data'](./Procedure5.png)
 
 | Table III.6 – Procedure 6 | Table III.6 – Procedure 6 | Table III.6 – Procedure 6 | Table III.6 – Procedure 6 | Table III.6 – Procedure 6 | Table III.6 – Procedure 6 |
 | --- | --- | --- | --- | --- | --- |
@@ -263,7 +263,7 @@ Diagram 5 - 'Access to market party master data'
 | 6.6 | Validate party information request | The party administrator validates the request and provides a meaningful indication in case of an invalid request. | Party administrator | Final customer | K - Request validation information |
 | 6.7 | Transfer party list | The party administrator provides the list of parties for the respective role and timestamp. | Party administrator | Eligible party | P – Market party list |
 
-Diagram 6 - 'Access to list of market parties by their role'
+![Diagram 6 - 'Access to list of market parties by their role'](./Procedure6.png)
 
 | Table IV - Information exchanged | Table IV - Information exchanged | Table IV - Information exchanged |
 | --- | --- | --- |
