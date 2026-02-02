@@ -162,7 +162,6 @@
 .small-table th,
 .small-table td {
   padding: 4px 6px;           /* ↓ cell padding */
-  white-space: nowrap;        /* prevent wrapping (optional) */
 }
 
 .full-width-table {
