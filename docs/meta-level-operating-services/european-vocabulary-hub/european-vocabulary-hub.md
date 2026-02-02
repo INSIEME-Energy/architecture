@@ -2012,4 +2012,85 @@ CEEDS Platform / National Data Space | National Platform Interface | System to S
 CEEDS Platform | Interface with EU Vocabularies | It is higlyhighly recommended to use EU Vocabularies as storage and sharing for code lists, thesaurythesauri, and ontologies. The interface should be direct since the access to EU VocabulriesVocabularies is open and public.
 
 
-<!-- TODO: Insert descriptions of Deployment View components -->
+#### Solution Analysis
+
+##### Introdution and objectives
+
+This document presents a comparative analysis of the techinical solutions that should be condsidered for the implementation of the European Vocabulary Hub.
+The main functions that should be covered by the Vocabulary Hub, as described by Data Spaces Support Center (DSSC):
+1. **Storing vocabularies**
+1. **Search on the semantic sources**
+1. **Documenting non-standardised data**
+1. **Export semantic sources**
+1. **Automaic integration with the catalog**
+1. **Validation of data**
+
+The objective is to compare [Semantic Treehouse](https://www.semantic-treehouse.nl/) application versus [SIMPL-Open](https://simpl-programme.ec.europa.eu/dashboard/home) Vocabularies module for a possible solution for European Vocabulary Hub main component so that a recommandation can be made for the implementer.
+
+##### General busines requirement 
+
+Semantic interoperability: the Vocabulary Hub shall ensure semantic interoperability within the designated data space. It should provide a standardised mechanism for representing and managing vocabularies to enable seamless communication and data integration among diverse applications and systems. A vocabulary hub should help you and/or a community to agree on, define, improve, publish and use data models. 
+
+##### Architectural and design requirements
+
+1. User interface
+   - Intuitive web-based interface for user interaction and management
+   - Role-based access control
+   - Search and browsing features 
+
+1. Backend services
+   - RESTfull APIs for seamless interaction with other systems and applications
+E.g. API for the interaction with a Catalogue in DCAT-AP
+
+1. Catalogue Component
+   -  A catalogue that stores Catalogue Resources about the metadata of data models & formats. For example, a Catalogue Resource in DCAT-AP.
+
+1. Schema Repository
+   - A Vocabulary Hub consist of a schema repository. It involves all the schemas where data can be expressed in.
+   - This enables data providers and consumers to access the schemas corresponding to their Catalogue Resources.
+
+1. Schema editing
+   -  Vocabulary Hub should allow users to create, edit and maintain their data models having built in versioning management.
+
+Catalogue Component as a catalogue that stores datasets potentially provided by data providers and consumed by data consumers.
+
+##### System and integration requitrements
+
+These requirements should provide developers with the necessary information and detail to start coding. For example, the building block shall use standard vocabularies and ontologies to ensure semantic interoperability.
+
+1. Integration with third-party systems
+   - RESTful APIs: well defined APIs to facilitate seamless integration with third party systems and applications.
+   - DCAT-AP is to be used for the interaction with other third-party systems and applications.
+
+1. Authentication and Authorisation
+   - Integration of authentication mechanisms for secure API access
+
+1. Data Models and Formats
+   - Support for standard vocabulary formats e.g. Vocabulary - SKOS; Ontology - OWL, RDF, UML; Application profile - SHACL, XML, JSON; Data schema - JSON Schema, XML Schema.
+
+##### Analysis
+
+| Criteria | Sematic Treehouse | SIMPL-Open Vocabularies |
+---|---|---
+Storing vocabularies | Yes, can store mappings, ontologies, taxonomies, code lists, business rules | Yes, can store: vocabularies, ontologies, schemas
+Search on semantic terms | Built in search engine | Yes, via search engine module
+Documenting non-standardised  data| Message model wizard | Posibility to add attributes of a self-description for a dataset/application/infrastructure 
+Export semantic sources | Direct export  | Yes, via API
+Automatic integration with the catalog | Yes. Including application profile | Yes. Possiblity of catalogue sharing
+Validation of data | Yes, via SHACL, XSD and JSON Schema. | Yes, via Semantic Validation
+User interface | Web, RESTful API | Web, RESTful API
+Backend services | RESTful API | RESTful API
+Catalogue component | Possible via ontologies and technical standards | GAIA-X federated catalogue
+Schema repository | Yes. Both JSON and XML. | Yes. Has Schema Registry and Schema Management
+Schema editing | Yes, versioning included | Yes, versioning included
+Integration with third party systems | Possible via RESTful API - needs development | Possible via SIMPL-OPEN Agents
+Authentication and authorisation | Built-in module for access control, role management | Build-in ACT module: RBAC, ABAC, AIA. eIDAS - EUDI integration
+Data models and formats | JSON Schema, XSD,  SHACL, RDF/XML, JSON-LD, N3, OWL, SKOS, Schematron, XSLT  | JSON-LD, Turtle, RDF/XML, OWL/RDFS, SHACL
+
+##### Recommendations
+
+Both systems, Semantic Treehouse and SIMPL-Open are fit for basic Vocabulary Hub component. Both systems are still under development and should be updated accordingly (each time a new version is released). This may generate technical debt if updates are not perfomed systematically and may introduce breaking changes in case of major version updates. In both cases a proper software update management policy should be implemented both by CEEDS administrators and National Data Space Facilitator(s).
+
+From integration perspective Semantic Treehouse was designed as an independent component and it will need specific further development for scalability and incorporation into a distributed platform. From this perspective, SIMPL-Open has the advantage to be distributed by design and ready for Data Space integration. This specific advantage will make SIMP-Open a strong candidate for CEEDS European Vocabulary Hub service implementation. The main disavantage is the maturity level of the component that will generate extra work in the future. If planned accordingly this risk could be mitigated.
+
+A PoC and fit tests should be run before a decission is taken.
