@@ -5,9 +5,12 @@ order: 3
 
 ## Contributors
 
-| Responsibility | Name                     | E-Mail                |
-|----------------|--------------------------|-----------------------|
-| Leader         | Dragos-Constantin Stoica | dragos.stoica@lnds.lu |
+| Responsibility | Name                     | E-Mail                          |
+|----------------|--------------------------|---------------------------------|
+| Leader         | Dragos-Constantin Stoica | dragos.stoica@lnds.lu           |
+| Contributor    | Benjamin Ellmer          | benjamin.ellmer@fh-hagenberg.at |
+| Contributor    | Georg Hartner            | georg.hartner@eddie.energy      |
+
 
 ## Function and Objective
 
