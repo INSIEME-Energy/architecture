@@ -1,6 +1,7 @@
 ---
 title: Reference Models
 order: 2
+pageClass: refmodels-wide
 ---
 
 <div class="procedure-matrix full-width-table small-table">

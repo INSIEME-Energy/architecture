@@ -164,12 +164,23 @@
   padding: 4px 6px;           /* ↓ cell padding */
 }
 
-.full-width-table {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0 2rem;
+full-width-table {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
 }
+
+/* make the doc content area expand (still respects sidebar) */
+.refmodels-wide .VPDoc.has-sidebar .content-container {
+  max-width: 100% !important;
+}
+
+/* optional: also remove vp-doc max width clamp */
+.refmodels-wide .vp-doc {
+  max-width: none;
+}
+
 
 /* Optional: keep it readable */
 .full-width-table table {
