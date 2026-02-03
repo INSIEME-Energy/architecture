@@ -2,6 +2,7 @@
 title: Reference Models
 order: 2
 pageClass: refmodels-wide
+aside: false
 ---
 
 ![Structure of Reference Models](./reference-models.png)
