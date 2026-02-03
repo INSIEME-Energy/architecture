@@ -4,6 +4,10 @@ order: 2
 pageClass: refmodels-wide
 ---
 
+![Structure of Reference Models](./reference-models.png)
+
+### Regulated Domain Reference Models
+
 <div class="procedure-matrix full-width-table small-table">
 
 | Procedure                                                                                                                                                                                                                                        | Pr.    | St. | Procedure                                                                                                                          | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
