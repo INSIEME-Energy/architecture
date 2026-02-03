@@ -195,3 +195,23 @@
   table-layout: fixed;
   width: 100%;
 }
+
+/* 1) Force wrapping in column 4 (higher specificity + important) */
+.vp-doc .procedure-matrix table td:nth-child(4),
+.vp-doc .procedure-matrix table th:nth-child(4) {
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
+/* 2) Give column 4 an explicit share of the width (so it wraps instead of expanding) */
+.vp-doc .procedure-matrix table td:nth-child(4),
+.vp-doc .procedure-matrix table th:nth-child(4) {
+  width: 38%;          /* tweak: 30–50% usually */
+}
+
+/* 3) Keep the rest compact (optional but helps) */
+.vp-doc .procedure-matrix table td:not(:nth-child(4)),
+.vp-doc .procedure-matrix table th:not(:nth-child(4)) {
+  white-space: nowrap;
+}
