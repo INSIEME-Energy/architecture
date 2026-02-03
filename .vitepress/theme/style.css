@@ -181,6 +181,10 @@ full-width-table {
   max-width: none;
 }
 
+.refmodels-wide .procedure-matrix table {
+  width: 100%;
+  table-layout: fixed;
+}
 
 /* Optional: keep it readable */
 .full-width-table table {
