@@ -34,7 +34,7 @@ The main functions:
 - metadata definition and management
 - energy market refrence data model representation, maintenance by CEEDS Operator
 - reference data model access for CEEDS Participants
-- national reference data model definition and management can be maintained by National Data Space Facilitator (NDFS)
+- national reference data model definition and management can be maintained by National Data Space Facilitator (NDSF)
 - enhancement and mapping of national reference data model to European reference data model 
 
 ## Business Architecture
@@ -95,15 +95,111 @@ It involves data assets, databases, data models, and the governance of data acro
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
+The European Reference Data Registry should be able to handle multiple data models, and versions of same data model. It should contain a repository of metadata that allows defining, storing, and managing the currently identified national data models and the common European data model. The recommended data architecture is a combination of data catalog, meta data repository and basic data tranformation tools - from national data model to and from common European data model, allowing transparent data transactions between CEEDS participants.
+
+Looking at the exiting tools proposed by DSSC that can be used to implement the data architecture the following candidates are suggested:
+- SIMPL-Open Catalogue
+- Ocean Enterpirse Catalogue and Aquearius Catalogue Cache
+- FAIR Data Publisher
+
 ### Data Objects
 
-<!-- TODO: Insert list/table of data objects and their descriptions -->
 CEEDS data model is based on the reference model for metering and consumption data access as specified in [Annex I of Commission Implementing Regulation (EU) 2023/1162](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1162#anx_1)
+
+The data exchange shall be based on an ETSI-CEN-CENELEC set of standards (e.g. EN IEC 62325-351 and considering other relevant European initiatives such as the Harmonised Electricity Market Role Model (HEMRM) and the International Electrotechnical Commission’s Common Information Model (CIM).
+
+Here are the references for data objects to be used:
+- **EN IEC 62325-351** the European Style Market Document (ESMP) as published by [ENTSO-E](https://www.entsoe.eu/publications/electronic-data-interchange-edi-library/#Common_information_model__CIM__European_style_market_profile) consisting of a user guide, XSD, code list and component
+- **ISO8601** for date/time formats
+- **ISO19139** for annotation of high-value datasets in geometadata.
+
+Further usage of other standards, especially dealing with electro mobility, are still part of ongoing discussion in the CIM TC57 working group 21. The result will be published at the Bridge energy schemas Github.
+
+
+The data model used by this service is based on reuse of work from previous European projects: [EDDIE](https://github.com/eddie-energy/eddie/tree/main/masterdata), [ENTSO-E](https://www.entsoe.eu), and [Digital4Grids](https://github.com/Digital4Grids/) 
 
 
 #### List and Specification of Reference Data Objects
 
 Based on identified [Reference models](../../reference-models/reference-models.html), the service S3 will be used by the following procedures.
+
+Procedure: **T4-2_01 Access to Metering and Consumption Data**
+- 02 Access to validated historical metering and consumption data by an eligible party
+- 03 Termination of service by an eligible party
+
+Pocedure: **T4-2_02 Access to Basic Master Data**
+- 02 Access to accounting point master data by an eligible party
+- 03 Termination of access to accounting point master data by the eligible party
+- 05 Revocation of access to accounting point master data by the final customer
+- 06 Access to market party master data
+- 07 Access to list of market parties by their role
+
+Procedure: **T4-2_03 Access to implicit flexibility signals**
+- 01 Access to residual supply price for period
+- 02 Access to residual grid fee for period
+- 03 Access to CESU supply price for period
+- 04 Access to CESU grid fee for period
+
+Procedure: **T4-2_04 Customer Switching**
+- 01 Switching supplier
+- _02 Cancellation of switching supplier (optional)_
+
+Procedure: **T4-3_01 Collective Self-Consumption and Energy Communities**
+- 01 Registration of a collective energy sharing unit
+- 02 CESU operator queries if metering point may be assigned
+- 03 Final customer queries if metering point may be assigned to a CESU
+- 04 CESU operator requests metering point to be added to the unit [optionally] with the info of
+- 05 CESU operator requests metering point to be assigned to CESU data eligible party too
+- 06 CESU operator requests accounting point to be removed from CESU a
+- 07 Final customer requests its accounting point to be removed from CESU
+- 08 Support to short-term flexibility markets
+- 09 Energy management w/wo flexibility provision
+- 10a Flexibility verification and settlement done by FRP
+- 10b Flexibility verification and settlement done by flexibility market operator or other third-party support tool
+- 11a Receive self-consumption information for CESU without CESU intervention
+- 11b Receive self-consumption information for CESU from CESU dynamic allocation
+- 12 CESU internal settlement w/wo flexibility provision
+- 13 Direct access to its own data by CESU member
+- 14 Change the allocation mechanism of the CESU
+- 15 Company qualification for participating in flexibility markets
+- 16 Assets qualification for participating in flexibility markets
+
+
+We will provide in the next sections a non exhaustive list of samples for code lists and data models. 
+
+Common European data models extracted form [Annex I of Commission Implementing Regulation (EU) 2023/1162](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1162#anx_1)
+
+![European Reference Data Registry National Competent Aythority](./I1-erdr.drawio.png)
+
+![European Reference Data Registry Information on Member State data management set-up](./I2-erdr.drawio.png)
+
+![European Reference Data Registry Information about metered data administrators in a Member State](./I3-erdr.drawio.png)
+
+![European Reference Data Registry Information about metering point administrators in a Member State](./I4-erdr.drawio.png)
+
+![European Reference Data Registry Information about data access provider](./I5-erdr.drawio.png)
+
+![European Reference Data Registry Information about permission administrators in a Member State](./I6-erdr.drawio.png)
+
+![European Reference Data Registry Information about standardised near real-time interfaces of smart meters or smart metering systems in a Member State](./I7-erdr.drawio.png)
+
+National and platform data models extracted from [EDDIE](https://github.com/eddie-energy/eddie/tree/main/masterdata)
+
+![European Reference Data Registry Data Access Provider](./dap-erdr.drawio.png)
+
+![European Reference Data Registry Data Exchange Environment](./dee-erdr.drawio.png)
+
+![European Reference Data Registry Metered Data Administrator](./mda-erdr.drawio.png)
+
+![European Reference Data Registry Metering Point Administrator](./mpa-erdr.drawio.png)
+
+![European Reference Data Registry National Competent Authority](./nca-erdr.drawio.png)
+
+![European Reference Data Registry Near Realtime Data Interface](./nrdi-erdr.drawio.png)
+
+![European Reference Data Registry Permission Administrator](./pad-erdr.drawio.png)
+
+
 
 
 ## Application Architecture
