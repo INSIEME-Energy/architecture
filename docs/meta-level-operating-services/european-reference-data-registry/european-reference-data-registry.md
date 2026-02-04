@@ -22,12 +22,41 @@ within the scope of CEEDS. The lack of accessibility of this data places a huge 
 CEEDS Facilitator is responsible to provide standardized interfaces in a Common Information Model for National Data Space Facilitators (NDSF) to provide that data in a standardized manner, as well as
 keeping audits and versioning. NDSFs should be responsible to collect and maintain updates of the reference data, and to certify its correctness.
 
+Based on DSSC business and organisational building blocks the motivation for an European Reference Data Registry can be resumed by:
+- **Use Case Development**: Data space use cases are settings where two or more participants create business, societal or environmental value from data sharing. Use case development amplifies such value of a data space.
+- **Data Space Offering**: The data space offering consists of the set of offerings available in a data space to participants. Offerings contain data product(s), service(s), and the offering description that provides all the information needed for a potential consumer to make a decision whether to consume the data product(s) and/or the service(s) or not.
+
+The main technical building blocks adressed by European Reference Data Registy are:
+- **Data Models**: Data models ensure that data is accurately and consistently interpreted when exchanged within a data space. The data model consists of metadata that provides information about semantics, helping to interpret the actual exchanged data. 
+- **Provenance and traceability**: additional metadata alongside the shared data for auditing and compliance purposes might be required.  
+
+The main functions:
+- metadata definition and management
+- energy market refrence data model representation, maintenance by CEEDS Operator
+- reference data model access for CEEDS Participants
+- national reference data model definition and management can be maintained by National Data Space Facilitator (NDFS)
+- enhancement and mapping of national reference data model to European reference data model 
+
 ## Business Architecture
 
 <!-- 
 The Business Architecture focuses on business requirements. It outlines the structure and operation of an organization, including business goals, functions, processes, and organizational structure. 
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+
+The main actors and systems interacting with European Reference Data Registry service:
+
+Actor/System | Description
+---|---
+National Data Space Facilitators (NDSF) | Actor responsible for National Data Space management, in particular the definition and maintenance of the specific metadata that can be shared with CEEDS Participants about national data models. The NDSF has access via the National Reference Data Maintenance Service. NDSF are responsible for providing and maintaing updates of the mappings of national data models to common European data model. 
+CEEDS Facilitator | Actor having access to the European Referecne Data Registry interface for metadata management. This includes data catalog, service catalog, access management, rights management. The main responsibilit is to define and enhance European refrerence data standard model.
+CEEDS Participant | Participant having access to the services related to common European reference data model.
+Energy Market Referecne Data | A collection of reference data specific to each national data space used to aggregate specific code lists, taxonomies, schemas, data models.
+S3 - European Reference Data Registry | CEEDS service providing access to common European reference data model to CEEDS Participants.
+
+![European Reference Data Registry Service Business Architecture](./business-erdr.drawio.png)
+
+
 
 ### Service Realization Viewpoint
 
@@ -44,6 +73,20 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization
 
 <!-- TODO: Insert descriptions of Realization Viewpoint components -->
 
+Component | Description
+---|---
+National Reference Data Maintenance Service | Service allowing the National Data Space Facilitators (NDSF) to create and maintain national reference data and to create mappings from national data models to common European data models.
+Interface for NDSF to update national reference data | Interface allowing the NDSF to maintain national reference data models and feeds the to Reference Data Maintenance Service.
+Reference Data Maintenance Service | Service ingesting the national data curated and prepared by NDSF and feeding it to the European Reference Data Registry.
+Energy Market Refrence Data | Aggregated reference data at national data space level. It has multiple data models and various data sources, including adminitstrative permissions and access rights. The data model is maintained by NDSF.
+European Reference Data Registry | Component that ingests data from national data space and transforms it into common European data format. The common European data models are maintained by the CEEDS Facilitator.
+Reference Data Provision Service | Service allowing the transfomed data to be exposed to CEEDS Participants.
+Common European-wide unique identification | Function part of the Reference Data Provision Service that exposes the UUID of a specific CEEDS Participant 
+Change Notifications | Function part of the Reference DAta Provision Service that notifies changes of a specific national data model or changes in common European data model.
+Query reference data | Function part of the Reference Data Provision Service that allow for querying and searching of both national and common European data models.
+CEEDS Participant Application | Application facing the CEEDS Participant exposing the functions of Referecne Data Provision Service via Web interface.
+
+
 ## Data Architecture
 
 <!-- 
@@ -55,7 +98,7 @@ See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 ### Data Objects
 
 <!-- TODO: Insert list/table of data objects and their descriptions -->
-The reference model for metering and consumption data access as specified in Annex I of Commission Implementing Regulation (EU) 2023/1162
+CEEDS data model is based on the reference model for metering and consumption data access as specified in [Annex I of Commission Implementing Regulation (EU) 2023/1162](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1162#anx_1)
 
 
 #### List and Specification of Reference Data Objects
