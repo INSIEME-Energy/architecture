@@ -3,6 +3,8 @@ title: Meta-Level Operating Services
 order: 3
 ---
 
+![Application Cooperation Viewpoint of CEEDS Services](app_coop_vp.png)
+
 | ID  | Operating Service                                                                                                                   | Acronym |
 |-----|-------------------------------------------------------------------------------------------------------------------------------------|---------|
 | S1  | [CEEDS Participants Registry](ceeds-participants-registry/ceeds-participants-registry.md)                                           | CPR     |
