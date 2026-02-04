@@ -1,4 +1,6 @@
-### T4-2_03 - Access to implicit flexibility signals
+---
+title: T4-2_03 - Access to implicit flexibility signals
+---
 
 ## Context/ Whereas
 
