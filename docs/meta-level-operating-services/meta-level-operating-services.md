@@ -3,7 +3,6 @@ title: Meta-Level Operating Services
 order: 3
 ---
 
-![Application Cooperation Viewpoint of CEEDS Services](app_coop_vp.png)
 
 | ID  | Operating Service                                                                                                                   | Acronym |
 |-----|-------------------------------------------------------------------------------------------------------------------------------------|---------|
@@ -16,3 +15,5 @@ order: 3
 | S7  | [European Data and Services Marketplace](european-data-and-services-marketplace/european-data-and-services-marketplace.md)          | EDSM    |
 | S8  | [EU-wide Regulated-Domain Services](eu-wide-regulated-domain-services/eu-wide-regulated-domain-services.md)                         | ERDS    |
 | DCI | [Digital Customer Interface](digital-customer-interface/digital-customer-interface.md)                                              | DCI     |
+
+![Application Cooperation Viewpoint of CEEDS Services](./app_coop_vp.png)
