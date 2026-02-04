@@ -1,4 +1,6 @@
-### T4-2_04 - Customer switching
+---
+title: T4-2_04 - Customer switching
+---
 
 ## Context / Whereas
 
