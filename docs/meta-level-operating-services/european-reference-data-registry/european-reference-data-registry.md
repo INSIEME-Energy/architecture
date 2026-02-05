@@ -223,6 +223,9 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 <!-- TODO: Insert ArchiMate Cooperation Viewpoint diagram -->
 
+![European Reference Data Registry Application Cooperation](./application-erdr.drawio.png)
+
+
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Application Cooperation Viewpoint components -->
