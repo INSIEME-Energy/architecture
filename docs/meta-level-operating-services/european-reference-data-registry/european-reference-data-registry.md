@@ -121,7 +121,7 @@ The data model used by this service is based on reuse of work from previous Euro
 
 #### List and Specification of Reference Data Objects
 
-Based on identified [Reference models](../../reference-models/reference-models.html), the service S3 will be used by the following procedures.
+Based on identified [Reference models](../../reference-models/reference-models.html), the service S3 will be used by the following procedures:
 
 Procedure: **T4-2_01 Access to Metering and Consumption Data**
 - 02 Access to validated historical metering and consumption data by an eligible party
@@ -164,8 +164,9 @@ Procedure: **T4-3_01 Collective Self-Consumption and Energy Communities**
 - 15 Company qualification for participating in flexibility markets
 - 16 Assets qualification for participating in flexibility markets
 
+The payload for each procedure must be modeled and stored in the European Reference Data Registry. 
 
-We will provide in the next sections a non exhaustive list of samples for code lists and data models. 
+We will provide in the next sections a non exhaustive list of samples of data models. The European Reference Data Registry must be able to handle any type of data models and data model changes. 
 
 Common European data models extracted form [Annex I of Commission Implementing Regulation (EU) 2023/1162](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1162#anx_1)
 
@@ -209,6 +210,9 @@ The Application Architecture describes individual applications and their interac
 It addresses software applications and their role in supporting business processes and functions.
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+
+The European Referece Data Registry service main function is to store and serve the common European data model and data catalogue. As seconday function should provide a services that allows national data platform facilitators to create, store and manage national data models, and to provide the mappings from national data models to common European data models.  
+The service can be developed and hosted by National Data Space platform for the part concerning the national data model management and mapping. For the common European data model and data catalogue the service should be centralised and the models must be synchronized (in case of distributed implementation). The service should have the possilibity to function off-line, it is the responsiblity of National Data Space platform to synchronise and update the data from CEEDS.
 
 ### Application Cooperation Viewpoint
 
