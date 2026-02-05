@@ -50,7 +50,7 @@ Thus, it forms the bridge between the business products viewpoint and the busine
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
 
-![CEEDS Participants Registry ArchiMate Diagram](./img.png)
+![CEEDS Participants Registry ArchiMate Diagram](./service-realisation-viewpoint.png)
 
 #### Component Descriptions
 
