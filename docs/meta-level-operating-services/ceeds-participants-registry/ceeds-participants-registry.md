@@ -90,6 +90,13 @@ The national registry exchanges relevant information with the European-level ide
 **National Party Certification** represents national certification and compliance mechanisms that validate participants against national requirements.
 These certifications feed into the overall trust framework and are aligned with the European certification chain to enable cross-border participation without redundant procedures.
 
+## Related Work
+
+- [IDS Participant Information Service](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Components/IdentityProvider/ParIS)
+- SIMPL: [Digital Identities](https://code.europa.eu/simpl/simpl-open/architecture/-/blob/master/functional_and_technical_architecture_specifications/Functional-and-Technical-Architecture-Specifications.md?ref_type=heads#45-digital-identities-integration-with-eu-digital-identity-framework---eidas), [Onboarding Providers & Consumers](https://simpl-programme.ec.europa.eu/book-page/3a-onboarding-new-dataspace-participant-providers-data-application-infrastructur), [Onboarding End Users](https://simpl-programme.ec.europa.eu/book-page/bp03b-onboarding-new-data-space-participant-end-user)
+- [EDDIE Registry Demo](https://github.com/eddie-energy/registry)
+- [DSSC Identity Attestation Toolbox](https://toolbox.dssc.eu/?pane=technical&technical=identity-attestation-management)
+
 ## Data Architecture
 
 <!-- 
@@ -179,3 +186,18 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Deployment View components -->
+
+## Reference Model Requirements
+
+| Procedure                                                                                                                                                                                                                                                | Procedure                                                                         | Requirements |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|--------------|
+| [T4-2_01_02](../../reference-models/regulated-domain/T4-2_01-access-to-metering-and-consumption-data/T4-2_01-access-to-metering-and-consumption-data.md#procedure-2---access-to-validated-historical-metering-and-consumption-data-by-an-eligible-party) | Access to validated historical metering and consumption data by an eligible party |              | 
+| [T4-2_01_03](../../reference-models/regulated-domain/T4-2_01-access-to-metering-and-consumption-data/T4-2_01-access-to-metering-and-consumption-data.md#procedure-3---termination-of-service-by-an-eligible-party)                                       | Termination of service by an eligible party                                       |              |
+| [T4-2_02_02](../../reference-models/regulated-domain/T4-2_02-access-to-basic-master-data/T4-2_02-access-to-basic-master-data.md#procedure-2---access-to-accounting-point-master-data-by-an-eligible-party)                                               | Access to accounting point master data by an eligible party                       |              |
+| [T4-2_02_03](../../reference-models/regulated-domain/T4-2_02-access-to-basic-master-data/T4-2_02-access-to-basic-master-data.md#procedure-3---termination-of-access-to-accounting-point-master-data-by-the-eligible-party)                               | Termination of access to accounting point master data by the eligible party       |              |
+| T4-2_04_01                                                                                                                                                                                                                                               | Switching supplier                                                                |              |
+| [T4-3_01_01](../../reference-models/regulated-domain/T4-3_01-collective-energy-sharing/T4-3_01-collective-energy-sharing.md#procedure-1---registration-of-a-collective-energy-sharing-unit)                                                              | Registration of a collective energy sharing unit                                  |              |
+| [T4-3_01_08](../../reference-models/regulated-domain/T4-3_01-collective-energy-sharing/T4-3_01-collective-energy-sharing.md#procedure-8---support-to-short-term-flexibility-markets)                                                                     | Support to short-term flexibility markets                                         |              |
+| [T4-4_01_01](../../reference-models/regulated-domain/T4-3_01-collective-energy-sharing/T4-3_01-collective-energy-sharing.md#procedure-1---registration-of-a-collective-energy-sharing-unit)                                                              | Initialization of Digital Customer Interface                                      |              |
+| [T4-4_01_02](../../reference-models/regulated-domain/T4-3_01-collective-energy-sharing/T4-3_01-collective-energy-sharing.md#procedure-1---registration-of-a-collective-energy-sharing-unit)                                                              | Onboarding of Flexible Customer to FCA                                            |              |
+| [T4-4_01_03](../../reference-models/regulated-domain/T4-3_01-collective-energy-sharing/T4-3_01-collective-energy-sharing.md#procedure-1---registration-of-a-collective-energy-sharing-unit)                                                              | Revocation of Flexible Connection Agreement by Customer                           |              |
