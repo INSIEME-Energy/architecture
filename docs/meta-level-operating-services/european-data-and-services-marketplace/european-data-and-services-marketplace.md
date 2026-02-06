@@ -5,13 +5,16 @@ order: 7
 
 ## Contributors
 
-| Responsibility | Name   | E-Mail |
-|----------------|--------|--------|
-| Leader         | t.b.a. |        |
+| Responsibility | Name             | E-Mail                  |
+|----------------|------------------|-------------------------|
+| Engineering    | Ferdinando Bosco | ferdinando.bosco@eng.it |
+| FHOOE | Georg Hartner | georg.hartner@eddie.energy |
 
 ## Function and Objective
 
-Provides a regulated environment for accessing, sharing, and commercializing energy-related data. The EDSM should contain a data catalogue for data indexing and discovery.
+Provides a regulated environment for accessing, sharing, and commercialising energy-related data. The EDSM should contain a data catalogue for data indexing and discovery.
+
+![Service Realisation Viewpoint - Data, Services and Models Marketplace](srv_dataservicesmodelsmp.png)
 
 Data service providers may link into this marketplace to offer their services, such as:
 
