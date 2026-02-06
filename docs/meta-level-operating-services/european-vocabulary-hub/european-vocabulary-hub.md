@@ -10,6 +10,7 @@ order: 2
 | Leader         | Dragos-Constantin Stoica | dragos.stoica@lnds.lu                 |
 | Contributor    | Wout van Voornveld       | w.van.voornveld@expertmodeller.energy |
 | Contributor    | Tomé Ferreira            | tome.ferreira@ri.se                   |
+| Contributor | Georg Hartner | georg.hartner@eddie.energy |
 
 ## Function and Objective
 
