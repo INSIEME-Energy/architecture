@@ -5,10 +5,11 @@ order: 7
 
 ## Contributors
 
-| Responsibility | Name             | E-Mail                  |
-|----------------|------------------|-------------------------|
-| Engineering    | Ferdinando Bosco | ferdinando.bosco@eng.it |
-| FHOOE | Georg Hartner | georg.hartner@eddie.energy |
+| Responsibility | Name             | E-Mail                          |
+|----------------|------------------|---------------------------------|
+| Engineering    | Ferdinando Bosco | ferdinando.bosco@eng.it         |
+| FHOOE          | Georg Hartner    | georg.hartner@eddie.energy      |
+| FHOOE          | Benjamin Ellmer  | benjamin.ellmer@fh-hagenberg.at |
 
 ## Function and Objective
 
@@ -27,7 +28,7 @@ Data service providers may link into this marketplace to offer their services, s
 - Privacy and pseudonymisation
 
 EDSM should contain – possibly in close co-operation with SIMPL – a concept for data provision contract negotiation, cost renumeration and commercialization of data, as well as settlement of
-transactions. EDSM should cover both free-of-charge and chargeable services. 
+transactions. EDSM should cover both free-of-charge and chargeable services.
 
 ## Business Architecture
 
