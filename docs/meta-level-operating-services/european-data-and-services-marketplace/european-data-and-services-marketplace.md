@@ -14,7 +14,7 @@ order: 7
 
 Provides a regulated environment for accessing, sharing, and commercialising energy-related data. The EDSM should contain a data catalogue for data indexing and discovery.
 
-![Service Realisation Viewpoint - Data, Services and Models Marketplace](srv_dataservicesmodelsmp.png)
+![Service Realisation Viewpoint - Data, Services and Models Marketplace](./srv_dataservicesmodelsmp.png)
 
 Data service providers may link into this marketplace to offer their services, such as:
 
