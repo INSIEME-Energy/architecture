@@ -1,5 +1,5 @@
 ---
-title: Digital Customer Interface
+title: DCI - Digital Customer Interface
 order: 9
 ---
 ## Contributors

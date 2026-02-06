@@ -1,5 +1,5 @@
 ---
-title: European Interoperability Testing Service
+title: S6 - European Interoperability Testing Service
 order: 6
 ---
 

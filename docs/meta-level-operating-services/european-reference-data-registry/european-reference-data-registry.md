@@ -1,5 +1,5 @@
 ---
-title: European Reference Data Registry
+title: S3 - European Reference Data Registry
 order: 3
 ---
 

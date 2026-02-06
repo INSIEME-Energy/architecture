@@ -1,5 +1,5 @@
 ---
-title: European Vocabulary Hub
+title: S2 - European Vocabulary Hub
 order: 2
 ---
 

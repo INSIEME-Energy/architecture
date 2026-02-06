@@ -1,6 +1,6 @@
 ---
-title: EU-wide Regulated-Domain Services
-order: 8
+title: S7 - EU-wide Regulated-Domain Services
+order: 7
 ---
 
 ## Contributors
