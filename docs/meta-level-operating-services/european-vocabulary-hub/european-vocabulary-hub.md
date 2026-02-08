@@ -3,15 +3,6 @@ title: S2 - European Vocabulary Hub
 order: 2
 ---
 
-## Contributors
-
-| Responsibility | Name                     | E-Mail                                |
-|----------------|--------------------------|---------------------------------------|
-| Leader         | Dragos-Constantin Stoica | dragos.stoica@lnds.lu                 |
-| Contributor    | Wout van Voornveld       | w.van.voornveld@expertmodeller.energy |
-| Contributor    | Tomé Ferreira            | tome.ferreira@ri.se                   |
-| Contributor | Georg Hartner | georg.hartner@eddie.energy |
-
 ## Function and Objective
 
 The European Vocabulary hub maintains the European Common Information Model and maps national vocabularies for semantic interoperability. The current work is based on previous EU projects: [EDDIE](https://eddie.energy/), [BRIDGE initiative](https://bridge-smart-grid-storage-systems-digital-projects.ec.europa.eu/), [Synergies](https://synergies-project.eu/), [ENTSO-E](https://www.entsoe.eu/data/cim/role-models/), [DSSC - Data Spaces Support Center](https://dssc.eu/), [Gaia-X](https://gaia-x.eu/), [SIMPL-Open](https://code.europa.eu/simpl/simpl-open/architecture/-/blob/master/functional_and_technical_architecture_specifications/Functional-and-Technical-Architecture-Specifications.md?ref_type=heads) that established a solid foundation for CEEDS.

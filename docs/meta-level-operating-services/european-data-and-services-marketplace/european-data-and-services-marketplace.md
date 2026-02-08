@@ -3,14 +3,6 @@ title: S8 - European Data and Services Marketplace
 order: 8
 ---
 
-## Contributors
-
-| Responsibility | Name             | E-Mail                          |
-|----------------|------------------|---------------------------------|
-| Engineering    | Ferdinando Bosco | ferdinando.bosco@eng.it         |
-| FHOOE          | Georg Hartner    | georg.hartner@eddie.energy      |
-| FHOOE          | Benjamin Ellmer  | benjamin.ellmer@fh-hagenberg.at |
-
 ## Function and Objective
 
 Provides a regulated environment for accessing, sharing, and commercialising energy-related data. The EDSM should contain a data catalogue for data indexing and discovery.

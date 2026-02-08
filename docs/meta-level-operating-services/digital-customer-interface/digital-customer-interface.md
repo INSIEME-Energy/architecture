@@ -2,11 +2,6 @@
 title: DCI - Digital Customer Interface
 order: 9
 ---
-## Contributors
-
-| Responsibility | Name   | E-Mail |
-|----------------|--------|--------|
-| Leader         | t.b.a. |        |
 
 ## Function and Objective
 

@@ -3,15 +3,6 @@ title: S1 - CEEDS Participants Registry
 order: 1
 ---
 
-## Contributors
-
-| Responsibility | Name                   | E-Mail                                 |
-|----------------|------------------------|----------------------------------------|
-| Leader         | Benjamin Ellmer        | benjamin.ellmer@fh-hagenberg.at        |
-| Contributor    | Georg Hartner          | georg.hartner@eddie.energy             |
-| Contributor    | Florian Weingartshofer | florian.weingartshofer@fh-hagenberg.at |
-| Contributor    | Aya Mohamed            | aya.Mohamed@fh-hagenberg.at            |
-
 ## Function and Objective
 
 The CEEDS Participants Registry (CPR) establishes a single European interface connecting national participant registries.

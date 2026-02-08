@@ -3,12 +3,6 @@ title: S5 - European Service Level Overview
 order: 5
 ---
 
-## Contributors
-
-| Responsibility | Name   | E-Mail |
-|----------------|--------|--------|
-| Leader         | t.b.a. |        |
-
 ## Function and Objective
 Monitors and publishes service availability, reliability, and KPIs across Member States. 
 

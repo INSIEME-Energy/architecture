@@ -3,12 +3,6 @@ title: S4 - Common API for European-wide Processes
 order: 4
 ---
 
-## Contributors
-
-| Responsibility | Name   | E-Mail |
-|----------------|--------|--------|
-| Leader         | t.b.a. |        |
-
 ## Function and Objective
 
 Provides a uniform interface based on pivotal information models for all regulated energy data exchanges and market interactions as defined in the CEEDS functional

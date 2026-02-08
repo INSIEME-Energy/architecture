@@ -3,12 +3,6 @@ title: S6 - European Interoperability Testing Service
 order: 6
 ---
 
-## Contributors
-
-| Responsibility | Name               | E-Mail                     |
-|----------------|--------------------|----------------------------|
-| Leader         | Fábio André Coelho | fabio.a.coelho@inesctec.pt |
-
 ## Function and Objective
 
 Certifies technical and process-level interoperability between systems and devices.
