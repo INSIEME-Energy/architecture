@@ -3,17 +3,21 @@ title: Meta-Level Operating Services
 order: 3
 ---
 
-
-| ID  | Operating Service                                                                                                                   | Acronym |
-|-----|-------------------------------------------------------------------------------------------------------------------------------------|---------|
-| S1  | [CEEDS Participants Registry](ceeds-participants-registry/ceeds-participants-registry.md)                                           | CPR     |
-| S2  | [European Vocabulary Hub](european-vocabulary-hub/european-vocabulary-hub.md)                                                       | EVH     |
-| S3  | [European Reference Data Registry](european-reference-data-registry/european-reference-data-registry.md)                            | ERDR    |
-| S4  | [Common API for European-wide Processes](common-api-for-european-wide-processes/common-api-for-european-wide-processes.md)          | CAEP    |
-| S5  | [European Service Level Overview](european-service-level-overview/european-service-level-overview.md)                               | ESLO    |      
-| S6  | [European Interoperability Testing Service](european-interoperability-testing-service/european-interoperability-testing-service.md) | EITS    |
-| S7  | [European Data and Services Marketplace](european-data-and-services-marketplace/european-data-and-services-marketplace.md)          | EDSM    |
-| S8  | [EU-wide Regulated-Domain Services](eu-wide-regulated-domain-services/eu-wide-regulated-domain-services.md)                         | ERDS    |
-| DCI | [Digital Customer Interface](digital-customer-interface/digital-customer-interface.md)                                              | DCI     |
-
 ![Application Cooperation Viewpoint of CEEDS Services](./app_coop_vp.png)
+
+As shown in the diagram, within the INSIEME federation strategy, application cooperation is achieved through a federated service ecosystem in which applications and digital customer solutions integrate with common interoperability services rather than establishing bilateral integrations with individual national or sectoral systems. This cooperation is enabled through a harmonised European process interface (S4), regional connector interfaces, and digital customer interfaces, which together allow applications to access cross-border and cross-domain services in a consistent and scalable manner. The S4 common API serves as the principal gateway for European-wide processes and may be deployed either in a decentralised architecture, where interoperability functions are distributed across multiple coordinated nodes, or in a centralised architecture, where a single federated service provides unified access, depending on national and operational requirements. These application interfaces are supported by the CEEDS Operator services providing identity and trust management, semantic and reference data harmonisation, interoperability testing, regulated data services, service monitoring, and marketplace capabilities, thereby ensuring secure, transparent, and reusable integration across the INSIEME ecosystem while supporting innovation, regulatory compliance, and efficient onboarding of new participants and services.
+
+
+| ID  | Operating Service                                                                                                                                                                                                                 | Acronym |
+|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| S1  | [CEEDS Participants Registry (CPR)](ceeds-participants-registry/ceeds-participants-registry.md); Provides federated participant onboarding, identity management, and trust verification.                                          | CPR     |
+| S2  | [European Vocabulary Hub (EVH)](european-vocabulary-hub/european-vocabulary-hub.md); Maintains harmonised vocabularies, ontologies, and semantic translation services.                                                            | EVH     |
+| S3  | [European Reference Data Registry (ERDR)](european-reference-data-registry/european-reference-data-registry.md); Maintains authoritative master data and reference identifiers.                                                   | ERDR    |
+| S4  | [Common API for European-wide Processes (CAEP)](common-api-for-european-wide-processes/common-api-for-european-wide-processes.md); Enables standardised cross-border service invocation and orchestration.                        | CAEP    |
+| S5  | [European Service Level Overview (ESLO)](european-service-level-overview/european-service-level-overview.md); Provides monitoring and transparency of distributed service performance.                                            | ESLO    |      
+| S6  | [European Interoperability Testing Service (EITS)](european-interoperability-testing-service/european-interoperability-testing-service.md); Ensures conformance testing and interoperability certification.                       | EITS    |
+| S7  | [European Data and Services Marketplace (EDSM)](european-data-and-services-marketplace/european-data-and-services-marketplace.md); Supports service discovery, publication, and contracting through classic dataspace-like means. | EDSM    |
+| S8  | [EU-wide Regulated-Domain Services (ERDS)](eu-wide-regulated-domain-services/eu-wide-regulated-domain-services.md); Supports regulatory reporting, compliance monitoring, and cross-border regulatory coordination.               | ERDS    |
+| DCI | [Digital Customer Interface (DCI)](digital-customer-interface/digital-customer-interface.md); Provides user-facing access to services including consent management and service orchestration.                                                                                                                                    | DCI     |
+
+These *CEEDS Meta-Level Operating Systems* are being further specified in *Task 2.2 – Data Space Conceptualisation*, with a finalisation deadline in M18 (October '26). Notably, the structure, terminology and strategy is fully aligned with recent outcomes of the European Commission’s *Data4Energy Expert Group*. The diagram below shows a high-level overview on dependencies, responsibilities and interactions between the different services.

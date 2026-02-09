@@ -5,6 +5,17 @@ order: 9
 
 ## Function and Objective
 
+The *Digital Customer Interface (DCI)* class of services provides trusted user access to federated energy services. It enables customer consent management, access to data services, participation in service marketplaces, and interaction with optimisation and flexibility services. DCI aligns with implementations such as AIIDA and Power Grid User Interfaces and ensures customer-level sovereignty enforcement.
+
+![Market-Edge architecture as recommended by Data4Energy expert group](./market-edge-architecture.png)
+
+**Market-Edge architecture as recommended by Data4Energy expert group  (Source: Joint Report of Data4Energy, Sustainable Transport Forum (STF) and Coalition of the Willing for Smart and Bi-directional charging (CoW))**
+
+The figure above - Market-Edge architecture as recommended by Data4Energy - shows the the proposed overall reference view as developed by the European Commission’s Data4Energy expert group. The input for this architecture is based on the architecture from the TC13/SC23K JAG4 defined by the experts of standardisation work groups IEC TC57 WG21 (purple boxes), TC 13 WG14 (blue boxes) and SC23K WG3 (red boxes).
+Digital and closer-to-realtime communication of system operators, service providers and DER Operators/Aggregators with final customers is gaining increasing importance for the implementation of both rules-based and market-based, as well as both implicit and explicit flexibility schemas. Yet, different data space environments offer different solutions for the architectural building block, often realising solutions for both the Energy Management Gateway (EMG), Consumer Energy Management (CEM) and the PCC Monitor. As an example, EDDIE includes AIIDA (Administrative Interface for In-house Data Access adding Customer Sovereignty, Edge Autonomy and Consent Management), whereas the RomeFlex/OneNet/Sogno Cluster puts forwards the “Power Grids User Interface” (PGUI). Other developments – like the Dutch NextGen Smart Meter Initiative – are evaluating similar concepts.
+
+As part of the *INSIEME Federation Strategy*, solutions and relevant procedures are piloted to identify and update available standards, to make them interoperable and allow for competition, markets and choice at the grid-edge.
+
 ## Business Architecture
 
 <!-- 
