@@ -1,9 +1,7 @@
 ---
-title: Key Architectural Concepts
+title: DRAFT - Key Architectural Principles
 order: 2
 ---
-
-# DRAFT: Architectural Principles for the Common European Energy Data Space (CEEDS)
 
 ## 1. Federated and Subsidiarity-Respecting Architecture
 The CEEDS shall be established as a federated European architecture connecting national energy data spaces while respecting Member State competencies and existing national arrangements.
