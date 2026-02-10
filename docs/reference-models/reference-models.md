@@ -1,6 +1,6 @@
 ---
 title: Reference Models
-order: 2
+order: 3
 pageClass: refmodels-wide
 aside: false
 ---

@@ -1,6 +1,6 @@
 ---
 title: Meta-Level Operating Services
-order: 3
+order: 4
 ---
 
 As shown in the diagram below, within the INSIEME federation strategy, application cooperation is achieved through a federated service ecosystem. Applications and digital customer solutions integrate with common interoperability services rather than establishing bilateral integrations with individual national or sectoral systems.
