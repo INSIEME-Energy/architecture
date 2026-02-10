@@ -7,7 +7,7 @@ aside: false
 
 ![Structure of Reference Models](./reference-models.png)
 
-The figure above provides a structured framework for organising how the functional scope within the 
+The figure above provides a structured framework for organising how the **functional scope** within the 
 *Common European Energy Data Space (CEEDS)* and the INSIEME federation are designed, standardised, regulated, and ultimately deployed. The model separates procedures into several complementary categories, each addressing a distinct dimension of the European energy data ecosystem while maintaining strong interdependencies between them. The framework is aligned with the latest outcomes of the European Commission’s Data4Energy expert group and foresees a strong governance role for the Energy Data Implementing Acts following Article 24 of Directive (EU) 2019/944.
 
 At the highest level, **Deployment Procedures** represent the operational implementation layer of the framework, describing WHAT is actually deployed as demonstrators in the project. Their primary purpose is to demonstrate and operationalise CEEDS functionalities by applying the capabilities defined within the various reference procedures. Deployment Procedures translate conceptual and standardised process definitions into real-world solutions and implementation environments. They enable demonstration projects, pilots, and production deployments that validate both technical feasibility and regulatory compliance. In essence, Deployment Procedures represent the point where reference models are converted into tangible services and infrastructures, ensuring that CEEDS and INSIEME functionalities are not only theoretically defined but practically executable.
