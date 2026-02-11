@@ -31,29 +31,29 @@ In this section, each term is defined:
 
 All roles of type ‘Business’ are expected to be acting in a secure, authenticated manner and through trusted communication channels. For this reason, the authentication steps used for these communication partners are not listed in the procedures below.
 
-| Role name | Role type | Role description |
-|---|---|---|
-| Final customer | Business | A party connected to the grid that purchases electricity for its own use.<br/>Please note, that this also includes the case of active customer.<br/>an individual system user or an entity representing / aggregating several system users (such as citizen energy community, owner of EV charging point in a parking of a housing complex…) |
-| Competent authority | Business | A competent authority could be a public or private entity in a Member State. |
-| Collective energy sharing unit (CESU) operator | Business | A party responsible for organising a collective energy sharing unit settlement and billing. |
-| Technical Aggregator | System | A third party, delegated by the final customer, who combines and controls multiple CUs, and interacts with a Service Provider |
-| Metering point administrator | Business | A party responsible for administrating and making available the metering point characteristics, including registering the parties linked to the metering point. |
-| Metered data administrator | Business | See Commission Implementing Regulation (EU) 2023/1162. |
-| Permission administrator |  | Refers in particular to “smaller” DSOs which do not own / rollout smart metering in direct (leverage From first Implementing Act: A party responsible for administering a register of data access permissions for a set of metering points, making this information available to final customers and eligible parties in the sector, on request. |
-| Self-consumption calculation responsible | Business | A party responsible for calculating residual energy and the distribution of self-consumption within a collective energy sharing unit. |
+| Role name                                               | Role type | Role description |
+|---------------------------------------------------------|---|---|
+| Final customer                                          | Business | A party connected to the grid that purchases electricity for its own use.<br/>Please note, that this also includes the case of active customer.<br/>an individual system user or an entity representing / aggregating several system users (such as citizen energy community, owner of EV charging point in a parking of a housing complex…) |
+| Competent authority                                     | Business | A competent authority could be a public or private entity in a Member State. |
+| Collective energy sharing unit (CESU) operator          | Business | A party responsible for organising a collective energy sharing unit settlement and billing. |
+| Technical Aggregator                                    | System | A third party, delegated by the final customer, who combines and controls multiple CUs, and interacts with a Service Provider |
+| Metering point administrator                            | Business | A party responsible for administrating and making available the metering point characteristics, including registering the parties linked to the metering point. |
+| Metered data administrator                              | Business | See Commission Implementing Regulation (EU) 2023/1162. |
+| Permission administrator                                |  | Refers in particular to “smaller” DSOs which do not own / rollout smart metering in direct (leverage From first Implementing Act: A party responsible for administering a register of data access permissions for a set of metering points, making this information available to final customers and eligible parties in the sector, on request. |
+| Self-consumption calculation responsible                | Business | A party responsible for calculating residual energy and the distribution of self-consumption within a collective energy sharing unit. |
 | Collective energy sharing unit (CESU) platform operator | Business | A party responsible for developing, maintaining and operating a digital platform for the operation of a single collective energy sharing unit or multiple collective energy sharing units. |
-| Collective energy sharing unit member | Business | Member of a collective energy sharing unit. |
-| Supplier | Business | The supplier is responsible for supplying the residual grid usage. |
-| Independent aggregator | Business | The independent aggregator has the role of buying the energy surplus and bringing it to the market, being a balance responsible party. |
-| Energy sharing register operator | Business | A party responsible to operate the register of energy communities and the members of these communities. |
-| CESU data eligible party | Business | A third party entitled to request access to relevant data of a collective energy sharing unit. |
-| CESU data access provider | Business | A party providing the data access service which enabled collection of energy data under CESU member consent |
-| Data access provider | Business | A party responsible for facilitating access, including in cooperation with other parties, to validated historical metering and consumption data to the final customer or to eligible parties. |
-| Flexibility Service Provider (FSP) | Business | A market participant with a legal or contractual obligation to supply local or balancing services to the System Operator |
-| System Operator (SO) | Business | DSO or TSO procuring balancing or local services |
-| Connecting system operator (CSO) | Business | The national competent authority providing the mappings of national practices. It makes them available online and in an easily usable and publicly accessible form1. |
-| Flexibility requesting party (FRP) | Business | A party that has an agreement with one or more flexibility service providers to provide a flexibility service [ref][ref]. Can be a DSO, TSO, or BRP [ref]. |
-| Flexibility market operator (FMO) | Business | A party responsible for operating a flexibility market, i.e., provides a service whereby the offers to sell flexibility are matched with bids to buy flexibility (adapted from [ENTSO-E]). |
+| Collective energy sharing unit (CSEU) member            | Business | Member of a collective energy sharing unit. |
+| Supplier                                                | Business | The supplier is responsible for supplying the residual grid usage. |
+| Independent aggregator                                  | Business | The independent aggregator has the role of buying the energy surplus and bringing it to the market, being a balance responsible party. |
+| Energy sharing register operator                        | Business | A party responsible to operate the register of energy communities and the members of these communities. |
+| CESU data eligible party                                | Business | A third party entitled to request access to relevant data of a collective energy sharing unit. |
+| CESU data access provider                               | Business | A party providing the data access service which enabled collection of energy data under CESU member consent |
+| Data access provider                                    | Business | A party responsible for facilitating access, including in cooperation with other parties, to validated historical metering and consumption data to the final customer or to eligible parties. |
+| Flexibility Service Provider (FSP)                      | Business | A market participant with a legal or contractual obligation to supply local or balancing services to the System Operator |
+| System Operator (SO)                                    | Business | DSO or TSO procuring balancing or local services |
+| Connecting system operator (CSO)                        | Business | The national competent authority providing the mappings of national practices. It makes them available online and in an easily usable and publicly accessible form1. |
+| Flexibility requesting party (FRP)                      | Business | A party that has an agreement with one or more flexibility service providers to provide a flexibility service [ref][ref]. Can be a DSO, TSO, or BRP [ref]. |
+| Flexibility market operator (FMO)                       | Business | A party responsible for operating a flexibility market, i.e., provides a service whereby the offers to sell flexibility are matched with bids to buy flexibility (adapted from [ENTSO-E]). |
 
 
 
