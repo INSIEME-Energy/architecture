@@ -41,52 +41,31 @@ Thus, it forms the bridge between the business products viewpoint and the busine
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
 
-![CEEDS Participants Registry ArchiMate Diagram](./service-realisation-viewpoint.png)
+![Service Realisation Viewpoint](./service-realisation-viewpoint.png)
 
 #### Component Descriptions
 
-The **CEEDS Onboarding and Offboarding function** provides a European entry point for participants. It manages the lifecycle of participation at CEEDS level, including initial registration, updates,
-and termination.
-This process interfaces with national onboarding mechanisms to ensure that European-level registration is aligned with national market role requirements, while avoiding unnecessary duplication for
-participants.
+| Component                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **CEEDS Onboarding and Offboarding**                             | Provides a European entry point for participants. It manages the lifecycle of participation at CEEDS level, including initial registration, updates,and termination. This process interfaces with national onboarding mechanisms to ensure that European-level registration is aligned with national market role requirements, while avoiding unnecessary duplication for participants.                                             |
+| **National Market Role Onboarding and Offboarding**              | Represents national-level processes that assign and manage market roles required under national regulation (e.g. supplier, aggregator, balancing service provider). The CEEDS onboarding process connects to these national processes to enable recognition of roles across borders, while respecting national legal frameworks. Multiple national instances may exist depending on Member State requirements and role definitions. |
+| **CEEDS Party Certification Chain**                              | Ensures that participants meet the trust, security, and compliance requirements applicable at European level. It links identity verification, certification, and validation processes to support mutual trust between national and European systems and enables secure participation in CEEDS data exchanges.                                                                                                                       |
+| **Public CEEDS Participant Registry**                            | Provides publicly accessible reference information on CEEDS participants. It supports transparency and trust by allowing authorised stakeholders to verify participant status, identifiers, and relevant attributes. The public registry is derived from the authoritative CEEDS Participants Registry and reflects validated and up-to-date information.                                                                           |
+| **Market Participant EU-wide Identification and Reference Data** | Contains identification data and reference attributes that are valid across the EU market. It enables consistent identification of participants across national systems and supports interoperability between data spaces. The data may be linked to multiple national datasets, depending on the participant’s roles and activities in different Member States.                                                                    |
+| **National Data Space Participant Registry**                     | Is the authoritative registry at national level. It contains participant information required under national rules and supports national onboarding, certification, and data exchange processes. Each registry is operated by the respective National Data Space Facilitator and may exist in multiple instances per Member State, depending on national roles and regulatory structures.                                           |
+| **National Identification, Certificates and Information**        | Covers national-level identity data, certificates, and supporting information required for participation in national markets and data spaces. The national registry exchanges relevant information with the European-level identification and reference data to ensure consistency and mutual recognition.                                                                                                                          |
+| **National Party Certification**                                 | Represents national certification and compliance mechanisms that validate participants against national requirements. These certifications feed into the overall trust framework and are aligned with the European certification chain to enable cross-border participation without redundant procedures.                                                                                                                           |
 
-The **National Market Role Onboarding and Offboarding** block represents national-level processes that assign and manage market roles required under national regulation (e.g. supplier, aggregator,
-balancing service provider).
-The CEEDS onboarding process connects to these national processes to enable recognition of roles across borders, while respecting national legal frameworks. Multiple national instances may exist
-depending on Member State requirements and role definitions.
-
-The **CEEDS Party Certification Chain** ensures that participants meet the trust, security, and compliance requirements applicable at European level. It links identity verification, certification, and
-validation processes to support mutual trust between national and European systems and enables secure participation in CEEDS data exchanges.
-
-The **Public CEEDS Participant Registry** provides publicly accessible reference information on CEEDS participants. It supports transparency and trust by allowing authorised stakeholders to verify
-participant status, identifiers, and relevant attributes.
-The public registry is derived from the authoritative CEEDS Participants Registry and reflects validated and up-to-date information.
-
-The **Market Participant EU-wide Identification and Reference Data** component contains identification data and reference attributes that are valid across the EU market. It enables consistent
-identification of participants across national systems and supports interoperability between data spaces.
-The data may be linked to multiple national datasets, depending on the participant’s roles and activities in different Member States.
-
-The **Integration of National Registry with European Registry** block represents the technical and organisational integration between the CEEDS Participant Registry and national registries.
-National Data Space Facilitators are responsible for integrating and maintaining the connection between their National Data Space Participant Registry and the CEEDS Participant Registry. This
-integration is implemented in a fully digital, interoperable, and machine-processable manner, based on the standardised interfaces provided by the CEEDS Facilitator.
-
-The **National Data Space Participant Registry** is the authoritative registry at national level. It contains participant information required under national rules and supports national onboarding,
-certification, and data exchange processes.
-Each registry is operated by the respective National Data Space Facilitator and may exist in multiple instances per Member State, depending on national roles and regulatory structures.
-
-The **National Identification, Certificates and Information** block covers national-level identity data, certificates, and supporting information required for participation in national markets and
-data spaces.
-The national registry exchanges relevant information with the European-level identification and reference data to ensure consistency and mutual recognition.
-
-**National Party Certification** represents national certification and compliance mechanisms that validate participants against national requirements.
-These certifications feed into the overall trust framework and are aligned with the European certification chain to enable cross-border participation without redundant procedures.
-
-## Related Work
+## Related Developments in existing Data Space Architectures
 
 - [IDS Participant Information Service](https://github.com/International-Data-Spaces-Association/IDS-G/tree/main/Components/IdentityProvider/ParIS)
-- SIMPL: [Digital Identities](https://code.europa.eu/simpl/simpl-open/architecture/-/blob/master/functional_and_technical_architecture_specifications/Functional-and-Technical-Architecture-Specifications.md?ref_type=heads#45-digital-identities-integration-with-eu-digital-identity-framework---eidas), [Onboarding Providers & Consumers](https://simpl-programme.ec.europa.eu/book-page/3a-onboarding-new-dataspace-participant-providers-data-application-infrastructur), [Onboarding End Users](https://simpl-programme.ec.europa.eu/book-page/bp03b-onboarding-new-data-space-participant-end-user)
+-
+
+SIMPL: [Digital Identities](https://code.europa.eu/simpl/simpl-open/architecture/-/blob/master/functional_and_technical_architecture_specifications/Functional-and-Technical-Architecture-Specifications.md?ref_type=heads#45-digital-identities-integration-with-eu-digital-identity-framework---eidas), [Onboarding Providers & Consumers](https://simpl-programme.ec.europa.eu/book-page/3a-onboarding-new-dataspace-participant-providers-data-application-infrastructure), [Onboarding End Users](https://simpl-programme.ec.europa.eu/book-page/bp03b-onboarding-new-data-space-participant-end-user)
+
 - [EDDIE Registry Demo](https://github.com/eddie-energy/registry)
 - [DSSC Identity Attestation Toolbox](https://toolbox.dssc.eu/?pane=technical&technical=identity-attestation-management)
+- [iShare Participants Registry](https://dev.ishare.eu/participant-registry-role/getting-started)
 
 ## Data Architecture
 
@@ -144,11 +123,19 @@ The Application Cooperation Viewpoint pattern creates elements a diagram that de
 See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Cooperation-Viewpoint
 -->
 
-<!-- TODO: Insert ArchiMate Cooperation Viewpoint diagram -->
+![Application Cooperation Viewpoint](./application-cooperation-viewpoint.png)
 
 #### Component Descriptions
 
-<!-- TODO: Insert descriptions of Application Cooperation Viewpoint components -->
+| Component                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                   |
+|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **eIDAS National Trust Service Provider**                           | A qualified trust service provider operating under the [eIDAS Regulation (EU) No 910/2014](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02014R0910-20241018). It delivers federated trust services such as electronic identification, authentication, and digital signature validation, enabling legally recognized cross-border identity assurance within the European Union. |
+| **eIDAS Trust Validation Service**                                  | An authentication and trust validation service provided by eIDAS National Trust Service Providers. It enables the identification and authentication of users through federated login mechanisms and the validation of digital signatures and identity assertions in accordance with eIDAS standards.                                                                                          |
+| **National Data Space Participants Registry**                       | The national implementation of a participants registry responsible for managing the registration, identity linkage, and certification status of data space participants. Certification by CEEDS is required for cross-border recognition and interoperability within the European ecosystem.                                                                                                  |
+| **National Data Space Participants Registry Certification Service** | A certification service operated by the National Data Space Participants Registry. It issues participant certificates following successful identity authentication via the eIDAS Trust Validation Service, thereby establishing trusted participant identities within the national data space.                                                                                                |
+| **National Data Space Participants Trust Validation Service**       | A trust validation service that enables the verification of participant trust status within the national data space. It validates certificates issued by the National Data Space Participants Registry Certification Service and supports downstream systems in establishing participant authenticity and trust.                                                                              |
+| **CEEDS Certification Service**                                     | A certification service that governs and validates national data space participant registries for inclusion in the CEEDS federation. Upon successful certification, participants registered at national level gain recognized status and discoverability within the CEEDS Participants Registry.                                                                                              |
+| **CEEDS Trust Validation Service**                                  | A federated trust validation service provided by the CEEDS Participants Registry. It enables use-case-specific environments (e.g., National Data Hubs, Data Exchange Platforms, CESU environments) to verify the identity, certification status, and trust level of CEEDS-registered participants across borders.                                                                             |
 
 ## Technology Architecture
 
