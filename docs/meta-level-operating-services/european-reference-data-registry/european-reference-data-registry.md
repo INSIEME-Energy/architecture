@@ -19,15 +19,15 @@ Based on DSSC business and organisational building blocks the motivation for an 
 - **Data Space Offering**: The data space offering consists of the set of offerings available in a data space to participants. Offerings contain data product(s), service(s), and the offering description that provides all the information needed for a potential consumer to make a decision whether to consume the data product(s) and/or the service(s) or not.
 
 The main technical building blocks adressed by European Reference Data Registy are:
-- **Data Models**: Data models ensure that data is accurately and consistently interpreted when exchanged within a data space. The data model consists of metadata that provides information about semantics, helping to interpret the actual exchanged data. 
+- **Data Models**: Data models ensure that data is accurately and consistently interpreted when exchanged within a data space. The data model consists of metadata that provides information about semantics, helping to interpret the actual exchanged data. Versioning and version management is a must have functionality for Data Models management.
 - **Provenance and traceability**: additional metadata alongside the shared data for auditing and compliance purposes might be required.  
 
 The main functions:
-- metadata definition and management
+- metadata definition and management, including explicit versioning
 - energy market refrence data model representation, maintenance by CEEDS Operator
 - reference data model access for CEEDS Participants
 - national reference data model definition and management can be maintained by National Data Space Facilitator (NDSF)
-- enhancement and mapping of national reference data model to European reference data model 
+- enhancement and mapping of national reference data model to European reference data model will be under the responsiblity of National Data Space Facilitator (NDSF)
 
 ## Business Architecture
 
@@ -213,9 +213,21 @@ The Application Cooperation Viewpoint pattern creates elements a diagram that de
 See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Cooperation-Viewpoint
 -->
 
-<!-- TODO: Insert ArchiMate Cooperation Viewpoint diagram -->
-
 ![European Reference Data Registry Application Cooperation](./application-erdr.drawio.png)
+
+The European Reference Data Registry service main function is to store and provide common European data model for CEEDS participants facilitating data exchage. This implies explicit version management of data models. The mapping of national data models to common European data model is the direct responsiblity of the National Data Space Facilitator and to synchronize with the latest version of common European data model. The National Data Space Facilitator must share the mapping with the CEEDS platform so that that all CEEDS participants are able to use the mapping for data transactions.
+
+Taking into account the dynamics of common European data model updates, it is safe to say that offline service is acceptable and S3 - European Reference Data Registry is not on the critical path for CEEDS operations. It is the responsiblity of the local National Data Space Facilitator to synchronize Nataional Data Space refrence data repository with CEEDS reference data repository.
+
+Main operations and procedures
+
+Actor | Operation | Description
+---|---|---
+National Data Space Facilitator | Manages Energy Market Reference Data | The NDSF is responsible for gathering, updating and mentaining all versions of national reference data, including the access rights structures and service catalogue.
+National Data Space Facilitator | Manages Mapping to common European data model | The NDSF is responsible for updating the local copy of the common European data model (including multiple versions) and the mapping of national data model to common European data model. The system should allow the Nataional Data Space Facilitator to push the mappings to CEEDS platform to S3- European Reference Data Registry.
+CEEDS Facilitators | Manages common European data model(s) | The CEEDS Facilitator must maintain multiple versions of common European data model as Reference Data Model. A copy of mappings to national data models will be stored along each vesion of common European data model.
+CEEDS Participant | Reads and queries common European data model | The CEEDS Participant should be able to retrieve the data catalogue, including multiple versions, and query the European Reference Data Registry.
+
 
 
 #### Component Descriptions
