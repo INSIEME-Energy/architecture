@@ -112,26 +112,93 @@ Full details can be found in the document: [Permission Data](https://github.com/
 
 The main models have been identified in [Reference Models](../../reference-models/reference-models.html), S2 service is used by the folowing procedures:
 
-| Model name                       | Procedure                                                                | 
-|----------------------------------|--------------------------------------------------------------------------|
-| IR Demand Response               | 1: General access to Controllable Unit master data by an entitled party 
-| IR Demand Response               | 2: Controllable Unit registration                                        
-| IR Demand Response               | 5: Suspension of Controllable Unit by an entitled party                  
-| IR Demand Response               | 6: Re-activation of Controllable Unit                                    
-| IR Demand Response               | 29: Bidding and activation of a flexibility product                      
-| IR Demand Response               | 30: Temporary limits                                                     
-| IR Demand Response               | 31: Baseline data handling                                               
-| IR Demand Response               | 32: Making measurement data available                                    
-| IR Demand Response               | 33: Quantification                                                       
-| IR Demand Response               | 34: (Optional) Baseline Validation                                       
-| Household Footprint Calculation  | 1: Customer onboarding                                                   
-| Customer Energy Management       | 6: Access to data for demand response or third-party services            
-| Customer Energy Management       | 7: Termination, Revocation and offboarding                               
-| Collective Energy Sharing (CESU) | 8: Support to short-term flexibility markets                             
-| Flexible Connection Agreement    | 2: Onboarding of flexible customer to FCA in DCI                         
-| Flexible Connection Agreements   | 3: Revocation of flexible connection agreement by flexible customer      
-| Flexible Connection Agreements   | 4: Termination of FCA by Connecting System Operator                      
-| eHDV Long-term Power Forecast    | 3: Access to Grid hosting capacity information                           
+<!-- Update and sync with ../../reference-models/reference-models.html list-->
+
+Procedure: **T4-2_01 Access to Metering and Consumption Data**
+- 01	Access to validated historical metering and consumption data by the final customer
+- 02	Access to validated historical metering and consumption data by an eligible party
+- 03	Termination of service by an eligible party
+- 06	Read near real-time data from smart meter or smart metering system
+
+Procedure: **T4-2_02 Access to Basic Master Data**
+- 01	Access to accounting point master data by the final customer
+- 02	Access to accounting point master data by an eligible party
+- 03	Termination of access to accounting point master data by the eligible party
+- 04	Revocation of access to accounting point master data by the final customer
+- 05	Access to market party master data
+- 06	Access to list of market parties by their role
+
+Procedure: **T4-2_03 Access to implicit flexibility signals**
+- 01	Access to residual supply price for period
+- 02	Access to residual grid fee for period
+- 03	Access to CESU supply price for period
+- 04	Access to CESU grid fee for period
+
+Procedure: **T4-2_04 Customer Switching**
+- 01	Switching supplier
+- 02	[optional] Cancellation of switching supplier
+
+Procedure: **T4-3_01 Collective Self-Consumption and Energy Communities**
+- 01	Registration of a collective energy sharing unit
+- 02	CESU operator queries if metering point may be assigned
+- 03	Final customer queries if metering point may be assigned to a CESU
+- 04	CESU operator requests metering point to be added to the unit [optionally] with the info of
+- 05	CESU operator requests metering point to be assigned to CESU data eligible party too
+- 06	CESU operator requests accounting point to be removed from CESU a
+- 07	Final customer requests its accounting point to be removed from CESU
+- 08	Support to short-term flexibility markets
+- 09	Energy management w/wo flexibility provision
+- 10a	Flexibility verification and settlement done by FRP
+- 10b	Flexibility verification and settlement done by flexibility market operator or other third-party support tool
+- 11a	Receive self-consumption information for CESU without CESU intervention
+- 11b	Receive self-consumption information for CESU from CESU dynamic allocation
+- 12	CESU internal settlement w/wo flexibility provision
+- 13	Direct access to its own data by CESU member
+- 14	Change the allocation mechanism of the CESU
+- 15	Company qualification for participating in flexibility markets
+- 16	Assets qualification for participating in flexibility markets
+
+Procedure: **T4-4_01 Flexible Connection Agreements**
+- 01	Initialization of Digital Customer Interface
+- 02	Onboarding of Flexible Customer to FCA
+- 03	Revocation of Flexible Connection Agreement by Customer
+- 04	Termination of Flexible Connection Agreement by CSO
+- 05	Activation or Limitation of Flexibility Event
+
+Procedure: **T4-4_02 Demand Response Procedures**
+- 01	General access to Controllable Unit master data by an entitled party
+- 02	Controllable Unit registration
+- 03	Update Controllable Unit information
+- 04	De-registration of Controllable Unit
+- 05	Suspension of Controllable Unit
+- 06	Re-activation of Controllable Unit
+- 07	Service Provider registration
+- 08	Service Provider application for qualification
+- 09	Service contract revocation by Final Customer
+- 10	Service contract termination by Service Provider
+- 11	SP customer switching or new CU registration
+- 12	Cancellation of SP registration on CU
+- 13	Update service provider profile information
+- 14	Update service provider critical information
+- 15	De-registration of Service Provider
+- 16	Suspension of Service Provider qualification
+- 17	Revocation of Service Provider qualification
+- 18	Reactivation of Service Provider
+- 19	SPU or SPG grid pre-qualification
+- 20	SPU or SPG product prequalification
+- 21	SPU or SPG product verification
+- 22	SPU or SPG registration
+- 23	SPU or SPG update
+- 24	SPU or SPG de-registration
+- 25	SPU or SPG application
+- 26	SPU or SPG suspension
+- 27	SPU or SPG re-activation
+- 28	General access to SPU or SPG master data
+- 29	Bidding and activation of a flexibility product
+- 30	Temporary limits
+- 31	Baseline data handling
+- 32	Making measurement data available
+- 33	Quantification
 
 ## Application Architecture
 
