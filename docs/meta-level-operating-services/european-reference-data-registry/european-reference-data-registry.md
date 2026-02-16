@@ -23,8 +23,8 @@ The main technical building blocks adressed by European Reference Data Registy a
 - **Provenance and traceability**: additional metadata alongside the shared data for auditing and compliance purposes might be required.  
 
 The main functions:
-- metadata definition and management, including explicit versioning
-- energy market refrence data model representation, maintenance by CEEDS Operator
+- common European metadata definition and management, including explicit versioning responsibility of CEEDS Facilitator
+- common energy market refrence data model representation, maintenance by CEEDS Facilitator
 - reference data model access for CEEDS Participants
 - national reference data model definition and management can be maintained by National Data Space Facilitator (NDSF)
 - enhancement and mapping of national reference data model to European reference data model will be under the responsiblity of National Data Space Facilitator (NDSF)
@@ -162,38 +162,92 @@ We will provide in the next sections a non exhaustive list of samples of data mo
 
 Common European data models extracted form [Annex I of Commission Implementing Regulation (EU) 2023/1162](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R1162#anx_1)
 
+<details>
+<summary>I1. National Competent Authotity</summary>
+
 ![European Reference Data Registry National Competent Aythority](./I1-erdr.drawio.png)
+</details>
+
+<details>
+<summary>I2. Information on Member State data management set-up</summary>
 
 ![European Reference Data Registry Information on Member State data management set-up](./I2-erdr.drawio.png)
+</details>
+
+<details>
+<summary>I3. Information about metered data administrators in a Member State</summary>
 
 ![European Reference Data Registry Information about metered data administrators in a Member State](./I3-erdr.drawio.png)
+</details>
+
+<details>
+<summary>I4. Information about metering point administrators in a Member State</summary>
 
 ![European Reference Data Registry Information about metering point administrators in a Member State](./I4-erdr.drawio.png)
+</details>
+
+<details>
+<summary>I5. Information about data access provider</summary>
 
 ![European Reference Data Registry Information about data access provider](./I5-erdr.drawio.png)
+</details>
+
+<details>
+<summary>I6. Information about permission administrators in a Member State</summary>
 
 ![European Reference Data Registry Information about permission administrators in a Member State](./I6-erdr.drawio.png)
+</details>
+
+<details>
+<summary>I7. Information about standardised near real-time interfaces of smart meters or smart metering systems in a Member State</summary>
 
 ![European Reference Data Registry Information about standardised near real-time interfaces of smart meters or smart metering systems in a Member State](./I7-erdr.drawio.png)
+</details>
 
 National and platform data models extracted from [EDDIE](https://github.com/eddie-energy/eddie/tree/main/masterdata)
 
+<details>
+<summary>Data Access Provider</summary>
+
 ![European Reference Data Registry Data Access Provider](./dap-erdr.drawio.png)
+</details>
+
+
+<details>
+<summary>Data Exchange Environment</summary>
 
 ![European Reference Data Registry Data Exchange Environment](./dee-erdr.drawio.png)
+</details>
+
+<details>
+<summary>Metered Data Administrator</summary>
 
 ![European Reference Data Registry Metered Data Administrator](./mda-erdr.drawio.png)
+</details>
+
+<details>
+<summary>Metering Point Administrator</summary>
 
 ![European Reference Data Registry Metering Point Administrator](./mpa-erdr.drawio.png)
+</details>
+
+<details>
+<summary>National Competent Authority</summary>
 
 ![European Reference Data Registry National Competent Authority](./nca-erdr.drawio.png)
+</details>
+
+<details>
+<summary>Near Realtime Data Interface</summary>
 
 ![European Reference Data Registry Near Realtime Data Interface](./nrdi-erdr.drawio.png)
+</details>
+
+<details>
+<summary>Permission Administrator</summary>
 
 ![European Reference Data Registry Permission Administrator](./pad-erdr.drawio.png)
-
-
-
+</details>
 
 ## Application Architecture
 
@@ -203,7 +257,7 @@ It addresses software applications and their role in supporting business process
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
-The European Referece Data Registry service main function is to store and serve the common European data model and data catalogue. As seconday function should provide a services that allows national data platform facilitators to create, store and manage national data models, and to provide the mappings from national data models to common European data models.  
+The European Referece Data Registry service main function is to store and serve the common European data model and data catalogue. As seconday function should provide services (API and/or UI) that allows national data platform facilitators to create, store and manage national data models, and to provide the mappings from national data models to common European data models.  
 The service can be developed and hosted by National Data Space platform for the part concerning the national data model management and mapping. For the common European data model and data catalogue the service should be centralised and the models must be synchronized (in case of distributed implementation). The service should have the possilibity to function off-line, it is the responsiblity of National Data Space platform to synchronise and update the data from CEEDS.
 
 ### Application Cooperation Viewpoint
@@ -219,7 +273,7 @@ The European Reference Data Registry service main function is to store and provi
 
 Taking into account the dynamics of common European data model updates, it is safe to say that offline service is acceptable and S3 - European Reference Data Registry is not on the critical path for CEEDS operations. It is the responsiblity of the local National Data Space Facilitator to synchronize Nataional Data Space refrence data repository with CEEDS reference data repository.
 
-Main operations and procedures
+#### Main operations and procedures
 
 Actor | Operation | Description
 ---|---|---
@@ -228,11 +282,20 @@ National Data Space Facilitator | Manages Mapping to common European data model 
 CEEDS Facilitators | Manages common European data model(s) | The CEEDS Facilitator must maintain multiple versions of common European data model as Reference Data Model. A copy of mappings to national data models will be stored along each vesion of common European data model.
 CEEDS Participant | Reads and queries common European data model | The CEEDS Participant should be able to retrieve the data catalogue, including multiple versions, and query the European Reference Data Registry.
 
-
-
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Application Cooperation Viewpoint components -->
+
+Module | Componenet | Description
+---|---|---
+National Data Space | Energy Market Reference Data Object | It is collection and national specific data models, including permission administrtor, that is used for data exchange. The NDSF must maintain all current and past versions, and keep track of the services and service versions that are using those data.
+National Data Space | National Reference Data Maintenance Service | Interface allowing the NDSF to maintain the local national data models and their corresponding meta models.
+National Data Space | Reference Data Maintenance Service | This services allows the NDSF to create and maintain the mappings between national data models and the common European data model. Both national data models and common European data models can have multiple active versions.
+CEEDS Platform | European Reference Data Registry | Interface allowing the CEEDS Facilitator to create and maintain the common European data model. Multiple versions may be active at the same time. The interface has an API for connecting to National Data Space Reference Data Maintenance Service allowing NDS to retrieve and store the latest version(s) of common European data models.
+CEEDS Platform | Reference Data Provision Service | Back end service aggregator providing read and query access to CEEDS Participants for common European data model.
+CEEDS Platform | CEEDS Participant Application Service | UI and API exposing the common European data models to CEEDS Participants and their paltforms/systems.
+
+
 
 ## Technology Architecture
 
