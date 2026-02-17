@@ -92,7 +92,7 @@ The European Reference Data Registry should be able to handle multiple data mode
 Looking at the exiting tools proposed by DSSC that can be used to implement the data architecture the following candidates are suggested:
 - SIMPL-Open Catalogue
 - Ocean Enterpirse Catalogue and Aquearius Catalogue Cache
-- FAIR Data Publisher
+
 
 ### Data Objects
 
@@ -320,6 +320,70 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 ![European Reference Data Registry Deployment Architecture](./deployment-erdr.drawio.png)
 
+The deployment should take into consideration modern technologies such as: containerisation (Docker, Kubernetes, OpenShift) and/or virtualization (Vagrant). The deployment can be done both in the Cloud or On Premise. Considering hybrid deployment should not be an option, this will introduce more complexity to the overall solution.
+
+The following software solutions were considered for European Data Model storage and management:
+- [SIMPL-Open Catalogue](https://code.europa.eu/simpl)
+- [Ocean Enterpirse Catalogue and Aquearius Catalogue Cache](https://docs.oceanprotocol.com/developers/metadata)
+
+
+For the existing National Data Space platform, it is recommended to use the already existing modules or compatible solutions for data model management. A specific service and connector should be developed in order to communicate with CEEDS. This component will connect to CEEDS National Data Platform Interface to push local data model mappings to CEEDS common European data model and to synchronize local National Data Space platform with CEEDS common European data model.
+
+
 #### Component Descriptions
 
-<!-- TODO: Insert descriptions of Deployment View components -->
+Component | Service | Deployment description
+---|---|---
+CEEDS Platform | Service S3 - European Data Registry | Internal component of CEEDS allowing to store and manage common European data models. It stores the mappings between national data models and common European data models provided by National Data Space platform.
+CEEDS Platform | European Data Model component | The main functionality is to store and manage common European data models. It can be read or queried by CEEDS Participants and it is managed by CEEDS Facilitators.
+CEEDS Platform | User interface | Web application offering access to CEEDS platform for CEEDS Facilitator and CEEDS Participants 
+CEEDS Platform | System API and Endpoints | Direct access CEEDS platform for system to system communication.
+CEEDS Platform | National Data Platform Interface | Interface used by National Data Platform Reference Data Maintenance Service to send mappings of local data models to common European data model to CEEDS and also to synchronize local common European data model with CEEDS version of the model.  
+
+A general requirement for European Data Model component is to be able to manage multiple versions of data models and to store mappings of local national data models to common European data model. This will allow multiple versions of data models to be used by CEEDS Participants in their transactions. We do expect to have a dynamic period at the beggining of CEEDS and multiple versions for common data models, schema and other metadata to be used in parallel. The objective for the medium/long term is to use maximum 2 major version of the data model in parallel. The proposed versioning schema is [semantic versioning](https://semver.org/):
+- each version is described by 3 numbers separated by full stop Major.minor.patch
+- a Major version bump implies breaking changes in the data model
+- a minor version bump implies backward compatibility within the same Major version
+- a patch version bump implies backward compatibility within the same Major and minor version
+
+The Reference Data Maintenance Service must be developed and implemented by the National Data Space manager. This service may reuse the client libraries developed for S2 - European Vocabulary Hub.
+
+#### Solution Analysis
+
+##### Introduction and objectives
+
+We will proceed to a comparative analysis of the possible technical solutions that could be considered for the implementation of European Reference Data Registry service. The main functions that should be covered by the Reference Data Registry (according to [DSSC](https://toolbox.dssc.eu/?pane=technical&f%5Bquery%5D=fair&technical=data-models)) is to enable semantic interoperability among data space participants through the use of shared data models. This allows:
+- participants of dataspaces to interpret each other's data.
+- the development, reuse and governance of data models within and across data spaces.
+- the semantic annotations of datasets.
+
+The retained capabilities:
+- **Data model development** - reuse or develop data models to ensure uniformity and interoperability
+- **Data model governance** -  governance and management aspect of data models, including tools and processes to maintain data models and to ensure wide consensus regarding the data model used in the data space.
+- **Data model integration** - the description of the data offering should include a reference to the data model that explains the structure and semantics of the datasets.
+- **Data models across data spaces** - standardized discovery of data models across data spaces, support multiple data spaces to become semantic interoperable.
+
+We are looking particularly to host and manage:
+- **Application Profile**: An application profile is a data model for applications that fulfill a particular use case. In addition to shared semantics, it also allows additional restrictions to be imposed, such as recording cardinalities or the use of certain code lists. An application profile can serve as documentation for analysts and developers
+- **Data Schema**: Data exchange technology specific representation of the application profile, including the syntax, structure, data types, and constraints for the data exchange
+
+From technical point of view we are comparing:
+- Integration with third-party systems: REST-ful API and DCAP-AP compatible
+- Data model formats: RDF schema, SHACK for RDF, OWL, SKOS, JSON Schema, XML Schema, Schematron.
+
+
+##### Analysis
+
+Criteria | SIMPL-Open Catalogue | Ocean Catalogue and Aquearius Catalogue 
+---|---|---
+Data model development | Schema Registry that is used by Catalogue component. | Limited to Ocean protocol 
+Data model integration | Search engine, Vocabulary Datastore, Management Service, Syntax validation service, semantic validation service | Data model discovery on blockchain
+Data models across data spaces | Schema management | Limited to blockchain 
+Application profile | Schema management | None 
+Data Schema | Schema management |  Blockchain specific
+Integration with thirdparty systems | API | None
+Data model formats | RDF, SHACL, JSON Schema | JSON Schema 
+
+##### Recommendations
+
+SIMPL-Open seems to be ready for use and deployment. We do recommend that a PoC should be performed before any decission and commitment is made. The major concern is the compatibility with the other technology that will be used for the rest of the servicecs.
