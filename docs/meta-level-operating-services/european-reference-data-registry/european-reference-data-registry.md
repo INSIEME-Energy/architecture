@@ -305,6 +305,10 @@ It ensures that the infrastructure supports the application and data requirement
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
+![European Reference Data Registry Technology Architecture](./technology-erdr.drawio.png)
+
+The motivation behing the proposed technology architecture is to guarantee the separation of functionalities and responsibilites. On CEEDS platform side, the European Reference Data Registry service can be offline for short periods and can be implemented in a distributed manner. The part of the service that is hosted on National Data Space platform must store the common European refrence data and implement a mechanism to check and sychronize with CEEDS.
+
 ### Deployment View
 
 <!-- 
@@ -314,7 +318,7 @@ In addition, the way the elements are affected may be indicated by annotating th
 See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Cooperation-Viewpoint
 -->
 
-<!-- TODO: Insert ArchiMate Deployment View diagram -->
+![European Reference Data Registry Deployment Architecture](./deployment-erdr.drawio.png)
 
 #### Component Descriptions
 
