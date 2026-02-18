@@ -88,24 +88,38 @@ The latest version of code list can be found on [ENTSO-E](https://www.entsoe.eu/
 
 The following CIMs are considered as a basis for common European Vocabulary Hub:
 
-![European Vocabulary Hub VHD Class Diagram](./vhd-data-evh.drawio.png)
+<details>
+<summary>Validated Historical Data</summary>
 
 Full details can be found in the document: [Validated Historical Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/CEEDS/VHD/Pre-standardised/Profile%20Documentation%20for%20ValidatedHistoricalData%20message.pdf)
 
+![European Vocabulary Hub VHD Class Diagram](./vhd-data-evh.drawio.png)
+</details>
 
-![European Vocabulary Hub RTR Class Diagram](./rtr-data-evh.drawio.png)
+<details>
+<summary>Redistribution Transaction Request</summary>
 
 Full details can be found in the document: [Redistribution Transaction Request](https://github.com/Digital4Grids/Bridge_energy_schemas/tree/main/CEEDS/RTR/Project)
 
+![European Vocabulary Hub RTR Class Diagram](./rtr-data-evh.drawio.png)
+</details>
 
-![European Vocabulary Hub RTD Class Diagram](./rtd-data-evh.drawio.png)
+<details>
+<summary>Real Time Data</summary>
 
 Full details can be found in the document: [Real Time Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/CEEDS/RTD/Pre-standardised/Profile%20Documentation%20for%20RealTimeData%20message.pdf)
 
 
-![European Vocabulary Hub PD Class Diagram](./pd-data-evh.drawio.png)
+![European Vocabulary Hub RTD Class Diagram](./rtd-data-evh.drawio.png)
+</details>
+
+<details>
+<summary>Permission Data</summary>
 
 Full details can be found in the document: [Permission Data](https://github.com/Digital4Grids/Bridge_energy_schemas/blob/main/CEEDS/RequestPermission/Profile%20Documentation%20for%20RequestPermission%20message.pdf)
+
+![European Vocabulary Hub PD Class Diagram](./pd-data-evh.drawio.png)
+</details>
 
 
 ### Reference data objects
