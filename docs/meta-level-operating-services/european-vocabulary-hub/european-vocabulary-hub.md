@@ -318,7 +318,7 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 ![European Vocabulary Hub Deployment Diagram](./deployment-evh.drawio.png)
 
-A support component is recommended to be deployed that will provide a ticketing system for support and user feedback. This component is not part of the functional architecture and is highly recommended to provide support for CEEDS Participants and CEEDS Facilitators.
+A support component is recommended to be deployed that will provide a ticketing system for support and user feedback. This component is not part of the functional architecture nevertheless it is highly recommended to provide support for CEEDS Participants and CEEDS Facilitators. Possible technical solutions (all Open Source): [Redmine](https://www.redmine.org/), [Trac](https://trac.edgewall.org/), [Mantis Bug Tracker](https://mantisbt.org/), [NocoBase](https://github.com/nocobase/nocobase), or [Zammad](https://zammad.org/). The operational part of the support should be planned and implemented as separate project.
 
 The recommendation is to group the CEEDS Platform tools and components in a single location and a single unitary form of deployment: containers (Docker, Kubernetes, OpenShift) or virtualized solutions (Vagrant). The deployment can be done both in the Cloud or on Premise. Considering a hybrid deployment should not be an option. The solution Semantic Treehouse may be considered for Ontology, Code Lists, Data models, and Schema storage and management. Another possible solution is SIMPL-Open Vocabularies Service. 
 
