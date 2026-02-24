@@ -91,7 +91,6 @@ The European Reference Data Registry should be able to handle multiple data mode
 
 Looking at the exiting tools proposed by DSSC that can be used to implement the data architecture the following candidates are suggested:
 - SIMPL-Open Catalogue
-- Ocean Enterpirse Catalogue and Aquearius Catalogue Cache
 
 
 ### Data Objects
@@ -108,7 +107,7 @@ Here are the references for data objects to be used:
 Further usage of other standards, especially dealing with electro mobility, are still part of ongoing discussion in the CIM TC57 working group 21. The result will be published at the Bridge energy schemas Github.
 
 
-The data model used by this service is based on reuse of work from previous European projects: [EDDIE](https://github.com/eddie-energy/eddie/tree/main/masterdata), [ENTSO-E](https://www.entsoe.eu), and [Digital4Grids](https://github.com/Digital4Grids/) 
+The data model used by this service is based on reuse of work from previous European projects: [EDDIE](https://github.com/eddie-energy/eddie/tree/main/masterdata), [ENTSO-E](https://www.entsoe.eu), and [Digital4Grids Schema](https://github.com/Digital4Grids/) 
 
 
 #### List and Specification of Reference Data Objects
@@ -324,7 +323,6 @@ The deployment should take into consideration modern technologies such as: conta
 
 The following software solutions were considered for European Data Model storage and management:
 - [SIMPL-Open Catalogue](https://code.europa.eu/simpl)
-- [Ocean Enterpirse Catalogue and Aquearius Catalogue Cache](https://docs.oceanprotocol.com/developers/metadata)
 
 
 For the existing National Data Space platform, it is recommended to use the already existing modules or compatible solutions for data model management. A specific service and connector should be developed in order to communicate with CEEDS. This component will connect to CEEDS National Data Platform Interface to push local data model mappings to CEEDS common European data model and to synchronize local National Data Space platform with CEEDS common European data model.
@@ -374,15 +372,15 @@ From technical point of view we are comparing:
 
 ##### Analysis
 
-Criteria | SIMPL-Open Catalogue | Ocean Catalogue and Aquearius Catalogue 
+Criteria | SIMPL-Open Catalogue  
 ---|---|---
-Data model development | Schema Registry that is used by Catalogue component. | Limited to Ocean protocol 
-Data model integration | Search engine, Vocabulary Datastore, Management Service, Syntax validation service, semantic validation service | Data model discovery on blockchain
-Data models across data spaces | Schema management | Limited to blockchain 
-Application profile | Schema management | None 
-Data Schema | Schema management |  Blockchain specific
-Integration with thirdparty systems | API | None
-Data model formats | RDF, SHACL, JSON Schema | JSON Schema 
+Data model development | Schema Registry that is used by Catalogue component. 
+Data model integration | Search engine, Vocabulary Datastore, Management Service, Syntax validation service, semantic validation service 
+Data models across data spaces | Schema management
+Application profile | Schema management  
+Data Schema | Schema management 
+Integration with thirdparty systems | API 
+Data model formats | RDF, SHACL, JSON Schema
 
 ##### Recommendations
 
