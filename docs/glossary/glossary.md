@@ -1,6 +1,6 @@
 ---
 title: Glossary
-order: 5
+order: 6
 ---
 
 The glossary is divided into two sections: domain terms and acronyms.
