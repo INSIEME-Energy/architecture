@@ -70,7 +70,7 @@ Component | Description
 National Reference Data Maintenance Service | Service allowing the National Data Space Facilitators (NDSF) to create and maintain national reference data and to create mappings from national data models to common European data models.
 Interface for NDSF to update national reference data | Interface allowing the NDSF to maintain national reference data models and feeds the to Reference Data Maintenance Service.
 Reference Data Maintenance Service | Service ingesting the national data curated and prepared by NDSF and feeding it to the European Reference Data Registry.
-Energy Market Refrence Data | Aggregated reference data at national data space level. It has multiple data models and various data sources, including administrative permissions and access rights. The data model is maintained by NDSF.
+Energy Market Reference Data | Aggregated reference data at national data space level. It has multiple data models and various data sources, including administrative permissions and access rights. The data model is maintained by NDSF.
 European Reference Data Registry | Component that ingests data from national data space and transforms it into common European data format. The common European data models are maintained by the CEEDS Facilitator.
 Reference Data Provision Service | Service allowing the transformed data to be exposed to CEEDS Participants.
 Common European-wide unique identification | Function part of the Reference Data Provision Service that exposes the UUID of a specific CEEDS Participant 
@@ -118,7 +118,7 @@ Procedure: **T4-2_01 Access to Metering and Consumption Data**
 - 02 Access to validated historical metering and consumption data by an eligible party
 - 03 Termination of service by an eligible party
 
-Pocedure: **T4-2_02 Access to Basic Master Data**
+Procedure: **T4-2_02 Access to Basic Master Data**
 - 02 Access to accounting point master data by an eligible party
 - 03 Termination of access to accounting point master data by the eligible party
 - 05 Revocation of access to accounting point master data by the final customer
@@ -285,14 +285,14 @@ CEEDS Participant | Reads and queries common European data model | The CEEDS Par
 
 <!-- TODO: Insert descriptions of Application Cooperation Viewpoint components -->
 
-Module | Componenet | Description
+Module | Component | Description
 ---|---|---
-National Data Space | Energy Market Reference Data Object | It is collection and national specific data models, including permission administrtor, that is used for data exchange. The NDSF must maintain all current and past versions, and keep track of the services and service versions that are using those data.
+National Data Space | Energy Market Reference Data Object | It is collection and national specific data models, including permission administrator, that is used for data exchange. The NDSF must maintain all current and past versions, and keep track of the services and service versions that are using those data.
 National Data Space | National Reference Data Maintenance Service | Interface allowing the NDSF to maintain the local national data models and their corresponding meta models.
 National Data Space | Reference Data Maintenance Service | This services allows the NDSF to create and maintain the mappings between national data models and the common European data model. Both national data models and common European data models can have multiple active versions.
 CEEDS Platform | European Reference Data Registry | Interface allowing the CEEDS Facilitator to create and maintain the common European data model. Multiple versions may be active at the same time. The interface has an API for connecting to National Data Space Reference Data Maintenance Service allowing NDS to retrieve and store the latest version(s) of common European data models.
 CEEDS Platform | Reference Data Provision Service | Back end service aggregator providing read and query access to CEEDS Participants for common European data model.
-CEEDS Platform | CEEDS Participant Application Service | UI and API exposing the common European data models to CEEDS Participants and their paltforms/systems.
+CEEDS Platform | CEEDS Participant Application Service | UI and API exposing the common European data models to CEEDS Participants and their platforms/systems.
 
 
 
@@ -306,7 +306,7 @@ See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 
 ![European Reference Data Registry Technology Architecture](./technology-erdr.drawio.png)
 
-The motivation behing the proposed technology architecture is to guarantee the separation of functionalities and responsibilites. On CEEDS platform side, the European Reference Data Registry service can be offline for short periods and can be implemented in a distributed manner. The part of the service that is hosted on National Data Space platform must store the common European refrence data and implement a mechanism to check and sychronize with CEEDS.
+The motivation behind the proposed technology architecture is to guarantee the separation of functionalities and responsibilities. On CEEDS platform side, the European Reference Data Registry service can be offline for short periods and can be implemented in a distributed manner. The part of the service that is hosted on National Data Space platform must store the common European reference data and implement a mechanism to check and synchronize with CEEDS.
 
 ### Deployment View
 
@@ -338,7 +338,7 @@ CEEDS Platform | User interface | Web application offering access to CEEDS platf
 CEEDS Platform | System API and Endpoints | Direct access CEEDS platform for system to system communication.
 CEEDS Platform | National Data Platform Interface | Interface used by National Data Platform Reference Data Maintenance Service to send mappings of local data models to common European data model to CEEDS and also to synchronize local common European data model with CEEDS version of the model.  
 
-A general requirement for European Data Model component is to be able to manage multiple versions of data models and to store mappings of local national data models to common European data model. This will allow multiple versions of data models to be used by CEEDS Participants in their transactions. We do expect to have a dynamic period at the beggining of CEEDS and multiple versions for common data models, schema and other metadata to be used in parallel. The objective for the medium/long term is to use maximum 2 major version of the data model in parallel. The proposed versioning schema is [semantic versioning](https://semver.org/):
+A general requirement for European Data Model component is to be able to manage multiple versions of data models and to store mappings of local national data models to common European data model. This will allow multiple versions of data models to be used by CEEDS Participants in their transactions. We do expect to have a dynamic period at the beginning of CEEDS and multiple versions for common data models, schema and other metadata to be used in parallel. The objective for the medium/long term is to use maximum 2 major version of the data model in parallel. The proposed versioning schema is [semantic versioning](https://semver.org/):
 - each version is described by 3 numbers separated by full stop Major.minor.patch
 - a Major version bump implies breaking changes in the data model
 - a minor version bump implies backward compatibility within the same Major version
@@ -373,15 +373,15 @@ From technical point of view we are comparing:
 ##### Analysis
 
 Criteria | SIMPL-Open Catalogue  
----|---|---
+---|---
 Data model development | Schema Registry that is used by Catalogue component. 
 Data model integration | Search engine, Vocabulary Datastore, Management Service, Syntax validation service, semantic validation service 
 Data models across data spaces | Schema management
 Application profile | Schema management  
 Data Schema | Schema management 
-Integration with thirdparty systems | API 
+Integration with third party systems | API 
 Data model formats | RDF, SHACL, JSON Schema
 
 ##### Recommendations
 
-SIMPL-Open seems to be ready for use and deployment. We do recommend that a PoC should be performed before any decission and commitment is made. The major concern is the compatibility with the other technology that will be used for the rest of the servicecs.
+SIMPL-Open seems to be ready for use and deployment. We do recommend that a PoC should be performed before any decision and commitment is made. The major concern is the compatibility with the other technology that will be used for the rest of the services.
