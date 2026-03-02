@@ -24,6 +24,30 @@ The interaction between these different types of procedures ensures that the eco
 
 Overall, the reference procedure model ensures that the European energy data ecosystem evolves in a coordinated and scalable manner. It balances regulatory stability with market flexibility, supports interoperability across national data spaces, and fosters innovation while maintaining data sovereignty and compliance. Within the INSIEME federation strategy, this layered approach ensures that CEEDS Meta-Level Operating Services, regulatory processes, commercial service frameworks, and deployment mechanisms work together to create a coherent and resilient European energy data space
 
+### Deployment Procedures
+
+<div class="procedure-matrix full-width-table small-table">
+
+| Procedure | Pr. | St. | Procedure                                                          | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
+|-----------|-----|-----|--------------------------------------------------------------------|----|----|----|----|----|----|----|----|--|
+| T4-5_01   | tbd | C   | eHDV Long-Term Power Forecast                                    | | x  |    | | | |    | x  |  |
+| T4-5_02   | tbd | C   | eHDV Short-Term Power Forecast                                 | | x  |    | | | |    | x  |  |
+| T4-5_03   | tbd | C   | Distribution grid Long-Term Forecast (available grid capacities) | | x  |    | | | |    | x  |  |
+| T4-5_04   | tbd | C   | Distribution grid Short-Term Forecast                          | | x  |    | | | |    | x  |  |
+| T4-5_05   | tbd | C   | Access to grid hosting capacity information                    | | x  | x  | | | | x  |   |  |
+</div>
+
+### Commercial Domain Reference Models
+
+<div class="procedure-matrix full-width-table small-table">
+
+| Procedure | Pr. | St. | Procedure                                             | Regulated                                                                                  | Data-Sharing |
+|-----------|-----|-----|-------------------------------------------------------|--------------------------------------------------------------------------------------------|--------------|
+| C0001     | tbd | C   | Energy Footprint Calculation                          | C0001<br/>T4-2_01_03<br/>T4-2_01_04<br/>T4-2_02_02<br/>T4-2_02_03<br/>T4-2_03_04<br/>      |              |
+| C0002     | tbd | C   | Calculate carbon footprint and electicity mix per kWh | ERDDS00001 |              |
+
+</div>
+
 
 ### Regulated Domain Reference Models
 
@@ -118,20 +142,14 @@ Overall, the reference procedure model ensures that the European energy data eco
 
 <div class="procedure-matrix full-width-table small-table">
 
-| Procedure | Pr. | St. | Procedure                                                                                                         | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
-|-----------|-----|-----|-------------------------------------------------------------------------------------------------------------------|----|----|----|----|----|----|----|----|--|
-| T4-5_01   | tbd | C   | **eHDV Long-Term Power Forecast**                                                                               | | | | | | | | | x |
-| T4-5_02   | tbd | C   | **eHDV Short-Term Power Forecast**                                                                              | | | | | | | | | x |
-| T4-5_03   | tbd | C   | **Distribution grid Long-Term Forecast (available grid capacities)**                                                               | | | | | | | | | x |
-| T4-5_04   | tbd | C   | **Distribution grid Short-Term Forecast**                                                                       | | | | | | | | | x |
+| Procedure | Pr. | St. | Procedure                                                          | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
+|-----------|-----|-----|--------------------------------------------------------------------|----|----|----|----|----|----|----|----|--|
+| T4-5_01   | tbd | C   | eHDV Long-Term Power Forecast                                    | | x  |    | | | |    | x  |  |
+| T4-5_02   | tbd | C   | eHDV Short-Term Power Forecast                                 | | x  |    | | | |    | x  |  |
+| T4-5_03   | tbd | C   | Distribution grid Long-Term Forecast (available grid capacities) | | x  |    | | | |    | x  |  |
+| T4-5_04   | tbd | C   | Distribution grid Short-Term Forecast                          | | x  |    | | | |    | x  |  |
+| T4-5_05   | tbd | C   | Access to grid hosting capacity information                    | | x  | x  | | | | x  |   |  |
+
 </div>
 
-### Commercial Domain Reference Models
 
-<div class="procedure-matrix full-width-table small-table">
-</div>
-
-### Deployment Procedures
-
-<div class="procedure-matrix full-width-table small-table">
-</div>

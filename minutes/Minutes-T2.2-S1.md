@@ -1,0 +1,18 @@
+## 2026-02-22 Minutes S1 Kickoff
+- Introduction of the essential idea behind the CEEDS Participants Registry
+- Short Intro where Reference Models can be found at architecture.insieme.energy
+- Introduction and Discussion of the INSIEME Design principles
+    - Input by Jens Schwee: The topic maintenance should be taken into consideration beforehand when talking about CEEDS
+- Explanation of the Meta Level Operating System structure (Service Realization Viewpoint, Application Cooperation Viewpoint, Roles, etc. ) based on S2
+    - Suggestion by Jens Schwee: ontologies or information model should be used instead of schemas -- for a wider audience preferrable information models
+- Next steps / TODOs:
+    - TODO Leo: Introduction to eIDAS by Leo Schick with respect to D4E developments and transnetbw on 6. March
+    - TODO Stefan & Jonas: Presentation about Austrian Market Participant Registration Process in Austria by Stefan Kienler and Jonas Marek on 13. March
+    - TODO Jens: Presentation about Onboarding in Energinet and CDK by Jens (and somebody from CDK) on tba.
+    - TODO Benji: Create Polls for 6. March, 13. March and for an additional appointment (Energinet and CDK)
+    - TODO Georg: Connect Jens with responsible person from CDK
+- Presentation of the CEEDS Participants Registry Service Realisation Viewpoint
+- Discussions:
+    - Will participants register at the national level, CEEDS level or both ?
+    - Can eIDAS business wallets help ?
+    - Central or decental CEEDS Registry Deployment ?
