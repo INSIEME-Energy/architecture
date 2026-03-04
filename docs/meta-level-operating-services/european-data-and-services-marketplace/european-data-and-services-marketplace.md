@@ -1,6 +1,6 @@
 ---
-title: S7 - European Data and Services Marketplace
-order: 7
+title: S8 - European Data and Services Marketplace
+order: 8
 ---
 
 ## Function and Objective
