@@ -106,7 +106,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 1.5 | Notify CESU operator | Energy sharing register operator informs the CESU operator that the CESU has been established. | Energy sharing register operator | CESU operator | C – Established CESU information |
 
 
-![BPMN Diagram for Procedure 1](./Procedure1.png)
+![BPMN Diagram for Procedure 1](./Procedure1.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -133,7 +133,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 2.4 | Notify CESU operator about metering point assignability | Metering point administrator informs CESU operator about the output of the metering point assignability verification | Metering point administrator | CESU operator | E - Assignability verification information |
 
 
-![BPMN Diagram for Procedure 2](./Procedure2.png)
+![BPMN Diagram for Procedure 2](./Procedure2.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -156,7 +156,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 3.3 | Notify final customer about metering point assignability | CESU operator informs final customer about the output of the metering point assignability verification. | CESU operator | Final customer | E - Assignability verification information |
 
 
-![BPMN Diagram for Procedure 3](./Procedure3.png)
+![BPMN Diagram for Procedure 3](./Procedure3.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -199,7 +199,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 4.23 | Send metering point information | Metadata for the metering point is transferred to the CESU operator. | Metering point administrator | CESU operator | N – Metering point information |
 
 
-![BPMN Diagram for Procedure 4](./Procedure4.png)
+![BPMN Diagram for Procedure 4](./Procedure4.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -238,7 +238,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 5.4 | Notify CESU data eligible party | Permission administrator notifies CESU data eligible party about the established preset permission information. | Permission administrator | CESU data eligible party | G – Preset permission information |
 
 
-![BPMN Diagram for Procedure 5](./Procedure5.png)
+![BPMN Diagram for Procedure 5](./Procedure5.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -275,7 +275,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 6.10 | Notify on end of assignation | The metering point administrator<br/>forwards the respective notification to the CESU operator. | Metering point administrator | CESU operator | J – Notification of termination of service |
 
 
-![BPMN Diagram for Procedure 6](./Procedure6.png)
+![BPMN Diagram for Procedure 6](./Procedure6.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -306,7 +306,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 7.13 | Notify final customer | The permission administrator makes available the information that the permission has been revoked to the final customer. | Permission administrator | Final customer | J – Notification of termination of service |
 
 
-![BPMN Diagram for Procedure 7](./Procedure7.png)
+![BPMN Diagram for Procedure 7](./Procedure7.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
