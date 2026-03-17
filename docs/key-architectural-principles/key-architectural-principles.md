@@ -1,5 +1,5 @@
 ---
-title: DRAFT - Key Architectural Principles
+title: Key Architectural Principles
 order: 2
 ---
 

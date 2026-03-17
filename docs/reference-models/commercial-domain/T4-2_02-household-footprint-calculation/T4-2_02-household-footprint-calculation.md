@@ -1,10 +1,6 @@
 ---
-title: Household Footprint Calculation Reference Model
+title: T4-2_02 - Household Footprint Calculation
 ---
-
-Project INSIEME – Reference Model Template
-
-Task 4.2 – SavingsFootprint – Household footprint calculation
 
 CONTEXT:
 
@@ -103,6 +99,8 @@ All diagrams describing the scenarios are of an illustrative nature and follow B
 | 1.7 | Notify indirect consenting | Where available and required, final customer gives permission to access his/her personal data via consent administrator. In this case the steps of first implementing regulation will be followed. | Final customer | Consent administrator | B – Consent |
 
 ### Procedure 2 – Footprint calculation
+
+#### TODO: Please refer to the "Regulated Domain Reference Models (and steps) when you use some."
 
 | Step No. | Step | Step description | Information producer (actor) | Information receiver (actor) | Information exchanged (IDs) |
 | --- | --- | --- | --- | --- | --- |

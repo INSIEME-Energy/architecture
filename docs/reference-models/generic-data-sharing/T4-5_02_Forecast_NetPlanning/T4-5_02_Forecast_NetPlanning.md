@@ -1,12 +1,10 @@
 ---
-title: eHDV Long Term Power Forecast
+title: T4-5_02 - Forecast NetPlanning
 ---
-
-# Reference model for *Long-term Power Forecast -- Connecting System Operator and electric Heavy-Duty Vehicles*
 
 Task 4.5 -- Electromobility: Long-term Power Forecast -- Connecting System Operator and electric Heavy-Duty Vehicles
 
-## Context
+## Context/ Whereas
 
 (1)     The present document focuses on information exchange between Connecting System Operator (CSO) and electric Heavy-Duty Vehicle (eHDV) for the purpose of improving long-term grid hosting capacity forecasts and improving access for the eHDV sector to CSO's grid hosting capacity forecasts.
 

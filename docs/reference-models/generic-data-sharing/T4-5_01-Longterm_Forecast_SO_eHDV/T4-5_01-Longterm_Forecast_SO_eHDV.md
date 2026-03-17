@@ -1,10 +1,6 @@
 ---
-title: Project INSIEME - Reference Model Template - Task 4.5 - Long-term forecast System Operator - electromobility Heavy Duty Vehicle eHDV
+title: T4-5_01 - Longterm Forecast SO eHDV
 ---
-
-# Task 4.5 – Long-term forecast System Operator – electromobility Heavy Duty Vehicle eHDV and electromobility Heavy Duty Vehicle eHDV – System Operator  
-
-
 
 We strive to widen scope to forecasts in general if possible in the next iteration, now we focused on the **information exchange** **between System Operator and electromobility Heavy Duty Vehicle eHDV**, **and the long-term forecast from the System Operator in form of grid hosting capacity information**
 

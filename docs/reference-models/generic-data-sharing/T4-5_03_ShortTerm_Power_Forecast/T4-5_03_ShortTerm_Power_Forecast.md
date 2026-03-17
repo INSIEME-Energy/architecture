@@ -1,9 +1,6 @@
 ---
-title: eHVD Short Term Power Forecast
+title: T4-5_03 - Shortterm Power Forecast
 ---
-
-
-# Reference model for *Short-term Power Forecast*
 
 Task 4.5 -- Electromobility: Short-term Power Forecast
 
