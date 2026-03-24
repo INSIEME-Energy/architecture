@@ -26,6 +26,23 @@ Overall, the reference procedure model ensures that the European energy data eco
 
 ### Deployment Procedures
 
+| ID | Pr. | St. | Deployment | Commercial | Regulated | Data_Sharing | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
+|----|-----|-----|------------|------------|-----------|--------------|----|----|----|----|----|----|----|----|-----|
+| 1  |     |     |  Flexidao (FDAO)          |            |    T4-2_01, T4-2_02, T4-2_03, T4-3_01, T4-4_02      |              |    |    |    |    |    |    |    |    |     |
+| 2  |     |     |  Footprint application for households (SavingsFootprint)          |     C0001       |     T4-2_01, T4-2_02, T4-3_01      |              |    |    |    |    |    |    |    |    |     |
+| 3  |     |     |    Common European Dataspace for Energy Communities (EC_SCALE)        |            |     T4-2_01, T4-2_02, T4-2_03, T4-2_04, T4-3_01,      |              |    |    |    |    |    |    |    |    |     |
+| 4  |     |     |    Cuerva’s Living Lab (Cuerva)        |            |      T4-2_01, T4-2_03, T4-3_01, T4-4_01 , T4-4_02,         | T4-5_02, T4-5_03,  T4-5_04, T4-5_05       |    |    |    |    |    |    |    |    |     |
+| 5  |     |     |    Intelligent energy control Digital Operator for buildings (Jenny+)        |     C0001       |     T4-2_01, T4-2_02, T4-2_03, T4-4_01, T4-4_02      |              |    |    |    |    |    |    |    |    |     |
+| 6  |     |     |    Flexibility from small assets (ARE)        |            |    T4-4_01, T4-4_02        |  T4-5_04, T4-5_05            |    |    |    |    |    |    |    |    |     |
+| 7  |     |     |   Comflex        |            |  T4-2_01, T4-2_02, T4-2_03, T4-3_01, T4-4_01 , T4-4_02,         |              |    |    |    |    |    |    |    |    |     |
+| 8  |     |     |    Electrifying Heavy-Duty Mobility (eHDMobility)        |            |     T4-4_01 , T4-4_02,      |    T4-5_01, T4-5_02, T4-5_03, T4-5_04, T4-5_05          |    |    |    |    |    |    |    |    |     |
+| 9  |     |     |    Open Thor Living Lab Smart Charging (OTLL SC)        |            |    T4-2_01, T4-2_02, T4-4_01 , T4-4_02,       |     T4-5_04, T4-5_05         |    |    |    |    |    |    |    |    |     |
+| 10  |     |     |    Hierarchical data spaces for coherent services (Hierarchies)       |            |  T4-2_01, T4-2_02, T4-4_01 , T4-4_02,         |   T4-5_02, T4-5_04, T4-5_05           |    |    |    |    |    |    |    |    |     |
+| 11  |     |     |    INTERoperable FLEXibility Services (INTERFLEX)        |            |    T4-2_01, T4-2_02, T4-3_01, T4-4_01 , T4-4_02,       |              |    |    |    |    |    |    |    |    |     |
+| 12  |     |     |    AI for Power Grid Optimization (AIGridOpt)        |            |           |              |    |    |    |    |    |    |    |    |     |
+| 13  |     |     |    Portuguese Electricity and Gas Networks for Integrated Planning and Operation (PEGNIPO)        |            |    T4-3_01,  T4-4_01 , T4-4_02,      |              |    |    |    |    |    |    |    |    |     |
+| 14  |     |     |    Sector-Coupled Data Integration (SCDI)     |            |    T4-2_01, T4-2_02,  T4-4_01 , T4-4_02,     |              |    |    |    |    |    |    |    |    |     |
+
 <div class="procedure-matrix full-width-table small-table">
 
 | Procedure | Pr. | St. | Procedure                                                          | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
