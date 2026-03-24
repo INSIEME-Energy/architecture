@@ -91,6 +91,7 @@ The European Reference Data Registry should be able to handle multiple data mode
 
 Looking at the exiting tools proposed by DSSC that can be used to implement the data architecture the following candidates are suggested:
 - SIMPL-Open Catalogue
+- Semantic Treehouse
 
 
 ### Data Objects
@@ -323,6 +324,7 @@ The deployment should take into consideration modern technologies such as: conta
 
 The following software solutions were considered for European Data Model storage and management:
 - [SIMPL-Open Catalogue](https://code.europa.eu/simpl)
+- [Semantic Treehouse](https://www.semantic-treehouse.nl/)
 
 
 For the existing National Data Space platform, it is recommended to use the already existing modules or compatible solutions for data model management. A specific service and connector should be developed in order to communicate with CEEDS. This component will connect to CEEDS National Data Platform Interface to push local data model mappings to CEEDS common European data model and to synchronize local National Data Space platform with CEEDS common European data model.
@@ -372,16 +374,18 @@ From technical point of view we are comparing:
 
 ##### Analysis
 
-Criteria | SIMPL-Open Catalogue  
----|---
-Data model development | Schema Registry that is used by Catalogue component. 
-Data model integration | Search engine, Vocabulary Datastore, Management Service, Syntax validation service, semantic validation service 
-Data models across data spaces | Schema management
-Application profile | Schema management  
-Data Schema | Schema management 
-Integration with third party systems | API 
-Data model formats | RDF, SHACL, JSON Schema
+Criteria | SIMPL-Open Catalogue | Semantic Treehouse 
+---|---|---
+Data model development | Schema Registry that is used by Catalogue component. | Ontology driven data model - message model.
+Data model integration | Search engine, Vocabulary Datastore, Management Service, Syntax validation service, semantic validation service | Search engine, vocabulary integration, validation services, business rules.
+Data models across data spaces | Schema management | Message mapping
+Application profile | Schema management  | OpenAPI export
+Data Schema | Schema management | Message versioning
+Integration with third party systems | API | REST API
+Data model formats | RDF, SHACL, JSON Schema | OWL/SHACL, RDFS, JSON Schema, Schematron, XML
 
 ##### Recommendations
 
 SIMPL-Open seems to be ready for use and deployment. We do recommend that a PoC should be performed before any decision and commitment is made. The major concern is the compatibility with the other technology that will be used for the rest of the services.
+
+Sematic Treehouse could be considered in conjunction with S2 - European Vocabulary Hub, since the service S2 will be fully integrated with S3. The PoC should evaluate both services together and consider the combined scoring and trade-offs.
