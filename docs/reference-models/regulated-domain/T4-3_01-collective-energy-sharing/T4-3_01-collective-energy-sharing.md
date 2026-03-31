@@ -360,7 +360,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 8.12 | (optional)<br/>Execute recalculation of setpoints | Flexibility service provider receives a flexibility activation request and recalculates assets’ setpoints (see Procedure 9) to provide the requested flexibility | Flexibility service provider | [internal] | [not relevant] |
 
 
-![BPMN Diagram for Procedure 8](./Procedure8.png)
+![BPMN Diagram for Procedure 8](./Procedure8.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -390,7 +390,7 @@ The technical onboarding procedures involve the validation by locally relevant p
 | 9.8 | (optional) Send new setpoints | CESU operator defines new set points in the controllable units. | CESU operator | Controllable unit | C - New assets’ setpoints |
 
 
-![BPMN Diagram for Procedure 9](./Procedure9.png)
+![BPMN Diagram for Procedure 9](./Procedure9.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -418,7 +418,7 @@ This procedure is described in two variants (10a and 10b).
 | 10a.4 | Send CESU results and remunerations | Flexibility service provider sends flexibility provision results and remunerations to CESU operator. | Flexibility service provider | CESU operator | C - CESU results and remunerations |
 
 
-![BPMN Diagram for Procedure 10a](./Procedure10a.png)
+![BPMN Diagram for Procedure 10a](./Procedure10a.svg)
 
 
 #### Procedure 10b - Flexibility verification and settlement done by flexibility market operator or other third-party support tool
@@ -431,7 +431,7 @@ This procedure is described in two variants (10a and 10b).
 | 10b.4 |  | Send CESU results and remunerations | Flexibility service provider sends flexibility provision results and remunerations to CESU operator. | Flexibility service provider | CESU operator | C - CESU results and remunerations |
 
 
-![BPMN Diagram for Procedure 10b](./Procedure10b.png)
+![BPMN Diagram for Procedure 10b](./Procedure10b.svg)
 
 
 
@@ -466,7 +466,7 @@ This procedure is described in two variants (11a and 11b).
 | 11a.9 | Send payment of energy surplus | Independent Aggregator pay either the CESU aggregated or the individual CESU members, the revenues from energy surplus. | Independent Aggregator | CESU member | G - Energy surplus revenues |
 
 
-![BPMN Diagram for Procedure 11a](./Procedure11a.png)
+![BPMN Diagram for Procedure 11a](./Procedure11a.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -504,7 +504,7 @@ This procedure is described in two variants (11a and 11b).
 | 11b.15 | Send payment of energy surplus | Independent Aggregator pays for the revenues from energy surplus to the CESU members. | Independent Aggregator | CESU member | I - Energy surplus revenues |
 
 
-![BPMN Diagram for Procedure 11b](./Procedure11b.png)
+![BPMN Diagram for Procedure 11b](./Procedure11b.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -533,7 +533,7 @@ This procedure is described in two variants (11a and 11b).
 | 12.4 | Core | Send settlement results | CESU operator uses invoicing systems to communicate final settlement to the CESU members. | CESU operator | CESU member | A - Settlement and invoicing |
 
 
-![BPMN Diagram for Procedure 12](./Procedure12.png)
+![BPMN Diagram for Procedure 12](./Procedure12.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -554,7 +554,7 @@ This procedure is described in two variants (11a and 11b).
 | 13.4 | Core | Execute data review | CESU member reviews data. | CESU member | [internal] | [not relevant] |
 
 
-![BPMN Diagram for Procedure 13](./Procedure13.png)
+![BPMN Diagram for Procedure 13](./Procedure13.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -578,7 +578,7 @@ This procedure is described in two variants (11a and 11b).
 | 14.6 | Core | Send new allocation mechanism and rules | CESU operator notifies CESU members about successful update. | CESU operator | CESU member | A - Energy allocation mechanism<br/>C - New rules and pricing mechanism |
 
 
-![BPMN Diagram for Procedure 14](./Procedure14.png)
+![BPMN Diagram for Procedure 14](./Procedure14.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -602,7 +602,7 @@ This procedure is described in two variants (11a and 11b).
 | 15.5 | Send company qualification results | flexibility market operator notifies CESU operator about company qualification results. | Flexibility market operator | CESU operator | B - Company qualification results |
 
 
-![BPMN Diagram for Procedure 15](./Procedure15.png)
+![BPMN Diagram for Procedure 15](./Procedure15.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
@@ -630,7 +630,7 @@ This procedure is described in two variants (11a and 11b).
 | 16.10 | Send assets eligibility notification | CESU operator notifies CESU members about their assets’ eligibility for flexibility provision | CESU operator | CESU member | C - Asset qualification result |
 
 
-![BPMN Diagram for Procedure 16](./Procedure16.png)
+![BPMN Diagram for Procedure 16](./Procedure16.svg)
 
 
 **INFORMATION OBJECTS FOR THIS PROCEDURE**
