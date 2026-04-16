@@ -1,6 +1,3 @@
----
-title: Task 4.5 – Electromobility: Network Planning Forecast
----
 
 # Task 4.5 – Electromobility: Network Planning Forecast
  
