@@ -1,6 +1,3 @@
----
-title: Task 4.5 – Electromobility: Electric Heavy-Duty Vehicle power short-term forecast
----
 
 # Task 4.5 – Electromobility: Electric Heavy-Duty Vehicle power short-term forecast
 
