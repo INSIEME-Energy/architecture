@@ -4,9 +4,27 @@ order: 5
 ---
 
 ## Function and Objective
-Monitors and publishes service availability, reliability, and KPIs across Member States. 
+Monitors and publishes service availability, reliability, and KPIs across CEEDS and Member States Data Space or Data Solutions. 
 
-NDSFs shall be responsible to provide reliable, up-to-date and correct assessments of service levels, whilst the CEEDS Facilitator shall be responsible to publish a visual overview, and machine-readable information for the operational use my European-wide actors. 
+National Data Space Facilitators (NDSF) shall be responsible to provide reliable, up-to-date and correct assessments of service levels, whilst the CEEDS Facilitator shall be responsible to publish a visual overview, and machine-readable information for the operational use my European-wide actors. 
+
+The European Service Level Overview should cover the following functionalities:
+- CEEDS services self check and report,
+- Registration API for period health check of CEEDS services and Participant services
+- Visual dashboard for direct monitoring of the service status
+- Notification mechanisms (email, SMS, direct message etc.) of the responsible in case of service degradation or intervention. The CEEDS services are responsibility of CEEDS facilitator and the National Data Spaces or National Data Platforms are the responsibility of the NDSFs.
+- Establish a framework for a trusted environment by providing verifiable evidence that services and processes are functioning and executed according to agreed rules and regulations.
+
+From DSSC point of view the service must cover:
+1. **Observability** - the ability to monitor, measure and understand the internal states of processes through its outputs such as logs, metrics and traces.
+1. **Traceability** - the quality of having an origin or course of development that may be found or followed.
+1. **Provenance** - the place of origin or earliest known history of something. Usually it is the backwards-looking direction of a data value chain which is also referred to as provenance tracking.
+
+| Roles | Responsibilities |
+|---|---|
+National Data Space Facilitator(s) (NDFS) | <ul><li>Creates National Data Space entries for observability and traceability</li><li>Registers the information with S5 - European Service Level Monitoring.</li><li>Designates contact information in case of National Data Service malfunction or interruption.</li></ul>
+CEEDS Facilitator | <ul><li>Manages the observability and traceability entries.</li><li>Creates CEEDS self check entries</li><li>Designates the contacts in case of intervention and support.</li></ul>
+CEEDS Participant | <ul><li>Can access and visualize the dashboard, and status reports.</li><li>Can request to register new observability and traceability entries.</li></ul>
 
 ## Business Architecture
 
@@ -14,6 +32,9 @@ NDSFs shall be responsible to provide reliable, up-to-date and correct assessmen
 The Business Architecture focuses on business requirements. It outlines the structure and operation of an organization, including business goals, functions, processes, and organizational structure. 
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+
+![European Service Level Overview Business Architecture ArchiMate Diagram](./business-eslo.drawio.png)
+
 
 ### Service Realization Viewpoint
 
@@ -23,7 +44,8 @@ Thus, it forms the bridge between the business products viewpoint and the busine
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
 
-<!-- TODO: Insert ArchiMate Service Realization Viewpoint diagram -->
+![European Service Level Overview service realization ArchiMate Diagram](./app-eslo.drawio.png)
+
 
 #### Component Descriptions
 
