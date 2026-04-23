@@ -33,6 +33,17 @@ The Business Architecture focuses on business requirements. It outlines the stru
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
+The European Service Level Overview provides services for and interacts with the following actors and systems:
+
+| Actor/System | Description |
+---|---
+National Data Space Facilitator (NDSF) | The NDSF interacts with S5 via API or the Web interface allowing to define the national systems observability and traceability parameters. This includes mandatory contact for system support and service.
+National Data Space / National Data Platform | Each system that interacts with CEEDS or provides specific data and/or services from a Participant at CEEDS. The system must be able to respond to check calls from S5. The NDSF will define and configure those endpoints so that the data collected for monitoring and alert by CEEDS S5 should be fully available.
+CEEDS Participant | Any physical person or system that will interact with CEEDS. In particular, CEEDS must be able to register the transactions between participants for audit and traceability.
+CEEDS Facilitator | A physical person that will configure the internal CEEDS services data for monitoring and traceability. The responsibility is only to CEEDS components and services, for national data spaces and national systems the NDSF is responsible.
+CEEDS services | Any service that is part of CEEDS:<ul><li>S1 - CEEDS Participants Registry (CPR)</li><li>S2 - European Vocabulary Hub (EVH)</li><li>S3 - European Reference Data Registry (ERDR)</li><li>S4 - Common API for European-wide Processes (CAEP)</li><li>S6 - European Interoperability Testing Service (EITS)</li><li>S7 - EU-wide Regulated-Domain Services (ERDS)</li><li>S8 - European Data and Services Marketplace (EDSM)</li><li>Digital Customer Interface (DCI)</li></ul> Those services must implement an API allowing health check and status request.
+
+
 ![European Service Level Overview Business Architecture ArchiMate Diagram](./business-eslo.drawio.png)
 
 
@@ -51,6 +62,14 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization
 
 <!-- TODO: Insert descriptions of Realization Viewpoint components -->
 
+| Component | Description |
+|---|---|
+| CEEDS register for service monitoring |
+| EU-wide register for service monitoring | 
+| Observability and traceability definition | 
+
+
+
 ## Data Architecture
 
 <!-- 
@@ -58,6 +77,8 @@ Data Architecture pertains to the management of data, both physical and logical.
 It involves data assets, databases, data models, and the governance of data across the enterprise.
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+The European Service Level Overview should be able to collect data about the status and health of internal CEEDS services, including itself, and all external national data spaces or data platforms that are supposed to be available for transactions between CEEDS Participants. The services should be able to collect data for dashboards and alert generation. The CEEDS Facilitator and maintainers responsibility and intervention area is limited. For National Data Space the NDSF must designate a contact to be notified automatically and trigger the intervention to reestablish the service.
+ 
 
 ### Data Objects
 
