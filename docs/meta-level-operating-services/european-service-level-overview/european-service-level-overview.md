@@ -64,9 +64,10 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization
 
 | Component | Description |
 |---|---|
-| CEEDS register for service monitoring |
-| EU-wide register for service monitoring | 
-| Observability and traceability definition | 
+| CEEDS register for service monitoring | The interface is available for the CEEDS Facilitator to register the status and health check information for CEEDS service and for S5 self diagnostic.
+| EU-wide register for service monitoring | The interface allows the NDSFs to register the information about National Data Spaces status and health check information. The execution rights are managed by the CEEDS Facilitator. 
+| Observability and traceability definition | Internal repository where all check points are stored, both CEEDS and National Data Space specific. The data collected by the execution of those controls will be processed and displayed on the dashboard.
+| Dashboard and Monitoring | Application facing the users: CEEDS Participants and NDSFs designated contacts.
 
 
 
@@ -78,11 +79,20 @@ It involves data assets, databases, data models, and the governance of data acro
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 The European Service Level Overview should be able to collect data about the status and health of internal CEEDS services, including itself, and all external national data spaces or data platforms that are supposed to be available for transactions between CEEDS Participants. The services should be able to collect data for dashboards and alert generation. The CEEDS Facilitator and maintainers responsibility and intervention area is limited. For National Data Space the NDSF must designate a contact to be notified automatically and trigger the intervention to reestablish the service.
- 
+
 
 ### Data Objects
 
 <!-- TODO: Insert list/table of data objects and their descriptions -->
+
+The data collected by the European Service Level Overview must provide a concise and clear status of the CEEDS ecosystem, both central Data Space level and national level. This includes self diagnostic data. The type of data collected is explicitly defined by either CEEDS Facilitator or by NDSFs. The data is related to:
+- System status (e.g. OK/NOK)
+- System health check (e.g. 200 OK, 500 INTERNAL SERVE ERROR)
+- System availability (e.g. 501 NOT IMPLEMENTED, 503 SERVICE UNAVAILABLE)
+- Transaction status (e.g. INITIATED, IN PROGRESS, FAILED, OK, Transaction initiated, Payment received)
+- CEEDS Participant activity (e.g. Successful login, Failed authentication, Data request)
+
+The data can be in any format: JSON, plain text, XML, log etc and should be processed and displayed in an uniform way by the tool that will be selected.
 
 ## Application Architecture
 
@@ -112,6 +122,11 @@ The Technology Architecture involves the IT infrastructure, including hardware, 
 It ensures that the infrastructure supports the application and data requirements of the business.
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+
+The following software solutions were considered for European Service Level Overview:
+- [Apache Airflow](https://airflow.apache.org/)
+- [Apache NiFi](https://nifi.apache.org/)
+- [Kestra](https://kestra.io/)
 
 ### Deployment View
 
