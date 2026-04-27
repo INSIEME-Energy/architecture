@@ -6,7 +6,7 @@ order: 5
 ## Function and Objective
 Monitors and publishes service availability, reliability, and KPIs across CEEDS and Member States Data Space or Data Solutions. 
 
-National Data Space Facilitators (NDSF) shall be responsible to provide reliable, up-to-date and correct assessments of service levels, whilst the CEEDS Facilitator shall be responsible to publish a visual overview, and machine-readable information for the operational use my European-wide actors. 
+National Data Space Facilitators (NDSF) shall be responsible to provide reliable, up-to-date and correct assessments of service levels, whilst the CEEDS Facilitator shall be responsible to publish a visual overview, and machine-readable information for the operational use by European-wide actors. 
 
 The European Service Level Overview should cover the following functionalities:
 - CEEDS services self check and report,
@@ -94,6 +94,20 @@ The data collected by the European Service Level Overview must provide a concise
 
 The data can be in any format: JSON, plain text, XML, log etc and should be processed and displayed in an uniform way by the tool that will be selected.
 
+List of CEEDS services to be monitored:
+- S1 - CEEDS Participants Registry
+- S2 - European Vocabulary Hub
+- S3 - European Reference Data Registry
+- S4 - Common API for European-wide Process
+- S5 - European Service Level Overview (self check and monitoring)
+- S6 - EU-level Interoperability Testing Service
+- S7 - EU-wide Regulated-Domain Services
+- S8 - European Data and Service Marketplace
+- DCI - Digital Customer Interface
+
+The services and transactions associated with the [Reference Models](../../reference-models/reference-models.html) Deployment Procedures, that will implement: Commercial Domain Reference Procedures, Regulated Domain Reference Procedures, and Data Sharing Focused Procedures. For each of those procedures the NDSF must provide the full URL for service health check, the expected response for OK and NOK, and contact information (email) in case of NOK response. Transactions initiated by Data Space Users will
+ be monitored and traced by the S5 service.
+
 ## Application Architecture
 
 <!-- 
@@ -124,8 +138,8 @@ See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
 The following software solutions were considered for European Service Level Overview:
-- [Apache Airflow](https://airflow.apache.org/)
-- [Apache NiFi](https://nifi.apache.org/)
+- [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Schetch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
+- [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/)
 - [Kestra](https://kestra.io/)
 
 ### Deployment View
