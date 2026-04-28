@@ -6,13 +6,13 @@ order: 5
 ## Function and Objective
 Monitors and publishes service availability, reliability, and KPIs across CEEDS and Member States Data Space or Data Solutions. 
 
-National Data Space Facilitators (NDSF) shall be responsible to provide reliable, up-to-date and correct assessments of service levels, whilst the CEEDS Facilitator shall be responsible to publish a visual overview, and machine-readable information for the operational use by European-wide actors. 
+National Data Space Facilitators (NDSF) shall be responsible to provide reliable, up-to-date and valid assessments of service levels for National Data Platform, whilst the CEEDS Facilitator shall be responsible for CEEDS services and transaction monitoring setup. CEEDS should publish a visual overview, and machine-readable information for the operational use by European-wide actors. 
 
 The European Service Level Overview should cover the following functionalities:
 - CEEDS services self check and report,
-- Registration API for period health check of CEEDS services and Participant services
+- Registration API for periodical health check of CEEDS services and Participant services
 - Visual dashboard for direct monitoring of the service status
-- Notification mechanisms (email, SMS, direct message etc.) of the responsible in case of service degradation or intervention. The CEEDS services are responsibility of CEEDS facilitator and the National Data Spaces or National Data Platforms are the responsibility of the NDSFs.
+- Notification mechanisms (email, SMS, direct message etc.) of the responsible in case of service degradation or intervention. The support for CEEDS services are responsibility of CEEDS facilitator and the support for National Data Spaces or National Data Platforms are the responsibility of the NDSFs.
 - Establish a framework for a trusted environment by providing verifiable evidence that services and processes are functioning and executed according to agreed rules and regulations.
 
 From DSSC point of view the service must cover:
@@ -33,13 +33,13 @@ The Business Architecture focuses on business requirements. It outlines the stru
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
-The European Service Level Overview provides services for and interacts with the following actors and systems:
+The S5 service - European Service Level Overview provides services for and interacts with the following actors and systems:
 
 | Actor/System | Description |
 ---|---
 National Data Space Facilitator (NDSF) | The NDSF interacts with S5 via API or the Web interface allowing to define the national systems observability and traceability parameters. This includes mandatory contact for system support and service.
-National Data Space / National Data Platform | Each system that interacts with CEEDS or provides specific data and/or services from a Participant at CEEDS. The system must be able to respond to check calls from S5. The NDSF will define and configure those endpoints so that the data collected for monitoring and alert by CEEDS S5 should be fully available.
-CEEDS Participant | Any physical person or system that will interact with CEEDS. In particular, CEEDS must be able to register the transactions between participants for audit and traceability.
+National Data Space / National Data Platform | Each system that interacts with CEEDS or provides specific data and/or services from a Participant at CEEDS. The system must be able to respond to check calls from S5. The NDSF will define and configure those endpoints so that the data collected for monitoring and alert by CEEDS S5 should be fully available. The list of services provided by NDS must contain the services defined in the [Reference Models](../../reference-models/reference-models.html).
+CEEDS Participant | Any physical person or system that will interact with CEEDS. In particular, S5 service must be able to register the transactions between participants for audit and traceability.
 CEEDS Facilitator | A physical person that will configure the internal CEEDS services data for monitoring and traceability. The responsibility is only to CEEDS components and services, for national data spaces and national systems the NDSF is responsible.
 CEEDS services | Any service that is part of CEEDS:<ul><li>S1 - CEEDS Participants Registry (CPR)</li><li>S2 - European Vocabulary Hub (EVH)</li><li>S3 - European Reference Data Registry (ERDR)</li><li>S4 - Common API for European-wide Processes (CAEP)</li><li>S6 - European Interoperability Testing Service (EITS)</li><li>S7 - EU-wide Regulated-Domain Services (ERDS)</li><li>S8 - European Data and Services Marketplace (EDSM)</li><li>Digital Customer Interface (DCI)</li></ul> Those services must implement an API allowing health check and status request.
 
@@ -54,6 +54,9 @@ The Service Realization Viewpoint pattern creates elements that show how one or 
 Thus, it forms the bridge between the business products viewpoint and the business process view. It provides a "view from the outside" on one or more business processes. 
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
+
+The S5 service must allow NDSF and CEEDS Facilitators to dynamically register and configure the end points to be monitored, the contact information for intervention and support, and to access the dashboard and reports. S5 service should allow the CEEDS Facilitator to define transactions and data flows that should be monitored together with the notifications that should be send in case of error of failure.
+
 
 ![European Service Level Overview service realization ArchiMate Diagram](./app-eslo.drawio.png)
 
@@ -78,21 +81,21 @@ Data Architecture pertains to the management of data, both physical and logical.
 It involves data assets, databases, data models, and the governance of data across the enterprise.
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
-The European Service Level Overview should be able to collect data about the status and health of internal CEEDS services, including itself, and all external national data spaces or data platforms that are supposed to be available for transactions between CEEDS Participants. The services should be able to collect data for dashboards and alert generation. The CEEDS Facilitator and maintainers responsibility and intervention area is limited. For National Data Space the NDSF must designate a contact to be notified automatically and trigger the intervention to reestablish the service.
+The European Service Level Overview should be able to collect data about the system status and service health of internal CEEDS services, including itself and of all external national data spaces or data platforms that are supposed to be available for transactions between CEEDS Participants. For National Data Spaces CEEDS will collect information about the endpoints only, the systems and interfaces that are exposed and interacting with CEEDS. The S5 service should be able to collect data for dashboards and alert generation. The CEEDS Facilitator and CEEDS maintainers responsibility and intervention area is limited only to CEEDS platform or parts of the platform. For National Data Space the NDSF must designate a contact to be notified automatically and trigger the intervention to reestablish the service.
 
 
 ### Data Objects
 
 <!-- TODO: Insert list/table of data objects and their descriptions -->
 
-The data collected by the European Service Level Overview must provide a concise and clear status of the CEEDS ecosystem, both central Data Space level and national level. This includes self diagnostic data. The type of data collected is explicitly defined by either CEEDS Facilitator or by NDSFs. The data is related to:
+The data collected by the S5 service - European Service Level Overview must provide a concise and clear status of the CEEDS ecosystem, both central Data Space level and national level. This includes self diagnostic data. The type of data collected is explicitly defined by either CEEDS Facilitator or by NDSFs. The data is related to:
 - System status (e.g. OK/NOK)
 - System health check (e.g. 200 OK, 500 INTERNAL SERVE ERROR)
 - System availability (e.g. 501 NOT IMPLEMENTED, 503 SERVICE UNAVAILABLE)
 - Transaction status (e.g. INITIATED, IN PROGRESS, FAILED, OK, Transaction initiated, Payment received)
 - CEEDS Participant activity (e.g. Successful login, Failed authentication, Data request)
 
-The data can be in any format: JSON, plain text, XML, log etc and should be processed and displayed in an uniform way by the tool that will be selected.
+The data can be in any format: JSON, plain text, XML, log files, database etc. and should be processed and displayed in an uniform way by the tool that will be selected for implementation.
 
 List of CEEDS services to be monitored:
 - S1 - CEEDS Participants Registry
@@ -105,8 +108,9 @@ List of CEEDS services to be monitored:
 - S8 - European Data and Service Marketplace
 - DCI - Digital Customer Interface
 
-The services and transactions associated with the [Reference Models](../../reference-models/reference-models.html) Deployment Procedures, that will implement: Commercial Domain Reference Procedures, Regulated Domain Reference Procedures, and Data Sharing Focused Procedures. For each of those procedures the NDSF must provide the full URL for service health check, the expected response for OK and NOK, and contact information (email) in case of NOK response. Transactions initiated by Data Space Users will
- be monitored and traced by the S5 service.
+The services and transactions associated with the [Reference Models](../../reference-models/reference-models.html) Deployment Procedures, that will implement: Commercial Domain Reference Procedures, Regulated Domain Reference Procedures, and Data Sharing Focused Procedures. For each of those procedures the NDSF must provide the full URL for service health check, the expected response for OK and NOK, and contact information (email) in case of NOK response. Transactions initiated by Data Space Users will be monitored and traced by the S5 service. In case of failure or error, the designated person will be notified, also the subsequent transactions involving the degraded service should be put on hold. The recommendation is to queue the transaction requests and process them once the service is re-established.
+
+![European Service Level Overview data architecture ArchiMate Diagram](./data-eslo.drawio.png)
 
 ## Application Architecture
 
@@ -141,6 +145,8 @@ The following software solutions were considered for European Service Level Over
 - [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Schetch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
 - [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/)
 - [Kestra](https://kestra.io/)
+- [Cilium](https://cilium.io/)
+- [Calico](https://www.tigera.io/tigera-products/calico/)
 
 ### Deployment View
 
@@ -156,3 +162,11 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Deployment View components -->
+
+#### Solution Analysis
+##### Introduction and Objectives
+##### General business requirements
+##### Architectureal and design requirements
+##### System and integration requirements
+##### Analysis
+##### Recommendations
