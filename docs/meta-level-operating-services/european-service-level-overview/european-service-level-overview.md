@@ -120,6 +120,19 @@ It addresses software applications and their role in supporting business process
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
+![European Service Level Overview application architecture ArchiMate Diagram](./application-eslo.drawio.png)
+
+
+The main function of the European Service Level Overview is to implement observability and traceability for CEEDS and for the services that CEEDS transactions depend on - offered by National Data Spaces. The following functionalities must be implemented:
+
+- Register and define monitoring external endpoint (for National Data Spaces) with associated notification owner in case of check failure or service unavailability
+- Monitoring of CEEDS internal services
+- Self monitoring and health check for the service S5
+- Notification service for both CEEDS maintainers and National Data Spaces maintainers
+- Transaction monitoring
+- Transaction traceability
+
+
 ### Application Cooperation Viewpoint
 
 <!--
@@ -128,10 +141,24 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 -->
 
 <!-- TODO: Insert ArchiMate Cooperation Viewpoint diagram -->
+![European Service Level Overview application architecture ArchiMate Diagram](./app-cooperation-eslo.drawio.png)
+
+National Data Spaces interaction with CEEDS Platform. 
 
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Application Cooperation Viewpoint components -->
+The CEEDS must be able to monitor and summarize the status and the activity of Participants, including transactions status. For internal status and activity monitoring the CEEDS Facilitator will ensure the definition and setup of the monitoring endpoints and relevant parameters, also should designate a contact email for automatic notification of the corresponding persons in case of error or service discontinuity.  
+The data collected form monitoring will be processed and displayed via dashboards so that CEEDS Users can view the historical evolution of the services and the downtime.  
+For National Data Spaces, the National Data Space Facilitator (NDSF) is responsible to catalogue, define and provide the necessary information for the observability of the services involved in CEEDS transactions. Only for those services exposed to CEEDS. The NDSFs must provide full information, including contact information in case of service error or unavailability, so that the S5 service can monitor those external services and collect data about their availability. This data will be displayed on CEEDS dashboards.
+
+Actor | Operation | Description
+---|---|---
+National Data Space Facilitator | Catalogues of relevant services | Maintains the list of all relevant services that will involved in CEEDS transactions, especially those services that involve data transactions.
+National Data Space Facilitator | Defines the list of observability parameters | For each service from the previously defined catalogue, the observability parameters must be provided so that the monitoring and alerts can be setup programmatically via the interface of S5 service.
+CEEDS Facilitator | Test and setup observability scripts | Every service that must be observed, both CEEDS internal and National Data Space specific should be setup via scripts or descriptive flows so that observability is done automatically of can be automated to a high degree.
+CEEDS Facilitator | Designates the CEEDS intervention team | For each CEEDS internal or external service a contact person should be defined to be contacted in case of error or disruption of service.
+CEEDS User | Has access to dashboards | Each CEEDS User should have access to the dashboard of the CEEDS Platform so that they can view live dashboards, extract historical data and create reports about the status and evolution of CEEDS platform. 
 
 ## Technology Architecture
 

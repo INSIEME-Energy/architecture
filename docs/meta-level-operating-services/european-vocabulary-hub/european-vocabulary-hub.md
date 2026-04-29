@@ -272,7 +272,7 @@ Main operations and procedures
 
 Actor | Operation | Description
 ---|---|---
-National Data Space Facilitator | Onboard to CEEDS | FFacilitate local user of the National Data Space platform to onboard CEEDS so as to provide and maintain national schema definitions, data models, ontologies, data mappings and all client libraries that will allow secure connection and data exchange between participants. 
+National Data Space Facilitator | Onboard to CEEDS | Facilitate local user of the National Data Space platform to onboard CEEDS so as to provide and maintain national schema definitions, data models, ontologies, data mappings and all client libraries that will allow secure connection and data exchange between participants. 
 National Data Space Facilitator | Manage client libraries  | Authenticated local user can update and deploy client libraries.
 National Data Space Facilitator | Manage national schema definitions  | Authenticated local user can update and upload national schema definitions.
 National Data Space Facilitator | Manage data mappings  | Authenticated local user can update and upload new version of data mappings. Those models should contain the mapping of local, national format, data to common European data model.
