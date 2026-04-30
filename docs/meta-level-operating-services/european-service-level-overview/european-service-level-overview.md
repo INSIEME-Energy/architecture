@@ -186,7 +186,6 @@ The following software solutions were considered for European Service Level Over
 - [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Sketch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
 - [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/) for workflow design
 - [Kestra](https://kestra.io/)
-- [Cilium](https://cilium.io/)
 - [Calico](https://www.tigera.io/tigera-products/calico/)
 
 ### Deployment View
@@ -217,8 +216,72 @@ CEEDS Platform | National Platform Interface | Dedicated interface for each Nati
 
 #### Solution Analysis
 ##### Introduction and Objectives
+
+This section of the document presents a comparative analysis of the technical solutions that might be considered for the implementation of the European Service Level Overview. The main functions that should be covered by the service, based on Data Space Support Center (DSSC) recommendations:
+
+1. **Data Transaction Execution** monitoring and reporting - provide verifiable evidence that the processes have been executed according to agreed rules and regulations.
+1. **Data Traceability and Provenance** increase transparency and trust among participant by allowing activities related to data usage to be traced and verified.
+1. **Transaction Reporting** enable dispute resolution by recording meta data that might serve as objective proof in case of conflict between participants on data transactions.
+1. **Support operational and business purposes** by providing monitoring of highly valuable datasets also supporting billing and charging. Monitoring service availability and  
+1. **Data observability** is ensured by monitoring services and data transactions and triggering alerts in case or error of systems unavailability.
+
+The objective is to compare the following tools:
+
+- [Apache Airflow](https://airflow.apache.org/)
+- [Apache NiFi](https://nifi.apache.org/)
+- [Kestra](https://kestra.io/)
+
+All tools are either full Open-Source or have the core functionalities Open-Source. In the comparison only Open-Source version is used.
+
 ##### General business requirements
-##### Architectureal and design requirements
+
+The **Observability** of service status and data transactions together with the **Monitoring and Alerting** is a requirement for a good functioning of the CEEDS Platform and to enhance the trust between CEEDS Participants. The main objective is to be able to ensure end to end trusted data transactions.  
+
+The availability of the S5 service is not mandatory for the technical operation of CEEDS, though the luck of observability data raises a question of data traceability and provenance, also degrades the availability of the entire platform. This makes service S5 a necessary service for a functioning CEEDS system, including National Data Space endpoints.
+
+It is strongly recommended that service S5 availability should be agreed between CEEDS Participants and the SLA must clearly designate the support and maintenance actors and backup/fallback solutions.
+
+##### Architectural and design requirements
+
+1. CEEDS Participant interface
+   - Web User Interface must be available for monitoring dashboards and reporting
+   - Role-based access control
+   - Historic data export
+
+1. Observability hooks definition
+   - Scriptable hooks that allow data collection from multiple data sources and supporting multiple data formats
+   - Monitoring and logging of internal CEEDS data transactions
+   - Possibility to define conditions for errors and check failure with associated actions. In particular sending e-mails
+   - Visual design of the hooks is a plus
+
 ##### System and integration requirements
+
+The system and integration requirements should provide developers with necessary information and details to facilitate the implementation phase.
+
+1. Observability hooks definition
+   - The local platform (National Data Space) should provide a web interface for National Data Space Facilitator to define and test observability hook before submitting them to CEEDS
+   - A contact information (email) must be always defined for the case of error or unavailability of the service
+1. Data models and formats
+   - Data can be collected from: API, endpoints, log files, databases
+   - Data format may be: JSON, XML, and text
+1. Data transaction traceability
+   - Metadata should be provided for all data sets that are subject to data transactions, in particular information about data provenance
+   - The endpoint/API that is exposing the data should be fully documented using OpenAPI Specifications (OAS)
+   - Highly valuable datasets must contain specific information in the metadata
+1. Historical data import
+   - The host system (National Data Space) should allow historical data import of data transactions from CEEDS
+
 ##### Analysis
+
+| Criteria | Apache Airflow | Apache NiFi | Kestra |
+| --- | --- | --- | --- |
+| Data transaction execution | Yes | Yes | Yes |
+| Data traceability and provenance | Yes | Yes | Yes |
+| Transaction reporting | Yes | Yes | Yes |
+| Support operational and business purposes | Yes | Yes  | No |
+| Data observability | Yes | Yes | Yes |
+| Web Interface | Yes | No | Yes |
+| Observability hooks definition | Yes | No | Yes |
+
 ##### Recommendations
+
