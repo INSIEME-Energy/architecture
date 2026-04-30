@@ -168,9 +168,23 @@ It ensures that the infrastructure supports the application and data requirement
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
+![European Service Level Overview technology architecture ArchiMate Diagram](./technology-eslo.drawio.png)
+
+The rationale behind the proposed technology architecture is to guarantee high availability, scalability by design, and secure data exchange. The solution from the perspective of Data Space Participant should be adapted to specific National Data Space implementation. The main building blocks that should be considered for the National Data Space:
+
+- National Data Space Facilitator must have an interface to define and test the observability setup.
+- All endpoints that are involved in CEEDS data transactions must be declared and registered for monitoring and logging purpose.
+- The data exchange is via secure communication channels.
+- National Data Space must provide high availability for critical services.
+- NDSFs must designate a contact point for transaction errors and service maintenance.
+
+
+CEEDS platform must provide User Interface for Participants and Facilitators. In particular dashboards and reporting functionality must be provided by the S5 service. The Facilitator must define the observability parameters for CEEDS internal services and for data transaction monitoring, and to approve the setup proposed by the NDSFs for National Data Space platform. The CEEDS Facilitator must designate contact points for intervention and maintenance of internal services. The service S5 must trigger automatically alerts and send messages to those contacts.
+
 The following software solutions were considered for European Service Level Overview:
-- [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Schetch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
-- [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/)
+
+- [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Sketch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
+- [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/) for workflow design
 - [Kestra](https://kestra.io/)
 - [Cilium](https://cilium.io/)
 - [Calico](https://www.tigera.io/tigera-products/calico/)
@@ -185,10 +199,21 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 -->
 
 <!-- TODO: Insert ArchiMate Deployment View diagram -->
+![European Service Level Overview deployment ArchiMate Diagram](./deployment-eslo.drawio.png)
+
+The service S5 can be deployed in a central setup, with a hot standby instance that will be able to continue the operations in case of failure of primary active service. The service in itself is not a critical component of the CEEDS and it should be made available as soon as possible so that the alerting system is operational for the entire CEEDS platform. The most useful functionality of service S5 is checking the health of the overall systems so that the data transactions can be performed seamlessly and in case of error the corresponding parties to be notified. Logging and monitoring are secondary functionalities and help the CEEDS Participants to have a quick view on the state of the system and to produce historical reports.
 
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Deployment View components -->
+
+Component | Service | Deployment description
+---|---|---
+CEEDS Platform | S5 - European Service Level Overview | Service allowing the CEEDS Facilitator and National Data Space Facilitator to register monitoring and logging hooks. The service has a build in mechanism to send alerts to designated persons. The monitoring is for both internal and external services.
+CEEDS Platform | S1, S2, S3, S4, S6, S7, S8, DCI | CEEDS services that must be registered with S5 for monitoring and logging. In particular the transactions that are performed via S4 - Common API for European-wide Processes should be monitored so that the concerned parties are notified in case of data transaction failure.
+CEEDS Platform | User Interface | The Web User Interface that allow CEEDS Participants and CEEDS Facilitators to connect to the dashboard provided by service S5. The interface should allow the users to produce and extract reports about the historical status of the monitored systems. The UI should allow the CEEDS Facilitator to manage and validate observability scripts and scenario.
+CEEDS Platform | System API and Endpoints | API and Endpoints intended for machine to machine communication, they are used to implement remote communication and exchange between CEEDS Participants, in particular for service S5 should be possible to extract and export data for reporting and processing.
+CEEDS Platform | National Platform Interface | Dedicated interface for each National Data Space or National Data Platform. This interface should allow National Data Space Facilitators to connect and exchange information about observability flows with CEEDS. The User Interaction part is developed and hosted on National Data Space platform. Only the technical interface is present on CEEDS.
 
 #### Solution Analysis
 ##### Introduction and Objectives
