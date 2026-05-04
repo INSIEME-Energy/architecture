@@ -52,34 +52,30 @@ Meta-Level Operating Services, regulatory processes, commercial service framewor
 
 ### Deployment Procedures
 
-| ID | Pr. | St. | Deployment                                                                              | Commercial | Regulated                                              | Data_Sharing                                | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
-|----|-----|-----|-----------------------------------------------------------------------------------------|------------|--------------------------------------------------------|---------------------------------------------|----|----|----|----|----|----|----|----|-----|
-| 1  |     |     | Flexidao (FDAO)                                                                         |            | T4-2_01, T4-2_02, T4-2_03, T4-3_01, T4-4_02            |                                             |    |    |    |    |    |    |    |    |     |
-| 2  |     |     | Footprint application for households (SavingsFootprint)                                 | C0001      | T4-2_01, T4-2_02, T4-3_01                              |                                             |    |    |    |    |    |    |    |    |     |
-| 3  |     |     | Common European Dataspace for Energy Communities (EC_SCALE)                             |            | T4-2_01, T4-2_02, T4-2_03, T4-2_04, T4-3_01,           |                                             |    |    |    |    |    |    |    |    |     |
-| 4  |     |     | Cuerva’s Living Lab (Cuerva)                                                            |            | T4-2_01, T4-2_03, T4-3_01, T4-4_01 , T4-4_02,          | T4-5_02, T4-5_03,  T4-5_04, T4-5_05         |    |    |    |    |    |    |    |    |     |
-| 5  |     |     | Intelligent energy control Digital Operator for buildings (Jenny+)                      | C0001      | T4-2_01, T4-2_02, T4-2_03, T4-4_01, T4-4_02            |                                             |    |    |    |    |    |    |    |    |     |
-| 6  |     |     | Flexibility from small assets (ARE)                                                     |            | T4-4_01, T4-4_02                                       | T4-5_04, T4-5_05                            |    |    |    |    |    |    |    |    |     |
-| 7  |     |     | Comflex                                                                                 |            | T4-2_01, T4-2_02, T4-2_03, T4-3_01, T4-4_01 , T4-4_02, |                                             |    |    |    |    |    |    |    |    |     |
-| 8  |     |     | Electrifying Heavy-Duty Mobility (eHDMobility)                                          |            | T4-4_01 , T4-4_02,                                     | T4-5_01, T4-5_02, T4-5_03, T4-5_04, T4-5_05 |    |    |    |    |    |    |    |    |     |
-| 9  |     |     | Open Thor Living Lab Smart Charging (OTLL SC)                                           |            | T4-2_01, T4-2_02, T4-4_01 , T4-4_02,                   | T4-5_04, T4-5_05                            |    |    |    |    |    |    |    |    |     |
-| 10 |     |     | Hierarchical data spaces for coherent services (Hierarchies)                            |            | T4-2_01, T4-2_02, T4-4_01 , T4-4_02,                   | T4-5_02, T4-5_04, T4-5_05                   |    |    |    |    |    |    |    |    |     |
-| 11 |     |     | INTERoperable FLEXibility Services (INTERFLEX)                                          |            | T4-2_01, T4-2_02, T4-3_01, T4-4_01 , T4-4_02,          |                                             |    |    |    |    |    |    |    |    |     |
-| 12 |     |     | AI for Power Grid Optimization (AIGridOpt)                                              |            |                                                        |                                             |    |    |    |    |    |    |    |    |     |
-| 13 |     |     | Portuguese Electricity and Gas Networks for Integrated Planning and Operation (PEGNIPO) |            | T4-3_01,  T4-4_01 , T4-4_02,                           |                                             |    |    |    |    |    |    |    |    |     |
-| 14 |     |     | Sector-Coupled Data Integration (SCDI)                                                  |            | T4-2_01, T4-2_02,  T4-4_01 , T4-4_02,                  |                                             |    |    |    |    |    |    |    |    |     |
+| ID | Pr. | St. | Deployment                              | Commercial | Regulated                                              | Data_Sharing                                | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
+|----|-----|-----|------------------------------------------|------------|--------------------------------------------------------|---------------------------------------------|----|----|----|----|----|----|----|----|-----|
+| 1  |     |     | SavingsFootprint                         | C0001      | T4-2_01, T4-2_02, T4-3_01                              |                                             | X  | X  | X  | X  |    |    | X  |    |     |
+| 2  |     |     | ECLIPSE energy app                       |            |                                                        |                                             | X  | X  | X  | X  | X  | X  | X  |    |     |
+| 3  |     |     | EC_SCALE – French pilot                  |            |        T4-2_01, T4-2_02, T4-2_03, T4-3_01, T4-4_01 , T4-4_02,                                                |                                             | X  | X  |    | X  |    | X  | X  |    |     |
+| 4  |     |     | EC_SCALE – Portuguese pilot              |            |          T4-2_01, T4-2_02, T4-2_03, T4-2_04, T4-3_01,                                              |                                             | X  | X  | X  | X  | X  | X  | X  |    |     |
+| 5  |     |     | EC_SCALE – Spanish pilot                 |            |    T4-2_01, T4-2_02, T4-2_03, T4-2_04, T4-3_01,                                                    |                                             | X  | X  |    | X  | X  |    |    |    |     |
+| 6  |     |     | EC_SCALE – Austrian pilot                |            |     T4-2_01, T4-2_02, T4-2_03, T4-2_04, T4-3_01,                                                    |                                             |    |    |    |    |    |    |    |    |     |
+| 7  |     |     | Cuerva’s Living Lab                      |            | T4-2_01, T4-2_03, T4-3_01, T4-4_01 , T4-4_02           | T4-5_02, T4-5_03, T4-5_04, T4-5_05           |    | X  |    | X  | X  | X  |    |    |     |
+| 8  |     |     | Jenny+                                   | C0001      | T4-2_01, T4-2_02, T4-2_03, T4-4_01, T4-4_02            |                                             |    | X  |    | X  | X  | X  |    | X  |     |
+| 9  |     |     | SP–Dataspace Connection Adapter          |            |                                                        |                                             | X  | X  | X  | X  |    | X  |    | X  |     |
+| 10 |     |     | Metering Point Effectiveness             |            |                                                        |                                             |    | X  | X  |    |    | X  |    |    |     |
+| 11 |     |     | ARE                                      |            | T4-4_01, T4-4_02                                       | T4-5_04, T4-5_05                            |    | X  | X  | X  |    | X  |    |    |     |
+| 12 |     |     | flexgrid                                 |            |                                                        |                                             |    | X  |    | X  | X  | X  |    | X  |     |
+| 13 |     |     | PVFlex                                   |            |                                                        |                                             |    | X  | X  | X  | X  | X  |    |    |     |
+| 14 |     |     | eHDMobility                              |            | T4-4_01 , T4-4_02                                      | T4-5_01, T4-5_02, T4-5_03, T4-5_04, T4-5_05 | X  | X  | X  | X  | X  |    | X  |    |     |
+| 15 |     |     | OTLL SC                                  |            | T4-2_01, T4-2_02, T4-4_01 , T4-4_02                    | T4-5_04, T4-5_05                            | X  | X  | X  | X  |    | X  | X  |    |     |
+| 16 |     |     | Hierarchies                              |            | T4-2_01, T4-2_02, T4-4_01 , T4-4_02                    | T4-5_02, T4-5_04, T4-5_05                   |    | X  |    | X  | X  | X  | X  |    |     |
+| 17 |     |     | INTERFLEX                                |            | T4-2_01, T4-2_02, T4-3_01, T4-4_01 , T4-4_02           |                                             | X  | X  | X  |    |    | X  |    | X  |     |
+| 18 |     |     | AIGridOpt                                |            |                                                        |                                             |    | X  |    | X  | X  | X  |    |    |     |
+| 19 |     |     | PEGNIPO                                  |            | T4-3_01,  T4-4_01 , T4-4_02                            |                                             | X  | X  |    |    |    | X  |    |    |     |
+| 20 |     |     | SCDI                                     |            | T4-2_01, T4-2_02,  T4-4_01 , T4-4_02                   |                                             |    | X  |    |    | X  |    | X  | X  |     |
 
-<div class="procedure-matrix full-width-table small-table">
 
-| Procedure | Pr. | St. | Procedure                                                        | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | DCI |
-|-----------|-----|-----|------------------------------------------------------------------|----|----|----|----|----|----|----|----|-----|
-| T4-5_01   | tbd | C   | eHDV Long-Term Power Forecast                                    |    | x  |    |    |    |    |    | x  |     |
-| T4-5_02   | tbd | C   | eHDV Short-Term Power Forecast                                   |    | x  |    |    |    |    |    | x  |     |
-| T4-5_03   | tbd | C   | Distribution grid Long-Term Forecast (available grid capacities) |    | x  |    |    |    |    |    | x  |     |
-| T4-5_04   | tbd | C   | Distribution grid Short-Term Forecast                            |    | x  |    |    |    |    |    | x  |     |
-| T4-5_05   | tbd | C   | Access to grid hosting capacity information                      |    | x  | x  |    |    |    | x  |    |     |
-
-</div>
 
 ### Commercial Domain Reference Models
 
