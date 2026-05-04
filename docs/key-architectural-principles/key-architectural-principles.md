@@ -98,18 +98,5 @@ Core services may include:
 
 ---
 
-## 8. Composability, Extensibility and Future-Proofing
-CEEDS shall be designed to support modular expansion, integration of new use cases and adaptation to evolving technological and regulatory developments.
-
-### Policy Orientation
-The CEEDS architecture shall remain adaptable to support the digital transformation of the European energy system and cross-sector integration.
-
-### Implementation Considerations
-- Modular functional building blocks shall be adopted.
-- Interfaces shall support versioning and backward compatibility.
-- Structured change management processes shall ensure controlled evolution of CEEDS services.
-
----
-
 # Concluding Statement
 These architectural principles aim to support the establishment of CEEDS as a secure, interoperable, and scalable European data-sharing infrastructure. The principles ensure respect for Member State competencies, promote voluntary and fair participation, and provide legal and operational clarity for all involved stakeholders while enabling the long-term digital transformation of the European energy system.
