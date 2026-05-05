@@ -186,7 +186,6 @@ The following software solutions were considered for European Service Level Over
 - [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Sketch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
 - [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/) for workflow design
 - [Kestra](https://kestra.io/)
-- [Calico](https://www.tigera.io/tigera-products/calico/)
 
 ### Deployment View
 
