@@ -5,9 +5,24 @@ order: 8
 
 ## Function and Objective
 
-Provides a regulated environment for accessing, sharing, and commercialising energy-related data. The EDSM should contain a data catalogue for data indexing and discovery.
+The European Data and Services Marketplace (EDSM) is a **meta-level operating service** designed to enable **trusted discovery, access, contracting, and monetisation** of data products and digital services within federated data space ecosystems.
+
+Its primary function is to act as a **marketplace and coordination layer** that connects data and service providers with consumers, making offerings visible and comparable, enabling controlled access, supporting contractual relationships, and managing the economic flows associated with data and service consumption.
+
+EDSM does not participate in the operational exchange of data itself (see Data Space Connector); instead, it orchestrates the *commercial, contractual, and governance aspects* that precede and accompany data and service usage.
 
 ![Service Realisation Viewpoint - Data, Services and Models Marketplace](./srv_dataservicesmodelsmp.png)
+
+### Scope of the EDSM
+
+Within its functional scope, the EDSM:
+
+- Enables organisations to onboard and participate in a marketplace under shared governance rules  
+- Supports the publication, lifecycle management, and discovery of data and service offerings  
+- Manages access request workflows and contractual negotiations between providers and consumers  
+- Coordinates provisioning by issuing access instructions and references to external endpoints or connectors  
+- Supports metering, clearing, billing, and settlement based on contractual agreements and observed usage  
+- Provides monitoring, auditability, and reporting capabilities for operational, compliance, and financial aspects  
 
 Data service providers may link into this marketplace to offer their services, such as:
 
@@ -19,8 +34,44 @@ Data service providers may link into this marketplace to offer their services, s
 - Storage and accessibility of statistical data
 - Privacy and pseudonymisation
 
-EDSM should contain – possibly in close co-operation with SIMPL – a concept for data provision contract negotiation, cost renumeration and commercialization of data, as well as settlement of
-transactions. EDSM should cover both free-of-charge and chargeable services.
+---
+
+### Positioning within the Data Space Architecture
+
+The EDSM operates at **meta-level** within the overall data space architecture, above individual data providers and consumers, and in coordination with other cross-cutting services such as:
+
+- Identity and Trust services  
+- Vocabulary and semantic services  
+- Reference data registries  
+- Connector-based data exchange infrastructures  
+
+From an architectural perspective, the EDSM combines and extends established **Data Space patterns**, including:
+
+- **Federated Catalogue** capabilities, inspired by Gaia-X catalogues, for offer publication and discovery  
+- **Connector and Marketplace** functionalities as described in the IDS Reference Architecture Model (IDS-RAM)  
+- **Contracting and Clearing** patterns aligned with IDS Clearing House concepts, enabling billing and settlement  
+
+In this positioning, the EDSM provides a unifying marketplace layer that integrates discovery, trust, contracting, and economic coordination, while remaining decoupled from the underlying technical mechanisms used for data exchange.
+
+---
+
+### Offer Types
+
+Within the EDSM, all offerings exposed through the marketplace are classified into one of the following **Offer Types**. This classification is used consistently across business, functional, and component views of the architecture.
+
+- **Data Offer**  
+  An offering providing access to datasets or data products. Data offers describe the content, structure, semantics, quality attributes, access conditions, and pricing of the data, while the actual data exchange is performed externally via data space connectors.
+
+- **Model Offer**  
+  An offering providing access to analytical, simulation, or AI/ML models. Model offers describe model purpose, inputs and outputs, execution conditions, licensing, and pricing. Models may be consumed as services or deployed and executed in external environments, but are discovered, contracted, and monetised through the EDSM.
+
+- **Service Offer**  
+  An offering providing access to digital services, APIs, or applications. Service offers describe functionality, interfaces, service levels, usage policies, and commercial terms, while service execution remains outside the EDSM boundary.
+
+The term **offer** is used generically throughout this document to refer to any of the above offer types (Data, Model, or Service), unless stated otherwise.
+
+---
+
 
 ## Business Architecture
 <!-- 
