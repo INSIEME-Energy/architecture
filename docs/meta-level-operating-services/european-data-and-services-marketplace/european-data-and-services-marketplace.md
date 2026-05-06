@@ -11,8 +11,6 @@ Its primary function is to act as a **marketplace and coordination layer** that 
 
 EDSM does not participate in the operational exchange of data itself (see Data Space Connector); instead, it orchestrates the *commercial, contractual, and governance aspects* that precede and accompany data and service usage.
 
-![Service Realisation Viewpoint - Data, Services and Models Marketplace](./srv_dataservicesmodelsmp.png)
-
 ### Scope of the EDSM
 
 Within its functional scope, the EDSM:
@@ -155,6 +153,48 @@ The marketplace supports the full business lifecycle of data, services, and mode
 
 ---
 
+
+### Use Case Viewpoint
+
+
+
+The Use Case Viewpoint describes the main business-level interactions between ecosystem actors
+and the European Data and Services Marketplace (EDSM).
+It captures *who* interacts with the marketplace and *for what purpose*, focusing on value creation,
+responsibilities, and contractual relationships, independently from any technical or implementation details.
+
+This viewpoint provides a clear and shared understanding of the EDSM business scope,
+highlighting how data, services, and models are discovered, accessed, governed, and monetised
+within a federated European dataspace ecosystem.
+
+The use cases presented below form the business foundation for the EDSM
+and are subsequently realised through the services, platforms, and components
+described in the Service Realization Viewpoint.
+
+![Use Case Diagram](./use-case-diagram.svg)
+
+| Actor | Description | Main Interactions with EDSM |
+|------|-------------|-----------------------------|
+| **Offer Provider** | Organisation providing data, services, or models to the marketplace. | Register organisation; publish, update or withdraw offers; negotiate contracts; grant or deny access. |
+| **Consumer** | Organisation consuming data, services, or models via the marketplace. | Discover offers; request access; negotiate contracts; consume offerings. |
+| **Marketplace Operator** | Entity responsible for operating and governing the EDSM. | Monitor marketplace activity and platform operation. |
+| **Regulator / Auditor** | External authority responsible for oversight and compliance. | Audit transactions, access events, and contractual compliance. |
+| **Billing & Financial System** | External system supporting economic settlement. | Billing, invoicing, and settlement based on cleared usage records. |
+
+
+Note:
+Record Usage, Clear Transaction, and Bill and Settle represent
+internal marketplace processes supporting transaction tracking,
+validation, and economic settlement between actors.
+
+The above use cases represent the core business interactions supported by the EDSM
+and are realised through the services and architectural components described
+in the following Service Realization Viewpoint.
+
+---
+
+
+
 ### Service Realization Viewpoint
 
 <!-- 
@@ -163,9 +203,64 @@ Thus, it forms the bridge between the business products viewpoint and the busine
 See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization-Viewpoint
 -->
 
-<!-- TODO: Insert ArchiMate Service Realization Viewpoint diagram -->
+<!-- TODO: Update ArchiMate Service Realization Viewpoint diagram -->
+![Service Realisation Viewpoint - Data, Services and Models Marketplace](./srv_dataservicesmodelsmp.png)
 
 The Service Realization Viewpoint describes how business objectives are implemented through **digital services, platforms, and technical components** within the EDSM ecosystem.
+
+#### Interaction Flows (Sequence Viewpoint)
+The following interaction flows illustrate how the EDSM components
+collaborate to realise the key business use cases described previously.
+
+These sequence diagrams provide a dynamic view of the system,
+showing the exchange of information between actors and components
+during typical interactions such as offer discovery, access request,
+contract negotiation, and usage tracking.
+
+They complement the Service Realization Viewpoint by detailing
+how services are orchestrated at runtime across the EDSM ecosystem.
+
+![Sequence Diagram](./marketplace-consumer-user-flow.svg)
+
+The sequence diagram illustrates the end-to-end interaction flow for a marketplace consumer
+accessing data or service offerings through the EDSM.
+
+**(1) Registration and authentication.**  
+The process starts with the Marketplace Consumer accessing the Marketplace UI to perform
+registration or login. Upon successful authentication, the Marketplace Backend assigns the
+appropriate *MARKETPLACE_CONSUMER* role, enabling access to marketplace functionalities.
+
+**(2) Discovery of offerings.**  
+The consumer browses the marketplace catalog through the UI. The Marketplace Backend retrieves
+available offerings (both billable and free) from the Federated Catalog and presents them to
+the user for exploration and comparison.
+
+**(3) Selection and purchase / subscription request.**  
+Once an offering is selected, the consumer initiates a purchase or subscription request.
+For billable offerings, the Marketplace Backend interacts with the Payment Service to process
+the payment and waits for confirmation before proceeding. For free offerings, the payment step
+is skipped.
+
+**(4) Subscription approval by the provider.**  
+Following the request, a subscription request is forwarded to the Marketplace Provider via the
+Federated Catalog. The provider evaluates the request according to predefined policies
+(e.g. pricing conditions, offering type, and consumer role) and returns an approval, which is
+propagated back to the Marketplace Backend.
+
+**(5) Data access negotiation and consumption.**  
+After subscription confirmation, the Marketplace Backend initiates the data consumption process
+through the Marketplace Connector. The connector negotiates access with the Provider Connector,
+establishing the conditions for data or service access. Once the negotiation is successful,
+the requested resource becomes available.
+
+**(6) Delivery and access to the resource.**  
+Finally, the Marketplace Backend provides a download or access link to the user via the UI,
+allowing the Marketplace Consumer to access the purchased or requested data or service.
+
+This interaction flow demonstrates how the EDSM orchestrates user interaction, catalog discovery,
+subscription management, and federated data access across distributed components, while ensuring
+consistent handling of both free and billable offerings.
+
 
 #### Middleware Layer
 
