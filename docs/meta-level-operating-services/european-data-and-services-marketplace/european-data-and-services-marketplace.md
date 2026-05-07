@@ -13,14 +13,17 @@ EDSM does not participate in the operational exchange of data itself (see Data S
 
 ### Scope of the EDSM
 
-Within its functional scope, the EDSM:
+Within its functional scope, the EDSM provides the core operational functions of the marketplace environment, including:
 
-- Enables organisations to onboard and participate in a marketplace under shared governance rules  
-- Supports the publication, lifecycle management, and discovery of data and service offerings  
-- Manages access request workflows and contractual negotiations between providers and consumers  
-- Coordinates provisioning by issuing access instructions and references to external endpoints or connectors  
-- Supports metering, clearing, billing, and settlement based on contractual agreements and observed usage  
-- Provides monitoring, auditability, and reporting capabilities for operational, compliance, and financial aspects  
+- Participant onboarding and role management under shared governance rules  
+- Offer lifecycle management, including publication, update, and withdrawal  
+- Support for offer discovery through federated catalogues  
+- Management of access request workflows and contractual agreements  
+- Coordination of provisioning via references to external data access mechanisms (connectors) and endpoints  
+- Support for metering, clearing, billing, and settlement processes  
+- Monitoring, auditability, and reporting for operational and compliance purposes  
+
+These functions describe *what the EDSM does*, while the Business Capabilities section defines *how these functions are structured and grouped* within the marketplace.  
 
 Data service providers may link into this marketplace to offer their services, such as:
 
@@ -49,24 +52,32 @@ From an architectural perspective, the EDSM combines and extends established **D
 - **Connector and Marketplace** functionalities as described in the IDS Reference Architecture Model (IDS-RAM)  
 - **Contracting and Clearing** patterns aligned with IDS Clearing House concepts, enabling billing and settlement  
 
-In this positioning, the EDSM provides a unifying marketplace layer that integrates discovery, trust, contracting, and economic coordination, while remaining decoupled from the underlying technical mechanisms used for data exchange.
+In this positioning, the EDSM provides a unifying marketplace layer
+that integrates discovery, trust, contracting, and economic coordination,
+while remaining decoupled from the underlying data exchange mechanisms.
+
 
 ---
 
-### Offer Types
+### Separation of Responsibilities
 
-Within the EDSM, all offerings exposed through the marketplace are classified into one of the following **Offer Types**. This classification is used consistently across business, functional, and component views of the architecture.
+The EDSM operates as a marketplace and orchestration layer, clearly separated from
+the technical data exchange infrastructure.
 
-- **Data Offer**  
-  An offering providing access to datasets or data products. Data offers describe the content, structure, semantics, quality attributes, access conditions, and pricing of the data, while the actual data exchange is performed externally via data space connectors.
+- The **EDSM Marketplace** is responsible for:
+  - Offer publication and discovery  
+  - Contract definition and agreement  
+  - Access request management  
+  - Economic coordination (clearing, billing, settlement)  
 
-- **Model Offer**  
-  An offering providing access to analytical, simulation, or AI/ML models. Model offers describe model purpose, inputs and outputs, execution conditions, licensing, and pricing. Models may be consumed as services or deployed and executed in external environments, but are discovered, contracted, and monetised through the EDSM.
+- The **Data Space Connectors** are responsible for:
+  - Technical enforcement of access policies  
+  - Secure data and service exchange  
+  - Execution of data transfers and service interactions  
 
-- **Service Offer**  
-  An offering providing access to digital services, APIs, or applications. Service offers describe functionality, interfaces, service levels, usage policies, and commercial terms, while service execution remains outside the EDSM boundary.
-
-The term **offer** is used generically throughout this document to refer to any of the above offer types (Data, Model, or Service), unless stated otherwise.
+This separation ensures that the EDSM manages the *business and contractual aspects*
+of data sharing, while the connectors manage the *technical execution and enforcement*
+of data exchange operations.
 
 ---
 
@@ -76,6 +87,11 @@ The term **offer** is used generically throughout this document to refer to any 
 The Business Architecture focuses on business requirements. It outlines the structure and operation of an organization, including business goals, functions, processes, and organizational structure. 
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+
+This section describes the business architecture of the European Data and Services Marketplace (EDSM),
+covering business goals, core capabilities, actors, and their interactions,
+providing a structured view of how business value is created and exchanged within the marketplace ecosystem.
+
 
 ### Business Goals
 
@@ -153,15 +169,114 @@ The marketplace supports the full business lifecycle of data, services, and mode
 
 ---
 
+### Business Lifecycle
+
+The EDSM supports the following end-to-end lifecycle:
+
+Discovery → Contracting → Access → Usage → Clearing → Billing → Settlement
+
+This lifecycle is consistently reflected across use cases,
+application flows, and supporting architectural components.
+
+---
+
+### Actors and Business Roles
+The EDSM business architecture involves the following primary actors:
+
+- **Marketplace Providers**: organisations offering data, models, or services  
+- **Marketplace Consumers**: organisations consuming marketplace offerings  
+- **Marketplace Operator**: entity responsible for operating and governing the platform  
+- **Trust and Governance Authorities**: entities ensuring identity, trust, and compliance  
+- **Billing / Financial Actors**: entities supporting financial execution and settlement   
+
+These actors interact through the EDSM to establish business relationships that are later realised through technical data exchanges outside the marketplace boundary. 
+
+The following table summarises the main business actors interacting within the EDSM ecosystem,
+highlighting their roles and responsibilities in the marketplace.
+
+| Actor | Description | Role in EDSM |
+|------|-------------|--------------|
+| **Marketplace Providers** | Organisations that publish data products, models, or digital services through the marketplace, define commercial terms, and receive compensation for usage. | Provide offerings to the marketplace and manage pricing, access conditions, and monetisation. |
+| **Marketplace Consumers** | Organisations that search, access, and consume data products, models, or services under agreed contractual and pricing conditions. | Discover, request access to, and consume marketplace offerings under defined contracts. |
+| **Marketplace Operator** | Entity responsible for operating and governing the EDSM, ensuring availability, trustworthiness, and correct execution of marketplace processes, including billing. | Ensures platform operation, governance, policy enforcement, and overall marketplace coordination. |
+| **Trust and Governance Authorities** | Entities (or federated services) that define participation rules, validate identities and credentials, and support trust and compliance across the ecosystem. | Enable trust, identity validation, and enforcement of governance rules and compliance requirements. |
+| **Billing / Financial Actors (internal or external)** | Actors involved in payment execution, financial settlement, or regulatory compliance related to invoicing and taxation. | Support billing, payment processing, settlement, and financial compliance within the marketplace ecosystem. |
+
+The following table maps business actors to the core capabilities of the EDSM.
+
+| Actor | Key Capabilities |
+|------|----------------|
+| Marketplace Providers | Offer management, pricing, contract negotiation, access control |
+| Marketplace Consumers | Discovery, access request, consumption |
+| Marketplace Operator | Governance, monitoring, policy enforcement |
+| Trust and Governance Authorities | Identity validation, compliance, trust enforcement |
+| Billing / Financial Actors | Clearing, billing, payment, settlement |
+
+---
+
+### Involved Systems and External Dependencies
+From a business architecture perspective, the EDSM interacts
+with the following external systems and services.
+
+These elements are described here in terms of their business role,
+while their technical realisation is further detailed in the
+Service Realization Viewpoint. 
+
+- **S1 – Identity Register**, providing authentication, authorisation, and credential validation 
+
+- **S2 – European Vocabulary Hub**, ensuring consistent interpretation and classification of offers 
+
+- **S3 – European Reference Data Registry**, supplying authoritative codes and classifications used in business processes 
+
+- **Federated Catalogue**, providing the publication, indexing, and discovery of offers related to data products, models, and digital services 
+
+- **Data Space Connectors**, enabling the contractual access, secure exchange, and actual consumption of data, models, and services based on the results of marketplace discovery and contracting workflows 
+
+- **Billing, Accounting, and Payment Systems**, supporting invoicing, payments, and financial reconciliation
+
+The following table summarises the main systems and external dependencies
+interacting with the EDSM, highlighting their role within the marketplace ecosystem.
+
+| System / Service | Type | Description | Role in EDSM |
+|-----------------|------|------------|--------------|
+| **S1 – Identity Register** | External Core Service | Provides authentication, authorisation, and credential validation. | Enables trusted access control and identity management for all marketplace participants. |
+| **S2 – European Vocabulary Hub** | External Core Service | Ensures consistent interpretation and classification of offers. | Supports semantic interoperability and harmonised understanding of data, models, and services. |
+| **S3 – European Reference Data Registry** | External Core Service | Supplies authoritative codes and classifications used in business processes. | Provides standardized reference data to ensure consistency in transactions and contracts. |
+| **Federated Catalogue** | Core Marketplace Service | Provides publication, indexing, and discovery of offers related to data products, models, and services. | Enables marketplace discovery and visibility of available offerings across the ecosystem. |
+| **Data Space Connectors** | Infrastructure / Integration Layer | Enable contractual access, secure exchange, and actual consumption of data, models, and services. | Execute data exchange and enforce access policies based on marketplace discovery and contracts. |
+| **Billing, Accounting, and Payment Systems** | External Financial Systems | Support invoicing, payments, and financial reconciliation. | Manage monetisation processes including billing, payment handling, and settlement. |
+
+These systems support the EDSM business operations but remain
+logically independent, enabling a federated and interoperable architecture.
+
+
+---
+
+
+### Offer Types
+
+Within the EDSM, all offerings exposed through the marketplace are classified into one of the following **Offer Types**. This classification is used consistently across business, functional, and component views of the architecture.
+
+- **Data Offer**  
+  An offering providing access to datasets or data products. Data offers describe the content, structure, semantics, quality attributes, access conditions, and pricing of the data, while the actual data exchange is performed externally via data space connectors.
+
+- **Model Offer**  
+  An offering providing access to analytical, simulation, or AI/ML models. Model offers describe model purpose, inputs and outputs, execution conditions, licensing, and pricing. Models may be consumed as services or deployed and executed in external environments, but are discovered, contracted, and monetised through the EDSM.
+
+- **Service Offer**  
+  An offering providing access to digital services, APIs, or applications. Service offers describe functionality, interfaces, service levels, usage policies, and commercial terms, while service execution remains outside the EDSM boundary.
+
+The term **offer** is used generically throughout this document to refer to any of the above offer types (Data, Model, or Service), unless stated otherwise.
+
+---
+
 
 ### Use Case Viewpoint
-
-
 
 The Use Case Viewpoint describes the main business-level interactions between ecosystem actors
 and the European Data and Services Marketplace (EDSM).
 It captures *who* interacts with the marketplace and *for what purpose*, focusing on value creation,
-responsibilities, and contractual relationships, independently from any technical or implementation details.
+responsibilities, governance, and contractual relationships, independently from any technical or implementation details.
 
 This viewpoint provides a clear and shared understanding of the EDSM business scope,
 highlighting how data, services, and models are discovered, accessed, governed, and monetised
@@ -171,28 +286,63 @@ The use cases presented below form the business foundation for the EDSM
 and are subsequently realised through the services, platforms, and components
 described in the Service Realization Viewpoint.
 
-![Use Case Diagram](./use-case-diagram.svg)
+![Use Case Diagram](./use-case-diagram-2.svg)
 
 | Actor | Description | Main Interactions with EDSM |
 |------|-------------|-----------------------------|
-| **Offer Provider** | Organisation providing data, services, or models to the marketplace. | Register organisation; publish, update or withdraw offers; negotiate contracts; grant or deny access. |
-| **Consumer** | Organisation consuming data, services, or models via the marketplace. | Discover offers; request access; negotiate contracts; consume offerings. |
-| **Marketplace Operator** | Entity responsible for operating and governing the EDSM. | Monitor marketplace activity and platform operation. |
-| **Regulator / Auditor** | External authority responsible for oversight and compliance. | Audit transactions, access events, and contractual compliance. |
-| **Billing & Financial System** | External system supporting economic settlement. | Billing, invoicing, and settlement based on cleared usage records. |
+| **Marketplace Providers** | Organisations that publish data products, models, or digital services through the marketplace, define commercial terms, and receive compensation for usage. | Register organisation; publish, update or withdraw offers; negotiate contracts; grant or deny access to offerings. |
+| **Marketplace Consumers** | Organisations that search, access, and consume data products, models, or services under agreed contractual and pricing conditions. | Discover offers; request access; negotiate contracts; consume offerings. |
+| **Marketplace Operator** | Entity responsible for operating and governing the EDSM, ensuring availability, trustworthiness, and correct execution of marketplace processes, including billing. | Monitor marketplace activity, ensure platform operation, and enforce governance and policies. |
+| **Trust and Governance Authorities** | Entities (or federated services) that define participation rules, validate identities and credentials, and support trust and compliance across the ecosystem. | Support identity validation, enforce participation rules, and enable audit and compliance processes. |
+| **Billing / Financial Actors** | Actors involved in payment execution, financial settlement, or regulatory compliance related to invoicing and taxation. | Support transaction clearing, billing, invoicing, payment processing, and financial settlement. |
 
+Each use case contributes to the realisation of one or more business capabilities,
+ensuring alignment between business goals, actor interactions, and marketplace functionality.
 
-Note:
-Record Usage, Clear Transaction, and Bill and Settle represent
-internal marketplace processes supporting transaction tracking,
-validation, and economic settlement between actors.
+**Note:**  
+The use cases *Record Usage*, *Clear Transaction*, and *Bill and Settle* represent
+internal marketplace processes supporting transaction tracking, validation,
+and economic settlement across the ecosystem. These processes may involve
+external financial systems and clearing mechanisms interacting with the EDSM.
 
 The above use cases represent the core business interactions supported by the EDSM
 and are realised through the services and architectural components described
 in the following Service Realization Viewpoint.
 
+Together, these use cases reflect the full lifecycle of marketplace
+interaction, from discovery to economic settlement.
+
+
 ---
 
+
+### Traceability between Actors, Use Cases, Capabilities and Components
+
+The following table provides a traceability view linking business actors,
+use cases, business capabilities, and supporting architectural components.
+This ensures alignment between business objectives, system functionality,
+and technical realisation within the EDSM.
+
+| Actor | Use Case | Business Capability | Supporting Components |
+|------|----------|--------------------|-----------------------|
+| Marketplace Providers | Register Organisation | Governance and Trust | Middleware, Identity Services (S1) |
+| Marketplace Providers | Publish / Update / Withdraw Offer | Market Enablement | Marketplace, Federated Catalogue |
+| Marketplace Providers | Negotiate Contract | Economic and Financial Management | Marketplace, Contracting Services |
+| Marketplace Providers | Grant / Deny Access | Governance and Trust | Marketplace, Connector |
+| Marketplace Consumers | Discover Offers | Data Economy Enablement | Federated Catalogue, Marketplace |
+| Marketplace Consumers | Request Access | Economic and Financial Management | Marketplace, Contracting Services |
+| Marketplace Consumers | Negotiate Contract | Economic and Financial Management | Marketplace |
+| Marketplace Consumers | Consume Data / Service / Model | Service Economy Enablement | Data Space Connector |
+| Marketplace Operator | Monitor Marketplace Activity | Governance and Trust | Middleware, Marketplace |
+| Marketplace Operator | Audit and Compliance | Governance and Trust | Middleware, Clearing House |
+| Trust and Governance Authorities | Register Organisation | Governance and Trust | Identity Services (S1), Middleware |
+| Trust and Governance Authorities | Audit and Compliance | Governance and Trust | Clearing House, Middleware |
+| Billing / Financial Actors | Clear Transaction | Economic and Financial Management | Clearing House |
+| Billing / Financial Actors | Bill and Settle | Economic and Financial Management | Billing System |
+| Billing / Financial Actors | Record Usage | Economic and Financial Management | Connector, Clearing House |
+
+
+---
 
 
 ### Service Realization Viewpoint
@@ -207,60 +357,6 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Service-Realization
 ![Service Realisation Viewpoint - Data, Services and Models Marketplace](./srv_dataservicesmodelsmp.png)
 
 The Service Realization Viewpoint describes how business objectives are implemented through **digital services, platforms, and technical components** within the EDSM ecosystem.
-
-#### Interaction Flows (Sequence Viewpoint)
-The following interaction flows illustrate how the EDSM components
-collaborate to realise the key business use cases described previously.
-
-These sequence diagrams provide a dynamic view of the system,
-showing the exchange of information between actors and components
-during typical interactions such as offer discovery, access request,
-contract negotiation, and usage tracking.
-
-They complement the Service Realization Viewpoint by detailing
-how services are orchestrated at runtime across the EDSM ecosystem.
-
-![Sequence Diagram](./marketplace-consumer-user-flow.svg)
-
-The sequence diagram illustrates the end-to-end interaction flow for a marketplace consumer
-accessing data or service offerings through the EDSM.
-
-**(1) Registration and authentication.**  
-The process starts with the Marketplace Consumer accessing the Marketplace UI to perform
-registration or login. Upon successful authentication, the Marketplace Backend assigns the
-appropriate *MARKETPLACE_CONSUMER* role, enabling access to marketplace functionalities.
-
-**(2) Discovery of offerings.**  
-The consumer browses the marketplace catalog through the UI. The Marketplace Backend retrieves
-available offerings (both billable and free) from the Federated Catalog and presents them to
-the user for exploration and comparison.
-
-**(3) Selection and purchase / subscription request.**  
-Once an offering is selected, the consumer initiates a purchase or subscription request.
-For billable offerings, the Marketplace Backend interacts with the Payment Service to process
-the payment and waits for confirmation before proceeding. For free offerings, the payment step
-is skipped.
-
-**(4) Subscription approval by the provider.**  
-Following the request, a subscription request is forwarded to the Marketplace Provider via the
-Federated Catalog. The provider evaluates the request according to predefined policies
-(e.g. pricing conditions, offering type, and consumer role) and returns an approval, which is
-propagated back to the Marketplace Backend.
-
-**(5) Data access negotiation and consumption.**  
-After subscription confirmation, the Marketplace Backend initiates the data consumption process
-through the Marketplace Connector. The connector negotiates access with the Provider Connector,
-establishing the conditions for data or service access. Once the negotiation is successful,
-the requested resource becomes available.
-
-**(6) Delivery and access to the resource.**  
-Finally, the Marketplace Backend provides a download or access link to the user via the UI,
-allowing the Marketplace Consumer to access the purchased or requested data or service.
-
-This interaction flow demonstrates how the EDSM orchestrates user interaction, catalog discovery,
-subscription management, and federated data access across distributed components, while ensuring
-consistent handling of both free and billable offerings.
-
 
 #### Middleware Layer
 
@@ -288,7 +384,7 @@ This layer provides:
 - Generic data sharing  
 - Dataset management  
 - Secure data exchange  
-- Contract negotiation and compensation  
+- Enforcement of negotiated contracts and compensation mechanisms  
 - Policy-based access control  
 - Data service creation  
 - End-to-end encrypted communication  
@@ -322,7 +418,6 @@ The Marketplace solution is **not yet defined** and will be identified and evalu
 - Interoperability and governance requirements
 
 **Candidate solutions under evaluation:**
-- **SIMPL**
 - **ENERSHARE**
 - **Other existing European platforms or project solutions**
 
@@ -341,7 +436,7 @@ It provides:
 
 The Clearing House ensures **transparency, accountability, and trust** across all data exchanges.
 
-To Be Identified...SIMPL ??
+To Be Identified... ??
 
 ---
 
@@ -356,7 +451,7 @@ The Billing System is integrated with the **Marketplace** and provides:
 
 It enables **data, service, and model monetisation** and supports sustainable business models.
 
-To Be Identified...SIMPL ??
+To Be Identified... ??
 
 ---
 
@@ -407,7 +502,7 @@ Commercial layer providing:
 - Billing and monetisation integration
 
 Candidate implementations under evaluation:  
-**SIMPL, ENERSHARE, other European solutions**
+**ENERSHARE or other open European solutions**
 
 ---
 
@@ -438,6 +533,16 @@ Economic layer providing:
 
 <!-- TODO: Insert descriptions of Realization Viewpoint components -->
 
+### Architectural Principles
+
+- Separation of business and technical responsibilities  
+- Federated interaction model  
+- Data sovereignty by design  
+- Interoperability and standard alignment  
+- Modular and extensible architecture  
+
+---
+
 ## Data Architecture
 
 <!-- 
@@ -446,11 +551,206 @@ It involves data assets, databases, data models, and the governance of data acro
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
+(Placeholder – to be completed) 
+
+This section will describe the Data Architecture of the EDSM, including: 
+- Core data concepts and information objects (e.g. Offer, Contract, Usage Record) 
+- Data ownership and responsibility boundaries 
+- Interaction with external data space services (catalogues, registries, connectors) 
+- Data lifecycle, data quality, and governance considerations 
+
 ### Data Objects
 
 <!-- TODO: Insert list/table of data objects and their descriptions -->
 
 ## Application Architecture
+
+## Scope and Architectural Principles
+This section defines the Application Architecture of the European Data and Services Marketplace (EDSM) at a logical, technology‑agnostic level. 
+
+The Application Architecture describes how the functional capabilities are realised through a set of application components and application services, and how these components cooperate to deliver end‑to‑end marketplace behaviour. 
+
+## Core Functional Capabilities
+From a functional viewpoint, EDSM provides the following capability domains.
+
+### Participant and Offer Onboarding
+- Registration of organisations and users 
+- Validation of identities and credentials 
+- Association of participants with roles (provider, consumer) 
+
+### Offer and Metadata Management
+The EDSM manages offers in a type-aware but uniform manner, applying common governance and lifecycle rules while supporting specific metadata dimensions depending on the Offer Type (Data, Model, Service).
+
+### Discovery and Search
+- Federated search across published offers 
+- Filtering, ranking, and comparison
+
+### Access Request and Contracting
+- Submission and tracking of access requests 
+- Negotiation of contractual terms 
+- Management of contract agreements 
+
+### Metering, Clearing, and Billing
+- Collection or ingestion of usage events 
+- Rating and pricing 
+- Invoicing and settlement 
+
+### Governance, Monitoring, and Audit
+- Enforcement of marketplace governance rules 
+- Operational, compliance, and financial reporting 
+- Auditable traceability of actions and events 
+
+## Application Components Overview
+The Application Architecture of the EDSM is composed of a coherent set of logical application components. For clarity, components are grouped into logical application domains, without implying deployment or ownership boundaries. 
+
+User Interaction 
+
+- FC‑01 Marketplace Portal 
+
+Provides user‑facing access for data and service providers and consumers, acting as the primary interaction entry point to EDSM capabilities. 
+
+Marketplace Core Services 
+
+- FC‑02 Federated Catalogue - Discover & Search Engine 
+
+Manages offer metadata, publication, versioning, and lifecycle, and exposes offers at marketplace level. It also enables federated search, filtering, ranking, and comparison of offers. 
+
+- FC‑03 Data Space Connector 
+
+Enable the contractual access, secure exchange, and actual consumption of data, models, and services based on the results of marketplace discovery and contracting workflows 
+
+Contracting and Economic Coordination 
+
+- FC‑04 Contracting and Policy Management 
+
+Manages access requests, negotiations, contract agreements, and associated commercial and usage policies. 
+
+- FC‑05 Metering and Usage Collection 
+
+Collects and aggregates usage evidence related to offer consumption. 
+
+- FC‑06 Billing Management 
+
+Performs rating, invoicing, and settlement based on contractual terms and observed usage. 
+
+Governance and Trust 
+
+- FC‑07 Trust, Governance, and Compliance 
+
+Enforces marketplace governance rules, eligibility checks, compliance monitoring, and auditability. 
+
+### Mapping between Business Capabilities and Application Components
+
+| Business Capability | Supporting Components |
+|--------------------|----------------------|
+| Market Enablement | Marketplace, Federated Catalogue |
+| Data Economy Enablement | Federated Catalogue, Connector |
+| Service Economy Enablement | Connector, Marketplace |
+| Governance and Trust | Middleware, S1 |
+| Economic and Financial Management | Clearing House, Billing |
+| Interoperability and Federation | Connector, Middleware |
+
+
+## Application Services and Responsibilities
+Each application component exposes one or more Application Services that collectively realise the functional capabilities described in Section 4.2 
+
+Indicative application‑service responsibilities include: 
+
+- Marketplace Portal (FC‑01) 
+
+  - User interaction for offer management, discovery, contracting, and billing views 
+  
+- Federated Catalogue and Offer Registry (FC‑02) 
+
+  - Offer publication and lifecycle management 
+  - Offer metadata retrieval and subscription to lifecycle events 
+
+- Discovery and Search Engine (FC‑02) 
+  - Federated search execution 
+  - Filtering, ranking, and comparison of offers
+
+- Data Space Connector (FC‑03)
+  - Negotiation of technical access requests with external connectors  
+  - Establishment of secure communication channels for data and service exchange  
+  - Enforcement of access and usage policies defined in contracts  
+  - Execution of data/service consumption through connector-based interaction  
+
+- Contracting and Policy Management (FC‑04) 
+  - Access request handling and negotiation support 
+  - Contract agreement and lifecycle management 
+  - Association of policies and commercial terms to offers 
+
+- Metering and Usage Collection (FC‑05) 
+  - Ingestion of usage events 
+  - Aggregation and validation of usage evidence 
+
+- Billing and Clearing (FC‑06) 
+  - Usage rating and pricing 
+  - Invoice generation and settlement coordination 
+
+- Trust, Governance, and Compliance (FC‑07) 
+  - Participant and offer eligibility evaluation 
+  - Enforcement of governance rules 
+  - Audit logging and compliance reporting 
+
+#### Interaction Flows (Sequence Viewpoint)
+The following interaction flows illustrate how the EDSM components
+collaborate to realise the key business use cases described previously.
+
+These sequence diagrams provide a dynamic view of the system,
+showing the exchange of information between actors and components
+during typical interactions such as offer discovery, access request,
+contract negotiation, and usage tracking.
+
+They complement the Service Realization Viewpoint by detailing
+how services are orchestrated at runtime across the EDSM ecosystem.
+
+![Sequence Diagram](./marketplace-consumer-user-flow.svg)
+
+The sequence diagram illustrates the end-to-end interaction flow for a marketplace consumer
+accessing data or service offerings through the EDSM.
+
+The interaction flow can be grouped into three main phases:
+(1–2) Discovery, (3–4) Contracting, and (5–6) Consumption.
+
+**(1) Registration and authentication.**  
+The process starts with the Marketplace Consumer accessing the Marketplace UI to perform
+registration or login. Upon successful authentication, the Marketplace Backend assigns the
+appropriate *MARKETPLACE_CONSUMER* role, enabling access to marketplace functionalities.
+
+**(2) Discovery of offerings.**  
+The consumer browses the marketplace catalog through the UI. The Marketplace Backend retrieves
+available offerings (both billable and free) from the Federated Catalog and presents them to
+the user for exploration and comparison.
+
+**(3) Selection and purchase / subscription request.**  
+Once an offering is selected, the consumer initiates a purchase or subscription request.
+For billable offerings, the Marketplace Backend interacts with the Payment Service to process
+the payment and waits for confirmation before proceeding. For free offerings, the payment step
+is skipped.
+
+**(4) Subscription approval by the provider.**  
+Following the request, a subscription request is forwarded to the Marketplace Provider via the
+Federated Catalog. The provider evaluates the request according to predefined policies
+(e.g. pricing conditions, offering type, and consumer role) and returns an approval, which is
+propagated back to the Marketplace Backend.
+
+**(5) Data access negotiation and consumption.**  
+After subscription confirmation, the Marketplace Backend initiates the data consumption process
+through the Marketplace Connector. The connector negotiates access with the Provider Connector,
+establishing the conditions for data or service access. Once the negotiation is successful,
+the requested resource becomes available.
+
+**(6) Delivery and access to the resource.**  
+Finally, the Marketplace Backend provides a download or access link to the user via the UI,
+allowing the Marketplace Consumer to access the purchased or requested data or service.
+
+This interaction flow demonstrates how the EDSM orchestrates user interaction, catalog discovery,
+subscription management, and federated data access across distributed components, while ensuring
+consistent handling of both free and billable offerings.
+
+These phases correspond to the business lifecycle defined in the Business Architecture.
+
 
 <!-- 
 The Application Architecture describes individual applications and their interactions.
@@ -478,6 +778,15 @@ The Technology Architecture involves the IT infrastructure, including hardware, 
 It ensures that the infrastructure supports the application and data requirements of the business.
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
+
+(Placeholder – to be completed) 
+
+This section will describe the Technical Architecture supporting the EDSM, including: 
+
+- Deployment and infrastructure assumptions 
+- Integration with external platforms and services 
+- Security, networking, and operational aspects 
+- Constraints derived from regulatory or organisational contexts 
 
 ### Deployment View
 
