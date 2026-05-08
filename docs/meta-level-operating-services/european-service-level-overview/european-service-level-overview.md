@@ -4,11 +4,13 @@ order: 5
 ---
 
 ## Function and Objective
-Monitors and publishes service availability, reliability, and KPIs across CEEDS and Member States Data Space or Data Solutions. 
 
-National Data Space Facilitators (NDSF) shall be responsible to provide reliable, up-to-date and valid assessments of service levels for National Data Platform, whilst the CEEDS Facilitator shall be responsible for CEEDS services and transaction monitoring setup. CEEDS should publish a visual overview, and machine-readable information for the operational use by European-wide actors. 
+S5 - European Service Level Overview monitors and publishes service availability, reliability, and KPIs across CEEDS and Member States Data Space or Data Solutions. 
+
+National Data Space Facilitators (NDSF) shall be responsible to provide reliable, up-to-date and valid assessments of service levels for National Data Platform, whilst the CEEDS Facilitator shall be responsible for CEEDS services and transaction monitoring setup. CEEDS should publish a visual overview, and machine-readable information for the operational use by European-wide actors.
 
 The European Service Level Overview should cover the following functionalities:
+
 - CEEDS services self check and report,
 - Registration API for periodical health check of CEEDS services and Participant services
 - Visual dashboard for direct monitoring of the service status
@@ -16,6 +18,7 @@ The European Service Level Overview should cover the following functionalities:
 - Establish a framework for a trusted environment by providing verifiable evidence that services and processes are functioning and executed according to agreed rules and regulations.
 
 From DSSC point of view the service must cover:
+
 1. **Observability** - the ability to monitor, measure and understand the internal states of processes through its outputs such as logs, metrics and traces.
 1. **Traceability** - the quality of having an origin or course of development that may be found or followed.
 1. **Provenance** - the place of origin or earliest known history of something. Usually it is the backwards-looking direction of a data value chain which is also referred to as provenance tracking.
@@ -37,11 +40,11 @@ The S5 service - European Service Level Overview provides services for and inter
 
 | Actor/System | Description |
 ---|---
-National Data Space Facilitator (NDSF) | The NDSF interacts with S5 via API or the Web interface allowing to define the national systems observability and traceability parameters. This includes mandatory contact for system support and service.
+National Data Space Facilitator (NDSF) | The NDSF interacts with S5 via API or the Web interface allowing to define the national systems observability and traceability parameters. This includes mandatory contact for system support and service. All activities are logged by default.
 National Data Space / National Data Platform | Each system that interacts with CEEDS or provides specific data and/or services from a Participant at CEEDS. The system must be able to respond to check calls from S5. The NDSF will define and configure those endpoints so that the data collected for monitoring and alert by CEEDS S5 should be fully available. The list of services provided by NDS must contain the services defined in the [Reference Models](../../reference-models/reference-models.html).
 CEEDS Participant | Any physical person or system that will interact with CEEDS. In particular, S5 service must be able to register the transactions between participants for audit and traceability.
 CEEDS Facilitator | A physical person that will configure the internal CEEDS services data for monitoring and traceability. The responsibility is only to CEEDS components and services, for national data spaces and national systems the NDSF is responsible.
-CEEDS services | Any service that is part of CEEDS:<ul><li>S1 - CEEDS Participants Registry (CPR)</li><li>S2 - European Vocabulary Hub (EVH)</li><li>S3 - European Reference Data Registry (ERDR)</li><li>S4 - Common API for European-wide Processes (CAEP)</li><li>S6 - European Interoperability Testing Service (EITS)</li><li>S7 - EU-wide Regulated-Domain Services (ERDS)</li><li>S8 - European Data and Services Marketplace (EDSM)</li><li>Digital Customer Interface (DCI)</li></ul> Those services must implement an API allowing health check and status request.
+CEEDS services | Any service that is part of CEEDS, including service S5:<ul><li>S1 - CEEDS Participants Registry (CPR)</li><li>S2 - European Vocabulary Hub (EVH)</li><li>S3 - European Reference Data Registry (ERDR)</li><li>S4 - Common API for European-wide Processes (CAEP)</li><li>S6 - European Interoperability Testing Service (EITS)</li><li>S7 - EU-wide Regulated-Domain Services (ERDS)</li><li>S8 - European Data and Services Marketplace (EDSM)</li><li>Digital Customer Interface (DCI)</li></ul> Those services must implement an API allowing health check and status request.
 
 
 ![European Service Level Overview Business Architecture ArchiMate Diagram](./business-eslo.drawio.png)
@@ -88,16 +91,18 @@ The European Service Level Overview should be able to collect data about the sys
 
 <!-- TODO: Insert list/table of data objects and their descriptions -->
 
-The data collected by the S5 service - European Service Level Overview must provide a concise and clear status of the CEEDS ecosystem, both central Data Space level and national level. This includes self diagnostic data. The type of data collected is explicitly defined by either CEEDS Facilitator or by NDSFs. The data is related to:
+The data collected by the S5 service - European Service Level Overview must provide a concise and clear status of the CEEDS ecosystem, both central Data Space level and national level. This includes self diagnostic data. The type of data collected is explicitly defined by either CEEDS Facilitator or by NDSFs. No personal or sensitive information should be stored. Data source should originate from systems to system transaction and in few cases from user to system transactions. The data is related to:
+
 - System status (e.g. OK/NOK)
 - System health check (e.g. 200 OK, 500 INTERNAL SERVE ERROR)
 - System availability (e.g. 501 NOT IMPLEMENTED, 503 SERVICE UNAVAILABLE)
 - Transaction status (e.g. INITIATED, IN PROGRESS, FAILED, OK, Transaction initiated, Payment received)
 - CEEDS Participant activity (e.g. Successful login, Failed authentication, Data request)
 
-The data can be in any format: JSON, plain text, XML, log files, database etc. and should be processed and displayed in an uniform way by the tool that will be selected for implementation.
+The data can be in any machine readable format: JSON, plain text, XML, log files, database etc. and should be processed and displayed in an uniform way by the tool that will be selected for implementation. The dashboards should create an aggregated view.
 
 List of CEEDS services to be monitored:
+
 - S1 - CEEDS Participants Registry
 - S2 - European Vocabulary Hub
 - S3 - European Reference Data Registry
@@ -145,20 +150,20 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 National Data Spaces interaction with CEEDS Platform. 
 
-#### Component Descriptions
+#### Component Description
 
 <!-- TODO: Insert descriptions of Application Cooperation Viewpoint components -->
 The CEEDS must be able to monitor and summarize the status and the activity of Participants, including transactions status. For internal status and activity monitoring the CEEDS Facilitator will ensure the definition and setup of the monitoring endpoints and relevant parameters, also should designate a contact email for automatic notification of the corresponding persons in case of error or service discontinuity.  
 The data collected form monitoring will be processed and displayed via dashboards so that CEEDS Users can view the historical evolution of the services and the downtime.  
-For National Data Spaces, the National Data Space Facilitator (NDSF) is responsible to catalogue, define and provide the necessary information for the observability of the services involved in CEEDS transactions. Only for those services exposed to CEEDS. The NDSFs must provide full information, including contact information in case of service error or unavailability, so that the S5 service can monitor those external services and collect data about their availability. This data will be displayed on CEEDS dashboards.
+For National Data Spaces, the NDSF is responsible to catalogue, define and provide the necessary information for the observability of the services involved in CEEDS transactions. Only for services exposed to CEEDS. The NDSFs must provide full information, including contact information in case of service error or unavailability, so that the S5 service can monitor those external services and collect data about their availability. This data will be displayed on CEEDS dashboards.
 
-Actor | Operation | Description
----|---|---
-National Data Space Facilitator | Catalogues of relevant services | Maintains the list of all relevant services that will involved in CEEDS transactions, especially those services that involve data transactions.
-National Data Space Facilitator | Defines the list of observability parameters | For each service from the previously defined catalogue, the observability parameters must be provided so that the monitoring and alerts can be setup programmatically via the interface of S5 service.
-CEEDS Facilitator | Test and setup observability scripts | Every service that must be observed, both CEEDS internal and National Data Space specific should be setup via scripts or descriptive flows so that observability is done automatically of can be automated to a high degree.
-CEEDS Facilitator | Designates the CEEDS intervention team | For each CEEDS internal or external service a contact person should be defined to be contacted in case of error or disruption of service.
-CEEDS User | Has access to dashboards | Each CEEDS User should have access to the dashboard of the CEEDS Platform so that they can view live dashboards, extract historical data and create reports about the status and evolution of CEEDS platform. 
+| Actor | Operation | Description |
+| --- | --- | --- |
+| National Data Space Facilitator | Catalogues of relevant services | Maintains the list of all relevant services that will involved in CEEDS transactions, especially those services that involve data transactions. |
+| National Data Space Facilitator | Defines the list of observability parameters | For each service from the previously defined catalogue, the observability parameters must be provided so that the monitoring and alerts can be setup programmatically via the interface of S5 service. |
+| CEEDS Facilitator | Test and setup observability scripts | Every service that must be observed, both CEEDS internal and National Data Space specific should be setup via scripts or descriptive flows so that observability is done automatically of can be automated to a high degree. |
+| CEEDS Facilitator | Designates the CEEDS intervention team | For each CEEDS internal or external service a contact person should be defined to be contacted in case of error or disruption of service. |
+| CEEDS User | Has access to dashboards | Each CEEDS User should have access to the dashboard of the CEEDS Platform so that they can view live dashboards, extract historical data and create reports about the status and evolution of CEEDS platform. |
 
 ## Technology Architecture
 
@@ -174,19 +179,17 @@ The rationale behind the proposed technology architecture is to guarantee high a
 
 - National Data Space Facilitator must have an interface to define and test the observability setup.
 - All endpoints that are involved in CEEDS data transactions must be declared and registered for monitoring and logging purpose.
-- The data exchange is via secure communication channels.
+- The data exchange is performed via secure communication channels.
 - National Data Space must provide high availability for critical services.
 - NDSFs must designate a contact point for transaction errors and service maintenance.
 
-
-CEEDS platform must provide User Interface for Participants and Facilitators. In particular dashboards and reporting functionality must be provided by the S5 service. The Facilitator must define the observability parameters for CEEDS internal services and for data transaction monitoring, and to approve the setup proposed by the NDSFs for National Data Space platform. The CEEDS Facilitator must designate contact points for intervention and maintenance of internal services. The service S5 must trigger automatically alerts and send messages to those contacts.
+CEEDS platform must provide User Interface for Participants and Facilitators. In particular dashboards and reporting functionality must be provided by the S5 service. The Facilitator must define the observability parameters for CEEDS internal services and for data transaction monitoring, and to approve the setup proposed by the NDSFs for National Data Space platform. The CEEDS Facilitator must designate contact points for intervention and maintenance of internal services. The service S5 must trigger automatically alerts and send messages to those contacts in case of error or unavailability of specified services.
 
 The following software solutions were considered for European Service Level Overview:
 
 - [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Sketch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
 - [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/) for workflow design
 - [Kestra](https://kestra.io/)
-- [Calico](https://www.tigera.io/tigera-products/calico/)
 
 ### Deployment View
 
@@ -200,24 +203,25 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 <!-- TODO: Insert ArchiMate Deployment View diagram -->
 ![European Service Level Overview deployment ArchiMate Diagram](./deployment-eslo.drawio.png)
 
-The service S5 can be deployed in a central setup, with a hot standby instance that will be able to continue the operations in case of failure of primary active service. The service in itself is not a critical component of the CEEDS and it should be made available as soon as possible so that the alerting system is operational for the entire CEEDS platform. The most useful functionality of service S5 is checking the health of the overall systems so that the data transactions can be performed seamlessly and in case of error the corresponding parties to be notified. Logging and monitoring are secondary functionalities and help the CEEDS Participants to have a quick view on the state of the system and to produce historical reports.
+The service S5 can be deployed in a central setup, with a hot standby instance that will be able to continue the operations in case of failure of primary active service. The service in itself is not a critical component of the CEEDS and it should be made available as soon as possible so that the alerting system is operational for the entire CEEDS platform. The most useful functionality of service S5 is checking the health of the overall systems so that the data transactions can be performed seamlessly and in case of error the corresponding parties to be notified. Logging and monitoring are secondary functionalities and help the CEEDS Participants to have a quick view on the state of the system and to produce historical reports. Nevertheless, it is highly recommended to ensure and implement a business continuity plan for service S5.
 
 #### Component Descriptions
 
 <!-- TODO: Insert descriptions of Deployment View components -->
 
-Component | Service | Deployment description
----|---|---
-CEEDS Platform | S5 - European Service Level Overview | Service allowing the CEEDS Facilitator and National Data Space Facilitator to register monitoring and logging hooks. The service has a build in mechanism to send alerts to designated persons. The monitoring is for both internal and external services.
-CEEDS Platform | S1, S2, S3, S4, S6, S7, S8, DCI | CEEDS services that must be registered with S5 for monitoring and logging. In particular the transactions that are performed via S4 - Common API for European-wide Processes should be monitored so that the concerned parties are notified in case of data transaction failure.
-CEEDS Platform | User Interface | The Web User Interface that allow CEEDS Participants and CEEDS Facilitators to connect to the dashboard provided by service S5. The interface should allow the users to produce and extract reports about the historical status of the monitored systems. The UI should allow the CEEDS Facilitator to manage and validate observability scripts and scenario.
-CEEDS Platform | System API and Endpoints | API and Endpoints intended for machine to machine communication, they are used to implement remote communication and exchange between CEEDS Participants, in particular for service S5 should be possible to extract and export data for reporting and processing.
-CEEDS Platform | National Platform Interface | Dedicated interface for each National Data Space or National Data Platform. This interface should allow National Data Space Facilitators to connect and exchange information about observability flows with CEEDS. The User Interaction part is developed and hosted on National Data Space platform. Only the technical interface is present on CEEDS.
+| Component | Service | Deployment description |
+| --- | --- | --- |
+| CEEDS Platform | S5 - European Service Level Overview | Service allowing the CEEDS Facilitator and National Data Space Facilitator to register monitoring and logging hooks. The service has a built-in mechanism to send alerts to designated persons. The monitoring is for both internal and external services. |
+| CEEDS Platform | S1, S2, S3, S4, S6, S7, S8, DCI | CEEDS services that must be registered with S5 for monitoring and logging. In particular the transactions that are performed via S4 - Common API for European-wide Processes should be monitored so that the concerned parties are notified in case of data transaction failure. |
+| CEEDS Platform | User Interface | The Web User Interface that allow CEEDS Participants and CEEDS Facilitators to connect to the dashboard provided by service S5. The interface should allow the users to produce and extract reports about the historical status of the monitored systems. The UI should allow the CEEDS Facilitator to manage and validate observability scripts and scenario. |
+| CEEDS Platform | System API and Endpoints | API and Endpoints intended for machine to machine communication, they are used to implement remote communication and exchange between CEEDS Participants, in particular for service S5 should be possible to extract and export data for reporting and processing. |
+| CEEDS Platform | National Platform Interface | Dedicated interface for each National Data Space or National Data Platform. This interface should allow National Data Space Facilitators to connect and exchange information about observability flows with CEEDS. The User Interaction part is developed and hosted on National Data Space platform. Only the technical interface is present on CEEDS. |
 
 #### Solution Analysis
+
 ##### Introduction and Objectives
 
-This section of the document presents a comparative analysis of the technical solutions that might be considered for the implementation of the European Service Level Overview. The main functions that should be covered by the service, based on Data Space Support Center (DSSC) recommendations:
+This section of the document presents a comparative analysis of the technical solutions that might be considered for the implementation of the European Service Level Overview (S5). The main functions that should be covered by the service, based on Data Space Support Center (DSSC) recommendations:
 
 1. **Data Transaction Execution** monitoring and reporting - provide verifiable evidence that the processes have been executed according to agreed rules and regulations.
 1. **Data Traceability and Provenance** increase transparency and trust among participant by allowing activities related to data usage to be traced and verified.
@@ -267,7 +271,7 @@ The system and integration requirements should provide developers with necessary
 1. Data transaction traceability
    - Metadata should be provided for all data sets that are subject to data transactions, in particular information about data provenance
    - The endpoint/API that is exposing the data should be fully documented using OpenAPI Specifications (OAS)
-   - Highly valuable datasets must contain specific information in the metadata
+   - Highly valuable datasets must contain specific information in the metadata explicitly mentioning their value
 1. Historical data import
    - The host system (National Data Space) should allow historical data import of data transactions from CEEDS
 
@@ -283,5 +287,12 @@ The system and integration requirements should provide developers with necessary
 | Web Interface | Yes | No | Yes |
 | Observability hooks definition | Yes | No | Yes |
 
+General remark: Kestra core solution, the Open Source part, has limited functionalities in terms of identity management and secret management, making it less suitable for direct exposition to the CEEDS Participants. It is still possible to protect the implementation behind a facade that will implement the necessary IAM part.
+
+Apache Airflow is better equipped from visual and eco-system integration point of view than Apache NiFi.
+
 ##### Recommendations
 
+Apache Airflow and Kestra (in particular Enterprise version) are fit for European Service Level Overview. Both systems have proven production capabilities and are supported by large communities. The plugins and connected system recommends them both as scalable and interoperable solutions. The main trade off is with Kestra core solution that does not cover all required functionalities.
+
+A PoC and fit test should be performed for Apache Airflow to assess the usability and eventual gaps between the business requirements and actual capabilities.
