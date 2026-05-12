@@ -18,6 +18,7 @@ title: T4-2_04 - Customer switching
 
 ---
 
+
 ## Definitions
 
 In this section, each term is defined:
