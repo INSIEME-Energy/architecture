@@ -192,3 +192,12 @@ All roles of type Business shall operate through secure and authenticated commun
 | L | Notification cancellation to affected parties | Notification that switch is cancelled |
 | M | Cancellation notification to supplier | Validation result for cancellation |
 | N | Notification of cancellation to final customer | Confirmation of contract cancellation |
+
+
+
+
+
+
+
+
+// My changes!! //hello world
