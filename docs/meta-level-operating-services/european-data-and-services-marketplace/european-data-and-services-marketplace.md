@@ -705,7 +705,7 @@ contract negotiation, and usage tracking.
 They complement the Service Realization Viewpoint by detailing
 how services are orchestrated at runtime across the EDSM ecosystem.
 
-![Sequence Diagram](./marketplace-consumer-user-flow.svg)
+![Sequence Diagram](./marketplace-consumer-user-flow-2.svg)
 
 The sequence diagram illustrates the end-to-end interaction flow for a marketplace consumer
 accessing data or service offerings through the EDSM.
