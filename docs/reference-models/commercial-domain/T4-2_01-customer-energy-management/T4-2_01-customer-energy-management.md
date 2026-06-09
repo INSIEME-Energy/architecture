@@ -106,6 +106,7 @@ All diagrams describing the scenarios are of an illustrative nature and follow B
 | 1.8 | Validation of data | The application loads information sources according to the information provided in the previous steps and checks whether the data is available. If the data is not available, the application warns the user. | Energy service company | Final customer | G – Data validation |
 
 ![BPMN Diagram for Procedure 1](./Procedure_1.png)
+
 Figure 1. Diagram corresponding to the procedure in Table IV.1.
 #### Procedure 2 - Configuration of goals and preferences 
 
@@ -123,6 +124,7 @@ Figure 1. Diagram corresponding to the procedure in Table IV.1.
 
 
 ![BPMN Diagram for Procedure 2](./Procedure_2.png)
+
 Figure 2. Diagram corresponding to the procedure in Table IV.2.
 
 #### Procedure 3 - Access to historical metering and consumption data – Category: dataset creation
@@ -142,6 +144,7 @@ Figure 2. Diagram corresponding to the procedure in Table IV.2.
 | 3.9 | Deliver data to energy service company | The Energy Data Space delivers the authorised data to the energy service company. | Energy Data Space | Energy service company | N – Historical metering and consumption data |
 
 ![BPMN Diagram for Procedure 3](./Procedure_3.png)
+
 Figure 3. Diagram corresponding to the procedure in Table IV.3. The components represented in blue are currently under consideration. 
 
 
@@ -160,6 +163,7 @@ Figure 3. Diagram corresponding to the procedure in Table IV.3. The components r
 | 4.7 | Process data for visualization and NILM | The application processes the incoming real-time data for live visualization and feeds it to the NILM module to disaggregate appliance-level consumption (if not already available). | Energy service company | Energy service company | — |
 
 ![BPMN Diagram for Procedure 4](./Procedure_4.png)
+
 Figure 4. Diagram corresponding to the procedure in Table IV.4. The components represented in blue are currently under consideration. 
 
 #### Procedure 5– Access to energy tariff data (including grid fees, energy price and CESU prices)
@@ -176,6 +180,7 @@ Figure 4. Diagram corresponding to the procedure in Table IV.4. The components r
 | 5.7 | Store and process tariff data | The energy application stores and processes the tariff data to enable cost-aware visualization and subsequent energy management services. | Energy service company | Energy service company | — |
 
 ![BPMN Diagram for Procedure 5](./Procedure_5.png)
+
 Figure 5. Diagram corresponding to the procedure in Table IV.5. The components represented in blue are currently under consideration. 
 
 #### Procedure 6 – Access to data for demand response or third-party services
@@ -193,6 +198,7 @@ Figure 5. Diagram corresponding to the procedure in Table IV.5. The components r
 | 6.7 | Determine service provision | Based on the third-party data and internal optimisation logic, the application determines whether flexibility services or other third-party services should be provided and under which conditions. | Energy service company | Energy service company | — |
 
 ![BPMN Diagram for Procedure 6](./Procedure_6.png)
+
 Figure 6. Diagram corresponding to the procedure in Table IV.6. The components represented in blue are currently under consideration. 
 
 #### Procedure 7 – Provision of recommendations and alerts
@@ -231,6 +237,7 @@ Figure 7. Diagram corresponding to the procedure in Table IV.7. The components r
 | 8.8 | Log offboarding activities | The application logs the termination and offboarding actions to support auditability, compliance, and reporting. | Energy service company | Energy service company | — |
 
 ![BPMN Diagram for Procedure 8](./Procedure_8.png)
+
 Figure 8. Diagram corresponding to the procedure in Table IV.8. The components represented in blue are currently under consideration. 
 
 ### Data Exchanged
