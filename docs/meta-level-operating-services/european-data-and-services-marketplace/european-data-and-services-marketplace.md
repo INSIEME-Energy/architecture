@@ -580,8 +580,20 @@ Within the EDSM, data is primarily:
 The **actual data assets (datasets, model inputs/outputs, service responses)** remain
 outside the EDSM and are handled by the **Data Space Connector layer**.
 
-Data within the EDSM is not transferred but referenced through contracts and access endpoints,
+Data within the EDSM is not logically transferred but referenced through contracts and access endpoints,
 ensuring that data exchange remains under the control of the providers via Data Space Connectors.
+
+---
+
+### Semantic and Information Model
+
+The EDSM distinguishes between:
+
+- A **logical information model**, defining marketplace-native entities and relationships  
+- A **semantic model**, enabling cross-domain interoperability through shared vocabularies and ontologies (S2)
+
+Semantic alignment ensures that offers published across different data spaces
+can be consistently interpreted, discovered, and compared.
 
 ---
 
@@ -622,6 +634,20 @@ These domains collectively enable the full marketplace lifecycle:
 
 ---
 
+### Data Identification and Referencing
+
+All core data objects are uniquely identifiable through persistent identifiers:
+
+- Offer IDs  
+- Contract IDs  
+- Usage Record IDs  
+- Transaction IDs  
+
+These identifiers ensure cross-system traceability and enable the linkage
+of lifecycle events across marketplace, connectors, clearing, and billing systems.
+
+---
+
 ### Data Objects
 
 The following table summarises the main data objects managed within the EDSM.
@@ -646,6 +672,23 @@ The following table summarises the main data objects managed within the EDSM.
 
 ---
 
+### Versioning
+
+Key data objects such as offers, contracts, and policies are versioned to ensure:
+
+- Historical traceability  
+- Reproducibility of agreements  
+- Consistency of billing and audit processes  
+
+Versioning enables the marketplace to track changes over time and associate
+usage and financial transactions with the correct version of an agreement.
+
+Each version of a data object is associated with a unique identifier,
+allowing precise referencing of the applicable version in contracts,
+usage records, and financial transactions.
+
+---
+
 ### Data Ownership and Responsibility Boundaries
 
 The Data Architecture enforces a clear separation of responsibilities:
@@ -664,6 +707,17 @@ The Clearing House acts as the authoritative component for:
 - validation and aggregation of usage data
 - generation of transaction records
 - support for auditability and traceability
+
+### Policy Representation and Enforcement Boundaries
+
+Within the EDSM:
+
+- Policies are **represented and managed** as contractual data objects  
+- Enforcement is **delegated to Data Space Connectors**  
+- Validation and audit of policy compliance are **supported by the Clearing House**
+
+This separation ensures that data sovereignty is preserved while enabling
+enforceable governance and contractual compliance.
 
 
 **Key principle:**  
@@ -746,6 +800,25 @@ Lifecycle transitions are driven by:
 
 ---
 
+### Event-Based Data Model
+
+The EDSM adopts an event-based data model where key lifecycle transitions
+(e.g. request submitted, contract agreed, usage generated, invoice issued)
+produce structured events.
+
+These events:
+- trigger downstream processes (e.g. billing and clearing)  
+- enable auditability and traceability  
+- support integration with external systems  
+
+This approach ensures consistency between lifecycle progression,
+data traceability, and system interactions.
+
+Events are uniquely identifiable and linked to the corresponding data objects,
+ensuring consistency between event streams and the underlying data model.
+
+---
+
 ### Data Flow and Integration
 
 The EDSM exchanges data with external systems through controlled interfaces:
@@ -774,6 +847,24 @@ The EDSM exchanges data with external systems through controlled interfaces:
 - Invoice generation inputs  
 - Settlement outputs  
 
+#### With Data Space Connectors
+- Contract and policy transmission (Marketplace → Connector)
+- Usage event ingestion (Connector → Marketplace / Clearing House)
+- Access endpoints and references (Connector → Marketplace)
+
+---
+
+### Data Access and Control Patterns
+
+Within the EDSM:
+
+- Providers manage and update their own offer metadata and pricing models  
+- Consumers can create access requests but do not modify offers  
+- The marketplace maintains catalogue indexing and discovery views  
+- Federated catalogues provide read-only access to externally published offers  
+
+These patterns ensure clear responsibility boundaries and controlled data access.
+
 ---
 
 ### Data Governance
@@ -789,8 +880,13 @@ Semantic interoperability is ensured through:
 - reference data and classification schemes provided by S3
 
 #### Data Quality Management
-- Validation of offer metadata  
-- Consistency checks on contracts and usage records  
+
+The EDSM enforces data quality across multiple dimensions:
+
+- **Completeness** (mandatory metadata fields for offers and contracts)  
+- **Consistency** (alignment with S2 vocabularies and S3 reference data)  
+- **Validity** (conformance with schema and policy definitions)  
+- **Traceability** (linkability across lifecycle objects)  
 
 #### Auditability and Traceability
 - End-to-end tracking of requests, contracts, and transactions  
@@ -810,7 +906,8 @@ Semantic interoperability is ensured through:
 - **Contract-driven data access and usage**  
 - **Event-based tracking of marketplace interactions**  
 - **Interoperability through standards and shared semantics**
-- **Federated metadata management across distributed catalogues**  
+- **Federated metadata management across distributed catalogues**
+- **Persistent identification of core data objects across the lifecycle**  
 
 ---
 
