@@ -1207,32 +1207,213 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 ## Technology Architecture
 
-<!--
-The Technology Architecture involves the IT infrastructure, including hardware, software, networks, and services.
-It ensures that the infrastructure supports the application and data requirements of the business.
-See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
+<!-- TODO: Add high-level Technology Architecture diagram (layered view: Marketplace / Middleware / Connector / External systems) -->
+
+The Technology Architecture of the European Data and Services Marketplace (EDSM) defines the **infrastructure, deployment model, and technical mechanisms** required to support the application and data architecture layers, ensuring scalability, interoperability, and secure operation across a federated ecosystem.
+
+The EDSM adopts a **layered and modular technology approach**, consistent with Data Space design principles, where centralized middleware services, decentralized connectors, and external systems cooperate through standardized interfaces and protocols.
+
+---
+
+### Architectural Overview
+
+<!-- TODO: Insert conceptual diagram of control plane vs data plane separation -->
+
+From a technology perspective, the EDSM is implemented as a **distributed and federated platform**, composed of loosely coupled components that can be deployed across multiple organisational and infrastructure domains.
+
+The architecture is structured around three main technological paradigms:
+
+- **Centralized control and governance plane**, implemented through the Middleware layer  
+- **Decentralized data exchange plane**, implemented through Data Space Connectors  
+- **Federated integration model**, enabling interaction with external platforms and European core services  
+
+This approach ensures scalability, flexibility, and alignment with European data space infrastructures such as IDS and Gaia-X.
+
+---
+
+### Deployment and Infrastructure Model
+
+<!-- TODO: Add Deployment Diagram (Kubernetes / container-based architecture) -->
+<!-- TODO: Specify deployment options (central operator vs federated instances) -->
+
+The EDSM is designed to be deployed in a **cloud-native and containerised environment**, enabling flexibility in terms of infrastructure providers and deployment strategies.
+
+#### Key infrastructure assumptions
+
+- Components are deployed as **containerised services**  
+- Orchestration can be managed through **container orchestration platforms** (e.g. Kubernetes)  
+- The system supports both centralised and federated deployments  
+
+The architectural design enables:
+
+- **Horizontal scalability** of core services  
+- **High availability** through redundancy and distribution  
+- **Isolation of components** to support modular evolution  
+
+---
+
+### Middleware Technology Layer
+
+<!-- TODO: Detail centralized middleware services (Auth, Catalog, Contract, Policy, API Gateway) -->
+<!-- TODO: Align middleware services with FC-02, FC-04, FC-07 components -->
+<!-- TODO: Add logical service decomposition diagram -->
+
+The Middleware represents the **technological backbone of the EDSM**, providing centralized services required to support governance, interoperability, and marketplace coordination.
+
+From a Technology Architecture perspective, the Middleware is implemented as a set of **centralized services**, exposing APIs toward:
+
+- Marketplace components  
+- Data Space Connectors  
+- External services (S1, S2, S3)
+
+#### Core middleware services
+
+<!-- TODO: Expand each service with:
+     - responsibilities
+     - APIs exposed
+     - data handled
 -->
 
-(Placeholder – to be completed) 
+- **Identity integration services**, leveraging S1 for authentication and trust  
+- **Federated catalogue services**, enabling indexing, search, and discovery of offers  
+- **Semantic and data model services**, supporting interoperability through S2  
+- **Policy and access control services**, managing contractual constraints  
+- **API gateway and integration layer**, exposing services to external systems  
 
-This section will describe the Technical Architecture supporting the EDSM, including: 
+#### Technology characteristics
 
-- Deployment and infrastructure assumptions 
-- Integration with external platforms and services 
-- Security, networking, and operational aspects 
-- Constraints derived from regulatory or organisational contexts 
+- RESTful API exposure  
+- Event-driven capabilities for lifecycle tracking (e.g. usage, billing triggers)  
+- Centralized metadata storage and indexing  
 
-### Deployment View
+The Middleware may reuse or extend existing platforms, ensuring interoperability with the connector layer.
 
-<!-- 
-The Implementation and Deployment Viewpoint pattern creates elements and a diagram that relate programs and projects to the parts of the architecture that they implement.
-This view allows modeling of the scope of programs, projects, project activities in terms of the plateaus that are realized or the individual architecture elements that are affected.
-In addition, the way the elements are affected may be indicated by annotating the relationships.
-See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Cooperation-Viewpoint
--->
+---
 
-<!-- TODO: Insert ArchiMate Deployment View diagram -->
+### Data Space Connector Technology Layer
 
-#### Component Descriptions
+<!-- TODO: Specify connector implementation (e.g. OneNet Connector, IDS/DSP alignment) -->
+<!-- TODO: Add interaction diagram between Connector and Middleware -->
 
-<!-- TODO: Insert descriptions of Deployment View components -->
+The Data Space Connector layer provides the **runtime infrastructure for trusted data and service exchange**.
+
+From a technological standpoint, connectors are:
+
+- **Distributed components**, deployed by each participant  
+- Responsible for enforcing policies and enabling secure exchange  
+
+#### Key technological features
+
+- Secure communication based on standard protocols  
+- Policy enforcement aligned with contractual agreements  
+- Interoperability with middleware and external systems  
+- Generation and transmission of usage events  
+
+This layer ensures that **data remains under the control of providers**, while enabling federated and governed access.
+
+---
+
+### Integration and API Architecture
+
+<!-- TODO: Define API categories (internal APIs, external APIs, federation APIs) -->
+<!-- TODO: Add API interaction diagram or sequence flow -->
+<!-- TODO: Specify standards (REST, eventing, messaging where applicable) -->
+
+The EDSM relies on a **standardised API-based integration model**.
+
+#### Integration principles
+
+- Use of **open and standardised APIs**  
+- Support for:
+  - Synchronous interactions (REST APIs)  
+  - Asynchronous/event-based communication  
+
+The API layer enables:
+
+- Integration between marketplace and middleware  
+- Interaction with Data Space Connectors  
+- Connectivity with external services (S1, S2, S3, billing systems)  
+
+This approach ensures interoperability, extensibility, and easy integration with external platforms and services.
+
+---
+
+### Security and Trust Infrastructure
+
+<!-- TODO: Add security architecture diagram (identity, trust, policy enforcement) -->
+<!-- TODO: Detail authentication flows (integration with S1) -->
+<!-- TODO: Specify trust model (credentials, federated identity, roles) -->
+
+Security is implemented as a **cross-cutting concern across all layers**.
+
+#### Key mechanisms
+
+- Authentication and identity management via S1  
+- Authorisation and policy enforcement through contracts  
+- Secure communication via encrypted channels  
+- Auditability and traceability through logging and clearing integration  
+
+The architecture ensures:
+
+- Data sovereignty preservation  
+- Policy-governed access  
+- Full traceability of interactions  
+
+---
+
+### Networking and Communication Model
+
+<!-- TODO: Specify network topology (inter-domain communication) -->
+<!-- TODO: Define communication patterns (sync vs async, control vs data plane) -->
+<!-- TODO: Add diagram showing interaction between domains -->
+
+The EDSM operates within a **distributed and federated network environment**, where components interact across different domains.
+
+#### Key characteristics
+
+- Inter-domain communication between marketplace, middleware, and connectors  
+- Use of secured communication channels  
+- Support for hybrid deployments (cloud and on-premise environments)  
+
+Both control flows (contracts, discovery) and data flows (via connectors) are supported through this model.
+
+---
+
+### Operational and Deployment Considerations
+
+<!-- TODO: Define DevOps approach (CI/CD, container pipelines) -->
+<!-- TODO: Add monitoring and observability stack (logs, metrics, tracing) -->
+<!-- TODO: Define SLA / availability assumptions -->
+
+The Technology Architecture supports operational requirements including:
+
+#### Observability
+- Logging and monitoring of services  
+- Tracking of usage events and transactions  
+
+#### Scalability
+- Horizontal scaling of stateless services  
+- Distributed deployment of connectors  
+
+#### Maintainability
+- Modular service deployment  
+- Independent evolution of components  
+
+#### Extensibility
+- Integration of new services (e.g. AI services, analytics)  
+- Compatibility with evolving data space standards  
+
+---
+
+### Constraints and Assumptions
+
+<!-- TODO: Add technology constraints (e.g. reuse of OneNet, SIMPL evaluation) -->
+<!-- TODO: Add regulatory constraints (data sovereignty, compliance requirements) -->
+<!-- TODO: Document technical risks and open points -->
+
+The Technology Architecture is defined under the following constraints:
+
+- Alignment with European Data Space principles (IDS, Gaia-X)  
+- Reuse of existing components where possible (e.g. OneNet, candidate platforms)  
+- Interoperability across heterogeneous environments  
+- Support for federated governance and deployment models  
