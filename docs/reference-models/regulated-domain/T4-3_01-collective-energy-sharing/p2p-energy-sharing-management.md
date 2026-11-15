@@ -67,7 +67,7 @@ The connector owns the technical readiness check. Secrets, certificates and tran
 
 ### Initial and repeat synchronisation
 
-The operator can refresh a community on demand and configure repeated queries where the national process permits them. The connector enforces the applicable query limits and retry policy. Every query has a stable request ID, community scope, requested coverage and its own lifecycle; another query cannot overwrite its outcome merely because it finishes first.
+The implemented operator workflow supports community refresh on demand. Background reconciliation polls existing requests and snapshots; it does not schedule new market queries. Configurable recurring queries are a target requirement, subject to the national process's query limits and retry policy. Every query has a stable request ID, community scope, requested coverage and its own lifecycle; another query cannot overwrite its outcome merely because it finishes first.
 
 For each result EDDIE retains the market source, source message and conversation identifiers, schema/profile version, effective period, receipt time and any source revision or process-ordering information. The common synchronisation model distinguishes a complete snapshot from a partial response or a delta.
 
@@ -131,7 +131,7 @@ The operator can prepare, validate, submit and inspect a sharing request and its
 | Cancellation or termination pending | Show the outstanding request and the still-effective arrangement separately. Do not report completion before confirmation. |
 | Cancelled / terminated | Record the authoritative outcome and effective end; retain the permitted history. |
 
-An optimistic concurrency check prevents a request prepared against an old community version from overwriting a more recent confirmed change. A timeout without a definitive market result is an uncertain outcome, not permission to submit a new duplicate request. Retries use the profile's recovery rules and the original correlation.
+Checking an expected community revision when submitting a request is a target requirement to prevent a stale draft from overwriting a more recent confirmed change. The current implementation provides durable request idempotency, transactional update locks and authoritative snapshot ordering, but does not compare a draft's expected community revision on submission. A timeout without a definitive market result is an uncertain outcome, not permission to submit a new duplicate request. Retries use the profile's recovery rules and the original correlation.
 
 Join and leave operations implement Procedures 4, 6 and 7. Factor and mechanism changes elaborate Procedure 14. Confirmed allocation and self-consumption data feed Procedures 11a/11b. Pricing, financial settlement and the optimisation objective are separate from the authority to alter regulated market allocations; a recommended allocation is never automatically represented as market-approved.
 
