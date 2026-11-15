@@ -9,6 +9,8 @@ Project INSIEME – Work package 4
 
 Task 03 – #01 Collective and optimized energy sharing for Energy Communities use cases
 
+The [P2P energy-sharing management extension](./p2p-energy-sharing-management.md) specifies how a platform such as VALANDEX supports operator onboarding, authoritative community synchronisation, customer-authorised metering-point links and the submission and management of sharing requests through EDDIE. It adds a country-neutral region-connector contract and a versioned Austrian EDA profile. It distinguishes the requested target behaviour from the implementation and verification status.
+
 
 ## Definitions
 
@@ -171,6 +173,8 @@ The technical onboarding procedures involve the validation by locally relevant p
 
 
 #### Procedure 4 - CESU operator requests metering point to be added to the unit [optionally] with the info of the share of the energy allocation
+
+For application-assisted onboarding, scoped customer approval and the distinction between participation and allocation factors, see the [P2P management extension](./p2p-energy-sharing-management.md#customer-invitation-and-metering-point-linking). Platform approval and submission do not by themselves establish market participation; the applicable regional process must confirm it.
 
 | Step No. | Step | Step description | Info producer | Info consumer | Information exchanged |
 |---|---|---|---|---|---|
@@ -567,6 +571,8 @@ This procedure is described in two variants (11a and 11b).
 
 
 #### Procedure 14 - Change the allocation mechanism of the CESU
+
+The [P2P management extension](./p2p-energy-sharing-management.md#request-management-and-confirmation) separates changes to the sharing mechanism, individual allocation shares and participation factors. Each operation requires a supported national process, the relevant authorisation and an effective date. A local optimisation result remains a proposal until the required market confirmation has been received.
 
 | Step No. | Status | Step | Step description | Info producer | Info consumer | Information exchanged |
 |---|---|---|---|---|---|---|
