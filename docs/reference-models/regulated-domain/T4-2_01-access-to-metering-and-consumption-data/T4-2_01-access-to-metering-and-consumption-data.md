@@ -1,5 +1,6 @@
 ---
 title: T4-2_01 - Access to Metering and Consumption Data
+outline: [2, 4]
 ---
  
 
@@ -184,7 +185,7 @@ All roles of type Business are expected to be acting in secure, authenticated ma
 
 In the following, each procedure is described in steps, whilst each step represents an information exchange between two roles. Each procedure is visualised using a BPMN diagram.
 
-#### Procedure 1 - Access to validated historical metering and consumption data by the final customer
+#### Procedure 1 - Access to validated historical metering and consumption data by the final customer {#procedure-1}
 
 | Step No. | Step                                              | Step description                                                                                                                          | Info producer              | Info consumer              | Information exchanged              |
 |----------|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|----------------------------|------------------------------------|
@@ -203,7 +204,7 @@ In the following, each procedure is described in steps, whilst each step represe
 
 ![BPMN Diagram for Procedure 1](./Procedure1.png) 
 
-#### Procedure 2 - Access to validated historical metering and consumption data by an eligible party
+#### Procedure 2 - Access to validated historical metering and consumption data by an eligible party {#procedure-2}
 
 | Step No. | Step                                                       | Step description                                                                                                                                                                                                                      | Info producer              | Info consumer              | Information exchanged                                  |
 |----------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|----------------------------|--------------------------------------------------------|
@@ -228,7 +229,7 @@ In the following, each procedure is described in steps, whilst each step represe
 | 2.19     | Transfer data                                              | Data is actually being transferred to the eligible party. Note: Communication approach (for example 'pull via REST API', 'push via message-based communication'), prerequisites and characteristics of the actual transfer shall be mapped in this step. | Metered data administrator | Eligible party             | F - Validated historical data with final customer information |
 
 ![BPMN Diagram for Procedure 2](./Procedure2.png) 
-#### Procedure 3 - Termination of service by an eligible party
+#### Procedure 3 - Termination of service by an eligible party {#procedure-3}
 
 | Step No. | Step                              | Step description                                                                                                                                                            | Info producer            | Info consumer              | Information exchanged                  |
 |----------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|----------------------------|----------------------------------------|
@@ -241,7 +242,7 @@ In the following, each procedure is described in steps, whilst each step represe
 
 ![BPMN Diagram for Procedure 3](./Procedure3.png) 
 
-#### Procedure 4 - Revocation of an active permission by the final customer
+#### Procedure 4 - Revocation of an active permission by the final customer {#procedure-4}
 
 | Step No. | Step                                                  | Step description                                                                                                                                                               | Info producer                | Info consumer              | Information exchanged                  |
 |----------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|----------------------------|----------------------------------------|
@@ -261,7 +262,7 @@ In the following, each procedure is described in steps, whilst each step represe
 
 ![BPMN Diagram for Procedure 4](./Procedure4.png) 
 
-#### Procedure 5 - Activate near real-time data flow from smart meter or smart metering system (where applicable)
+#### Procedure 5 - Activate near real-time data flow from smart meter or smart metering system (where applicable) {#procedure-5}
 
 | Step No. | Step                                                    | Step description                                                                                                           | Info producer       | Info consumer  | Information exchanged                    |
 |----------|---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|---------------------|----------------|------------------------------------------|
@@ -271,7 +272,7 @@ In the following, each procedure is described in steps, whilst each step represe
 
 ![BPMN Diagram for Procedure 5](./Procedure5.png) 
 
-#### Procedure 6 - Read near real-time data from smart meter or smart metering system
+#### Procedure 6 - Read near real-time data from smart meter or smart metering system {#procedure-6}
 
 | Step No. | Step                                                | Step description                                                                                                                                                                                                                                                                                                                                                                                                                                      | Info producer                          | Info consumer                          | Information exchanged      |
 |----------|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|----------------------------------------|----------------------------|

@@ -18,6 +18,7 @@ title: T4-2_04 - Customer switching
 
 ---
 
+
 ## Definitions
 
 In this section, each term is defined:
@@ -192,3 +193,14 @@ All roles of type Business shall operate through secure and authenticated commun
 | L | Notification cancellation to affected parties | Notification that switch is cancelled |
 | M | Cancellation notification to supplier | Validation result for cancellation |
 | N | Notification of cancellation to final customer | Confirmation of contract cancellation |
+
+
+
+
+hello world 
+
+
+hello world 2
+
+
+hello world 3

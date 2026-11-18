@@ -91,13 +91,11 @@ The European Service Level Overview should be able to collect data about the sys
 
 <!-- TODO: Insert list/table of data objects and their descriptions -->
 
-The data collected by the S5 service - European Service Level Overview must provide a concise and clear status of the CEEDS ecosystem, both central Data Space level and national level. This includes self diagnostic data. The type of data collected is explicitly defined by either CEEDS Facilitator or by NDSFs. No personal or sensitive information should be stored. Data source should originate from systems to system transaction and in few cases from user to system transactions. The data is related to:
+The data collected by the S5 service - European Service Level Overview must provide a concise and clear status of the CEEDS ecosystem, both central Data Space level and national level. This includes self diagnostic data. The type of data collected is explicitly defined by either CEEDS Facilitator or by NDSFs. No personal or sensitive information should be stored or exchanged. Data source should originate from systems to system transaction and in few cases from user to system transactions (see [OpenTelemetry specifications](https://opentelemetry.io/docs/specs/) for more details). The data collected is related to:
 
-- System status (e.g. OK/NOK)
-- System health check (e.g. 200 OK, 500 INTERNAL SERVE ERROR)
-- System availability (e.g. 501 NOT IMPLEMENTED, 503 SERVICE UNAVAILABLE)
-- Transaction status (e.g. INITIATED, IN PROGRESS, FAILED, OK, Transaction initiated, Payment received)
-- CEEDS Participant activity (e.g. Successful login, Failed authentication, Data request)
+- System/service status and/or availability
+- System/service health check
+- Transaction status
 
 The data can be in any machine readable format: JSON, plain text, XML, log files, database etc. and should be processed and displayed in an uniform way by the tool that will be selected for implementation. The dashboards should create an aggregated view.
 
@@ -136,7 +134,6 @@ The main function of the European Service Level Overview is to implement observa
 - Notification service for both CEEDS maintainers and National Data Spaces maintainers
 - Transaction monitoring
 - Transaction traceability
-
 
 ### Application Cooperation Viewpoint
 
@@ -187,9 +184,9 @@ CEEDS platform must provide User Interface for Participants and Facilitators. In
 
 The following software solutions were considered for European Service Level Overview:
 
-- [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Sketch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design
-- [Apache NiFi](https://nifi.apache.org/) with [n8n](https://n8n.io/) for workflow design
-- [Kestra](https://kestra.io/)
+- [Apache Airflow](https://airflow.apache.org/) with [n8n](https://n8n.io/), [DAG Sketch Tool](https://github.com/camilocbarrera/dst), or [EasyDAG](https://www.easydag.com/) for workflow design and [OpenTelemetry integration](https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/logging-monitoring/metrics.html#setup-opentelemetry)
+- [Apache SkyWalker](https://skywalking.apache.org/)
+- [Jaeger](https://www.jaegertracing.io/)
 
 ### Deployment View
 
@@ -232,14 +229,14 @@ This section of the document presents a comparative analysis of the technical so
 The objective is to compare the following tools:
 
 - [Apache Airflow](https://airflow.apache.org/)
-- [Apache NiFi](https://nifi.apache.org/)
-- [Kestra](https://kestra.io/)
+- [Apache SkyWalking](https://skywalking.apache.org/)
+- [Jaeger](https://www.jaegertracing.io/)
 
 All tools are either full Open-Source or have the core functionalities Open-Source. In the comparison only Open-Source version is used.
 
 ##### General business requirements
 
-The **Observability** of service status and data transactions together with the **Monitoring and Alerting** is a requirement for a good functioning of the CEEDS Platform and to enhance the trust between CEEDS Participants. The main objective is to be able to ensure end to end trusted data transactions.  
+The **Observability** of service status and data transactions together with the **Monitoring and Alerting** is a requirement for a good functioning of the CEEDS Platform and to enhance the trust between CEEDS Participants. The main objective is to be able to ensure end to end trusted data transactions. Open standards should be used for data capturing, aggregation and processing (e.g. [OpenTelemetry](https://opentelemetry.io/)).  
 
 The availability of the S5 service is not mandatory for the technical operation of CEEDS, though the luck of observability data raises a question of data traceability and provenance, also degrades the availability of the entire platform. This makes service S5 a necessary service for a functioning CEEDS system, including National Data Space endpoints.
 
@@ -253,7 +250,7 @@ It is strongly recommended that service S5 availability should be agreed between
    - Historic data export
 
 1. Observability hooks definition
-   - Scriptable hooks that allow data collection from multiple data sources and supporting multiple data formats
+   - Scripted hooks that allow data collection from multiple data sources and supporting multiple data formats
    - Monitoring and logging of internal CEEDS data transactions
    - Possibility to define conditions for errors and check failure with associated actions. In particular sending e-mails
    - Visual design of the hooks is a plus
@@ -277,22 +274,20 @@ The system and integration requirements should provide developers with necessary
 
 ##### Analysis
 
-| Criteria | Apache Airflow | Apache NiFi | Kestra |
+| Criteria | Apache Airflow | Apache SkyWalker | Jaeger |
 | --- | --- | --- | --- |
 | Data transaction execution | Yes | Yes | Yes |
 | Data traceability and provenance | Yes | Yes | Yes |
 | Transaction reporting | Yes | Yes | Yes |
-| Support operational and business purposes | Yes | Yes  | No |
-| Data observability | Yes | Yes | Yes |
-| Web Interface | Yes | No | Yes |
-| Observability hooks definition | Yes | No | Yes |
+| Support operational and business purposes | Yes | Yes | System to system |
+| Service observability | Yes | Yes | Yes |
+| Web Interface | Yes | Yes | Separate support |
+| Observability hooks definition | Yes | Yes | Yes |
 
-General remark: Kestra core solution, the Open Source part, has limited functionalities in terms of identity management and secret management, making it less suitable for direct exposition to the CEEDS Participants. It is still possible to protect the implementation behind a facade that will implement the necessary IAM part.
-
-Apache Airflow is better equipped from visual and eco-system integration point of view than Apache NiFi.
+Apache Airflow is better equipped from eco-system and integration point of view than Apache SkyWalker and Jaeger. Apache SkyWalker is better designed for microservices, cloud native and container-based (Kubernetes) architectures. Jaeger is robust platform for traceability, still needs to have extra components configured: storage, UI, and connectors.
 
 ##### Recommendations
 
-Apache Airflow and Kestra (in particular Enterprise version) are fit for European Service Level Overview. Both systems have proven production capabilities and are supported by large communities. The plugins and connected system recommends them both as scalable and interoperable solutions. The main trade off is with Kestra core solution that does not cover all required functionalities.
+Apache Airflow and Apache SkyWalker are fit for European Service Level Overview. Both systems have proven production capabilities and are supported by large communities. The plugins and connected system recommends them both as scalable and interoperable solutions.
 
 A PoC and fit test should be performed for Apache Airflow to assess the usability and eventual gaps between the business requirements and actual capabilities.

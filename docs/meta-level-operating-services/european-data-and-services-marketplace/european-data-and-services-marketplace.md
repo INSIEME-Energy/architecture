@@ -551,17 +551,451 @@ It involves data assets, databases, data models, and the governance of data acro
 See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
 -->
 
-(Placeholder – to be completed) 
+The Data Architecture of the European Data and Services Marketplace (EDSM) defines the
+**core information objects, their relationships, ownership boundaries, and lifecycle**
+required to support marketplace operations.
 
-This section will describe the Data Architecture of the EDSM, including: 
-- Core data concepts and information objects (e.g. Offer, Contract, Usage Record) 
-- Data ownership and responsibility boundaries 
-- Interaction with external data space services (catalogues, registries, connectors) 
-- Data lifecycle, data quality, and governance considerations 
+The EDSM does not manage the *payload data* exchanged between participants.
+Instead, it manages **metadata, contractual, governance, and transactional information**
+that enables the discovery, access, and monetisation of data, models, and services.
+
+The Data Architecture ensures:
+
+- Clear separation between **business/marketplace data** and **operational data exchange**
+- Alignment with **European dataspace principles** (data sovereignty, interoperability, trust)
+- Consistent integration with external services (S1, S2, S3, connectors, billing systems)
+- Support for **auditability, traceability, and compliance**
+
+---
+
+### Data Architecture Scope
+
+Within the EDSM, data is primarily:
+
+- **Descriptive** → metadata describing offers, participants, and services  
+- **Contractual** → agreements defining access and usage conditions  
+- **Operational** → marketplace events (requests, approvals, usage tracking)  
+- **Financial** → billing, clearing, and settlement information  
+
+The **actual data assets (datasets, model inputs/outputs, service responses)** remain
+outside the EDSM and are handled by the **Data Space Connector layer**.
+
+Data within the EDSM is not logically transferred but referenced through contracts and access endpoints,
+ensuring that data exchange remains under the control of the providers via Data Space Connectors.
+
+---
+
+### Semantic and Information Model
+
+The EDSM distinguishes between:
+
+- A **logical information model**, defining marketplace-native entities and relationships  
+- A **semantic model**, enabling cross-domain interoperability through shared vocabularies and ontologies (S2)
+
+Semantic alignment ensures that offers published across different data spaces
+can be consistently interpreted, discovered, and compared.
+
+---
+
+### Core Data Domains
+
+The EDSM Data Architecture is organised into the following logical data domains:
+
+#### 1. Participant and Identity Data
+- Organisation profiles
+- User identities and roles
+- Credentials and trust attributes (linked to S1)
+
+#### 2. Offer and Metadata Data
+- Data, Model, and Service Offers
+- Offer descriptions, classifications, and versions
+- Semantic annotations (linked to S2)
+- Reference codes and classifications (linked to S3)
+
+#### 3. Contractual Data
+- Access requests
+- Negotiation states
+- Contract agreements
+- Usage and access policies
+
+#### 4. Operational and Usage Data
+- Access logs and interactions
+- Usage events (consumption evidence)
+- Connector interaction references
+
+#### 5. Financial Data
+- Pricing models
+- Usage-based cost calculations
+- Invoices and billing records
+- Settlement and payment references
+
+These domains collectively enable the full marketplace lifecycle:
+**discovery → contracting → access → usage → billing → settlement**
+
+---
+
+### Data Identification and Referencing
+
+All core data objects are uniquely identifiable through persistent identifiers:
+
+- Offer IDs  
+- Contract IDs  
+- Usage Record IDs  
+- Transaction IDs  
+
+These identifiers ensure cross-system traceability and enable the linkage
+of lifecycle events across marketplace, connectors, clearing, and billing systems.
+
+---
 
 ### Data Objects
 
-<!-- TODO: Insert list/table of data objects and their descriptions -->
+The following table summarises the main data objects managed within the EDSM.
+
+| Data Object | Description | Owner | Notes |
+|------------|-------------|-------|------|
+| **Participant** | Represents an organisation registered in the marketplace | Marketplace Operator | Linked to S1 identity services |
+| **User / Identity** | Individual user associated with a participant | S1 / Marketplace | Roles: provider, consumer, operator |
+| **Offer** | Marketplace representation of a Data, Model, or Service offering | Provider | Core marketplace entity |
+| **Offer Metadata** | Descriptive information (type, category, quality, SLA, etc.) | Provider / Marketplace | Enriched via S2 and S3 |
+| **Catalog Entry** | Indexed representation of an offer in federated catalogues | Marketplace / Federated Catalogue | May be local or externally federated |
+| **Access Request** | Request from a consumer to access an offer | Consumer | Triggers contracting workflow |
+| **Contract Agreement** | Formal agreement governing access and usage | Provider & Consumer | Central for enforcement |
+| **Policy** | Usage, access, and pricing conditions | Provider / Marketplace | Enforced via connectors |
+| **Usage Event** | Raw consumption event generated by connectors (API call, data access) | Connector | Input for usage records |
+| **Usage Record** | Structured and validated usage evidence derived from usage events | Clearing House / FC‑05 | Input for billing |
+| **Transaction Record** | Aggregated usage and business transaction data | Clearing House | Enables traceability |
+| **Pricing Model** | Defines pricing structure (flat, usage-based, subscription) | Provider | Linked to offers |
+| **Invoice** | Billing document generated from usage and contracts | Billing System | Financial output |
+| **Settlement Record** | Payment and reconciliation information | Billing / Financial Actors | Supports monetisation |
+| **Audit Log** | Record of actions and events within the marketplace | Marketplace Operator | Supports compliance |
+
+---
+
+### Versioning
+
+Key data objects such as offers, contracts, and policies are versioned to ensure:
+
+- Historical traceability  
+- Reproducibility of agreements  
+- Consistency of billing and audit processes  
+
+Versioning enables the marketplace to track changes over time and associate
+usage and financial transactions with the correct version of an agreement.
+
+Each version of a data object is associated with a unique identifier,
+allowing precise referencing of the applicable version in contracts,
+usage records, and financial transactions.
+
+---
+
+### Data Ownership and Responsibility Boundaries
+
+The Data Architecture enforces a clear separation of responsibilities:
+
+| Data Type | Owner | Responsibility |
+|----------|------|----------------|
+| Offer metadata | Provider | Defines content, pricing, and policies |
+| Catalog data | Marketplace | Ensures discoverability and consistency |
+| Contracts | Provider & Consumer | Define legal and operational conditions |
+| Usage data | Connector / Clearing House | Captures and validates consumption evidence |
+| Financial data | Billing System / Financial Actors | Manages invoicing and settlement |
+| Identity data | S1 – Identity Register | Manages authentication and trust |
+
+
+The Clearing House acts as the authoritative component for:
+- validation and aggregation of usage data
+- generation of transaction records
+- support for auditability and traceability
+
+### Policy Representation and Enforcement Boundaries
+
+Within the EDSM:
+
+- Policies are **represented and managed** as contractual data objects  
+- Enforcement is **delegated to Data Space Connectors**  
+- Validation and audit of policy compliance are **supported by the Clearing House**
+
+This separation ensures that data sovereignty is preserved while enabling
+enforceable governance and contractual compliance.
+
+
+**Key principle:**  
+The EDSM **coordinates and governs data**, but does not control or store
+the actual exchanged datasets.
+
+---
+
+### Conceptual Data Model
+
+The following conceptual model describes the main data objects
+and their relationships within the EDSM.
+
+It highlights how marketplace entities (offers, contracts, usage, and billing)
+are linked across the full lifecycle.
+
+![Conceptual Data Model](./edsm-data-model.svg)
+
+#### Conceptual Relationships Overview
+
+- A **Participant** owns one or more **Offers**
+- An **Offer** is published in the **Federated Catalog**
+- A **Consumer** creates an **Access Request** for an Offer
+- An **Access Request** leads to a **Contract Agreement**
+- A **Contract Agreement** defines one or more **Policies**
+- A **Contract Agreement** enables **Usage**
+- **Usage Records** are collected from Connectors / Clearing House
+- **Usage Records** are aggregated into **Transaction Records**
+- **Transaction Records** feed the **Billing System**
+- The Billing System generates **Invoices**
+- **Invoices** lead to **Settlement Records**
+
+#### Simplified UML-style Model
+
+Participant (Provider / Consumer)
+    ├── owns → Offer
+    │             ├── described by → Offer Metadata
+    │             └── published as → Catalog Entry
+    │
+    └── interacts via → Access Request
+                             └── leads to → Contract Agreement
+                                                   ├── governed by → Policy
+                                                   └── enables → Usage
+
+Usage
+    └── produces → Usage Record
+                        └── aggregated into → Transaction Record
+                                                    ├── used for → Invoice
+                                                    └── leads to → Settlement Record
+
+External relationships:
+- Identity data → managed by S1
+- Metadata semantics → enriched by S2
+- Reference data → validated via S3
+- Usage collection → performed by Connector / Clearing House
+- Billing → performed by external Billing System
+
+---
+
+### Data Lifecycle
+
+Each core data object follows a lifecycle aligned with marketplace processes:
+
+#### Offer Lifecycle
+Draft → Published → Updated → Deprecated → Withdrawn
+
+#### Access & Contract Lifecycle
+Requested → Negotiation → Agreed → Active → Expired / Terminated
+
+#### Usage Lifecycle
+Generated (Connector) → Collected → Aggregated → Validated → Cleared
+
+#### Financial Lifecycle
+Rated → Invoiced → Paid → Settled
+
+Lifecycle transitions are driven by:
+- Marketplace workflows (FC‑02, FC‑04)
+- Connector interactions (FC‑03)
+- Clearing and billing processes (FC‑05, FC‑06)
+
+---
+
+### Event-Based Data Model
+
+The EDSM adopts an event-based data model where key lifecycle transitions
+(e.g. request submitted, contract agreed, usage generated, invoice issued)
+produce structured events.
+
+These events:
+- trigger downstream processes (e.g. billing and clearing)  
+- enable auditability and traceability  
+- support integration with external systems  
+
+This approach ensures consistency between lifecycle progression,
+data traceability, and system interactions.
+
+Events are uniquely identifiable and linked to the corresponding data objects,
+ensuring consistency between event streams and the underlying data model.
+
+---
+
+### Data Flow and Integration
+
+The EDSM exchanges data with external systems through controlled interfaces:
+
+#### With Data Space Connectors
+- Contract and policy transmission
+- Usage event ingestion
+- Access endpoints and references
+
+#### With Federated Catalogue
+- Publication and indexing of offers
+- Retrieval of external offers for discovery
+
+#### With Core European Services
+- **S1** → Identity and trust attributes  
+- **S2** → Semantic enrichment and vocabulary alignment  
+- **S3** → Reference data validation  
+
+#### With Clearing House
+- Usage records  
+- Transaction logs  
+- Audit data  
+
+#### With Billing Systems
+- Rated usage data  
+- Invoice generation inputs  
+- Settlement outputs  
+
+#### With Data Space Connectors
+- Contract and policy transmission (Marketplace → Connector)
+- Usage event ingestion (Connector → Marketplace / Clearing House)
+- Access endpoints and references (Connector → Marketplace)
+
+---
+
+### Data Access and Control Patterns
+
+Within the EDSM:
+
+- Providers manage and update their own offer metadata and pricing models  
+- Consumers can create access requests but do not modify offers  
+- The marketplace maintains catalogue indexing and discovery views  
+- Federated catalogues provide read-only access to externally published offers  
+
+These patterns ensure clear responsibility boundaries and controlled data access.
+
+---
+
+### Data Governance
+
+The EDSM implements data governance mechanisms to ensure trust and compliance:
+
+#### Data Sovereignty
+- Providers retain full control over their data and usage policies  
+
+#### Semantic Interoperability
+Semantic interoperability is ensured through:
+- controlled vocabularies provided by S2
+- reference data and classification schemes provided by S3
+
+#### Data Quality Management
+
+The EDSM enforces data quality across multiple dimensions:
+
+- **Completeness** (mandatory metadata fields for offers and contracts)  
+- **Consistency** (alignment with S2 vocabularies and S3 reference data)  
+- **Validity** (conformance with schema and policy definitions)  
+- **Traceability** (linkability across lifecycle objects)  
+
+#### Auditability and Traceability
+- End-to-end tracking of requests, contracts, and transactions  
+- Integration with Clearing House for evidence management  
+
+#### Security and Compliance
+- Identity validation via S1  
+- Policy-based access control (enforced by connectors)  
+- Compliance with European data space regulations    
+
+---
+
+### Key Architectural Principles for Data
+
+- **Separation of metadata and payload data**  
+- **Decentralised data ownership with centralised orchestration**  
+- **Contract-driven data access and usage**  
+- **Event-based tracking of marketplace interactions**  
+- **Interoperability through standards and shared semantics**
+- **Federated metadata management across distributed catalogues**
+- **Persistent identification of core data objects across the lifecycle**  
+
+---
+
+
+### Data Traceability (Offer → Contract → Usage → Invoice)
+
+![Data Traceability](./edsm-data-traceability.svg)
+
+The following table provides an end-to-end traceability view,
+linking core data objects across the marketplace lifecycle.
+
+This traceability complements the business lifecycle by providing a detailed
+data-level view of how marketplace interactions are materialised across each phase.
+
+
+| Lifecycle Phase | Data Object | Description | Produced By | Consumed By |
+|----------------|------------|-------------|-------------|-------------|
+| Discovery | Offer | Marketplace representation of data/service/model | Provider | Consumer, Marketplace |
+| Discovery | Catalog Entry | Indexed view of the offer | Marketplace / Federated Catalogue | Discovery services |
+| Contracting | Access Request | Consumer request to access an offer | Consumer | Marketplace, Provider |
+| Contracting | Contract Agreement | Formal agreement defining terms of use | Provider & Consumer | Connector, Billing |
+| Contracting | Policy | Usage and pricing rules | Provider | Connector, Marketplace |
+| Access & Usage | Usage Event | Raw consumption event (API call, data access, etc.) | Connector | Clearing House |
+| Access & Usage | Usage Record | Structured usage evidence | Clearing House / FC‑05 | Billing |
+| Clearing | Transaction Record | Aggregated and validated usage data | Clearing House | Billing System |
+| Billing | Pricing Model | Defines pricing rules | Provider | Billing System |
+| Billing | Invoice | Billing document | Billing System | Consumer |
+| Settlement | Settlement Record | Payment and reconciliation information | Financial Actors | Marketplace Operator (for audit) |
+| Governance | Audit Log | Record of actions and compliance evidence | Marketplace | Operator, Authorities |
+
+
+This traceability ensures that every financial transaction can be traced back
+to a specific offer, contract, and usage evidence, supporting regulatory compliance
+and audit requirements.
+
+---
+
+### End-to-End Flow Summary
+
+The traceability chain ensures full visibility and auditability:
+
+**Offer → Access Request → Contract → Usage → Transaction → Invoice → Settlement**
+
+Each step:
+- references the previous one  
+- generates verifiable evidence  
+- supports compliance and audit  
+
+---
+
+### Traceability and Architectural Alignment
+
+This data flow is aligned with:
+
+- **Business Lifecycle**  
+  Discovery → Contracting → Access → Usage → Billing → Settlement  
+
+- **Application Components**
+  - FC‑02 → Offer & Catalog
+  - FC‑04 → Contracting
+  - FC‑03 → Usage execution
+  - FC‑05 → Usage collection
+  - FC‑06 → Billing
+
+- **External Systems**
+  - Connector → Usage generation
+  - Clearing House → Transaction consolidation
+  - Billing System → Invoice and settlement
+
+
+---
+
+
+### Alignment with Application Components
+
+The following mapping highlights how data objects are managed by application components:
+
+| Data Domain | Supporting Components |
+|------------|---------------------|
+| Participant & Identity | FC‑07, S1 |
+| Offer & Metadata | FC‑02 (Federated Catalogue) |
+| Contractual Data | FC‑04 (Contracting & Policy Management) |
+| Usage Data | FC‑05 (Metering), FC‑03 (Connector) |
+| Financial Data | FC‑06 (Billing), External Systems |
+| Audit & Governance Data | FC‑07, Clearing House |
+
+This alignment ensures full traceability between:
+**data → application components → business capabilities**.
 
 ## Application Architecture
 
@@ -705,7 +1139,7 @@ contract negotiation, and usage tracking.
 They complement the Service Realization Viewpoint by detailing
 how services are orchestrated at runtime across the EDSM ecosystem.
 
-![Sequence Diagram](./marketplace-consumer-user-flow.svg)
+![Sequence Diagram](./marketplace-consumer-user-flow-2.svg)
 
 The sequence diagram illustrates the end-to-end interaction flow for a marketplace consumer
 accessing data or service offerings through the EDSM.
@@ -773,32 +1207,213 @@ See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Coopera
 
 ## Technology Architecture
 
-<!--
-The Technology Architecture involves the IT infrastructure, including hardware, software, networks, and services.
-It ensures that the infrastructure supports the application and data requirements of the business.
-See: https://www.fconsulting.tech/togaf-10-understanding-the-7-core-concepts/
+<!-- TODO: Add high-level Technology Architecture diagram (layered view: Marketplace / Middleware / Connector / External systems) -->
+
+The Technology Architecture of the European Data and Services Marketplace (EDSM) defines the **infrastructure, deployment model, and technical mechanisms** required to support the application and data architecture layers, ensuring scalability, interoperability, and secure operation across a federated ecosystem.
+
+The EDSM adopts a **layered and modular technology approach**, consistent with Data Space design principles, where centralized middleware services, decentralized connectors, and external systems cooperate through standardized interfaces and protocols.
+
+---
+
+### Architectural Overview
+
+<!-- TODO: Insert conceptual diagram of control plane vs data plane separation -->
+
+From a technology perspective, the EDSM is implemented as a **distributed and federated platform**, composed of loosely coupled components that can be deployed across multiple organisational and infrastructure domains.
+
+The architecture is structured around three main technological paradigms:
+
+- **Centralized control and governance plane**, implemented through the Middleware layer  
+- **Decentralized data exchange plane**, implemented through Data Space Connectors  
+- **Federated integration model**, enabling interaction with external platforms and European core services  
+
+This approach ensures scalability, flexibility, and alignment with European data space infrastructures such as IDS and Gaia-X.
+
+---
+
+### Deployment and Infrastructure Model
+
+<!-- TODO: Add Deployment Diagram (Kubernetes / container-based architecture) -->
+<!-- TODO: Specify deployment options (central operator vs federated instances) -->
+
+The EDSM is designed to be deployed in a **cloud-native and containerised environment**, enabling flexibility in terms of infrastructure providers and deployment strategies.
+
+#### Key infrastructure assumptions
+
+- Components are deployed as **containerised services**  
+- Orchestration can be managed through **container orchestration platforms** (e.g. Kubernetes)  
+- The system supports both centralised and federated deployments  
+
+The architectural design enables:
+
+- **Horizontal scalability** of core services  
+- **High availability** through redundancy and distribution  
+- **Isolation of components** to support modular evolution  
+
+---
+
+### Middleware Technology Layer
+
+<!-- TODO: Detail centralized middleware services (Auth, Catalog, Contract, Policy, API Gateway) -->
+<!-- TODO: Align middleware services with FC-02, FC-04, FC-07 components -->
+<!-- TODO: Add logical service decomposition diagram -->
+
+The Middleware represents the **technological backbone of the EDSM**, providing centralized services required to support governance, interoperability, and marketplace coordination.
+
+From a Technology Architecture perspective, the Middleware is implemented as a set of **centralized services**, exposing APIs toward:
+
+- Marketplace components  
+- Data Space Connectors  
+- External services (S1, S2, S3)
+
+#### Core middleware services
+
+<!-- TODO: Expand each service with:
+     - responsibilities
+     - APIs exposed
+     - data handled
 -->
 
-(Placeholder – to be completed) 
+- **Identity integration services**, leveraging S1 for authentication and trust  
+- **Federated catalogue services**, enabling indexing, search, and discovery of offers  
+- **Semantic and data model services**, supporting interoperability through S2  
+- **Policy and access control services**, managing contractual constraints  
+- **API gateway and integration layer**, exposing services to external systems  
 
-This section will describe the Technical Architecture supporting the EDSM, including: 
+#### Technology characteristics
 
-- Deployment and infrastructure assumptions 
-- Integration with external platforms and services 
-- Security, networking, and operational aspects 
-- Constraints derived from regulatory or organisational contexts 
+- RESTful API exposure  
+- Event-driven capabilities for lifecycle tracking (e.g. usage, billing triggers)  
+- Centralized metadata storage and indexing  
 
-### Deployment View
+The Middleware may reuse or extend existing platforms, ensuring interoperability with the connector layer.
 
-<!-- 
-The Implementation and Deployment Viewpoint pattern creates elements and a diagram that relate programs and projects to the parts of the architecture that they implement.
-This view allows modeling of the scope of programs, projects, project activities in terms of the plateaus that are realized or the individual architecture elements that are affected.
-In addition, the way the elements are affected may be indicated by annotating the relationships.
-See: https://sparxsystems.com/resources/tutorials/archimate/#Application-Cooperation-Viewpoint
--->
+---
 
-<!-- TODO: Insert ArchiMate Deployment View diagram -->
+### Data Space Connector Technology Layer
 
-#### Component Descriptions
+<!-- TODO: Specify connector implementation (e.g. OneNet Connector, IDS/DSP alignment) -->
+<!-- TODO: Add interaction diagram between Connector and Middleware -->
 
-<!-- TODO: Insert descriptions of Deployment View components -->
+The Data Space Connector layer provides the **runtime infrastructure for trusted data and service exchange**.
+
+From a technological standpoint, connectors are:
+
+- **Distributed components**, deployed by each participant  
+- Responsible for enforcing policies and enabling secure exchange  
+
+#### Key technological features
+
+- Secure communication based on standard protocols  
+- Policy enforcement aligned with contractual agreements  
+- Interoperability with middleware and external systems  
+- Generation and transmission of usage events  
+
+This layer ensures that **data remains under the control of providers**, while enabling federated and governed access.
+
+---
+
+### Integration and API Architecture
+
+<!-- TODO: Define API categories (internal APIs, external APIs, federation APIs) -->
+<!-- TODO: Add API interaction diagram or sequence flow -->
+<!-- TODO: Specify standards (REST, eventing, messaging where applicable) -->
+
+The EDSM relies on a **standardised API-based integration model**.
+
+#### Integration principles
+
+- Use of **open and standardised APIs**  
+- Support for:
+  - Synchronous interactions (REST APIs)  
+  - Asynchronous/event-based communication  
+
+The API layer enables:
+
+- Integration between marketplace and middleware  
+- Interaction with Data Space Connectors  
+- Connectivity with external services (S1, S2, S3, billing systems)  
+
+This approach ensures interoperability, extensibility, and easy integration with external platforms and services.
+
+---
+
+### Security and Trust Infrastructure
+
+<!-- TODO: Add security architecture diagram (identity, trust, policy enforcement) -->
+<!-- TODO: Detail authentication flows (integration with S1) -->
+<!-- TODO: Specify trust model (credentials, federated identity, roles) -->
+
+Security is implemented as a **cross-cutting concern across all layers**.
+
+#### Key mechanisms
+
+- Authentication and identity management via S1  
+- Authorisation and policy enforcement through contracts  
+- Secure communication via encrypted channels  
+- Auditability and traceability through logging and clearing integration  
+
+The architecture ensures:
+
+- Data sovereignty preservation  
+- Policy-governed access  
+- Full traceability of interactions  
+
+---
+
+### Networking and Communication Model
+
+<!-- TODO: Specify network topology (inter-domain communication) -->
+<!-- TODO: Define communication patterns (sync vs async, control vs data plane) -->
+<!-- TODO: Add diagram showing interaction between domains -->
+
+The EDSM operates within a **distributed and federated network environment**, where components interact across different domains.
+
+#### Key characteristics
+
+- Inter-domain communication between marketplace, middleware, and connectors  
+- Use of secured communication channels  
+- Support for hybrid deployments (cloud and on-premise environments)  
+
+Both control flows (contracts, discovery) and data flows (via connectors) are supported through this model.
+
+---
+
+### Operational and Deployment Considerations
+
+<!-- TODO: Define DevOps approach (CI/CD, container pipelines) -->
+<!-- TODO: Add monitoring and observability stack (logs, metrics, tracing) -->
+<!-- TODO: Define SLA / availability assumptions -->
+
+The Technology Architecture supports operational requirements including:
+
+#### Observability
+- Logging and monitoring of services  
+- Tracking of usage events and transactions  
+
+#### Scalability
+- Horizontal scaling of stateless services  
+- Distributed deployment of connectors  
+
+#### Maintainability
+- Modular service deployment  
+- Independent evolution of components  
+
+#### Extensibility
+- Integration of new services (e.g. AI services, analytics)  
+- Compatibility with evolving data space standards  
+
+---
+
+### Constraints and Assumptions
+
+<!-- TODO: Add technology constraints (e.g. reuse of OneNet, SIMPL evaluation) -->
+<!-- TODO: Add regulatory constraints (data sovereignty, compliance requirements) -->
+<!-- TODO: Document technical risks and open points -->
+
+The Technology Architecture is defined under the following constraints:
+
+- Alignment with European Data Space principles (IDS, Gaia-X)  
+- Reuse of existing components where possible (e.g. OneNet, candidate platforms)  
+- Interoperability across heterogeneous environments  
+- Support for federated governance and deployment models  
